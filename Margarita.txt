@@ -1,0 +1,6 @@
+Hola Soy Margarita
+git es un controlador de cambios
+operacione basicas 
+*commit confirma cambios, sin afectar a otro
+*pull trae cambios de la nueva version
+*push subir tu commit
