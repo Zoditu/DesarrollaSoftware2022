@@ -1,0 +1,24 @@
+<curso nombre="Desarrolla Software" año="2022" periodo="Primavera-Otoño">
+    <maestros>
+        <maestro nombre="Kevin Martin del Campo" carrera="Ing. Sistemas">
+        </maestro>
+        <maestro nombre="Jesús Castillo" carrera="Ing. Sistemas">
+        </maestro>
+        <maestro nombre="Juan Manuel" carrera="Ing. Sistemas">
+        </maestro>
+    </maestros>
+    <alumnas>
+        <alumna nombre="Cecy Rojas" correo="etc">
+        </alumna>
+        <alumna nombre="A" correo="etc">
+        </alumna>
+        <alumna nombre="B" correo="etc">
+        </alumna>
+        <alumna nombre="C" correo="etc">
+        </alumna>
+        <alumna nombre="D" correo="etc">
+        </alumna>
+    </alumnas>
+    <materias>
+    </materias>
+</curso>
