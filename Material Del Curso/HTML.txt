@@ -1,0 +1,5 @@
+Bloque en HTML: Renglón, ocupa todo el ancho
+El div solo crea una divisón, o sea, crea un bloque, no afecta el estilo ni nada
+Semántica: Es dar un correcto uso y significado a algo. Son regularmente 5 etiquetas: header, main, footer, section y el article
+
+RGBA: Red Green Blue Alpha
