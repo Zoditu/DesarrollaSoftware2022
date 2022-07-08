@@ -1,0 +1,9 @@
+Displays:
+  * block: ocupa todo el ancho del sitio
+  * inline-block: Convierte los elementos para que puedan compartir un solo bloque, o sea, los junta... Soporta poder poner width y height.
+  * inline: Convierte los elementos para que puedan compartir un solo bloque, o sea, los junta... NO soporta poder poner width y height.
+
+Cuando trabajamos con elementos en una sola línea y queremos juntarlos... Se ven afectados por la alineación del tipo de display.
+
+Display Flex:
+		* Es una caja flexible, literal, que te permite alinear los elementos en una especie de tabla. Esta tabla se puede ajustar con el contenido de sus elementos o le puedes definir tamaños y cómo y cuándo flexar
