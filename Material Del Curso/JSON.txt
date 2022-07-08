@@ -1,0 +1,7 @@
+JSON: JavaScript Object Notation
+Utiliza una pareja Llave-Valor (Key Value Pair)
+Significa que para cada llave (key) hay un valor.
+Ej:
+
+llave: valor
+nombre: Kevin
