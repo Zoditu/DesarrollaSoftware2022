@@ -1,0 +1,9 @@
+CSS está conformado por reglas de estilo a través de selectores...
+Identifican a uno o varios elementos y les aplica dicho estilo:
+
+selector {
+   propiedad1: valor;
+   propiedad2: valor;
+}
+
+Lo anterior se le conoce como regla de CSS o estilo y está compuesta por un selector y una serie de propiedades y su respectivo valor.
