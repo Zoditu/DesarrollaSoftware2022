@@ -7,3 +7,10 @@ selector {
 }
 
 Lo anterior se le conoce como regla de CSS o estilo y está compuesta por un selector y una serie de propiedades y su respectivo valor.
+
+Los puntos más importantes en cuanto a estilos en CSS es comprender:
+ * Unidades (Relativas y absolutas)
+ * Float, o sea, cómo flotar y corregir el estilo de los elementos al flotarlos
+ * Displays: inline, inline-block, block, flex, table/table-row/table-cell, none (vs Visibility)
+ * Positions: absolute, relative, fixed, static y sticky
+      - coords: left, top, right, bottoms
