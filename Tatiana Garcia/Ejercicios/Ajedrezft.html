@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajedrez</title>
+    <style>
+        html{
+        width: 100%;
+        height: 100%;  
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    *{
+        box-sizing: border-box;
+    }
+    .c1 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c2 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c3 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c4 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c5 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c6 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c7 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c8 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+
+
+    .c12 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c22 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c32 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c42 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c52 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c62 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c72 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c82 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+
+
+    .c13 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c23 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c33 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c43 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c53 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c63 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c73 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c83 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+
+
+    
+    .c14 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c24 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c34 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c44 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c54 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c64 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c74 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c84 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+
+
+    .c15 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c25 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c35 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c45 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c55 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c65 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c75 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c85 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+
+
+    
+    .c16 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c26 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c36 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c46 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c56 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c66 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c76 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c86 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+
+
+    .c17 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c27 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c37 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c47 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c57 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c67 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c77 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c87 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+
+
+
+    
+    .c18 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c28 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c38 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c48 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c58 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c68 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+    .c78 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: rgb(177, 127, 241);
+    }
+    .c88 {
+        display: inline-block;
+        width: 12%;
+        height: 12%;
+        background-color: pink;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+    <div class="c4"></div>
+    <div class="c5"></div>
+    <div class="c6"></div>
+    <div class="c7"></div>
+    <div class="c8"></div>
+
+    <div class="c12"></div>
+    <div class="c22"></div>
+    <div class="c32"></div>
+    <div class="c42"></div>
+    <div class="c52"></div>
+    <div class="c62"></div>
+    <div class="c72"></div>
+    <div class="c82"></div>
+
+    <div class="c13"></div>
+    <div class="c23"></div>
+    <div class="c33"></div>
+    <div class="c43"></div>
+    <div class="c53"></div>
+    <div class="c63"></div>
+    <div class="c73"></div>
+    <div class="c83"></div>
+
+    <div class="c14"></div>
+    <div class="c24"></div>
+    <div class="c34"></div>
+    <div class="c44"></div>
+    <div class="c54"></div>
+    <div class="c64"></div>
+    <div class="c74"></div>
+    <div class="c84"></div>
+
+    <div class="c15"></div>
+    <div class="c25"></div>
+    <div class="c35"></div>
+    <div class="c45"></div>
+    <div class="c55"></div>
+    <div class="c65"></div>
+    <div class="c75"></div>
+    <div class="c85"></div>
+
+    <div class="c16"></div>
+    <div class="c26"></div>
+    <div class="c36"></div>
+    <div class="c46"></div>
+    <div class="c56"></div>
+    <div class="c66"></div>
+    <div class="c76"></div>
+    <div class="c86"></div>
+
+    <div class="c17"></div>
+    <div class="c27"></div>
+    <div class="c37"></div>
+    <div class="c47"></div>
+    <div class="c57"></div>
+    <div class="c67"></div>
+    <div class="c77"></div>
+    <div class="c87"></div>
+
+    <div class="c18"></div>
+    <div class="c28"></div>
+    <div class="c38"></div>
+    <div class="c48"></div>
+    <div class="c58"></div>
+    <div class="c68"></div>
+    <div class="c78"></div>
+    <div class="c88"></div>
+</body>
+</html>
