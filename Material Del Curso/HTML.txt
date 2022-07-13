@@ -1,5 +1,7 @@
-Bloque en HTML: Renglón, ocupa todo el ancho
-El div solo crea una divisón, o sea, crea un bloque, no afecta el estilo ni nada
-Semántica: Es dar un correcto uso y significado a algo. Son regularmente 5 etiquetas: header, main, footer, section y el article
+HTML: Hyper Text Markup Language
+-Lenguaje de estructura
+-Basado en XML (Formato de datos)
+-XML se basa en estructurar el contenido en algo que se llama "Tags" o en español "Etiquetas"
 
-RGBA: Red Green Blue Alpha
+-Etiquetas, que tienen atributos y contenido.
+-Las etiquetas representan algo
