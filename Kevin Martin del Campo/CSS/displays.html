@@ -7,7 +7,8 @@
     <title>CSS Displays</title>
     <style>
         .bloque {
-            display: inline-block;
+            /* display: inline-block; */
+            float: left;
             border: 2px solid blue;
             background-color: darkred;
         }
@@ -28,12 +29,63 @@
         }
 
         .tabla {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .pixel {
+            width: 10rem;
+            height: 10rem;
+            background-color: brown;
+        }
+
+        /* html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        } */
+
+        .contenedor {
+            background: #166635;
+            height: 2.5rem;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .tablaX {
+            overflow: auto;
+            
+        }
+
+        .oculto {
+
+        }
+
+        .invisible {
 
         }
     </style>
 </head>
 <body>
-    <section class="tabla">
+    <!-- <h1>Hola
+        <div class="contenedor">
+
+        </div>
+    </h1> -->
+    
+    <!-- <section class="tablaX">
+        <div class="pixel"></div>
         <div class="bloque b1">
             Hola, soy un bloque :3
         </div>
@@ -43,6 +95,21 @@
         <div class="bloque b3">
             Hola, soy un bloque :3
         </div>
+        <div class="clear"></div>
+
+        <h1>Hola</h1>
+    </section> -->
+
+    <section>
+        <article class="oculto">
+            <h1>Hola :D</h1>
+        </article>
+        <article class="invisible">
+            <h1>Qué tal :3</h1>
+        </article>
+        <article>
+            <h1>Yo no tengo estilo :'v</h1>
+        </article>
     </section>
 </body>
 </html>
