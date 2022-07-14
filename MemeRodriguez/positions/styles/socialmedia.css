@@ -4,51 +4,84 @@
     box-sizing: border-box;
     -ms-flex: 0 1 auto;
 }
+body {
+    margin: 8px;
+}
+
+a {
+  text-decoration: none;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 3;
+}
+
+p {
+  color: white;
+  position: relative;
+  padding-right: 10px;
+  text-align: right;
+}
 
 .sidebar {
-    height: 250px;
-    width: 10px;
-    position: fixed;
-    text-align: left;
-    padding: 10px;
+  height: 250px;
+  width: 10px;
+  position: fixed;
+  text-align: center;
+  padding: 10px;
+  margin-left: 10px;
 }
-.icon {
-    width: 20px;
-    height: 20px;
-    fill: white;
+
+p i {
+  left: 30px;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 24px;
 }
-p {
-    right: 30px;
-    position: relative;
-    text-align: center;
-    font: 1rem;
-}
+
 .social {
-    margin-left: -30px;
-    width: 230px;
-    padding: 0;
-    display: inline-block;
-    height: 60px;
-    cursor: pointer;
-    transition: all 2s ease;
+  margin-left: -226px;
+  width: 230px;
+  padding: 0;
+  display: inline-table;
+  height: 0px;
+  background-color: rgba(0, 0, 0, 0.73);
+  transition-property: margin-left;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s;
+  box-shadow: 0px 0px 6px 0px #3E3D3D;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
 }
-.social:hover {
-    margin-left: 100px;
-    width: 230px;
-    transition: all 2s ease;
-    background-color: beige;
-    color: blue!important;
-}
-.social .icon, p:hover {
-    fill: black;
-}
+
 .facebook {
-    background-color: blue;
+  border-top-right-radius: 16px;
 }
+
 .twitter {
-    background-color:aqua;
+  border-bottom-right-radius: 16px;
 }
-a {
-    color: white;
-    text-decoration: none;
+
+.social:hover {
+  margin-left: -140px;
+  width: 230px;
+  background-color: #3b5998;
+}
+
+.facebook:hover {
+  background-color: #3b5998;
+}
+
+.twitter:hover {
+  background-color: #4099FF;
+}
+
+.icons {
+  width: 20px;
+  height: 20px;
+}
+
+.facebook-icon,
+.twitter-icon {
+  fill: white;
 }
