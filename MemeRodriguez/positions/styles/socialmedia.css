@@ -1,0 +1,54 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-flex: 0 1 auto;
+}
+
+.sidebar {
+    height: 250px;
+    width: 10px;
+    position: fixed;
+    text-align: left;
+    padding: 10px;
+}
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+p {
+    right: 30px;
+    position: relative;
+    text-align: center;
+    font: 1rem;
+}
+.social {
+    margin-left: -30px;
+    width: 230px;
+    padding: 0;
+    display: inline-block;
+    height: 60px;
+    cursor: pointer;
+    transition: all 2s ease;
+}
+.social:hover {
+    margin-left: 100px;
+    width: 230px;
+    transition: all 2s ease;
+    background-color: beige;
+    color: blue!important;
+}
+.social .icon, p:hover {
+    fill: black;
+}
+.facebook {
+    background-color: blue;
+}
+.twitter {
+    background-color:aqua;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
