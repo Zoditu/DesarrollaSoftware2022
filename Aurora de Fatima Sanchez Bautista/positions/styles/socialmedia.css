@@ -1,0 +1,87 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-flex: 0 1 auto;
+}
+body {
+    margin: 8px;
+}
+
+a {
+    text-decoration: none;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 3;
+}
+
+p {
+    color: white;
+    position: relative;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.sidebar {
+    height: 250px;
+    width: 10px;
+    position: fixed;
+    text-align: center;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+p i {
+    left: 30px;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .social {
+    margin-left: -226px;
+    width: 230px;
+    padding: 0;
+    display: inline-table;
+    height: 0px;
+    background-color: rgba(0, 0, 0, 0.73);
+    transition-property: margin-left;
+    transition-duration: 0.2s;
+    transition-delay: 0.2s;
+    box-shadow: 0px 0px 6px 0px #3E3D3D;
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+  }
+  
+  .facebook {
+    border-top-right-radius: 16px;
+  }
+  
+  .twitter {
+    border-bottom-right-radius: 16px;
+  }
+  
+  .social:hover {
+    margin-left: -140px;
+    width: 230px;
+    background-color: #3b5998;
+  }
+  
+  .facebook:hover {
+    background-color: #3b5998;
+  }
+  
+  .twitter:hover {
+    background-color: #4099FF;
+  }
+  
+  .icons {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .facebook-icon,
+  .twitter-icon {
+    fill: white;
+  }
