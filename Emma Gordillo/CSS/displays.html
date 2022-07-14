@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSBloqs</title>
+    <style>
+        h1 {
+        color: rgb(0, 139, 19);
+        background-color: rgb(217, 255, 0);
+    }
+    h2 {
+        color: rgb(197, 214, 46);
+        background-color: rgb(255, 0, 149);
+    }
+    h3 {
+        color: rgb(201, 17, 130);
+        background-color: rgb(61, 230, 125);
+    }
+        .bloque {
+            display: inline-block;
+            border: 6px solid rgb(104, 6, 104);
+            background-color: rgb(206, 15, 180);
+        }
+
+        .b1 {
+            width: 12rem;
+            height: 12rem;
+        }
+
+        .b2 {
+            width: 14rem;
+            height: 14rem;
+        }
+
+        .b3 {
+            width: 16rem;
+            height: 16rem;
+        }
+
+        .tabla {
+    display: flex;
+    text-align: center;
+    align-items: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        .pixel {
+            width: 100 px;
+            height: 100 px;
+            background-color: rgb(226, 43, 43);
+        }
+        .contenedor {
+            background-color: darkgreen;
+            height: 2rem;
+
+        }
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class:"contenedor"></div>
+    <h1>Hola!</h1>
+    <div class:"pixel"></div> 
+     <section class="tabla">
+        <div class="bloque b1">
+            <h3>Hola, Soy Emma y soy un bloque :)</h3>
+        </div>
+        <div class="bloque b2">
+            <h2>Hola, Soy Emma y soy un bloque :)</h2>
+        </div>
+        <div class="bloque b3">
+           <h1> Hola, Soy Emma y soy un bloque :)</h1>
+       </div>
+       <div class="clear"></div>
+       <h1>Hola</h1>
+    </section>
+</body>
+</html>
