@@ -1,0 +1,8 @@
+Existen diferentes tipos de position:
+  *absolute: Es un posicionamiento definitivo, o sea, empieza desde el inicio...
+  *relative
+  *sticky
+  *fixed
+  *static
+
+Cuando agregamos la propiedad position con cualquier valor excepto relative, nos permite automáticamente utilizar unas propiedades llamas: left, top, right, bottom
