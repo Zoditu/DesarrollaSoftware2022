@@ -5,16 +5,16 @@ html, body {
     padding: 0;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
 body {
-    background-color: purple;
+    background-color: darkcyan;
 }
 
 .cuadro {
-
+    
     position: absolute;
     left: 0;
     top: 0;
@@ -23,8 +23,6 @@ body {
     width: 10rem;
     height: 10rem;
     border: 2px solid rgb(0, 0, 0);
-
-    /*transform: rotateZ();*/
 }
 
 .rojo {
@@ -40,22 +38,16 @@ body {
 }
 
 .amarillo {
-    background-color: rgb(218, 199, 32);
+    background-color: goldenrod;
     left: 9rem;
     top: 9rem;
 }
 
 .azul {
-    background-color: rgb(15, 67, 163);
+    background-color: midnightblue;
     left: 12rem;
     top: 12rem;
 }
-
-.relative {
-    position: relative;
-    width: 80%;
-    height: 80%;
-    margin: 0;
-    padding: 0;
-    background-color: whitesmoke;
+.relative{
+    position: relative
 }
