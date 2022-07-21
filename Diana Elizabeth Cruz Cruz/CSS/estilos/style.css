@@ -19,7 +19,7 @@ body {
     width: 10rem;
     height: 10rem;
     border: 2px solid black;
-    transform: rotateZ(45deg);
+   /* transform: rotateZ(45deg);*/
 }
 
 .rojo {
@@ -49,4 +49,12 @@ body {
     left: 12rem;
     top: 12rem;
 
+}
+
+,relative{
+    position: relative;
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+    background-color: antiquewhite;
 }
