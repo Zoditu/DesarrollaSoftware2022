@@ -1,0 +1,24 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.cuadro {
+    float: left;
+    width: 20rem;
+    height: 20rem;
+    background-color: tomato;
+    border: 4px groove rgb(62, 140, 228);
+    border-radius: 4px;
+    padding: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 2rem;
+}

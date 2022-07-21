@@ -48,11 +48,6 @@ body {
     left: 12rem;
     top: 12rem;
 }
-
-.relative {
-    position: relative;
-    width: 80%;
-    height: 80%;
-    margin: 10%;
-    background-color: whitesmoke;
+.relative{
+    position: relative
 }
