@@ -1,0 +1,65 @@
+Selectores: Forma de identificar elementos
+Los selectores se jerarquizan por prioridades, dependiendo del tipo.
+La jerarquía impacta a la cascada...
+Algo importante que ocurre en CSS es que los estilos se aplican en cascada hacia abajo, o sea, como se van escribiendo se van aplicando Y SON DEL MISMO NIVEL o jerarquía.
+Peroooo, la jerarquía puede sobreescribir la cascada, o sea, ya no importa el orden, sino la prioridad.
+    Ex:
+    a {
+        color: red
+    }
+
+    #acercaDe {
+        color: white
+    }
+
+1) #id: Toma como referencia el atributo "id" de un elemento
+    Ex: <input type="text" id="usuario">
+    Css:
+        #usuario {
+            color: red;
+        }
+1.1) especificar entre etiquetas y clases: Si una etiqueta se encuentra solo dentro de cierto tipo de etiquetas o con una clase, puedo especificarlo:
+    Ex: <div><span class="A"></span></div>
+    Css:
+        div .A {
+            color: pink;
+        }
+
+        div span {
+            color: orange;
+        }
+
+        span {
+            color: red;
+        }
+2) .clase: Toma como referencia el atributo "class" de un elemento. Pero puedes poner varias clases a un solo elementos separándolas por un espacio " ".
+    Ex: <div class="textoA textoB textoC">Texto</div>
+    Css:
+        .textoA {
+            color: red;
+        }
+
+        .textoB {
+            color: green;
+        }
+
+        .textoC {
+            color: blue;
+        }
+2.1) especificar entre etiquetas: Si una etiqueta se encuentra solo dentro de cierto tipo de etiquetas, puedo especificarlo:
+    Ex: <div><span></span></div>
+    Css:
+        div span {
+            color: pink;
+        }
+
+        span {
+            color: red;
+        }
+3) etiqueta: Toma como referencia a la etiqueta. Todas las etiquetas de este tipo se ven afectadas por dicha regla de CSS.
+    Ex: <span>Texto</span>
+    Css:
+        span {
+            color: green;
+        }
+    OJO, esto afectará absolutamente a todas las etiquetas del tipo span. Si alguna de ellas tiene otro selector de mayor prioridad y modifica el color, lo sobreescribe.

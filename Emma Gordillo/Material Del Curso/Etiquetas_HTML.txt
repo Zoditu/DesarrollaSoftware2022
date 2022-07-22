@@ -1,0 +1,13 @@
+Etiqueta = Elemento Web = Selector (Identifica un elemento o elementos web)
+<!--  --> - Comentario
+<!DOCTYPE html>
+<html>contenido</html>
+Las página se dividen en 2:
+  -head: Meta datos, título, librerías, etc.
+  -body: Todo el contenido del sitio
+
+<h1></h1> hasta <h6></h6>
+Es la abreviación de Heading, o sea, título del encabezado. Sirve para poner títulos y subtítulos en la página... Imaginen que la página es como un cuaderno. Se recomienda mucho que solo exista un solo h1 en todo el sitio o por sección.
+
+
+
