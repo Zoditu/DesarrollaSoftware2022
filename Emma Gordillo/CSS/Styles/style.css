@@ -1,0 +1,29 @@
+body {
+    margin: 8px;
+    height: 550vh;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-flex: 0 1 auto;
+}
+.rojo, .verde, .amarillo, .azul {
+    height: 80px;
+    border-radius: 16px;
+}
+.rojo {
+    background-color: red;
+    width: 80%;
+}
+.verde {
+    background-color: green;
+    width: 100%;
+}
+.amarillo {
+    background-color: yellow;
+    width: 20%;
+}
+.azul {
+    background-color: blue;
+    width: 100%;
