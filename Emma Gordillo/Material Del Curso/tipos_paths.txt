@@ -1,0 +1,8 @@
+Absoluto: Total, Definitivo, Completo
+Relativo: Depende de... Con respecto a... En base a... En relación a...
+También funcionan las rutas de otras webs externas.
+Ex: https://static.educalingo.com/img/en/800/fox.jpg
+
+Paths - Rutas: La ubicación de algo en el sistema.
+Las rutas siempre tienen una raíz: Donde inicia
+/

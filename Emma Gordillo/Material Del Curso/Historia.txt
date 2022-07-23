@@ -1,0 +1,36 @@
+Síncrona  - Reloj (Bloqueante - 1 sola tarea)
+Asíncrona - Digital (Múltiples tareas)
+---------------------------------------------
+2011 - Foros (Facebook).
+ * No se actualiza en tiempo real
+ * Solo puedes ver cierta cantidad de información
+ * Necesitas refrescar
+ * Siempre te redirecciona
+---------------------------------------------
+2011 - iPhone (Táctil, Mobile, Datos, Internet)
+2011 - YouTube, vídeos
+---------------------------------------------
+2011 - 2013
+Asíncrono: En tiempo real
+2012 - 2020(21) - HTML5 y nuevos estándares (Retro Compatibility)
+
+Desarrollo Web & Automatización (QA)
+ * Websites
+ * Back End
+ * Front End
+ * MiddleWare
+ * Fullstack
+
+-Back End (Servidor)
+  *Lógica del negocio
+  *Bases de datos, servicios, información/datos, procesamiento, etc.
+
+-Front End (UX/UI)
+  *Interfaz
+  *Diseño
+  *Se puede programar
+
+-Middleware (Servicios en la nube)
+  *Información en internet
+  *Todo lo que tiene internet, puede consumir un servicio
+  *Internet asíncrono (AJAX) (Asynchronous Javascript And Xml) (Sockets)

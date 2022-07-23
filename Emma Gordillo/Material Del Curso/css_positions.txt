@@ -1,0 +1,17 @@
+Existen diferentes tipos de position:
+  *absolute: Es un posicionamiento definitivo, o sea, empieza desde el inicio...
+  *relative
+  *sticky
+  *fixed
+  *static
+
+Cuando agregamos la propiedad position con cualquier valor excepto relative, nos permite automáticamente utilizar unas propiedades llamas: left, top, right, bottom
+
+Siempre, los elementos que tengan un position establecido, que no sea el relative, van a buscar el elemento relativo más cercano que tengan como padre...
+O sea, que si no hay ninguno, por defecto siempre existe un solo relative en toda la página, es el body...
+
+El position absolute, dibuja las coordenadas LEFT, TOP, RIGHT y BOTTOM en base a lo que TU pantalla puede ver inicialmente...
+
+El position FIXED, siempre se dibuja en las coordenadas que tú veas, o sea, no importa si scrolleas, siempre se dibuja en LEFT, TOP, etc. de lo que ves... Siempre deja fijo un elemento a la pantalla...
+
+El position sticky le avisa a un elemento que cuando llegue a ciertas medidas en left, top, bottom o right de scroll, se vuelve un fixed
