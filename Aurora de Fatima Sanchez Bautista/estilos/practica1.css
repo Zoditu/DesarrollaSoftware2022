@@ -1,0 +1,109 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    height: 68px;
+    background-color: slategray;
+    position: sticky;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid black;
+    align-items: center;
+}
+
+main {
+    width: 70%;
+    margin: auto;
+    padding-top: 1rem;
+    overflow: auto;
+}
+
+h1 {
+    margin: 0;
+    color: bisque;
+    padding-left: 1rem;
+}
+
+.logo {
+    margin-left: 1rem;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.cuadro {
+    float: left;
+    width: 8rem;
+    height: 8rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    background-color: mediumseagreen;
+    border: 1px solid gray;
+
+    transition: all 0.3s;
+}
+
+.cuadro:hover, .cuadro:first-child:hover{
+    background-color: coral;
+    border-radius: 100%;
+}
+
+.cuadro:first-child {
+    background-color: purple;
+}
+
+.cuadro:last-child {
+    background-color: purple;
+}
+
+/*.cuadro*/
+
+.clear {
+    clear: both;
+}
+
+.color:hover {
+    color: magenta;
+}
+
+h1::first-letter {
+    color: blueviolet;
+}
+
+p::first-line {
+    color: red;
+}
+
+li:first-child {
+    color: royalblue;
+}
+
+li:last-child {
+    color: green;
+}
+
+h2::before {
+    content: "\1F31F";
+    color: red;
+}
+
+h2::after {
+    content: "***";
+    color: darkolivegreen;
+}
+
+footer {
+    margin-top: 2rem;
+    height: 68px;
+    background-color: burlywood;
+    border-top: 1px solid cornflowerblue;
+}
