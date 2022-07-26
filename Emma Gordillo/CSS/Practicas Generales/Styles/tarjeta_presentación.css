@@ -35,7 +35,7 @@ main {
 
 
 .tarjeta:last-child {
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .logo {
@@ -43,7 +43,7 @@ width: 80px;
 height: 80px;
 }
 
-h1, h2{
+h1, h2, h6{
     margin: 0;
     font-size:2rem;
     color: rgb(62, 88, 9);
@@ -55,4 +55,37 @@ h2 {
     color: rgb(117, 88, 6);
     font-family: 'Patrick Hand';
 }
+
+.mitad{
+    flex-shrink: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.mitad:first-child {
+    background-color: olivedrab
+    text-align: left;
+    padding: 1rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+h100 {
+    height: 100%;
+}
+
+h6{
+margin-top: 0,3rem;
+font-size: 0.75em;
+}
+
+h6 .material-icon {
+font-size: 00.75em;
+}
+
+
 
