@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 
 html, body {
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0;    
+    padding: 0;
 }
 
 * {
@@ -25,12 +25,11 @@ main {
 .tarjeta {
     width: 35rem;
     height: 20rem;
-    /*background: linear-gradient(90deg,blue, green, yellow);*/
-    /*background:radial-gradient(ellipse at 50%, blue, green);*/
-    /*background:radial-gradient(circle at 100%, blue, green);*/
-    /*background: linear-gradient(45deg, #8126e2 30% 19%, #60FAE9 87% 39% );*/
-    background: linear-gradient(358deg, rgb(3 11 38), rgb(39 97 137),rgb(14 228 243));
+    /*background: linear-gradient(1deg, red, blue, yellow);*/
+    /*background: radial-gradient(circle at 50%, red, yellow);*/
+    /*background: radial-gradient(#1c453d, rgb(55, 55, 57));*/
     margin: auto;
+    background: linear-gradient(45deg, #030b11 37% 0%, #4f6e7f 75%);
 
     display: flex;
     align-items: center;
@@ -41,35 +40,30 @@ main {
     margin-top: 1rem;
 }
 
-.logoFIQ {
-    width: 60px;
-    height: 60px;
-}
-
-.logoPosgrado{
-    width: 60px;
-    height: 60px;
+.logo {
+    width: 48px;
+    height: 48px;
 }
 
 h1, h2, h6 {
     margin: 0;
     font-size: 1.5em;
-    color: rgb(237, 231, 240);
-    font-family:'Edu NSW ACT Foundation', cursive;
+    color: ghostwhite;
+    font-family: 'Cabin';
 }
 
 h2 {
     font-size: 1.1em;
-    color: rgb(235, 229, 227);
+    color: lightslategray;
 }
 
 h6 {
     margin-top: 0.3rem;
-    font-size: 0.75rem;
+    font-size: 0.75em;
 }
 
 h6 .material-icons {
-    font-size: 0.75rem;
+    font-size: 0.75em;
 }
 
 .mitad {
@@ -79,7 +73,7 @@ h6 .material-icons {
 }
 
 .mitad:first-child {
-    background-color: rgb(3 11 38);
+    background-color: #051d1e;
     text-align: left;
     padding: 1rem;
 }
