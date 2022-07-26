@@ -36,10 +36,17 @@ h1 {
     margin-left: 1rem;
     width: 48px;
     height: 48px;
+    background-image: url(../img/Google_Lens_-_new_logo.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    cursor: pointer;
 }
 
 .cuadro {
-    float: left;
+    /* float: left; */
+    display: inline-block;
     width: 8rem;
     height: 8rem;
     margin-left: 1rem;
@@ -50,10 +57,22 @@ h1 {
     transition: all 0.3s;
 }
 
-.cuadro:hover {
+.cuadro:hover, .cuadro:first-child:hover {
     background-color: orange;
     border-radius: 100%;
 }
+
+.cuadro:first-child {
+    background-color: purple;
+}
+
+.cuadro:last-child {
+    background-color: purple;
+}
+
+/*.cuadro:nth-child(3) {
+
+}*/
 
 .clear {
     clear: both;
@@ -61,4 +80,57 @@ h1 {
 
 .color:hover {
     color: magenta;
+    cursor: default;
+}
+
+h1::first-letter {
+    color: red;
+}
+
+p::first-line {
+    color: green;
+}
+
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: lightpink;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+* {
+    cursor: url(../img/cursor.png), default;
+}
+
+li:first-child {
+    color: green;
+}
+
+li:last-child {
+    color: red;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+h2::before {
+    content: "\1F98A";
+    color: red;
+}
+
+h2::after {
+    content: "***";
+    color: blue;
+}
+
+.lista::before {
+    content: "\1F638";
 }
