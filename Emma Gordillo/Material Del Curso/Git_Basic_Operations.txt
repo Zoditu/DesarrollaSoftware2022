@@ -1,0 +1,11 @@
+
+Git - Controlador de archivos
+
+GitHub - Servicio crear e interactuar con repositorios... Es donde se aloja el repositorio
+-------------------------------------------------
+Operaciones básicas en Git:
+ * Commit: Confirmar cambios, pero solo locales. NO afecta a los demás
+ * Merge: Mezclar cambios
+    * Commit
+ * Pull: Traer cambios de la nueva versión
+ * Push: Subir tu commit al repositorio

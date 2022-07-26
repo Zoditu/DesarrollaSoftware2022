@@ -1,0 +1,47 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(202, 141, 197);
+}
+
+.circulo
+{
+    width: 3rem;
+    height: 3rem;
+    background-color: rgb(250, 250, 111);
+    border-radius: 100%;
+    position: absolute;
+}
+
+.si
+{
+top: 1rem;
+left: 1rem;
+}
+
+.sd
+{
+top: 1rem;
+right: 1rem;
+}
+
+.ii
+{
+bottom: 1rem;
+left: 1rem;
+}
+
+.id
+{
+bottom: 1rem;
+right: 1rem;
+}
