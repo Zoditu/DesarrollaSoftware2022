@@ -42,24 +42,54 @@ main {
 }
 
 .logoFIQ {
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
 }
 
 .logoPosgrado{
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
 }
 
-h1, h2 {
+h1, h2, h6 {
     margin: 0;
     font-size: 1.5em;
-    color: rgb(214, 190, 226);
+    color: rgb(237, 231, 240);
     font-family:'Edu NSW ACT Foundation', cursive;
 }
 
 h2 {
     font-size: 1.1em;
-    color: rgb(187, 140, 123);
+    color: rgb(235, 229, 227);
 }
 
+h6 {
+    margin-top: 0.3rem;
+    font-size: 0.75rem;
+}
+
+h6 .material-icons {
+    font-size: 0.75rem;
+}
+
+.mitad {
+    flex-shrink: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.mitad:first-child {
+    background-color: rgb(3 11 38);
+    text-align: left;
+    padding: 1rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.h100 {
+    height: 100%;
+}
