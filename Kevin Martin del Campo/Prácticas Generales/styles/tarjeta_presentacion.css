@@ -45,7 +45,7 @@ main {
     height: 48px;
 }
 
-h1, h2 {
+h1, h2, h6 {
     margin: 0;
     font-size: 1.5em;
     color: ghostwhite;
@@ -55,4 +55,35 @@ h1, h2 {
 h2 {
     font-size: 1.1em;
     color: lightslategray;
+}
+
+h6 {
+    margin-top: 0.3rem;
+    font-size: 0.75em;
+}
+
+h6 .material-icons {
+    font-size: 0.75em;
+}
+
+.mitad {
+    flex-shrink: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.mitad:first-child {
+    background-color: #051d1e;
+    text-align: left;
+    padding: 1rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.h100 {
+    height: 100%;
 }
