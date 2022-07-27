@@ -1,0 +1,28 @@
+html, body{
+    width: 100%;
+    height: 100;
+    margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: blue;
+}
+.si{
+    left: 2 rem;
+    top: 2rem;
+}
+.sd{
+    top: 2 rem;
+    left: 2 rem;
+}
+.ii{
+    left: 2 rem;
+    bottom: 2 rem;
+}
+.id{
+    left: 2 rem;
+    bottom: 2 rem;
+}
