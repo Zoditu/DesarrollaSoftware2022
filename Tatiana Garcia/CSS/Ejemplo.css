@@ -1,0 +1,30 @@
+
+html body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+*{
+    box-sizing: border-box;
+}
+.cuadro{
+    width: 30rem;
+    height: 20rem;
+    position: fixed;
+    background-color: palegoldenrod;
+    top: 0rem;
+}
+
+.cuadro2{
+    font-size: medium;
+    background-color: aqua;
+}
+
+.pagina {
+    width: 100rem;
+    height: 50rem;
+    background-color: aquamarine;
+}
