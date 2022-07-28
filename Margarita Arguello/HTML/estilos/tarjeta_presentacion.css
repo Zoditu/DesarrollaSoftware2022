@@ -1,0 +1,57 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Edu+VIC+WA+NT+Beginner&display=swap');
+
+html, body { 
+    /* la regla aplica para el html y body, si hay mas se separa x comas*/
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+       }
+
+       *, *:before, *:after {
+        box-sizing: border-box;
+       }
+
+       main {
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+    
+
+
+       .wrapper{
+        flex-shrink: 0;
+        width: 100%;
+       }
+
+       .tarjeta{
+        width: 35rem;
+        height: 20rem;
+        background-color: gray;
+        /*centrar la imagen*/
+        margin: auto;
+
+        display: flex;
+        text-align: center;
+        align-items: center;
+       }
+
+       .tarjeta:last-child{
+        margin-top: 1rem;
+       }
+
+    .logo
+    {
+        width: 48px;
+        height: 48px;
+    }
+
+       h1{
+        margin: 0;
+        font-size: 1.5rem;
+        color: brown;
+        font-family: 'Dancing Script', cursive;
+       }
+       */
