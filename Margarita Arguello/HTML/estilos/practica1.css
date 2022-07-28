@@ -1,0 +1,106 @@
+html, body { 
+    /* la regla aplica para el html y body, si hay mas se separa x comas*/
+            width: 100%;
+            height: 200%;
+            margin: 0;
+            padding: 0;
+       }
+
+       *, *:before, *:after {
+        box-sizing: border-box;
+       }
+
+       header{
+        display: flex;
+        width: 100%;
+        height: 4rem;
+        background-color: darkorchid;
+        border:2px solid black;
+     /* top y left es donde quiero que se pegue position*/
+        position: sticky;
+        top: 0;
+        left: 0;
+        /* esta es para centrar lo que este en el encabezado*/
+        align-items: center;
+       }
+
+       .imagen{
+        margin-left: .5rem;
+        width: 2rem;
+        height: 2rem;
+       }
+
+       h1{
+        margin: 0;
+        color:darkorange;
+        padding-left: 2rem;
+       }
+
+       /* la seudo clase:hover hace transicion solo para valores*/
+       .color:hover{
+        color: whitesmoke;
+       }
+
+       a:link{
+         color: aliceblue !important;
+       }
+
+       a{
+         text-decoration:none;
+         padding-left: 1rem;
+         }
+
+       .cuadro{
+        float: left;
+        width: 5rem;
+        height: 5rem;
+        background-color: firebrick;
+        margin-top: 1rem;
+        margin-left: 1rem;
+       }
+
+      .cuadro:first-child{
+         background-color: goldenrod;
+         border-radius: 100%;
+       }
+
+       .cuadro:hover, .cuadro:first-child{
+         background-color: deeppink;
+         border-radius: 0 50% 0 50%;
+       }
+
+   
+       .clear{
+         clear: both;
+        }
+
+        p{
+         text-align: center;
+         /* tamanio de la letra*/
+         font-size:x-large;
+       }
+
+       .lista{
+      display: flex;  
+      
+      width: 100%;
+      text-align: center;
+      align-items: center; 
+      margin-left:20rem;
+       }
+
+        ul{
+         list-style-type: lower-greek;
+        }
+
+      h2{
+        color: blueviolet; 
+      }
+
+      h2::before{
+         content: "\01F37E";
+      }
+
+      h2::after{
+         content: "\01F377";
+      }
