@@ -1,0 +1,108 @@
+<!DOCTYPE html>  <!-- tipo de documento-->
+<html lang="en">  <!-- lo del sitio web, lang es una etiqueta-->
+<head>  <!--son los metadatos, titulo, librerias, etc-->
+    <meta charset="UTF-8"> <!-- tipo de caracteres que se usan recomendable udar utf-8 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- esta y la que sigue pueden no ir-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- h es abreviacion de heading sirve para poner titulos
+    y sub titulos del 1 al 6 mayor a menor-->
+    <h1>Hola, soy Margarita ;)</h1>
+    <hr> <!-- pone una linea, las etiquetas que no tienen contenido, no necesitan cierre-->
+    
+    <!-- la p es de paragraph -->
+    <p> estoy tomando el curso de desarrollo de software
+        aqui se escriben parrafos, por cada parrafo se escribe entre las p's 
+        <br>saltos de linea tambien tienes que poner br
+        <br><br>
+        no afecta tener enter entre renglones
+        dentro de cada p
+    </p>
+    <br><hr><br>
+    <!-- Divisores y semantica-->
+    <!-- <div> divide en bloques la pagina --> 
+    <div>
+        <h1>Titulo</h1>
+        <p>parafo que va dentro del bloque</p>
+    </div>
+    <!-- Semanticas, dividir correctamente el sitio, significado relevante -->
+    <header> Encoabezado </header>
+    
+    <main><!--Contenido principal-->
+        <section>
+            <article>
+                <section>
+                <!-- interaciones -->
+                <h5>elementos de entrada</h5>
+                <!-- value es lo que sale en el boton-->
+                <!-- name es el nombre de la variable-->
+                <!-- id es el identificado que tendra en el codigo, no se debe repetir-->
+                <input type="button" value="BOTON"> <!-- value es lo que sale en el boton-->
+                <input type="checkbox" name="" id="">
+                <input type="email" name="" id="">
+                <input type="file" name="" id="">
+                <input type="date" name="" id="">
+                <input type="password" name="" id="">
+                <input type="radio" name="" id="">
+                <input type="radio" name="" id="">
+                <input type="range" name="" id="">
+                <input type="submit" value="lo que quieras">
+                <input type="number" name="" id="">
+                <textarea name="" id="" cols="30" rows="10"> puedes escribir para mostrar
+                    si asi lo deseeas o puedes
+                    captuar
+                </textarea>
+                <select name="" id="">
+                    <option value="">opcion 1</option>
+                    <option value="">opcion 2</option>
+                    <option value="">opcion 3</option>
+                </select>
+                <select multiple name="" id="">
+                    <option value="">opcion 1</option>
+                    <option value="">opcion 2</option>
+                    <option value="">opcion 3</option>
+                </select>
+                </section>
+                <img src="" alt="Imagen de perrito">
+            </article>
+        </section>
+    </main>
+    <footer>pie de pagina</footer>
+
+    <!-- Formularios -->
+    <!-- action ya no se usa, se puede borrar -->
+    <!-- post manda informacion al servidor-->
+    <!-- get manda la infoacion al servidor, pero pone los datos en la url-->
+    <!-- actualmente solo se usa form sin los atributos-->
+    <form action="" method="post">
+        <!-- span es para darle formato son css, puede ser una palabra, una letra, un parrafo, etc-->
+        <div>
+            <span>Genero :</span>
+            <input type="radio" name="genero" id="genero-h" value="Hombre">
+            <label for="genero-h">Hombre</label>   <!-- referenciar al id de lo que quiero seleccionar-->
+            <input type="radio" name="genero" id="genero-m" value="Mujer">
+            <label for="genero-m">Mujer</label>
+        </div>
+        <div>
+            <span>Usuario :</span>
+            <input type="text" name="usuario" id="usuaario" placeholder="aaaa@gmail.com">  
+        </div>
+        <div>
+            <span>Passwor:</span>
+            <input type="password" name="psw" id="psw">  
+        </div>
+        <div>
+            <!--botones-->
+            <input type="reset" value="Limpiar">
+            <input type="submit" value="">
+        </div>
+
+    </form>
+
+
+    <form action="" method="get"></form>
+
+</body>
+</html>

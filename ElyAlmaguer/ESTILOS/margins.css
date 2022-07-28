@@ -1,0 +1,19 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box; /*evita que se agregue el tamaño de los bordes de las figuras*/
+}
+.cuadro{
+    float: left;
+    width: 20rem;
+    height: 20rem;
+    background-color: red;
+    border: 5px dotted yellowgreen; /*es visible*/
+    padding: 1rem; /*margen interno de la figura*/
+    margin-left: 1rem;  /*margen exterior de la figura no se utiliza para alinear elementos*/
+    margin-top: 1 rem;
+    /*margin: auto;  margen centrado solo con display block*/
