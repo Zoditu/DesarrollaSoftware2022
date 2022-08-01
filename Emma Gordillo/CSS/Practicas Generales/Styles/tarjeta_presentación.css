@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Indie+Flower&family=Patrick+Hand&display=swap');
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.wrapper {
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.tarjeta {
+    width: 35rem;
+    height: 20rem;
+    background: linear-gradient(rgb(231, 231, 150), pink, rgb(142, 231, 142));
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+
+.tarjeta:last-child {
+    margin-top: 2rem;
+}
+
+.logo {
+width: 80px;
+height: 80px;
+}
+
+h1, h2, h6{
+    margin: 0;
+    font-size:2rem;
+    color: rgb(62, 88, 9);
+    font-family: 'Patrick Hand';
+}
+
+h2 {
+    font-size: 1.4rem;
+    color: rgb(117, 88, 6);
+    font-family: 'Patrick Hand';
+}
+
+h6 {
+    margin-top: 0.3rem;
+    font-size: 0.85em;
+}
+    
+h6 .material-icons {
+    font-size: 0.85em !important;
+}
+
+.mitad{
+    flex-shrink: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.mitad:first-child {
+    background-color: rgb(186, 214, 129);
+    text-align: left;
+    padding: 1rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.h100 {
+    height: 100%;
+}
+
+
+
+
+
