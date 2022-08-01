@@ -1,0 +1,92 @@
+.sidebar{
+    height: 250px;
+    width: 10px;
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+p{
+    left: 30px;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    font: 1rem;
+}
+
+.social{
+    margin-left: -20px;
+    width: 230px;
+    padding: 0;
+    display: inline-block;
+    height: 0px;
+    cursor: pointer;
+}
+
+a{
+    color: aliceblue;
+}
+
+.facebook{
+    background-color: blue;
+}
+
+.twitter{
+    background-color: aqua;
+}
+
+.facebook:hover{
+    margin-left: 10px;
+    width: 230px;
+    transition: all 1s ease;
+}
+
+.twitter:hover{
+    margin-left: 10px;
+    width: 230px;
+    transition: all 1s ease;
+}
+
+/*body{
+    margin: 8px;
+    height: 550vh;
+}
+
+*,*:before, *:after{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-flex: 0 1 auto;
+}
+
+.rojo, .verde, .azul, .amarillo{
+    height: 80px;
+    border-radius: 16px;
+}
+
+.rojo{
+   background-color: red;
+   width: 80%; 
+   position: relative;
+   margin-top: 40px;
+   position: sticky;
+   top: 50px;
+}
+
+.verde{
+    background-color: green;
+    width: 60%;
+    position: absolute;
+}
+
+.amarillo{
+    background-color: yellow;
+    width: 20%;
+    position: absolute;
+}
+
+.azul{
+    background-color: blue;
+    width: 80%;
+}*/
