@@ -6,16 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS</title>
     <style>
-        h1 {
-            color: brown;
-            background-color: aquamarine;
+/*I._ID*/
+         #acercaDe {
+            color: rgb(255, 123, 0);    
         }
-        h2 { color: black;
-        }        
-    </style>
+/*II._ESPECIFICAR ENTRE CLASES*/
+        .encabezado .opcion {
+            color: maroon;
+        }
+ /*III._ESPEIFICAR ENTRE ETIQUETAS Y CLASES*/
+        header .opcion {
+            color: aqua;
+        }
+/*III._ESPEIFICAR ENTRE CLASES Y ETIQUETAS*/ 
+        .encabezado div {
+            color: chartreuse;
+        }
+ /*IV._CLASE*/
+        .opcion {
+            color: blue;
+        }
+ /*V._ESPECIFICAR ENTRE ETIQUETAS*/
+        header div {
+            color: coral;
+        }
+ /*VI._ETIQUETAS*/
+        div {
+            color: rgb(226, 126, 181);
+        }
+ /*VI._COMODIN se ve sobreescrito por todos solo para agregar estilo*/     
+        *{
+            color: crimson;
+        }
+ /*VII._SOBRE ESCRIBIR EN LIBRERIAS ESCRIBIR  AL FINAL "!IMPORTANT"*/
+        .menu {
+            color: deepskyblue !important;
+        }
+        
+   </style>
 </head>
 <body>
     <h1>HOLA!! </h1>
-    <h2> h2 :V </h2>
+    <h2> :V </h2>
+    <header clase="encabezado">
+        <h1> CSS :) </h1>
+        <div id="acercaDe" class="acercaDe menu opcion">
+                Acerca de Nosotros
+        </div>
+        <hr>
+    </header>
+    <main>
+        <h2>Acerca del curso</h2>
+        <div>El contenido del curso</div>
+        <p>
+            Desarrollo Web y Automatización <br>
+            * Websites <br>
+            * Back end <br>
+            * Front end <br>
+            * Middleware <br>
+            * Fullstack <br>
+            <br><br>
+            - Back end (servidor)<br>
+            *Logica del negocio <br>
+            * Bases de datos, servicios, información/datos, procesamiento, etc.<br>
+            <br><br>
+            - Front end (UX/UI)<br>
+            * interfaz <br>
+            * duseli <br>
+            * se puede programar <br>
+            - Middleware (Servicio en la nube)<br>
+            * información en internet <br>
+            * todo lo que tiene internet puede consumir un servicio<br>
+            * internet asíncrono (AJAX Asynchronous Javascript and xml) (sockets) <br>
+            <br><br>
+
+        </p>
+    </main>
+    <footer>
+        <H6> Elizabeth Almaguer</H6>
+        <h6>Desarrollo de Software</h6>
+        <h6>Aprendiendo con Maestros del Futuro</h6>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,13 @@
+.menu{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: grey;
+    color: bisque;
+    height: 4rem;
+}
+
+.card img{
+    max-height: 18rem;
+    text-align: center;
+}
