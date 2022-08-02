@@ -1,0 +1,17 @@
+.card {
+    width: 18rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+    box-shadow: 8px 8px 15px gray;
+}
+
+.menu {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: gainsboro;
+    border-bottom: 2px solid gray;
+    z-index: 1;
+}
