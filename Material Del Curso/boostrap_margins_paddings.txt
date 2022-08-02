@@ -1,0 +1,10 @@
+En cuanto a margin y padding:
+ * Bootstrap tiene todas las combinaciones de dichas clases a máximo 5 niveles, o sea, -1, -2, -3, -4 y -5
+ Margin:
+   * mb: margin-bottom y se combina con los niveles. Ex: mb-3
+   * mt: margin-top.
+   * ms: margin-left.
+   * me: margin-right.
+   * mx: Pone ambos margin-left y margin-right.
+   * my: Pone ambos margin-top y margin-bottom.
+ Padding: Es exactamente lo mismo pero con la clase: p?, o sea, px, py, ps, pe, etc.

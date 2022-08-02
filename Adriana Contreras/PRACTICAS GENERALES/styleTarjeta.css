@@ -46,11 +46,11 @@ margin-top: 1rem;
 }
 
 .logo {
-width: 100px;
-height: 100px;
+width: 80px;
+height: 80px;
 }
 
-h1,h2{
+h1,h2,h6 {
     font-size: 1.3em;
     color: whitesmoke;
     margin: 0%;
@@ -62,20 +62,35 @@ h2{
     color: grey; 
 }
 
-.wrapper2{
-    flex-shrink: 3px;
-    width: 100%;
-    text-align: top;
+h6{
+    margin-top: .3rem;
+    font-size: 0.75em;
 }
 
-.puesto{
+h6 .material-icons{
     font-size: 1em;
-    text-align: center;
-    margin-left: 1rem;
-    position: relative;
 }
 
-ul{
-    text-align: left;
-    color: antiquewhite;
+.mitad{
+    flex-shrink: 0;
+    width: 50%;
+    height: 100%;
 }
+
+.mitad:first-child{
+    background-color: gray;
+    text-align: left;
+    padding: 1rem;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.h100{
+    height: 100%;
+
+}
+
