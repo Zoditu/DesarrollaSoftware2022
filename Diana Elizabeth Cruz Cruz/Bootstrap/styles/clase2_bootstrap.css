@@ -1,0 +1,24 @@
+.menu{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.contenedor-tarjeta{
+    height: 18rem;
+    background-color: blueviolet;
+}
+
+.card img {
+    /*max-height: 18rem;*/
+    height: 14rem;
+    text-align: center;
+}
+
+.card-body{
+    position: relative;
+}
