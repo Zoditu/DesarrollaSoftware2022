@@ -1,0 +1,133 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding:0;
+    /*background-image: url(https://simg.nicepng.com/png/small/159-1594019_ftestickers-overlay-pattern-shapes-abstract-colorful-color-lines.png);*/
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 68px;
+    background-color:midnightblue;
+    position: sticky;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid black;
+    
+}
+
+main {
+    width: 70%;
+    margin: auto;
+    padding-top: 1rem;
+}
+
+.logo {
+    margin-left: 1rem;
+    width: 4rem;
+    height: 4rem;
+    /*background-image: url(../../img/WhatsApp-logo.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;*/
+}
+
+h1 {
+    margin: 0;
+    color: azure;
+    padding-left: 1rem;
+}
+
+.cuadro {
+    width: 8rem;
+    height: 8rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    background-color: aquamarine;
+    float: left;
+}
+
+.cuadro:hover {
+    background-color: deeppink;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: all 0.5s;
+}
+
+.cuadro:first-child {
+    background-color: coral;
+}
+
+.cuadro:nth-child(5){
+    background-color: deeppink;
+}
+
+.cuadro:last-child{
+    background-color: coral;
+}
+
+
+
+.clear {
+    clear: both;
+}
+
+a { 
+    color: white;
+    text-decoration: none;
+    padding-left: 2rem;
+}
+
+.a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: cyan;
+}
+
+li:first-child {
+    color: darkblue;
+}
+
+li:last-child {
+    color: crimson;
+}
+
+ul {
+    list-style-image: url(https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/sign-check-icon.png) ;
+    list-style: upper-roman;
+}
+
+p::first-line {
+    color: crimson;
+    font-size: 2rem;
+}
+
+h2::before {
+    content: "\1F98A";
+    color: crimson;
+}
+
+h2::after {
+    content:"***";
+    color: blue;
+
+}
+
+.lista::before {
+    content: "\1F98A";
+    font-size: 0.5rem;
+    padding-right: 0.3rem;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+
+}

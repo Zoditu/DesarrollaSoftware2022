@@ -1,43 +1,89 @@
 <!DOCTYPE html>    <!--DOCTYPE  define el tipo de documento, en este caso HTML--> <!--Esta es una etiqueta de comentario-->
-<html lang="en">   <!--html define la raiz del documento o de todo el sitio web -->
-<head>             <!--ayuda a poner los metadatos, título, librerías, etc.para el documento-->
+<html lang="en">   <!--html define la raiz del documento o mostrar todo el sitio web -->
+<head>             <!--ayuda a poner los metadatos, título, librerías, etc.para el documento la pag. web tiene 2 partes-->
     <meta charset="UTF-8">        <!-- contiene los caracteres especiales si no se define solo 256 o 128  caracteres -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">       <!--este no es necesario ponerlo dice que navegador-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">       <!--estilo -->
-    <title>Document</title> <!-- muestra el titulo en el tab y en el navegador (en las pestañas)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--etiqueta no necesaria solo para estilo -->
+    <title>Document (Desarrollo Software 2022)</title> <!-- muestra el titulo en el tab y en el navegador (en la barra o en las pestañas se puede personalizar en lo blanco)-->
 </head>
 <body>              <!-- representa todo el contenido del documento donde se puede escribir-->
     <h1>Hola, soy Elizabeth :) </h1>   <!--h1 al h6 es el tamaño del texto, titulos y subtitulos, etc. -->
     <p></p>   <!--es un párrafo-->
-    <hr> <!--linea para dividir-->
+    <hr> <!--linea para dividir no tiene llave de cierre-->
     <br> <!--quiebres de linea para al siguiente renglón-->
+       
+    <!--divisores y semanticas-->
+
+     <!--semanticas: crear secciones y/o artículos para dividir correctamente el sitio con sig. relevante-->
+      <!--aquí se puede dividir en varios bloques diferentes secciones o formas de dividir-->
+
     <div> <!--crea un bloque que no afecta el estilo, un div vacio funciona como salto de bloque o sección-->  </div>
     <header> <!--encabezado --></header>
     <main> <!--contenido principal--> </main>
     <footer> <!--pie de página--> </footer>
+
+        <!--tanto el article como el section tienen el mismo comportamiento se puede poner uno dentro de otro sin diferencia alguna-->
+
     <section> <!--para dividir contenido, es igual a article--> </section>
     <article> <!--igual a section para dividir contenido-->  </article>
     <!--input son elementos de entrada de datos. no tienen contenido sino valor y no tienen llave cierre -->
-    <input type="text">  <!--para escribir texto continuo-->
-    <input type="button" value=""> <!--boton-->
+
+      <!--imput elementos de entrada de datos con los que interactua el usuario en html -->
+
+    <input type="text">  <!--para escribir texto continuo como en buscadores-->
+    <input type="button" value=""> <!--boton puede ser por b, btn o button son iguales en el value viene vacio se le puede poner el texto-->
+    <button> botón </button>
     <input type="checkbox" name="" id=""> <!--casilla para seleccionar o deseleccionar-->
-    <input type="color" name="" id=""> <!--casilla para color-->
+    <input type="color" name="" id=""> <!--casilla para seleccionar el color-->
     <input type="date" name="" id=""> <!--casilla de calendario o fecha-->
+    <input type="datetime" name="" id="">     <!--fecha y hora actual al parecer es en movil-->
     <input type="email" name="" id=""> <!--casilla para escribir email-->
     <input type="file" name="" id=""> <!--casilla de escritura en un solo renglón corto-->
     <input type="number" name="" id=""> <!--casilla para numeros unicamente -->
     <input type="password" name="" id=""> <!--casilla para password cambia de acuerdo al navegador-->
-    <input type="radio" name="" id=""> <!--casilla de selección de audio-->
+    <input type="radio" name="" id=""> <!--casilla de selección de uno u otro como en femenino u masculino -->
     <input type="range" name="" id=""> <!--casilla de rango (como volumen o intensidad)-->
-    <input type="submit" value="">
-    <textarea name="" id="" cols="30" rows="10"></textarea> <!--cuadro de texto que conserva el formato, enter, renglones, etc.-->
-    <select name="" id=""></select> <!--lista desplegable de opciones no visibles-->
-    <select multiple> <!--lista desplegable con opciones visibles-->
+    <input type="submit" value="">   <!-- para formularios -->
+    <textarea name="" id="" cols="30" rows="10"></textarea> <!--cuadro de texto que conserva el formato, enter, renglones, etc. 10 líneas con 30 caracteres-->
+     <!--lista desplegable de opciones no visibles-->
+    <select>
+        <option value=""> texto de la opcion a </option>
+        <option value=""> texto de la opcion b</option>
+        <option value=""> texto de la opcion c</option>
+    </select>
+    <select multiple> <!--lista desplegable con opciones visibles-->  
+        <option value=""> texto de la opcion a </option>
+        <option value=""> texto de la opcion b</option>
+        <option value=""> texto de la opcion c</option>
+    </select>
+        <!--formularios --> 
         <form>
+            <form method="post">   <!--manda datos dentro del servidor agrega los valores en la barra  --> 
+            <form method="get">    <!--puedes ver los datos que se están llenando en el formulario -->
             <div>
-                <span> User</span>
-                <input type="text" name="usuario" id="usuario" placeholder="mínimo 8 caracteres">
+                <span> User </span> 
+                <input type="text" name="usuario" id="usuario">  <!--no cambia nada pero puedes dar estilo, color, forma,  con el span-->  
+            </div>
+            <div>
+                <span> password </span> 
+                <input type="password" name="contraseña" id="contraseña">
+            </div>
+            <div>
+                <span>Género: </span>
+                <input type="radio" name="genero" id="genero-h" value="hombre"> <!--los radios se agrupan solo se seleccióna una opción cuando se agrupan--> 
+                <label for="genero-h"></label> <!--esta etiqueta permite seleccionar poniendo el id del genero a seleccionar--> 
+                <input type="radio" name="genero" id="genero-m" value="mujer">
+                <label for="genero-m"></label> 
+            </div>
+            <div>
+                <input type="text" name="usuario" id="usuario" placeholder="mínimo 8 caracteres"> <!--placeholder visible cuando la caja está vacia, da tip --> 
                 <input type="text" name="" id="">
+            <div>
+                <input type="reset" value="limpiar"> <!--sirve para borrar todo lo que se escribio en el formulario --> 
+                <input type="submit" value="enviar"> <!--recarga el sitio y manda la información a un lado. --> 
+            </div>
+            <div>
+                <img src="" alt="">  <!--scr es para url y alt imagen de: texto alterno para que sea accesible-->
             </div>
         </form>
 </body>

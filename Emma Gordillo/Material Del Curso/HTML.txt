@@ -1,0 +1,7 @@
+HTML: Hyper Text Markup Language
+-Lenguaje de estructura
+-Basado en XML (Formato de datos)
+-XML se basa en estructurar el contenido en algo que se llama "Tags" o en español "Etiquetas"
+
+-Etiquetas, que tienen atributos y contenido.
+-Las etiquetas representan algo

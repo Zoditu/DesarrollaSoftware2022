@@ -1,0 +1,14 @@
+.menu {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    background-color: rgb(53, 96, 238);
+    color: whitesmoke;
+}
+
+.card img{
+    max-height: 18rem;
+    text-align: center;
+}
+

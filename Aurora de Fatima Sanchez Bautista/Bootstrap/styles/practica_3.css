@@ -1,0 +1,28 @@
+.card {
+    width: 18rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+
+    text-align: left;
+}
+
+/* .card:first-child {
+    margin-left: 0;
+} */
+
+.card {
+    box-shadow: 0px 0px 8px 1px mediumpurple;
+}
+
+.menu {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    background-color: rgb(85, 5, 122);
+    border-bottom: 2px solid rgb(52, 13, 88);
+    color: floralwhite;
+}
