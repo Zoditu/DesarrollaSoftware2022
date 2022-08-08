@@ -1,0 +1,39 @@
+Un lenguaje de programación se considera tal cual por el hecho de que te permite crear sentencias con lógica, o sea...
+* Hacer operaciones matemáticas
+* Condionales
+* Lógicas (Eletrónica)
+* Buscar, ciclar, etc.
+Es un lenguaje diseñado para poder realizar actividades complejas.
+
+Javascript es el lenguaje de programación base de Web. Toda la web en el navegador funciona con JS.
+
+Javascript te permite añadir lógica a tu sitio, o sea, que puedas interactuar con él.
+Esta lógica se divide en dos partes: FrontEnd y BackEnd...
+La lógica del navegador se llama FrontEnd...
+La lógica del FrontEnd solo está ligada a tu sitio y sus elementos.
+
+Una ventaja que tiene JS en web, en el navegador, es que no tiene visibilidad fuera de su contenedor (Del navegador).
+No puedes leer ni ver ningún dato del equipo del cliente, o puedes crear o modificar archivos, no puedes acceder al procesador, etc.
+Esto deriva de que JS es un lenguaje interpretado.
+Lo único que puede modificar JS son cookies.
+
+
+Javascript vs Java
+
+Javascript:
+ * Es un lenguaje funcional
+    - Se preocupan más por la funcionalidad, literal, que tu actividad se realice...
+    - NO son tipados...
+ 
+   //var
+   var x;
+
+Java:
+ * Es un lenguaje imperativo o declarativo
+    - Son tipados, se preocupan por la estructura, el órden y que todo sea semánticamente correcto.
+
+   //Safe typing
+   TIPO variable;
+   int x;
+   String texto;
+   boolean verdadero;
