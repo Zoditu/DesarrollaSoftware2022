@@ -1,0 +1,26 @@
+.menu {
+    background-color: rgb(62, 62, 247);
+    position: sticky;
+    top: 0rem;
+    left: 0rem;
+    z-index: 1;
+    color: ghostwhite;
+    border-bottom: 2px solid gray;
+}
+
+.card {
+    width: 18rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0.1rem 0.4rem rgb(0, 0, 0.3);
+}
+
+/*.card:first-child{
+    margin-left: 0rem;
+}*/

@@ -1,0 +1,50 @@
+.menu{
+    position: sticky;
+    top:0;
+    left: 0;
+    z-index: 1;
+
+    height: 68px;
+    background-color: darkviolet;
+    color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+h1{
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.card img {
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: 70%;
+   
+}
+
+.left{
+    text-align: left;
+    float: left;
+
+}
+
+.right {
+    text-align: right;
+    float: right;
+
+}
+
+.left row {
+
+}
+
+.right row {
+    text-align: right;
+
+}
+
+section {
+    overflow: auto;
+}
