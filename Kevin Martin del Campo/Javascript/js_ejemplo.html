@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Variables y tipos de datos
+        /*
+         * Tipo de datos: Representan el tipo de información que queremos manejar.
+         * En JS existen estos tipos de datos:
+         * - number: Cualquier número, positivos, negativos, enteros o decimales.
+         *      Ex: 1, -100, 3.1416, -0.0034, etc.
+         * - string: Son cadenas de caracteres, o sea, texto... Se representan con '' o ""
+         *      Ex: "texto", puede ser desde un solo caracter "%" o varias palabras "anita lava la tina". También funciona 'así'
+         * - boolean: Solo son dos posibles valores, true o false. Literal, se escriben así y en minúsculas.
+         *      Ex: true
+         * - object: Lo veremos más adelante...
+         */
+
+        /* Variables: Sirven para almacenar la información y poder utilizarla...
+         * Las variables solo se definen de la siguiente manera:
+         * var NOMBRE;
+         * Donde NOMBRE debe ser único, SOLO puede iniciar con $, _ o letras.
+         * No puede iniciar con caracteres especiales %, /, #, etc. ni incluirse en el nombre.
+         * Tampoco puede iniciar con números, pero si se pueden poner después del inicio.
+         * Ex: var x; - válido
+         *     var _nombre; - válido
+         *     var $nombre; - válido
+         *     var nombre1; - válido
+         *     var 1nombre; - NO válido
+         *     var %nombre; - NO válido
+         * A esto se le conoce como declarar una variable.
+         * Declarar es crear, darla a conocer.
+         */
+
+         var x;
+         var _x;
+         var $x;
+         var x1;
+         var x_2;
+
+         //var 1x; //No válido
+         //var sdfdf%f; //No válido
+
+         /* Las variables se ven afectadas por el alcance (Scope)
+          * El alcance, en resumen, lo define cualquier bloque que lleve {}
+          * Existen dos tipos de alcances: Global y Local.
+          * El alcance global es visible en todos lados, y el local es temporal...
+          */
+
+         //Tipos de variables:
+         var variable;
+         /* Para poder darle valor a una variable, debe estar declarada...
+          * Se puede declarar y asignar un valor al mismo tiempo...
+          */
+         var z = 10;
+         z = true;
+         z = "texto";
+         //A esta operación se llamaba inicialización de variable...
+         //Cuando se declara una variable, no tiene valor, se le tiene que iniciar con algo.
+
+         variable = 15;
+         //Cuando una variable ya está declarada, se le puede asignar o reasignar un valor...
+         //A esta operación se le conoce como asignación de variable.
+         variable = 16;
+         //Reasignar es darle un valor diferente.
+         //He ahí el nombre "variable", o sea, "varía" su valor.
+
+         //Constante: Valor que no puede cambiar y tiene que estar asignado desde el inicio.
+         const PHI = 3.14159;
+         const url = "url";
+
+         /* Variables: Referencia en memoria...
+          * var ó const:
+          *    - Las referencias del tipo var, se pueden sobre-escribir
+          *    - Las referencias del tipo const, pueden crear duplicados y no sobreescriben
+          * Alcance Global:
+          *  - Todo lo que pongamos directamente en el código, fuera de cualquier {}
+          * Alcance Local:
+          *  - Todo lo que pongamos dentro de unas {} y es temporal... Al salir de ese bloque de código, se destruyen automáticamente por el GC.
+          */
+
+          //Operaciones
+          /* Operadores:
+           *   - Aritméticos: +, -, /, *, % ó MOD
+           *   - Condicionales: >, <, >=, <=, ==, !=, ===, !==
+           *     Todos los operadores condicionales regresan un boolean, o sea... true ó false
+           *   - Lógicos: AND, OR, NOT
+           *     AND: &&
+           *     OR: ||
+           *     NOT: !
+           *     Todos los operadores lógicos se deben mezclar solo con booleans y regresan otro boolean: true && true -> true
+           */
+
+           //Cualquier operación en JS se puede combinar un valor con otro valor, variable con variable o valor con variable o viceversa.
+           var n1 = 10;
+           var n2 = 4;
+           var suma = 10 + 5; //15
+           suma = n1 + 4; //14
+           n1 = 11;
+           suma = n1 + n2; //15
+
+           var resta = n1 - 5; //6
+           var mult = n2 * n1; //44
+           var div = 10 / 5; //2
+           var modulo = 11 % 5; //1
+
+           var esPar_18 = 18 % 2; //0
+           var esPar_19 = 19 % 2; //1
+
+           var xNeg = -10;
+           var xPos = 11;
+
+           suma = xNeg + xPos;
+           // -10 + 11 -> 1
+           resta = xNeg - xPos;
+           // -10 - 11 -> -21
+           resta = xPos - xNeg;
+           // 11 - -10 -> 21
+
+           /* Declare las siguientes variables:
+            * edad, K.
+            * K siempre tiene el valor de 3.
+            * La edad la pueden poner con el valor que deseen.
+            * En otra variable guarde el valor de el residuo de la edad entre K.
+            * Después, en una cuarta variable asigne el valor de la variable anterior entre 2.
+            */
+          var edad = 29; 
+        const K = 3; 
+        var modulo_1 = edad % K;
+        var division_1 = modulo_1 / 2;
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
