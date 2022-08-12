@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- pregunta #13 -->
+    <!-- Escriba el código para importar la librería llamada "w3.css" que se encuentra en una carpeta de nombre "css": -->
+    <link rel="stylesheet" href="CSS/w3.css">k
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*pregunta #1*/
+        #div .section article .div a {
+            font-size: 1.2rem;
+            color: #C1C1C1;
+            cursor: pointer;
+        }
+
+        /*pregunta #3*/
+        span.failed {
+            color: red;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /*pregunta #5*/
+        ul li:first-child {
+            color: cyan;
+        }
+
+        ul li:nth-child(1) {
+            color: blue;
+        }
+
+        /*pregunta #8*/
+        .p8 {
+            width: 50%;
+            height: 100vh;
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        /*pregunta 9*/
+        .pregunta9:hover {
+            color: forestgreen;
+        }
+
+        /*pregunta 10*/
+        .padre {
+            width: 40rem;
+            height: 28rem;
+            border: 1px solid black;
+            /*position: relative;*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hijo {
+            /*position: absolute;
+            left: calc(50% - calc(25%/2));
+            top: 37.5%;*/
+
+            width: 25%;
+            height: 25%;
+            border: 1px solid black;
+            /*
+            margin: auto;
+            margin-top: 25%;
+            */
+        }
+
+        /*pregunta #15*/
+        div.examen {
+            width: 500px;
+            border: 1px solid black;
+            margin-left: 500px;
+            padding-top: 300px;
+            text-align: left;
+        }
+
+        span {
+            color: red;
+            margin-left: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- pregunta #1 -->
+    <div id="div">
+        <div class="section">
+            <article>
+                <section class="div">
+                    <a href="">Hola</a>
+                </section>
+            </article>
+        </div>
+    </div>
+
+    <!-- pregunta #2 -->
+    <!-- Escriba el código HTML que represente una sección con el nombre de clase "card-template" que se encuentra dentro de un div con identificador "wrapper" y clase "container fullwidth expanded bordered red-colored". Además de esto, agregar dentro de "wrapper" un elemento de párrafo con el texto "Voy a reprobar mi examen". La palabra "reprobar" del texto del párrafo debe estar en una etiqueta del tipo span con la clase "failed": -->
+    <div id="wrapper" class="container fullwidth expanded bordered red-colored">
+        <p>
+            Voy a <span class="failed">reprobar</span> mi examen
+        </p>
+        <section class="card-template"></section>
+    </div>
+
+    <!-- pregunta #4 -->
+    <input type="text" placeholder="Introduce tu usuario" value="Usuario">
+    <textarea name="" id="" cols="30" rows="10">Usuario</textarea>
+
+    <!-- pregunta #5 -->
+    <!-- Escriba el código HTML de una etiqueta de párrafo con el atributo nombre que tiene el valor de Kevin: -->
+    <p nombre="Kevin"></p>
+
+    <!-- pregunta #6 -->
+    <!-- Escriba la regla para aplicar color de fuente azul al primer elemento de una lista no ordenada: -->
+    <ul>
+        <li>Elemento A</li>
+        <li>Elemento B</li>
+        <li>Elemento C</li>
+    </ul>
+
+    <!-- pregunta #8 -->
+    <div class="p8"></div>
+    <div class="p8"></div>
+    <div class="clear"></div>
+
+    <!-- pregunta #9 -->
+    <span class="pregunta9">Hover</span>
+
+    <!-- pregunta #10 -->
+    <div class="padre">
+        <div class="hijo"></div>
+    </div>
+
+    <!-- pregunta #12 -->
+    <input type="button" value="Botón">
+    <button>Botón</button>
+    <input type="reset" value="Botón">
+    <input type="submit" value="Botón">
+    <input type="image" src="" alt="">
+    <input type="radio" name="" id="">
+
+    <!-- pregunta #14 -->
+    <input type="checkbox" name="" id="">
+
+    <div class="examen">
+        <span>A!! :D!!!</span>
+        <span>B!! :O!!!</span>
+    </div>
+
+</body>
+
+</html>

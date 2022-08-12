@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //    console.log ("Hola");
+    // VARIABLES Y TIPOS DE DATOS
+    /*Tipo de dato: Tipo de info que queremos manejar:
+        -Number
+        -String
+        -Buleano
+        -Object*/
+    /*Variables: Para almacenar info. y poder utilizarla...
+    *var NOMBRE: NOMBRE debe ser único, SOLO puede iniciar con $, _ o letras.
+    No puede nicar con caracteres especiales*/
+   /* var x;
+    var _x;
+    var $x;
+    var x1;
+    var x_2;
+    var #x; //NO VÁLIDO
+    var x-2; //NO VÁLIDO
+    var 2x; //NO VÁLIDO*/
+
+    /*Las variabe¿les se ven afecatadas por el alcance (Scope)
+    *El alcance, lo define cuakquier bloque que lleve {}
+    *Hay alcance Global y Local
+    Global: visible en todos lados, y el local es temporal...
+
+    TIPOS DE VARIABLES*/
+    var variable; 
+    /*para poder darl valor  auna variable debe estar declarada...
+    *se puede declarar y asignar un valor al mismo tiempo*/
+   var z =10;
+   //A esta operación de le llamaba inicialización de variable...
+   //Cuando se declara una variable, no tiene valor, se le tiene que iniciar
+   variable= 15;
+   //Cuando una variable está declarada, puede asignarse p reasignarse
+   //He ahí el nombre "variable", o sea, "varía" su valor
+   variable=16;
+   //Reasignar es darle un valor diferente
+
+   //Constante: Valor que no puede cambiar y tiene que estar asignado desde el principio
+   const PHI= 3.1416
+
+   /* Variables: Referencia de memoria....
+   *
+   *
+   * 
+   * 
+   */
+
+   //Variables globales:
+   /*  Todo lo que pongamos directamente en el códig, fuera de cualquier {}
+   //Variables locales:
+   -Todo lo que pongamos dentro de  {} y es temporal...Al salir de ese bloque de código, se destruye automáticamente por el GC.*/
+
+   //Operaciones
+   /*Operadores:
+   *-Aritméticos: +,-, /, *, % ó MOD
+   -Condicionales: >, <, >=, <=, ==, !=, ===, !==
+   *Todos los operadores condicionales regresan booleans, o sea... true o false
+   -Lógicos: AND, OR, NOT
+        AND: &&
+        OR: ||
+        NOT: !
+        *todos los operadores lógicos se deben mezclar solo con boolean y regresan otro boolean: true && true -> true*/
+
+        
+        //Cualquier operación en JS se puede combinar un valor con otro valor, variable con variable o valor con variable o viceversa.
+        var n1=10;
+        var n2=4;
+        var suma =10+5;
+        suma=n1+n2; //14
+        n1=11;
+        suma= n1 + n2; //15
+        var resta =n1-5; //6
+        var mult =n2 * n1; //44
+        var div = 10/5; //2
+        var modulo = 11%5; //1 (el residuo de la división)
+
+        var esPar_18= 18%2; //0
+        var esPar_19= 19%2; //1
+
+        
+        var xNeg= -10;
+        var xPos= 11;
+
+        suma= xNeg + xPos; //-10 + 11 ->1
+        
+        /* EJERCICIO
+         Declare la siguientes variables:
+        *edad, K.
+        *K siempre tiene el valor de 3
+        *eddad el valor que queramos
+        *En otra variable guarde el valor del residuo de edad/k
+        *en una cuarta variable signe el valor de la división de la variable anterior entre 2.*/
+
+        var edad =29;
+        const k= 3;
+        var modulo_1= edad%k; //2
+        var div_1= modulo_1 / 2; //1
+//-Condicionales: >, <, >=, <=, ==, !=, ===, !==
+        var mayorQue = 5 > 10; //false
+        var menorQue = 5 < 10; //true
+        var mayorIgual= 6 >= 7; //false
+        var menorIgual = 6 <=8; //true
+        var menorIgual= 6 <= 6; //true porque 6 si es igual a 6.
+        var igual = 5 == 5; //true
+        var igual= 6 == 5; //false
+        var mismaletra= "A" == "a";// false
+        var diferente = 5 != 6 // true
+        var diferente= 5 !=5// false
+
+        var x= 5 + 5; //10
+        var x = 5 > 6; // false
+        //Poner == significa que sea el mismo valor
+        var y= 5 == "5"; // true. en  JS si el número está en texto lo identifica como número.
+
+        // Parse: convertir un texto a un valor, ej. texto a número
+        var resta = 10 - "5"; //5
+
+        //Cuando sumas un texto con algo más, no importa que sea, realiza la operación llamada concatenación. CONCATENAR
+        var concatenar = 1 + 2 + 3 + 4 + 5 + "6"; // "156" 
+        var concatenar = 1 + 2 +3 + "1111" + 2 + 2 + 2 // "61111222"
+
+        var identico = "5" === 5; // false porque el tipo de dato es diferente, uno es String y el otro es un entero
+        var identico = 5 === 5; //true
+
+        var noIdentico = "5" !== 5 ; //true
+        var noIdentico= 5 !== 5; // false
+
+        /*OPERADORES LÓGICOS: 
+        Permiten unir dos o más operaciones condicionales en una solaa..
+        Ejemplo: Que el número 5 < 4 y > 1.
+        Es decir que busca números en un rango definido...
+        Las operaciones lógicas recortan */
+
+        // Un adolescente lo consideramos si tiene entre 12 y 17 años.
+        var edad = 24;
+        var esAdolescente = edad >=12 && edad <= 17;// false | false = false
+
+        var edad = 10;
+        var esAdolescente = edad >=12 && edad <= 17;// false | true = false
+
+        var edad = 16;
+        var esAdolescente = edad >=12 && edad <= 17;// true | true = true
+
+        var edad = 14;
+        var esAdolescente = edad >=12 && edad <= 17;// true | true = true
+
+        //OR. todo lo contrario al AND (II). Si alguna de las dos condiciones son true, entonces es true. Si ambos son false, es false.
+        var colorA = "rojo";
+        var disoponible1 = "rojo";
+        var disoponible2 = "morado";
+        var disoponible3 = "naranja";
+        var comprarHojas = dispobible1 == color || disponible2 == color || disponible3 == color; // true... porque una de las condiciones es true
+
+        var colorA = "azul";
+        var disoponible1 = "rojo";
+        var disoponible2 = "morado";
+        var disoponible3 = "naranja";
+        var comprarHojas = dispobible1 == color || disponible2 == color || disponible3 == color; // false... porque todas son false
+
+        var colorA = "naranja";
+        var disoponible1 = "rojo";
+        var disoponible2 = "morado";
+        var disoponible3 = "naranja";
+        var comprarHojas = dispobible1 == color || disponible2 == color || disponible3 == color; // true... porque una de las condiciones es true
+
+        //NOT niega el boleano...
+        //Ex: !true ->false
+        // Ex: !false -> true
+       var edad= 15;
+      var mayorEdad= edad >= 18;
+      var noEsMayorEdas = !mayorEdad; //true
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

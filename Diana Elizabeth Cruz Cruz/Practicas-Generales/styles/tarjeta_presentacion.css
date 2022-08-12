@@ -31,7 +31,7 @@ main {
     /*background: linear-gradient(90deg,blue, green, yellow);*/
     /*background:radial-gradient(ellipse at 50%, blue, green);*/
     /*background:radial-gradient(circle at 100%, blue, green);*/
-    background: linear-gradient(45deg, #8126e2 30% 19%, #60FAE9 87% 39% );
+    background: linear-gradient(45deg, #0c1252 30% 19%, #60FAE9 87% 39% );
 
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@ main {
     height: 60px;
 }
 
-h1, h2 {
+h1, h2, h6 {
     margin: 0;
     font-size: 1.5em;
     color: white;
@@ -59,3 +59,36 @@ h2 {
     font-size: 1.1em;
     color: lightblue;
 }
+h6{
+    margin-top: 0.3rem;
+    font-size: 0.75rem;
+
+}
+
+h6 .material-icons {
+    font-size: 0.75rem;
+}
+
+.mitad{
+    flex-shrink:0;
+    width: 50%;
+    height: 100%;
+}
+
+.mitad:first-child{
+    background-color: rgb(11, 18, 42);
+    text-align: left;
+    padding: 1rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.h100{
+    height: 100%;
+    text-align: center;
+}
+
