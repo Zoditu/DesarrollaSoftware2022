@@ -132,6 +132,59 @@
            var modulo_1 = edad % K;
            var division_1 = modulo_1 / 2;
 
+           //Operadores Condicionales: boolean -> true | false
+           //>, <, >=, <=, ==, !=, ===, !==
+           var mayorQue = 5 > 10; //false
+           var menorQue = 5 < 10; //true
+           var mayorIgual = 8 >= 7; //false
+           var menorIgual = 6 <= 6; //true
+           var igual = 5 == 5; //true
+           igual = 6 == 5; //false
+           var mismaLetra = "A" == "a";
+           var diferente = 5 != 6; //true
+           var diferente = 5 != 5; //false
+           //Poner == significa que sea el mismo valor...
+           //Sin embargo, JS es un poco... Flexible
+           //Parse: convertir un texto a un valor, ej. texto a número
+
+           resta = 10 - '5'; //5
+           //Cuando haces operaciones aritméticas que NO sean la suma (+) con números en forma de texto. Ej: '5' - 10 -> -5
+           //Funciona para el *, -, / y el %.
+           //Cuando sumas un texto con algo más, no importa que sea, se realiza una operación llamada CONCATENACIÓN. CONCATENAR.
+
+           var igual_TextoNum = '5' == 5; //true
+           //El igual, verifica que el valor sea el mismo...
+           //Y como JS convierte un texto numérico a número, esto funciona...
+           //Es como lo de arriba, hacer -, *, / o % con textos y números.
+           var identidad = '5' === 5; //false
+           var noIdentico = 5 !== 5; //false
+
+           //Operadores lógicos...
+           //Los operadores lógicos permiten unir 2 o más operaciones condicionales en una sola...
+           //Ejemplo: Que el número 5 < 4 y > 1
+           //O sea, está buscando números en un rango definido...
+           //Las operaciones lógicas recortan todavía más un conjunto...
+           //Queremos saber si una edad pertenece a un niño adolescente.
+           //Un adolescente lo vamos a considerar que tenga entre 12 y 17 años, incluyendo estos valores, o sea, 12, 13, 14, 15, 16 y 17.
+           var edad = 18;
+           //var esAdolescente = edad > 11 && edad < 18; //true | false
+           //var esAdolescente = edad >= 12 && edad <= 17; //true | false
+           var esAdolescente = edad >= 12 && edad < 18; //true | false
+
+           //El OR, es todo lo contrario al AND...
+           var color = "naranja";
+           var disponibles1 = "rojo";
+           var disponibles2 = "morado";
+           var disponibles3 = "naranja";
+
+           var comprarHojas = disponibles1 == color || disponibles2 == color || disponibles3 == color;
+
+           //NOT niega el booleano...
+           //Ex: !true -> false
+           //Ex: !false -> true
+           edad = 15;
+           var mayorEdad = edad >= 18;
+           var noMayorDeEdad = !mayorEdad;
     </script>
 </head>
 <body>
