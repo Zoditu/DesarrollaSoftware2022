@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglos</title>
+    <script>
+        //Los arreglos en JS es un conjunto de datos que forman una "lista" indexada
+        //Los arreglos se daclaran con []
+        //REGLA:
+        var arreglo = ["a", "e", "i", "o", "u"];
+        // "a" -> 0
+        //"e"-> 1
+        // "i" -> 2
+        //"o" -> 3
+        //"u" -> 4
+        var numeros = [ 12, 15, 17];
+        //15 ->1
+
+        var primerLetra = arreglo [0]; //a
+
+        //Los arreglos deben de ser del mismo tipo, preferentemente. JS permite meter tiposdiferentes en un solo arreg
+        /* Escriba una lista de nombres y otra de apellidos.
+        *Mínimo incluir  5 valores en cada lista*/
+       var nombres = ["Pamela", "Alfredo", "Mariana", "Manuel", "Flor"];
+       var apellidos = ["Morales", "Ramírez", "Solano", "Guillen", "Velarde"];
+
+       //En una variable crear el nombre de una persona de la siguiente forma:
+       //nombreX appellidoY apellidoZ... Suponer X=2, Y=1, Z=0
+       var nombrePersona = nombres [2] + " " + apellidos [1] + " " + apellidos [0];
+       console.log (nombrePersona); //Mariana Ramírez Morales
+       // console.log muestra lo que gustes en consola
+       
+       var X = 3;
+       var Y = 2; 
+       var Z = 0;
+       var nombrePersona = nombres [X] + " " + apellidos [1] + " " + apellidos [0];
+       console.log (nombrePersona); // Manuel Ramírez Morales
+        
+       apellidos [2] = "Nuevo Apellido";
+       console.log (nombrePersona);
+       //Extraer a Manuel de la lista y guardarlo en una llamada mannuel
+       var manuel = nombres [3];
+
+       console.log (nombres.length); // 5
+
+       //Dada la siguiente lista:
+       var lista = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+       lista.push (200); //push mete un elemento a la lista, lo pone al final.
+       //Haga un console.log del primero y último elemento. O sea debe salir 10 y 100. No se puede usar lista [9]...
+       var primerElemento = lista [0];
+       var ultimoElemento = lista [lista.length - 1]; 
+       var primeroUltimo = "Primero: " + primerElemento + ", Último:  " + ultimoElemento;
+       console.log (primeroUltimo);
+
+       var num1 =10;
+       var num2 = num1;
+       num1 = 12;
+
+       console.log (num1);
+       console.log (num2);
+
+       var numeros =[ 3, 6, 9, 12];
+       var numeros2 =numeros;
+
+      //var numeros2[1] = 7; // cambiamos el 6 por el 7
+
+       console.log (numeros)
+       console.log (numeros2)
+       
+
+       /*OBJETOS: Abstracción de algo  a código...
+       *Abstraer: extracción de todas las características de ese objeto
+       *Atribbutos, propiedades y funciones
+       Se representan con {}, si se ponen varias carcaterísricas se pone , y nunca se usa =
+       
+       */
+      //Para declarar objetos en JS, se representan con el formato Key-Value Pair
+      /*
+      *.clase{
+        color: red; // Key-Value Pai
+      }
+    */
+   //Ejemplo de objeto en JS:
+   var perro = {
+    raza: "Shar Pei",
+    nombre: "Mamba",
+    colorPelaje: "Café",
+    tamaño: "mediano",
+    edad: 10,
+    esMacho: false
+     };
+     console.log (perro);
+
+    // Describirse a sí mismo en un objeto:
+    var Pamela = {
+        nombres: "Pamela",
+        apellidoPaterno: "Morales",
+        apellidoMaterno: "Ramírez",
+        edad: 30,
+        sexo: "M", //Mujer u Hombre
+        estatura: 1.58,
+        colorPelo: "Negro",
+        tipoCabello: "Rizado",
+        nacionalidad: "Mexicana"
+    }
+    console.log (Pamela);  
+    var nombreCompleto = Pamela.nombres + " " + Pamela.apellidoPaterno + " " + Pamela.apellidoMaterno ;
+    console.log ("Nombre completo del objeto: " + nombreCompleto);  
+    //Propiedad: Todo lo que pueda ver por fuera. Ex: Color de cabello, color de ojos, etc.
+    //Atributos: Características internas, no se pueden ver por fuera (ex. tipo de sangre)
+    //PARA JS NO EXISTEN LOS ATRIBUTOS, SÓLO LAS PROPIEDADES.
+    //Funciones: Todas las acciones que puede realizar el objeto.
+    //Con el punto (.) se accede a las propiedades del objeto ex. Pamela.
+    Pamela.edad= 29;
+    console.log (Pamela) //se reescribió la edad
+    //Añadir una propiedad que no habíamos puesto. Crea la propiedad esVeterinario porque no existía
+    Pamela.esVeterinario = true; 
+    console.log (Pamela) 
+    //Borrar una propiedad de un objeto se escribe "delete objeto.propiedad"
+    delete Pamela.estatura;
+
+    //Quiero tener una propiedad en mi objeto con un nombre muy complejo
+    //Para ello, los objetos en JS son nativamente hash-able
+    var viaje ={
+        "Documentos que permiten viajar" : [ "Visa", "Pasaporte", "INE"],
+        "Certificado de vacunación" : true,
+        disponible: true
+    
+    };
+    //HASH
+    var certificado= viaje["Certificado de vacunación"]; //true
+    var disponible = viaje.disponible; //true
+    //disponible = objeto ["disponible"]; //true
+
+    letras = ["a", "b", "b", "c", "a", "f"]
+
+    //Crear objeto que tenga como llaves los hobbies que hago y d evalor de cada uno, poner, los días que regularmente los hago o llegué a hacer
+    var misHobbies ={
+        verSeries: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
+        bailarReggaeton: ["viernes", "sábado"],
+        escucharPodcast: ["Miércoles"],
+        caminar: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
+        leer: ["Martes", "Miércoles", "Jueves"],
+        "escuchar o ver cosas sobre asesinos seriales": ["Lunes", "miércoles", "viernes"]
+    }
+    console.log (misHobbies);
+    var asesinoSeriales = misHobbies ["escuchar o ver cosas sobre asesinos seriales"];
+    
+    misHobbies.escribir = ["martes", "jueves"];
+    console.log (misHobbies);
+
+    delete misHobbies.bailarReggaeton;
+    console.log (misHobbies);
+
+    misHobbies.verDocumentales = ["jueves"];
+    console.log (misHobbies);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
