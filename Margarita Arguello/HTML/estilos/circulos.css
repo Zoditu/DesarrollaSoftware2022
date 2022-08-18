@@ -1,0 +1,36 @@
+html, body { 
+    /* la regla aplica para el html y body, si hay mas se separa x comas*/
+            width: 100%;
+            height: 200%;
+            margin: 0;
+            padding: 0;
+       }
+
+       *, *:before, *:after {
+        box-sizing: border-box;
+       }
+
+.circulo{
+    width: 3rem;
+    height: 3rem;
+    position:absolute;
+    z-index: 1;
+    }
+
+.n{
+    left: 1rem;
+    top: 1rem;
+    background-color: orangered;
+    border: 1px solid black;
+    border-radius: 100%;
+    /*float: left;*/
+    /* Si pongo los porcentajes de cada esquina, los toma de derecha a izda*/ 
+    }
+
+.v{
+    left: 5rem;
+    top: 1rem;
+    background-color: green;
+    border: 1px solid black;
+    border-radius: 100%;
+    }

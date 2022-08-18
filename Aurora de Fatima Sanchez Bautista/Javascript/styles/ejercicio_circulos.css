@@ -1,0 +1,32 @@
+html, body {
+    width: 100%;
+    height: 200%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.circulo {
+    width: 5rem;
+    height: 5rem;
+    border: 3px solid black;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.uno {
+    left: 1rem;
+    top: 1rem;
+    background-color: orange;
+    float: left;
+}
+
+.dos {
+    left: 7rem;
+    top: 1rem;
+    background-color: green;
+    float: left;
+}
