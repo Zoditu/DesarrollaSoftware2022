@@ -1,0 +1,21 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    /* si se agrega borde a la figura, no suma bordes,
+    con la siguiente línea de código: */
+    box-sizing: border-box;
+}
+
+.cuadro{
+    width: 20rem;
+    height: 20rem;
+    background-color: deeppink;
+    border: 5px dotted blue; 
+    padding: 1rem;
+    margin: 1rem;
+}

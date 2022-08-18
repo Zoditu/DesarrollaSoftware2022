@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <form method="get">
+        <div>
+            El formulario tiene el ATRIBUTO METHOD que puede ser 
+            ->POST= se envía datos al servidor, pero sin ver qué
+            datos se envían.
+            ->GET= se envía datos al servidor, pero se ven en la 
+            URL los datos que se estan enviando.
+        </div>
+
+        <!--Separación de estructuras con un div-->
+        <div> 
+            <!-- el ATRIBUTO NAME es un identificador para llamar el objeto
+                dentro de la sección por lo tanto puede haber mas objetos 
+                con atributo name llamado igual, y el ATRIBUTO  ID es para 
+                referenciar el objeto, debe ser único el ID; sin embargo 
+                NAME puede ser igual al ID.
+                TODAS las etiquetas pueden ID.-->
+            <span>Nombre:</span>
+            <input type="text" name="nombre" id="nombre" value="Este es un texto predeterminado con el atributo VALUE">
+        </div>
+        
+        <div> 
+           <span>Apellido:</span>
+           <input type="text" name="apellido" id="apellido" placeholder="Este es un ejemplo de cómo rellenar esta caja de texto con el atributo PLACEHOLDER">
+        </div>
+
+        <div> 
+            <span>Hobbie:</span>
+            <input type="text" name="hobbie" id="hobbie" placeholder="escribe tu hobbie favorito">
+         </div>
+
+        <div>
+            <!--Los radios pueden tener los mismos atributos sí se desea sólo
+            poder seleccionar una opción, por ejemplo género masculino O femenino.
+            El contenido del ATRIBUTO VALUE en el radio no se muestra el texto en
+            la web solo es un cambio interno.-->
+            <span>Género:</span>
+            <input type="radio" name="genero" id="genero-masculino" value="masculino">
+            <label for="genero-masculino">masculino</label>
+            
+            <!--Label con ATRIBUTO FOR, se referencia el id del radio para poder 
+            seleccionar el género (radio), seleccionando el texto.-->
+            <input type="radio" name="genero" id="genero-femenino" value="femenino">
+            <label for="genero-femenino">femenino</label>
+        </div>
+
+        <div>
+            <input type="reset" value="Limpiar">
+            <input type="submit" value="Enviar">
+        </div>
+
+    </form>
+
+    <!--El ATRIBUTO ALT hace referencia al texto que dice el narrador del dispositivo
+    donde se muestra la página web, por ejemplo, una persona ciega puede escruchar que 
+    ahí hay una Imagen de Icono de imagenes-->
+    <img src="https://th.bing.com/th/id/R.66bef4d7f243151ed92cad03de78512c?rik=8kZib81sDK0glA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_153948.png&ehk=PqGEg08LA5mIhBdk24w1har%2bRWhlrvGkSDrHFjPCmDU%3d&risl=&pid=ImgRaw&r=0" alt="Imagen de Icono de imagenes">
+
+</body>
+</html>
