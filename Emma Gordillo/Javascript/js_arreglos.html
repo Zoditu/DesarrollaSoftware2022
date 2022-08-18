@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglos</title>
+    <script>
+        //En Javascript... Un arreglo es un conjunto de datos del mismo que se forman como una "lista" indexada.
+        var arreglo = ["a", "e", "i", "o", "u"];
+        //"a" -> 0
+        //"e" -> 1
+        //"i" -> 2
+        //"o" -> 3
+        //"u" -> 4
+        var numeros = [12, 15, 17];
+        //15 -> 1
+
+        var primerLetra = arreglo[0];
+
+        //Preferentemente los arreglos deben de ser del mismo tipo.
+        //A pesar de la flexibilidad de JS, uno puede meter tipos diferentes en un solo arreglo. Ej:
+        //['a', true, 123, "texto"]
+        //Esto no se debería de usar así, ya que la finalidad del arreglo es listar de forma indexada elementos del mismo tipo.
+        //Por ejemplo, un arreglo de alumnos, de números, de edades, de apellidos, etc.
+        //Cuando queremos mezclar diferentes de datos, es porque queremos describir algo, pero para ello existe el objeto.
+
+        /* Escriba una lista de nombres y otra de apellidos.
+         * Mínimo incluir 5 valores en cada lista.
+         */
+        var nombres = ["Kevin", "Marisol", "Laura", "Carlos"];
+        var apellidos = ["Fernández", "Juárez", "Ambriz", "Sotomayor", "Salazar"];
+
+        //Extraer a "Carlos" de la lista y guardarlo en una variable llamada carlos;
+        var x = 5;
+        var y = x;
+        var carlos = nombres[3]; //"Carlos"
+
+        //En una variable cree el nombre de una persona de la siguiente manera:
+        //nombreX apellidoY apellidoZ
+        //Suponga que X = 2, Y = 2, Z = 0
+        apellidos[2] = "Nuevo Apellido";
+        var X = 3;
+        var Y = 2;
+        var Z = 0;
+        var nombrePersona = nombres[X] + " " + apellidos[Y] + " " + apellidos[Z];
+        console.log(nombrePersona);
+
+        console.log(nombres.length); //5
+
+        //Dada la siguiente lista:
+        var lista = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+        lista.push(200);
+        //Haga un console.log del primero y último elemento.
+        //O sea, debe salir 10 y 100
+        //NO puedes usar el lista[9]...
+        var primerElemento = lista[0];
+        var ultimoElemento = lista[lista.length - 1];
+        //console.log(lista[0] + "," + lista[8] + 1);
+        console.log("Primero: " + primerElemento + ", Ultimo: " + ultimoElemento);
+
+        var num1 = 10;
+        var num2 = num1;
+        num1 = 12;
+
+        console.log(num1);
+        console.log(num2);
+
+        var numeros = [3, 6, 9, 12];
+        var numeros2 = numeros;
+        var numeros3 = numeros2;
+
+        numeros2[1] = 7; //Cambiamos el 6 por el 7
+
+        console.log(numeros);
+        console.log(numeros2);
+        console.log(numeros3);
+
+        /**
+         * Objetos: Abstracción de algo a código...
+         * Abstraer: Extracción de todas las características de ese objeto
+         * Atributos, propiedades y funciones.
+         * Ex: Perro
+         * /
+         Para declarar objetos en JS, simplemente se representan con el formato Key-Value Pair
+         CSS:
+
+          .clase {
+            color: red; //Key-Value Pair
+          }
+          */
+          //Ejemplo de objeto en JS:
+        var perro = {
+            raza: "Chihuahua",
+            nombre: "Cookie",
+            colorPelaje: "Blanco",
+            tamaño: "Pequeño",
+            edad: 1,
+            esMacho: true
+        };
+
+        console.log(perro);
+
+        //Describirse así mism@ en un objeto.
+        var Kevin = {
+            nombres: "Kevin", 
+            apellidoPaterno: "Martin del Campo",
+            apellidoMaterno: "Fernández",
+            edad: 27,
+            sexo: "H", //H ó M, Hombre o Mujer
+            estatura: 1.80,
+            colorPelo: "Café Oscuro",
+            nacionalidad: "Mexicano",
+            tipoCabello: "Lacio",
+            peso: 90
+        };
+
+        var array = [4, 8, 12];
+        array[1]; //8
+        array[1] = 9; //9
+
+        //nombres + apellidoPaterno + apellidoMaterno
+        //Propiedad: Todo lo que puedes ver por fuera. Ex: Color de cabello, tipo, etc.
+        //Atributos: Características internar, no se pueden ver por fuera.
+        //Funciones: Acciones que puede realizar el objeto.
+        var nombreCompleto = Kevin.nombres + " " + Kevin.apellidoPaterno + " " + Kevin.apellidoMaterno;
+
+        console.log("Nombre completo del objeto: " + nombreCompleto);
+
+        console.log(Kevin.edad);
+        Kevin.edad = 28; //Esto reasigna el valor de la propiedad edad del objeto Kevin.
+
+        console.log(Kevin);
+        Kevin.esMaestro = true; //Esto crea la propiedad esMaestro, porque nunca existía en el objeto Kevin.
+
+        //Para borrar una propiedad de un objeto, solo se escribe "delete objeto.propiedad".
+        delete Kevin.peso;
+
+        //Quiero tener una propiedad en mi objeto con un nombre muy complejo
+        //Para ello, los objetos en JS son nativamente hash-able
+        var objeto = {
+            "Documentos que permiten viajar": ["Visa", "Pasaporte", "INE"],
+            "Certificado de vacunación": true,
+            disponible: true
+        };
+
+        //Hash
+        var certificado = objeto["Certificado de vacunación"]; //true
+        var disponible = objeto.disponible; //true
+        disponible = objeto["disponible"]; //true
+
+        objeto.disponible = false;
+        objeto["disponible"] = false;
+
+        //Crear un objeto que tenga como llaves los hobbies que hacen y de valor de cada uno, van a poner, los días que regularmente los hacen o llegaron a hacer.
+        //Mínimo poner 5 actividades
+        //Ej:
+
+        var misHobbies = {
+            Carpinteria: ["Sábado", "Domingo"],
+            "Jugar Videojuegos": ["Domingo"]
+        };
+        
+        misHobbies["Jugar Videojuegos"] = ["Domingo"];
+        misHobbies.Carpinteria = ["Sábado", "Domingo"];
+
+        console.log(misHobbies);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
