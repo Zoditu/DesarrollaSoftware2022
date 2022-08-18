@@ -1,0 +1,126 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+*{
+   box-sizing: border-box;
+}
+/* EJERCICIO 3 */
+/* o span.failed  (aqui tiene etiqueta y clase) */
+/* .failed { 
+    color: red;
+    font-weight: bold;
+   text-decoration: underline;
+}
+TERMINA EJERCICIO 3 */
+
+/* EJERCICIO 6 
+
+ul li:first-child{
+    color: blue;
+} */
+
+/* ul li:nth-child(1) {
+ color: blue; 
+} */
+
+
+/* EJERCICIO 8 */
+
+/* respuesta correcta 
+.bloque{
+    float: left;
+    width: 50%;
+    height: 100vh;
+} */
+
+/* main{
+    display: flex;
+    height: 100vh;
+    width: 100vh;
+    margin: auto;
+    padding-top: 1rem;
+}
+
+.bloque{
+    float: left;
+    width: 50%;
+    height: 50%;
+    background-color: lightcoral;
+    border: 1px solid black;}
+
+    clear
+ */
+
+/* } TERMINA EJERCICIO 8 */
+
+/* EJERCICIO 9
+.color:hover{
+    color:green
+} 
+
+EJERCICIO 10
+*/respuesta 1
+.padre{
+
+}
+.hijo{
+margin: auto;
+margin-top: 25%;
+width: 25%;
+height: 25%;
+border: 1px solid black;
+}
+respuesta 2
+
+.padre {
+display: feColorMatrix
+}
+.hijo {
+position: absolute;
+width: 25%;
+height: 25%;
+left: 37.5%;
+(left: calc(50% - 25%/2);)
+top: 37.5%;
+}
+
+
+/* .caja {
+    width: 40rem;
+    height: 20rem;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.bloque2{
+    width: 25%;
+    height: 25%;
+    background-color: burlywood;
+    border: 2px solid black;
+    margin:auto;
+} */
+
+ /* EJERCICIO 11 */
+ /* .examen:first-child
+	{
+		display: block;
+	}   */
+
+
+  div.examen
+	{
+		width: 500px;
+		border: 1px solid black;
+		margin-left: 500px;
+		padding-top: 300px;
+		text-align: left;
+	}
+	span{
+		color: red;
+		margin-left: 2px; 
+	}  
+

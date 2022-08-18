@@ -1,0 +1,40 @@
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 68px;
+    background: rgb(98, 176, 232);  
+}
+
+h1{
+    margin: 0;
+    font-size: 1.75rem;
+    color: rgb(234, 234, 234);
+}
+
+.container{
+    border: 2px solid rgb(98, 176, 232);  
+}
+
+.card img{
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;
+    object-fit: center;
+}
+
+.left{
+    text-align: left;
+    float:left;
+}
+
+.right{
+    text-align: right;
+    float: right;
+}
+
+section{
+    /* para poder limpiar se agrega un overflow:auto */
+    overflow: auto;
+}
