@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso JS</title>
+    <script>
+        //Declarar nombre
+        var nombre;
+
+        //Declara x con el valor 20 por default
+        var x = 20;
+
+        //En la declaracion de variables del tipo constante, es obligatorio asignarle un valor desde el inicio
+        const y = 3.14;
+
+        //Reasignar una variable 
+        x = 30;
+
+        //Crear n1 y n2, con los valores 20 y 25 respectivamente.
+        //Guardarlos en una variable llamada suma que realice dicha operación.
+        var n1 = 20;
+        var n2 = 25;
+        var suma = n1 + n2; // 20 + 25
+
+        //Se necesita saber si dados dos colores, se consigue el color requerido.
+        //Ej: Azul + Amarillo = Verde
+        //Rojo + Blanco = Rosa
+        //Rojo + Azul = Morado
+        var c1 = "amarillo";
+        var c2 = "azul";
+        var esVerde = c1 == "azul" && c2 == "amarillo" || c1 == "amarillo" && c2 == "azul";
+        console.log("Es color verde? " + esVerde);
+
+        //Numeros pares del 2 al 10
+        var listaNumerosPares = [2, 4, 6, 8, 10];
+        var cantidadDeNumerosEnLista = listaNumerosPares.length;
+
+        //Representar un celular: tiene marca, modelo, precio, resolucion, memoria y ram.
+        var smartphone = {
+            marca: "Apple",
+            modelo: "iPhone 13",
+            precio: 30000,
+            resolucion: "2K",
+            ram: 8,
+            memoria: 256
+        }
+
+        //Crear una lista de todos los smartphones que se les ocurra
+        //Mostrar en un console.log el calular en la posicion 2
+
+        var listaSmartphones = [{
+            marca: "Samsung",
+            modelo: "Samsung Galaxy S22 Ultra",
+            precio: 33000,
+            resolucion: "QHD+",
+            ram: 12,
+            memoria: 256
+        },
+        {
+            marca: "Apple",
+            modelo: "iPhone 13 Pro Max",
+            precio: 35000,
+            resolucion: "Super retina XDR",
+            ram: 12,
+            memoria: 256
+        },
+        {
+            marca: "Huawei",
+            modelo: "Huawei P50 Pro",
+            precio: 27000,
+            resolucion: "OLED",
+            ram: 8,
+            memoria: 256
+        },
+        {
+            marca: "Motorola",
+            modelo: "Motorola Edge 20 Pro",
+            precio: 16000,
+            resolucion: "OLED",
+            ram: 12,
+            memoria: 256
+        }
+        ]
+
+        console.log (listaSmartphones[2]);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

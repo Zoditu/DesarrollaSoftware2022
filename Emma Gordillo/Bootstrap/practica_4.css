@@ -1,0 +1,39 @@
+.menu{
+    position:sticky;
+    top: 0;
+    left: 0;
+z-index: 1;
+
+height: 68px;
+background-color: blueviolet;.
+
+padding-left: 1rem;
+padding-right: 1rem;
+}
+
+h1{
+    margin: 0;
+    font-size: 1.85rem;
+    color: blanchedalmond; 
+}
+
+.card img{
+    height: 11rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.left{
+text-align: left;
+float: left;
+}
+
+.right{
+    text-align: right;
+    float: right;
+}
+
+section {
+    overflow: auto;
+}

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -8,24 +9,23 @@ html, body {
 
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-main{
+main {
     display: flex;
     height: 100%;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
 }
 
-.wrapper{
+.wrapper {
     flex-shrink: 0;
     width: 100%;
 }
 
-.tarjeta{
-   
+.tarjeta {
+
     width: 35rem;
     height: 20rem;
     background: linear-gradient(100deg, rgb(109, 109, 243), rgb(125, 216, 216));
@@ -37,7 +37,7 @@ main{
     border-radius: 2px;
 }
 
-.tarjeta:hover{
+.tarjeta:hover {
     box-shadow: 0 0.1rem 0.4rem rgb(0, 0, 0.3);
 }
 
@@ -45,23 +45,35 @@ main{
     margin-top: 1rem;
 }
 
-.logo
-{
+.logo {
     width: 58px;
     height: 58px;
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
     margin-bottom: 1rem;
-    
+
 }
 
-h1, p, a{
+h1,
+h2,
+h6 {
     margin: 0%;
     font-size: 1.5em;
     color: #fff;
+    font-family: 'Montserrat', sans-serif;
 }
 
-p, a{
-    font-size: 1.2em;
+h2 {
+    font-size: 1.1em;
+    color: rgb(222, 226, 247);
+}
+
+h6 {
+    margin-top: 0.3rem;
+    font-size: 0.75em;
+}
+
+h6 .material-icons {
+    font-size: 0.75em;
 }
 
 .mitad {
@@ -69,20 +81,20 @@ p, a{
     width: 50%;
     height: 100%;
 }
-.mitad:first-child{
-    background-color: rgb(20, 60, 190);
+
+.mitad:first-child {
+    background-color: #10405c;
+    background-image: url("https://img.freepik.com/vector-gratis/fondo-azul-galaxia_125540-99.jpg?w=1380&t=st=1658854873~exp=1658855473~hmac=f28567f5c5ae3bacf2b2ec6bc85a778f273f96dfe6e1f0af36b2523dbde07cf5");
     text-align: left;
     padding: 1rem;
 }
-.flex
-{
+
+.flex {
     display: flex;
     align-items: center;
     text-align: center;
 }
 
-.h100{
+.h100 {
     height: 100%;
 }
-
-
