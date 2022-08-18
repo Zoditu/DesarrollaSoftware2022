@@ -45,7 +45,7 @@
             resolucion: "2K",
             ram: 8,
             memoria: 256
-        }
+        };
 
         //Crear una lista de todos los smartphones que se les ocurra
         //Mostrar en un console.log el calular en la posicion 2
@@ -82,9 +82,24 @@
             ram: 12,
             memoria: 256
         }
-        ]
+        ];
 
         console.log (listaSmartphones[2]);
+
+
+
+        //Crear la funcion ImprimirSuma que muestra en la consola el resultado de 2 + 3
+        //En los () de la declaracion de las funciones, se pueden poner variables.
+        //A estas variables se les conoce como parámetros.
+        function ImprimirSuma(num1, num2) {
+            //Pueden poner todo lo que quieran
+            var suma = num1 + num2;
+            console.log("La suma es: " + suma);
+        }
+
+        var numero_1 = 10;
+        ImprimirSuma(numero_1, 3);
+
 
     </script>
 </head>
