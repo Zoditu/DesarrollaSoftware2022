@@ -1,0 +1,16 @@
+div {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+    border: 1px solid black;
+    margin: 1rem;
+    float: left;
+}
+
+.verde {
+    background-color: forestgreen;
+}
+
+.naranja {
+    background-color: orange;
+}

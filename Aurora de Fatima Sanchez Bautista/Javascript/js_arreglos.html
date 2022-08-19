@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglos</title>
+    <script>
+        //En Javascript...Un arreglo es un conjunto de datos del mismo que se forman como una "lista" indexada.
+        var arreglo = ["a", "e", "i", "o", "u"];
+
+        var primeraLetra = arreglo[0];
+
+        //Preferente los arreglos deben ser del mismo tipo.
+        //A pesar de la flexibilidad de JS, uno puede meter tipos diferentes en un solo arreglo. Ej: ['a', true, 123, "texto"]
+        //Esto no se deberia de usar asi, ya que la finalidad del arreglo es listar de forma indexada elementos del mismo tipo.
+        //Por ejemplo, un arreglo de alumnos, numeros, edades, apellidos, etc.
+        //Cuando queremos mezclar diferentes datos, es porque queremos describir algo, pero para ello existe el objeto.
+        
+        var nombres= ["Andrea", "Sandra", "Elisabeth", "Rodrigo", "Santiago"];
+        var apellidos = ["Lopez", "Flores", "Sanchez", "Gonzalez", "Uribe"];
+
+        apellidos[2]= "Nuevo Apellido";
+        var X = 3;
+        var Y = 2;
+        var Z = 0;
+        var nombrePersona = nombres[X] + " " + apellidos[Y] + " " + apellidos[Z];
+        console.log(nombrePersona);
+        console.log(nombres.length);
+
+        var lista = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+        lista.push(200);
+        //Haga un console.log del primero y último elemento.
+        //Osea, debe salir 10 y 100
+        //No puedes usar el lista[9]...
+        var primerElemento = lista[0];
+        var ultimoElemento = lista[lista.length - 1];
+        console.log("Primero: " + primerElemento + ", Ultimo: " + ultimoElemento);
+
+        var num1= 10;
+        var num2 = num1;
+        num1 = 12;
+
+        console.log(num1);
+        console.log(num2);
+
+        var numeros = [3, 6, 9, 12];
+        var numeros2 = numeros; 
+
+        numeros2[1] = 7; // Cambiamos el 6 por el 7
+
+        console.log(numeros);
+        console.log(numeros2);
+
+        //Ejemplo de objeto en JS:
+        var perro = {
+            raza: "Chihuahua",
+            nombre: "Cookie",
+            colorPelaje: "Blanco",
+            tamaño: "Pequeño",
+            edad: 1,
+            esMacho: true
+        };
+
+        console.log(perro);
+
+        //Describirse así mism@ en un objeto.
+        var Aurora = {
+            nombres: "Aurora de Fatima",
+            apellidoPaterno: "Sanchez",
+            apellidoMaterno: "Bautista",
+            edad: 31,
+            sexo: "M", //H ó M, Hombre o Mujer
+            estatura: 1.58,
+            peso: 70,
+            colorCabello: "Negro",
+            nacionalidad: "Mexicana",
+            tipoCabello: "Rizado",
+            colorPiel: "Morena",
+            colorOjos:"Cafes"
+        };
+
+        console.log(Aurora);
+
+        //nombres + apellidoPaterno + apellidoMaterno
+        //Propiedad: Todo lo que puedes ver por fuera. Ex: color de cabello, tipo, etc.
+        //Atributos: Caracteristicas internas, no se pueden ver por fuera.
+        //Funciones: Acciones que puede realizar el objeto.
+        var nombreCompleto = Aurora.nombres + " " + Aurora.apellidoPaterno + " " + Aurora.apellidoMaterno;
+
+        console.log("Nombre completo del objeto: " + nombreCompleto);
+
+        console.log(Aurora.edad);
+        Aurora.edad = 32; //Esto reasigna el valor de la propiedad edad del objeto Aurora.
+
+        console.log(Aurora);
+        Aurora.esMaestra = false; //Esto crea la propiedad esMaestra, porque nunca existia en el objeto Aurora.
+        
+        //Para borrar una propieadad de un objeto, solo se escribe "delete objeto propiedad".
+        delete Aurora.peso;
+
+        //Quiero tener una propiedad en mi objeto con un nombre muy complejo
+        //Para ello, los objetos en JS son nativamente hash-able
+        var objeto = {
+            "Documentos que permiten viajar": ["Visa", "Pasaporte", "INE"]
+        };
+
+
+
+        //Crear un objeto que tenga como llaves los hobbies que hacen y de valor cada uno, van a poner, los dias que regularmente los hacen o llegaron a hacer.
+        //Minimo poner 5 actividades
+
+        var misHobbies = {
+            "Escuchar música": ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"],
+            "Ver series": ["Viernes", "Sabado", "Domingo"],
+            "Practicar natacion": ["Martes", "Jueves"]
+        };
+
+        misHobbies["Salir a caminar y correr"] = ["Lunes", "Martes", "Miercoles", "Jueves", "viernes"];
+
+        misHobbies.Leer = ["Miercoles", "Jueves", "Sabado"];
+
+        console.log(misHobbies);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
