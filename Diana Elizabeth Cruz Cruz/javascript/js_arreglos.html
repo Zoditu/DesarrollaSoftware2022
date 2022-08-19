@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglos</title>
+    <script>
+        //En Javascript... un arreglo es un conjunto de datos del mismo que se forman como una "lista" indexada.
+        var arreglo = ["a", "e", "i", "o", "u"]; //los corchetes son arreglos 
+        //"a" -> 0
+        //"e" -> 1
+        //"i" -> 2
+        //"o" -> 3
+        //"u" -> 4
+
+        var numeros = [12, 15, 17,];
+        //15 -> 1
+        var primeraLetra = arreglo[0];
+
+        //Preferentemente los arreglos dJS, uno puede meter tipos diferentes en un solo arreglo, 
+        //Ej: ['a', true, 123, "texto"]
+        //Esto no se berìa de usar así, ya que la finalidad delarreglo es liustar de forma indexada elememntos del mismo tipo.
+        //Por ejemplo un arreglo de alumnos, de números, de edades, de apellidos, etc.
+        //Cuando queremos mezclar diferentes datos, es porque queremos describir, algo pero para ello existe le objeto.
+
+        /*Escriba una lista de nombres y oyta de apellidos.
+        *Minimo incluir 5 valores de cada lista
+        */
+
+        var nombres = ["Diana", "Oscar", "Oliver", "Daniela", "Melissa"];
+
+        var apellidos = ["Cruz", "Alanis", "López", "Martínez", "Zapata"];
+
+        //Extraer a "Daniela" de la lista y guardarlo en una variable llamada daniela;
+        var daniela = nombres[3]; //"Daniela"
+
+        //En una variable cree el nombre de una persona de la siguiente manera:
+        //nombreX apellidoX apellidoY
+        //Suponga que x=2 , Y=2, Z=0
+        apellidos[2] = "Nuevo Apellido";
+        var X = 3;
+        var Y = 2;
+        var Z = 0;
+        var nombrePersona = nombres[X] + " " + apellidos[2] + " " + apellidos[0];
+        console.log(nombrePersona);
+
+        console.log(nombres.length)//5
+
+        //DAda la siguiente lista:
+
+        var lista = [10,20,30,40,50,60,50,80,90,100];
+        lista.push(200);
+        //Haga un console log del primero y último elemento.
+        //Osea debe salir 10 y 100
+        //No puedes usar el lista [9]...
+
+        var primerElemento = lista[0];
+        var ultimoElemento = lista [lista.length - 1];
+
+        //Primera opción
+        /*var lista2 = primerElemento + " " + "y" + " " + ultimoElemento;
+        console.log(lista2);*/
+
+        //Segunda opción
+        console.log("Primero: " + primerElemento + ", Último; " + ultimoElemento);
+
+        var num1 = 10;
+        var num2 = num1;
+        num1 = 12;
+
+        console.log(num1);
+        console.log(num2);
+
+        var numeros = [3, 6, 9, 12];
+        var numeros2 = numeros;
+        var numeros3 = numeros2;
+
+        numeros2[1] = 7; //Cambiamos el 6 por el 7
+
+        console.log(numeros);
+        console.log(numeros2);
+        console.log(numeros3);
+
+        /**
+         * Objetos: Abstracción de algo a código...
+         * Abstraer: Extracción de todas las caracteristicas de ese objeto.
+         * Atributos, propiedades y funciones.
+         * Ex. Perro
+        
+        //Para declarar objetos en JS, simplemente se representan con el formato Key-Value Pair
+         CSS:
+
+         *  .clase {
+         * color: red; //Key-Value Pair
+          }
+
+          */
+         //Ex. de objeto en perro en JS
+         var perro = {
+            raza: "chihuahua",
+            nombre: "Cookie",
+            colorPelaje: "Blanco",
+            Tamaño: "Pequeño",
+            edad: 1,
+            esMacho: true
+         };
+          
+         console.log(perro);
+        
+         //typeof perro;
+
+         var Diana = {
+            nombres: "Diana Elizabeth",
+            apellidoPaterno: "Cruz",
+            apellidoMaterno: "Cruz",
+            edad: 29,
+            sexo: "H", //H o M, Hombre o Mujer
+            estatura: 1.80,
+            colorPelo: "Negro",
+            nacionalidad:"Mexicana",
+            tipoCabello: "Ondulado",
+         }
+
+         console.log(Diana);
+
+         var array = [4, 8, 12]
+         array[1];
+
+         //nombres + apellidoPaterno + apellidoMaterno
+         //Propiedad: Todo lo que puedes ver por fuera, Ex: Color de cabello, tipo, etc.
+         //Atributos: Caracteristicas internas, no se pueden ver por fuera.
+         //Funciones: Acciones que puede realizar el objeto.
+         var nombreCompleto = Diana.nombres + " " + Diana.apellidoPaterno + " " + Diana.apellidoMaterno;
+
+         console.log("Nombre completo del objeto: " + nombreCompleto);
+
+         console.log(Diana.edad);
+        
+         Diana.edad = 30;
+         console.log(Diana); //Esto reasigna el valor de la propiedad edad  del objeto Diana.
+        
+         Diana.esDiseñadora = true; //Creamos la propiedad, porque nunca existía en el objeto Diana
+
+         //Para borrar una propiedad de un objeto, solo se escribe "delete objeto.propiedad"
+         delete Diana.nacionalidad;
+         
+         //Quiero tener una propiead en mi objeto con un nombre muy complejo
+         //Oara ello, los objetos en JS son nativamente hash-able
+         var objeto = {
+            "Documentos que permite viajar": ["Visa", "Pasaporte", "INE"],
+            "Certificado de vacunación": true,
+            disponible: true          
+         };
+
+         //Hash
+         var certificado = objeto["Certificado de vacunación"]; //true
+         var disponible = objeto.disponible; //true
+         disponible = objeto["disponible"]; //true
+         
+         objeto.disponible = false;
+         objeto["disponible"] = false;
+
+         //Crear un objeto que tenga como llaves los hobbies que hacer y de valor de cada uno, van a poner, los días que regularmente los hacen o llegaron a hacer.
+
+         var misHobbies = {
+            "Ir al Cine":["Viernes", "Sábado", "Domingo"],
+            "Ir por un elote": ["Domingo"],
+            comer: ["Domingo"]
+         };
+         
+         misHobbies.Salir = ["Sábado", "Domingo"];
+
+         misHobbies["Salir al supermercado"] = ["Martes", "Miércoles", "Jueves"];
+         misHobbies["Ir al parque"] = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+
+         console.log(misHobbies);
+
+         
+
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
