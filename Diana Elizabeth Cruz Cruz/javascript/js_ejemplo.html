@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //variables y tipos de datos
+        /* Tipo de datos: Representa el tipo de informaciòn que queremos manejar.
+         * En JS existen estos tipos de datos
+         * - Number: Cualquier nùmer, positivos, negativos, enteros o décimales.
+         *    Ex: 1, -100 ,3.1416 , -0.0034 , etc.
+         * - string: Son cadenas de caracteres, o sea, texto se representan con '' o ""
+         *     EX: "Texto", puede ser desde un solo caracter "%" o varias palabras "Anita lava la tina". También funciona 'asi'
+         * - boolean: Solo son dos posibles valores, true o false, Literal se escriben así en minúscula.
+         *    Ex: True
+         * - object: Lo veremos más adelante.
+         */
+
+        /*Variables: Sirven para almacenar la información y poder utiliazrla.
+        Las variables solo se definen de la siguiente manera.
+        * var NOMBRE;
+        * Donde NOMBRE debbe ser único, solo puede iniciar con un $ , _ , o letras.
+        * No puede iniciar con caracteres especiales %,/, #, etc.
+        * Tampoco puede inicar con números , pero si se pueden poner despues del inicio.
+        * Ex. var x; válido
+        *     var_nombre; - válido
+        *     var$nombre; - válido
+        *     varnombre1; - válido
+        *     var1nombre; - NO Válido
+        *     var%nombre; - NO Válido
+        * 
+        */
+
+        /* Las variables se ven afectadas por el alcance (Scope)
+        * El alcance, en resumen, lo define cualquier bloque que llve {}
+        * Existen 2 tipos de alcances: Global y Local.
+        * EL alcance global es visible en todos lados, y el local es temporal...
+
+        */
+
+        //Tipos de Variables:
+        var variable;
+        /* Para poder darle valor a una variables, debe estar declarada...
+         * Se puede declarar y asignar un valor al mismo tiempo...
+         */
+
+        var z = 10;
+        z = true;
+        z = "Texto";
+
+        // A esta operación se llamaba inicialización de la variable...
+        //Cuando se declara una variable, no tiene valor, se le tiene que iniciar con alguien.
+
+        variable = 15;
+        /* Cuando una variable ya esta declaradam se le puede asignar o reasignar un valor...
+        A esta operaciòn se le conoce como asignación de variable.   
+        */
+
+        variable = 16;
+        //Reasignar a la operación es darle un valor diferente.
+        //He ahí el nombre "variable", o sea, "varia" su valor.
+
+        //Constante: Valor que no se puede cambiar y tiene que estar asignado desde el inicio.
+        const PHI = 3.1416;
+        const url = "url"
+
+        /* Variables: Referencia en memoria...
+         *var o const:
+         *     - Las referencias del tipo var, se pueden sobre-escribir
+         *     - LAs referencias del tipo const, pueden crear duplicados y no se sobreescriben.
+         * Alcance Global:
+         *     - Todo lo que pongamos directamente en el código, fuera de cualquier {}
+         * Alcance Local:
+         *     - Todo lo que pongamos dentro de unas {} y es temporal... al salir de ese bloque de código, se destruye automáticamente por el GC.
+         * */
+
+        //Operaciones
+        /* Operadores:
+        *  - Aritméticos: +, -, /, *, % ó MOD
+        *  - Condicionales: >, <, >=, <=, ==, !=, ===, !==
+        * Todos los operadores condicionales regresan un boolean, osea true o false.
+        * - Lógicos; AND, OR, NOT
+        *   AND: &&
+        *   OR: || 
+        *   NOT: !
+        *   Todos los operadores lógicos se deben mezclar solo con booleans y regresa otro boolean:
+            true && true  -> true
+        */
+
+        var n1 = 10;
+        var n2 = 4;
+        var suma = 10 + 5; //15
+        suma = n1 + 4; //14
+        n1 = 11;
+        suma = n1 + n2; //15
+
+        var mult = n2 * n1 // 4
+        var div = 10 / 5 // 2
+        var modulo
+
+        var esPar_18 = 18 % 2 //0
+        var esPar_19 = 19 % 2; //1
+
+        var xNeg = -10;
+        var xPos = 11;
+
+        suma = xNeg + xPos;
+        //-10 + 11 -> 1
+        //resta = zNeg - xPos;
+        // -10 - 11 -> -21
+        resta = xPos - xNeg;
+        // 11 - -10 -> 21
+
+        //Cualquier operación en JS se puede combinar un valor con otro valor, variable con variable o valor con variable o viceversa.
+
+        /*Declare las siguientes variables:
+         * edad, K.
+         * K siempre tiene el valor de 3.
+         * LA edad la puede poner con el valor que deseen.
+         * En otra variable guarde el valor de el reisduo de la edad entre K.
+         * Después, en una cuarta variable asigne el valor del residuo entre 2.
+         */
+
+        var edad = 29;
+        const k = 3;
+        var modulo_1 = edad % k;
+        var division_1 = modulo_1 / 2;
+
+        //Operadores Condicinales: Boolean - true | false
+        //  >, <, >=, <=, ==, !=, ===, !==
+        var mayorQue = 5 > 10; // false
+        // console.log(mayorQue);
+        var menorQue = 5 < 10; //true
+        var mayorIgual = 6 >= 7; //false
+        var menorIgual = 6 <= 8; // true
+        var igual = 5 == 5; //true
+        var igual = 6 == 5; //false
+        var mismaletra = "A" == "a"; //false
+
+        var diferente = 5 != 6; //true
+        var diferente = 5 != 5; //false
+        //Poner == significa que sea el mismo valor...
+        //Sin embargo, JS es un poco flexible
+        //Parse: converitr un texto a un valor, ej. texto a número
+
+        resta = 10 - '5'; //5 java tiene la capacidad de cambiar un texto en numero siempre y cuando este en una operación.
+        //Cuando haces operaciones aritméticas que no sean la suma (+) con forma de números en forma de texto. Ej: '5' - 10 -> -5
+        //Funciona para el *, -, /, y el %.
+        //Cuando sumas un texto con algo más, no importa que sea, se realiza una operación  llamada CONCATENACIÓN. CONCATENAR
+
+        var igual_TextoNum = '5' == 5;
+        // El igual, verifica que el valor sea el mismo...
+        //Y como JS convierte un texto númerico a número, esto funciona..
+        //Es como lo de arriba, hacer -, *, / o % con textos y números.
+        var identidad = '5' === 5; //false
+        var noIdentico = 5 !== 5; //false
+
+        //Operadores lógicos
+        //Los operadores lógicos permiten unir 2 o más operaciones condicionales en una sola...
+        // Ejemplo: Que el número 5 < 4 y >1
+        //O sea, está buscando números en un rango definido...
+        //Las operaciones lógicas recortan todavía más un conjunto...
+        //Queremos saber si una edad pertenece a un niño o a un adolescentr.
+        //Un adolescente lo vamos a considerar que tenga entre 12 y 17 años, incluyendo estos valores, o sea, 12, 13, 14, 15, 16 y 17
+        var edad = 10;
+        var esAdolescente = edad > 11 && edad < 18; //true | false
+        //var esAdolescente = edad >= 12 && edad <= 17; //true | false
+        //var esAdolescente = edad >= 12 && edad < 18; //true | false
+
+        //EL OR, es todo lo contrario a AND...
+        var colorA = "rojo";
+        var colorB = "azul";
+        var disponibles1 = "rojo";
+        var disponibles2 = "morado";
+        var disponibles3 = "naranja";
+
+        var comprarHojas = disponibles1 == color || disponible2 == color || disponibles3 == color;
+
+        //NOT niega el booleano.
+        //Ex: !true -> false
+        //Ex: !false -> true
+        edad = 15;
+        var mayorEdad = edad >= 18;
+        var noMayorDeEdad = !mayorEdad;
+
+        
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
