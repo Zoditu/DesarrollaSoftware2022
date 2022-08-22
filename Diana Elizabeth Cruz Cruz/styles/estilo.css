@@ -1,0 +1,38 @@
+/* .container{
+    width: 100%;
+    border: 1px solid red;
+}
+
+.wrapper{
+    flex-shrink: 0;
+    width:100%;
+}
+
+.failed {
+    color: red;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+li:first-child {
+    color: blue;
+}
+
+.examen:first-child {
+		display: block;
+        color: aquamarine;
+	}
+*/
+
+.examen {
+		width: 500px;
+		border: 1px solid black;
+		margin-left: 500px;
+		padding-top: 300px;
+		text-align: left;
+	}
+
+span {
+		color: red;
+		margin-left: 2px;
+	}
