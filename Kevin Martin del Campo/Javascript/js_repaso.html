@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso JS</title>
+    <script>
+        //Declarar nombre
+        var nombre;
+
+        //Declara x con el valor 20 por default
+        var x = 20;
+
+        //En la declaración de variables del tipo constante, es obligatorio asignarle un valor desde el inicio
+        const y = 3.14;
+
+        //Reasignar una variable
+        x = 30;
+
+        //Crear n1 y n2, con los valores 20 y 25 respectivamente.
+        //Guardarlos en una variable llamada suma que realice dicha operación.
+        var n1 = 20;
+        var n2 = 25;
+        var suma = n1 + n2; //20 + 25
+
+        //Se necesita saber si dados dos colores, se consigue el color requerido.
+        //Ej: Azul + Amarillo = Verde
+        //Rojo + Blanco = Rosa
+        //Rojo + Azul = Morado
+        var c1 = "amarillo";
+        var c2 = "azul";
+        var esVerde = c1 == "azul" && c2 == "amarillo" || c1 == "amarillo" && c2 == "azul";
+        console.log("Es color verde? " + esVerde);
+
+        //Numeros pares del 2 al 10
+        var listaNumerosPares = [2, 4, 6, 8, 10];
+        var cantidadDeNumerosEnLista = listaNumerosPares.length;
+
+        //Representar un celular: tiene marca, modelo, precio, resolución, memoria y ram.
+        var smartphone = {
+            marca: "Apple",
+            modelo: "iPhone 13",
+            precio: 30000,
+            resolucion: "2K",
+            ram: 8,
+            memoria: 256
+        };
+
+        //Funciones
+        //Una función o método es prácticamente una receta, una serie de pasos a seguir.
+        function nombreFuncion() {
+            //La serie de pasos que realiza esta función
+            console.log('Dentro de la función');
+        }
+
+        console.log('Esto está después de declarar la función');
+
+        //Las funciones son como manuales, si uno nunca usa el manual o la recta, no haces nada
+        //Para mandar a llamar una función, o sea, ejecutarla, es solo a través del nombre:
+        nombreFuncion();
+
+
+        var Sam = "Sam2";
+        //Crear la función ImprimirSuma que muestra en la consola el resultado de 2 + 3
+        //En los () de la declaración de las funciones, se pueden poner variables.
+        //A estas variables se les conoce como parámetros.
+        function ImprimirSuma(num1, num2) {
+            //Pueden poner todo lo que quieran
+            //console.log(Sam);
+            var Sam = "Sam";
+            console.log(Sam);
+            var suma = num1 + num2;
+            console.log("La suma es: " + suma);
+        }
+
+        var numero_1 = 10;
+        ImprimirSuma(numero_1, 3);
+        console.log(Sam);
+
+        //Una función puede solo realizar la tarea que le dices, como por ejemplo, en la de ImprimirSuma, le pasamos los números y los sumó y lo mostró en la consola.
+        //Bueno, la función también puede generar un resultado y regresar ese resultado.
+        function Sumar(num1, num2, num3) {
+            var suma = num1 + num2 + num3;
+            return suma;
+        }
+
+        var resultado = Sumar(10, 14, 11);
+        console.log(resultado);
+
+        //ingrtedientes será un objeto
+        function prepararPastel(ingredientes) {
+            console.log("Añadir " + ingredientes.harina + " taza(s) de harina");
+            console.log("Batir " + ingredientes.huevos + " huevos en un bowl");
+            console.log("Precalentar el horno a 350°F");
+            console.log("Añadir " + ingredientes.mantequilla + " barra(s) de mantequilla");
+            console.log("Añadir " + ingredientes.leche + " taza(s) de leche");
+            console.log("Mezclar todo hasta que no tenga grumos");
+            console.log("Vaciar en un molde");
+            console.log("Cocinar en el horno durante 20 minutos");
+            console.log("Preparar el betún :3");
+            console.log("Después de 20 minutos, sacar y dejar enfríar 1 hora");
+            console.log("Decorar el betún");
+
+            var pastel = {
+                tipo: ingredientes.tipoHarina,
+                betun: ingredientes.betun,
+                forma: ingredientes.molde
+            };
+
+            return pastel;
+        }
+
+        var miPastel = prepararPastel({
+            harina: 1,
+            huevos: 3,
+            mantequilla: 1,
+            leche: 1,
+            tipoHarina: "Vainilla",
+            betun: "Chocolate",
+            molde: "Rosca"
+        });
+
+        console.log(miPastel);
+
+        var miPastel2 = prepararPastel({
+            harina: 2,
+            huevos: 5,
+            mantequilla: 2,
+            leche: 2,
+            tipoHarina: "Chocolate",
+            betun: "Fresa",
+            molde: "Cubo"
+        });
+
+        console.log(miPastel2);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

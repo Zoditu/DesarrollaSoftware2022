@@ -1,0 +1,36 @@
+.menu {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    height: 68px;
+    background-color: rgb(67, 211, 74);
+    color: rgb(0, 0, 0);
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.card img {
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.left {
+    text-align: left;
+    float: left;
+}
+
+.right {
+    text-align: right;
+    float: right;
+}
+
+section {
+    overflow: auto;
+}

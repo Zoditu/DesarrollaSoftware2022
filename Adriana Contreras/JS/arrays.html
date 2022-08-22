@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+    <script>
+
+var nombres=["Adriana", "Andrea","Anahi","Antonella", "Aracely"];
+var apellidos=["Contreras", "Cazares", "Cortazar","Cantu","Cohelo"];
+
+ var nombrePersona= nombres[2]+" "+apellidos[1]+" "+apellidos[0];
+ console.log(nombrePersona);
+
+var lista=[10,20,30,40,50,60,70,80,90,100];
+lista.push(200);
+lista.push(300);
+var primerElemento=lista[0]; // indice: var primerElemento
+var ultimoElemento=lista[lista.length-1];
+console.log("Primero:" + primerElemento+ ", Ultimo:" + ultimoElemento);
+
+
+var num1=10;
+var num2 = num1;
+num1= 12;
+
+console.log(num1);
+console.log(num2);
+
+var numeros=[3,6,9,12];
+var numeros2= numeros;
+
+numeros2[1]=7; //cambiamos el 6 por el 7
+
+console.log(numeros);
+console.log(numeros2);
+
+var Adriana = {
+    nombres:"Adriana",
+    apellidoPaterno:"Contreras",
+    apellidoMaterno:"Miranda",
+    edad:33,
+    sexo:"M",
+    estatura:1.58,
+    colorPelo:"negro",
+    nacionalidad:"Mexicana",
+    tipoCabello:"lacio",
+    peso:51
+
+};
+
+var nombreCompleto = Adriana.nombres+ " "+Adriana.apellidoPaterno+ " "+ Adriana.apellidoMaterno;
+
+
+console.log("nombre completo del objeto: "+nombreCompleto);
+
+Adriana.edad=34;
+
+console.log(Adriana);
+
+Adriana.esMaestra=true; 
+
+delete Adriana.esMaestra;
+
+var objeto = {
+    "Documentos que permiten viajar":["Visa","Pasaporte","INE"],
+    "Certificado de vacunacion":true,
+    //Disponible:true
+};
+
+//hash 
+var certificado = objeto["Certificado de vacunacion"];
+//var diponible = objeto ["disponible"];
+//disponible = objeto["disponible"];
+
+console.log(certificado);
+
+var Hobbies={
+    coser:["sabado","domingo"],
+    senderismo:["domingo"],
+    "Ir al gimnasio":["Lunes","Martes","Miercoles","Jueves","Viernes"],
+    cocinar:["domingo","Miercoles"],
+    "Ver peliculas":["Viernes","Domingo"]
+    };
+
+    console.log(Hobbies);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

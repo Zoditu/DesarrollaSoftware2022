@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bases de CSS</title>
+    <!--Se agregan identificador de estilos para usar CSS-->
+    <style>
+        h1{
+            color:black;
+            background-color:hotpink;
+        }
+
+        h2{
+            color:white;
+            background-color:rgb(40, 126, 136);
+        }
+
+        div{
+            color:red;
+        }
+
+        body{
+            color:blue;
+        }
+
+        .claseA{
+            color:chartreuse
+        }
+
+        .claseB{
+            color:darkorange
+        }
+
+        span{
+            color:blueviolet
+        }
+
+        footer h4{
+            color: deeppink
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+    <herader>
+        <h1>Mi primera implementación de CSS</h1>
+        
+        <div  id="ejemploSelectorID">
+            Ejemplo de mi primer selector (ejemploSelectorID) <br><br>
+        </div>
+
+        <div id="ejemploSelectorCLASS" class="clase A claseB">
+            Este es mi segundo selector (ejemploSelectorCLASS), el cual tiene dos clases (claseA y claseB).<br>
+            La cascada sobre-escribe sí son del mismo nivel, por ello aunque la claseA este primero referenciada con color VERDE, el texto se ilumina con color NARANJA porque es la segunda clase mencionada en el sector de estilos. <br><br>
+        </div>
+        
+        <span>
+            Ejemplo de mi tercer selector (ejemploSelectorTAG)<br><br>
+        </span>
+
+
+       
+        <hr>
+        
+    </herader>
+
+    <main>
+        
+        <h2>Este es otro estilo :)</h2>
+
+        <p>
+            CSS (Cascading Style Sheets) esta basado en JSON (JavaScript Object Notation) el cual debe tener una estructura llave-valor, en sí son reglas de estilo con selectores:<br>
+    
+                selector{<br>
+                    propiedad1: valor;<br>
+                    propiedad2: valor;<br>
+                }<br><br>
+
+            Selectores: forma de identificar elementos. La jerarquía esta basada en la prioridad según el tipo de elemento:<br><br>
+            1) #id: vease ejemploSelectorID, se referencia en "style como #ejemploSelectorID", y se coloca el estilo dentro de llaves ({});<br><br>
+            2) .clase: vease ejemploSelectorCLASS, un elemento puede tener varias clases sí son separas por un espacio " ".<br><br>
+            3) !>etiqueta>:vease ejemploSelectorTAG, se referencia en "style como ejemploSelectorTAG {}". <br><br>
+            4) !>etiqueta> !>etiqueta>: vease ejemploSelectorReglaCombinada, se especifica entre etiquetas. <br><br>
+            5) Diseño GENERAL: si se desea tener todo el estilo igual en todo:<br>
+            *{ <br>
+                color:red;<br>
+            } <br><br>
+            6) Sobre-escribir en librerías: sí se desea sobre-escribir usar "!important" en los selectores de >style> deseados.<br>
+            .ejemplo{<br>
+                color:green !important; <br>
+                background: black !important; <br>
+            } <br><br>
+        </p>
+    </main>
+
+    <footer>
+        <h3>Hecho por: Michelle Hernández Zamora</h3>
+        <h4>Semana 2, clase 07.06.022 (este es un h4)</h4>
+        <h4>Este es el cuarto selector (ejemploSelectorReglaCombinada), diciendo que en la etiqueta FOOTER todos los H4 se pinten de color rosa.</h4>
+    </footer>
+</body>
+</html>
