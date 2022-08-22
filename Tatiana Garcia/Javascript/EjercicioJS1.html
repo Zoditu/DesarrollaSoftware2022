@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio JS 1</title>
+    <script>
+        var frutas = [{
+            nombre: "Lulo",
+            sabor: "acido",
+            color: ["verde", "naranja"],
+            rareza: "Raro",
+            dulce: false
+        }, {
+            nombre: "Maracuya",
+            sabor: "acido",
+            color: ["Amarillo", "verde"],
+            rareza: "Regular",
+            dulce: false
+        }, {
+            nombre: "Mora",
+            sabor: "Acido",
+            color: "Morado",
+            rareza: "Regular",
+            dulce: false
+        }];
+
+        var smarphone =[ "Xiami Redmi note 10S", "Xiaomi Redmi note 10 Pro", "Iphone X", "Iphone 12", "Iphone 13"]
+        console.log(smarphone[2]);
+
+        function nombreFuncion(){
+            console.log("Dentro de la funcion")
+        };
+
+        console.log("Esto esta despues de declarar la funcion")
+        nombreFuncion();
+
+
+        function imprimirSuma(n1, n2){
+            var suma = n1 + n2;
+            console.log (suma)
+        };
+
+        imprimirSuma(4, 6);
+
+        function Sumar(n1, n2, n3){
+            var suma = n1 + n2 + n3;
+            return suma;
+        }
+
+        console.log(Sumar(10, 12, 7));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
