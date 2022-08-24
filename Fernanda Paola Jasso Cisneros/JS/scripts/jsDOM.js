@@ -1,0 +1,1 @@
+document.getElementById("circulo1").innerHTML= "hola";
