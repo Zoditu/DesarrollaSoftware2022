@@ -1,0 +1,58 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: darkcyan;
+}
+
+.cuadro {
+    
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    display: inline-block;
+    width: 10rem;
+    height: 10rem;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.rojo {
+    background-color: darkred;
+    left: 3rem;
+    top: 3rem;
+}
+
+.verde {
+    background-color: forestgreen;
+    left: 6rem;
+    top: 6rem;
+}
+
+.amarillo {
+    background-color: goldenrod;
+    left: 9rem;
+    top: 9rem;
+}
+
+.azul {
+    background-color: midnightblue;
+    left: 12rem;
+    top: 12rem;
+}
+
+.relative {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+    background-color: whitesmoke;
+}

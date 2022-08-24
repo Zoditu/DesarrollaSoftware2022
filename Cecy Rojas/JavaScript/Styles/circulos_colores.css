@@ -1,0 +1,23 @@
+
+
+main {
+    overflow: auto;
+}
+
+section{
+    float: left;
+    padding: 1rem;
+    margin: 1rem;
+    border: 1px blue;
+}
+
+div.circulo{
+    border: 2px solid black;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+}
+
+.clear {
+    clear: both;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso</title>
+</head>
+<script>
+    //Declarar nombre
+    var nombre;
+
+    //Declara x con el valor 20 por default
+    var x = 20;
+    
+    //En la declaración de variable del tipo constante es obligatorio asignarle un valor desde el inicio.
+    const y = 3.14;
+
+    //Reasignar una variable. Le cambiamos el valor a la primera x
+    x = 30;
+
+    //Crear n1 y n2 con los valores 20 y 25 respectivamente.
+    //Guardalos en una variable llamada suma que realice dicha operaciòn
+
+    var n1 = 20;
+    var n2 = 25;
+
+    var suma = n1 + n2; // 20 + 25
+
+    //Se necesiya saber si dados dos coloresm se consigue el color requerido.
+    //Ej. Azul + Amarillo = Verde
+    //Rojo + Blanco = Rosa
+    //Rojo + Azul = Morado
+    var c1 = "rojo";
+    var c2 = "naranja";
+    var esVerde = c1 == "azul" && c2== "amarillo" || c1 == "amarillo" && c2 == "azul";
+    console.log("Es color verde?" + esVerde);
+
+    //Números pares del 2 al 10
+    var listaNumerosPares = [2, 4, 6, 8, 10];
+    var cantidadDeNumerosEnLista = listaNumerosPares.length;
+
+    //Representa un celular: Tiene marca, modelo, precio, resolución, memoria y ram.
+    var smartphone = {
+        marca: "apple",
+        modelo: "iPhone 13",
+        precio: 30000,
+        resolución: "2k",
+        ram: 8,
+        memoria: 256
+    };
+
+    //Crear una lista de todos los smarphones que se les ocurra
+    //Monstar en un console log el celular en la posición 2
+
+    var smartphone = [{
+        marca: "apple",
+        modelo: "iPhone 13",
+        precio: 30000,
+        resolución: "2k",
+        ram: 8,
+        memoria: 256
+    },{
+        marca: "Huawei",
+        modelo: "P50",
+        precio: 22000,
+        resolución: "2k",
+        ram: 8,
+        memoria: 128 
+    }, {
+        marca: "Samsung",
+        modelo: "Flip",
+        precio: 25000,
+        resolución: "2k",
+        ram: 6,
+        memoria: 128
+    }, {
+        marca: "Oppo",
+        modelo: "Find X",
+        precio: 25000,
+        resolución: "2k",
+        ram: 12,
+        memoria: 256
+    }, {
+        marca: "Xiaomi",
+        modelo: "Redmi Note 11",
+        precio: 8000,
+        resolución: "1800 x 2400",
+        ram: 4,
+        memoria: 128
+    }];
+
+    console.log(smartphone[2]);
+
+
+
+    var Sam = "Sam2";
+    //Crear la función imprimir Suma que muestra en la consola el resultado de 2 + 3 
+    //En los () de la declaración de las funciones, se pueden ponervariables
+    //A estas variables se les conoce como parametros.
+    function ImprimirSuma(num, num2) {
+        //Pueden poner todo lo que quieran
+        //console.log(Sam);
+        var Sam = "Sam";
+        //console.log(Sam);
+        var suma = num1 + num2;
+        console.log("La suma es: " + suma);
+    };
+    
+    var numero_1 = 10;
+    ImprimirSuma(numero_1, 3);
+    console.log(Sam);
+
+    console.log(1, 2, 3,);
+
+    //Una función puede solo realizar la tarea que le dices, como por ejemplo, en la de ImprimirSuma, le pasamos los números y loso sumó y lo mostró en la consola.
+    //Bueno, la función también puede generar un resultado y regresar ese resultado.
+    function Sumar (num1, num2, num3){
+        var suma = num1 + num2 + num3;
+        return suma;
+    }
+
+    var resultado = Sumar(10,14,11);
+    console.log(resultado);
+
+    //Ingredientes sería un objeto
+
+    function prepararPastel (ingredientes){
+        console.log("Añadir " + ingredientes.harina + "tazas de harina");
+        console.log("Batir " + ingredientes.huevos + "huevos en el bowl");
+        console.log("Precalentar el horno a 350º F");
+        console.log("Añadir " + ingredientes.mantequilla );
+        console.log("Añadir " + ingredientes.leche + " taza (s) de leche");
+
+    };
+    
+
+
+</script>
+<body>
+
+    
+</body>
+</html>

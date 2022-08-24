@@ -1,0 +1,64 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 68px;
+    background-color: slategray;
+    position: sticky;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid black;
+}
+
+main {
+    width: 70%;
+    margin: auto;
+    padding-top: 1rem;
+}
+
+h1 {
+    margin: 0;
+    color: whitesmoke;
+    padding-left: 1rem;
+}
+
+.logo {
+    margin-left: 1rem;
+    width: 48px;
+    height: 48px;
+}
+
+.cuadro {
+    float: left;
+    width: 8rem;
+    height: 8rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    background-color: mediumseagreen;
+    border: 1px solid gray;
+
+    transition: all 0.3s;
+}
+
+.cuadro:hover {
+    background-color: orange;
+    border-radius: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+.color:hover {
+    color: magenta;
+}

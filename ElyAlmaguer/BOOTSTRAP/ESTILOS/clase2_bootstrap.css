@@ -1,0 +1,37 @@
+.menu {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    
+
+    background-color: rgb(85, 132, 194);
+    color: whitesmoke;
+
+}
+.tarjeta {
+    height: 18rem;
+    background-color: blueviolet;
+}
+
+/* .card.img{
+    max-height: 18rem;
+    text-align: center;
+}  para diferentes alturas de las imagenes*/
+
+.card.img {
+    height: 18rem;
+    text-align: center;
+}
+.card-body {
+    position: relative;
+}
+.circle-si {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 100%;
+    height: 1rem;
+    width: 1rem;
+    background-color: aquamarine;
+}
