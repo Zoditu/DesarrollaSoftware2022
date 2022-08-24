@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-image: url(../IMG/34vkxb92owb41.png);
+    background-repeat: repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    backdrop-filter: blur(5px);
+}
+
+.login-container {
+    font-family: 'Press Start 2P', cursive;
+    display: inline-block;
+    width: 35rem;
+    height: 45rem;
+    background-color: rgba(238, 238, 245, 0.5);
+    border-radius: 10px;
+    filter: brightness(1.5);
+    box-shadow: 5px 5px 5px rgba(43, 42, 42, 0.61);
+    padding: 15% 15%;
+}
+
+.login-items{
+
+}
+
+.login-items img{
+width: 7rem;
+height: 7rem;
+margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
