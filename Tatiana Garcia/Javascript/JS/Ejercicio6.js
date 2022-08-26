@@ -10,10 +10,9 @@ function ActualizarDatos (dato, valor) {
     } else {
         preview.innerText = valor;
     }
-  
  
 }
 
 function Registrar () {
-    
+
 }
