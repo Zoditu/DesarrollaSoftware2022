@@ -1,0 +1,17 @@
+.card {
+    width: 24rem;
+    height: 16rem;
+}
+
+body > header {
+    height: 68px;
+    background-color: rgb(77, 77, 235);
+}
+
+input[type=radio] + label {
+    margin-right: 0,3rem;
+}
+
+.preview {
+    margin: auto;
+}

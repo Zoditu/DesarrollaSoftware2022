@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/login.css">
 </head>
 
 <body>
-    <header>
-
-    </header>
-
+    <header></header>
     <main class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col text-center">
+        <div class="row h-100 align-itmes-center">
+            <div class="col">
                 <section class="login-container">
+                    <article class="effect-container">
+                    </article>
                     <article class="login-content">
-                        <div class="login-items">
-                            <div class="row h-100 align-items-center">
+                        <div class="login-items text-center h-100">
+                            <div class="row h-100 align-itmes-center">
                                 <div class="col">
-                                    <img src="./IMG/pngaaa.com-2975526.png" alt="USer logo">
+                                    <img src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png" alt="User Logo">
                                     <h3>
-                                        Login Stardew Valley
+                                        Login Desarrolla.Soft22
                                     </h3>
                                     <section class="input-group mt-3">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
                                                 <label for="username">
                                                     <span class="material-icons">
-                                                        person
+                                                        fingerprint
                                                     </span>
                                                 </label>
                                             </div>
                                         </div>
                                         <input type="text" id="username" class="form-control">
                                     </section>
+
                                     <section class="input-group mt-3">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
                                                 <label for="password">
                                                     <span class="material-icons">
-                                                        lock
+                                                        password
                                                     </span>
                                                 </label>
                                             </div>
                                         </div>
                                         <input type="password" id="password" class="form-control">
                                     </section>
-                                    <section class="mt-3">
-                                        <button onclick="Login();" class="btn btn-primary w-100">Log In</button>
-                                    </section>
-                                    <div id="admin-panel" class="alert alert-light" role="alert">
-                                        Si eres ADMIN solo tu puedes ver esto
-                                    </div>
-                                </div>
 
+                                    <section class="mt-3">
+                                        <button class="btn btn-secondary w-100">Log In</button>
+                                    </section>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -73,12 +70,8 @@
             </div>
         </div>
     </main>
-    <footer>
+    <footer></footer>
 
-    </footer>
-
-    <script src="JS/login.js"></script>
-
+    <script src="scripts/login.js"></script>
 </body>
-
 </html>
