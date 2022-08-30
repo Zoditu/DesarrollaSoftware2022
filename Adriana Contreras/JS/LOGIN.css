@@ -66,3 +66,7 @@ login.items{
 h6{
     color:rgb(99, 97, 101)
 }
+
+#admin-panel{
+    display: none;
+}
