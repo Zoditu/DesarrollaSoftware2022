@@ -14,3 +14,20 @@ input[type=radio] + label {
 .preview {
     margin: auto;
 }
+
+.theme-forest {
+    background-color: forestgreen;
+    color: white;
+}
+
+.theme-forest a {
+    background-color: darkgreen;
+    color: white;
+    border: 1px solid darkgreen;
+}
+
+.rendered-card {
+    float: left;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
