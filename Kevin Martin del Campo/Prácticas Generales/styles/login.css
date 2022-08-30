@@ -53,3 +53,7 @@ body {
     border-radius: 100%;
     padding: 0.3rem;
 }
+
+#admin-panel {
+    display: none;
+}
