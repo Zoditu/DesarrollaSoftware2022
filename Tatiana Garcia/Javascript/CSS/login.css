@@ -25,9 +25,19 @@ body {
     padding: 15% 15%;
 }
 
-.login-items{
+.login-content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
 
+    padding: 15% 15%;
+
+
+    
 }
+
 
 .login-items img{
 width: 7rem;
@@ -37,4 +47,8 @@ margin-bottom: 1rem;
 
 h3 {
     font-size: 1rem;
+}
+
+#admin-panel{
+    display: none;
 }
