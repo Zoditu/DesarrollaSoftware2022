@@ -1,0 +1,19 @@
+html{
+    height: 100%;
+}
+
+
+body{
+    height: 100%;
+    /*background-color: antiquewhite;*/
+    background-size: contain;
+    background-position: center;
+
+}
+
+.login-container {
+position: relative;
+margin: auto;
+width: 20rem;
+height: 25rem;
+}
