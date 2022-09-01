@@ -1,0 +1,72 @@
+html{
+    height: 100%;
+}
+
+
+body{
+    height: 100%;
+    background-image: url(../IMG/v330-tang-61-animalpattern_2.jpg);
+    background-size: contain;
+    background-position: center;
+
+}
+
+.login-container {
+position: relative;
+margin: auto;
+width: 20rem;
+height: 25rem;
+/*background-color: rgba(233, 145, 204, 0.577);*/
+
+}
+
+.effect-container{
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top:0;
+
+    filter: blur(8px);
+    background-image: url(../IMG/v330-tang-61-animalpattern_2.jpg);
+    background-position: center;
+
+}
+
+.login-content{
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top:0;
+
+    padding: 15% 15%;
+
+    box-shadow: 0 0 1rem 0px #795d5d;
+    background-color: rgba(233, 145, 204, 0.100);
+
+}
+
+login.items{
+    color: blueviolet;
+
+}
+
+.login-items img{
+    height: 5rem;
+    border: 3px solid rgb(125, 125, 125);
+    border-radius: 100%;
+    padding: 0.3rem;
+}
+
+.input-group-text{
+    color:rgb(99, 97, 101)
+}
+
+h6{
+    color:rgb(99, 97, 101)
+}
+
+#admin-panel{
+    display: none;
+}
