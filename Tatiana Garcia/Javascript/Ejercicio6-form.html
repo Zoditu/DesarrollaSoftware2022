@@ -24,74 +24,85 @@
     <main class="container pt-3">
         <section class="row">
             <div class="col">
-                <form>
+                <!-- PAra usar el required, deben de estar dentro de un form -->
+                <form onsubmit="event.preventDefault(); Registrar();">
                     <label for="name">Nombre del usuario</label>
-                    <input oninput="ActualizarDatos(`name`, this.value);" id= "name" type="text" class="form-control mb-2" placeholder="Nombre">
-                    
+                    <input required oninput="ActualizarDatos(`name`, this.value);" id="name" type="text"
+                        class="form-control mb-2" placeholder="Nombre">
+
                     <label for="lastName">Apellidos del usuario</label>
-                    <input oninput="ActualizarDatos(`lastName`, this.value);" id= "lastName" type="text" class="form-control mb-2" placeholder="Apellidos">
-                    
+                    <input oninput="ActualizarDatos(`lastName`, this.value);" id="lastName" type="text"
+                        class="form-control mb-2" placeholder="Apellidos">
+
                     <label for="theme">Tema</label>
-                    <select onchange="ActualizarDatos(`styleType`, this.value);" class="form-select mb-2" id="styleType">
+                    <select onchange="ActualizarDatos(`styleType`, this.value);" class="form-select mb-2"
+                        id="styleType">
                         <option value="Default">Default</option>
                         <option value="Forest">Forest Theme</option>
-                        <option value="Pixel">Pixel</option>
+                        <option value="Secondary">Secondary</option>
                     </select>
-                    
+
                     <article class="row mb-2">
                         <div class="col-4">
                             <label for="edad">Edad:</label>
-                            <input oninput="ActualizarDatos(`edad`, this.value);" class="form-control" type="number" id="edad" min="13" max="150">
+                            <input required oninput="ActualizarDatos(`edad`, this.value);" class="form-control" type="number"
+                                id="edad" min="13" max="150">
                         </div>
 
                         <div class="col-8">
                             <label for="sexo">Sexo:</label>
                             <div class="mt-1"></div>
-                            <input onchange="ActualizarDatos(`sexo`, this.value);" class="form-check-input" type="radio" value= "Mujer" name="sexo" id="M">
+
+                            <input required onchange="ActualizarDatos(`sexo`, this.value);" class="form-check-input" type="radio"
+                                value="Mujer" name="sexo" id="M">
                             <label for="M">Mujer</label>
 
-                            <input onchange="ActualizarDatos(`sexo`, this.value);" class="form-check-input" type="radio" value="Hombre" name="sexo" id="H">
+                            <input required onchange="ActualizarDatos(`sexo`, this.value);" class="form-check-input" type="radio"
+                                value="Hombre" name="sexo" id="H">
                             <label for="H">Hombre</label>
                         </div>
 
                     </article>
 
                     <label for="email">Correo:</label>
-                    <input oninput="ActualizarDatos(`email`, this.value);" id= "email" type="text" class="form-control mb-2" placeholder="email@mail.com">
-                   
+                    <input required oninput="ActualizarDatos(`email`, this.value);" id="email" type="email"
+                        class="form-control mb-2" placeholder="email@mail.com">
 
-                    <input type="checkbox" id="tos" class="form-check-input mb-2">
+
+                    <input onchange="ActualizarDatos(`tos`, this.checked);" type="checkbox" id="tos"
+                        class="form-check-input mb-2">
                     <label for="tos">Estoy de acuerdo</label>
                     <div>
-                    <input type="submit" value="Registrar" class="btn btn-primary form-control mt-2">
-                    </div>  
+                        <input type="submit" value="Registrar" class="btn btn-primary form-control mt-2">
+                    </div>
                 </form>
             </div>
 
             <div class="col align-self-center">
-                <div class="card preview" style="width: 18rem;">
+                <div class="card preview" id="card-">
                     <div class="card-body">
-                        <h5 class="card-title" id="preview-name">
-                            <span id="preview-name">Nombre</span>  
-                            <span id="preview-lastname">Apellidos</span> 
+                        <h5 class="card-title">
+                            <span id="preview-name">Nombre</span>
+                            <span id="preview-lastName">Apellidos</span>
                         </h5>
-                        <p class="card-text"> Edad: <span id="preview-edad">27</span> 
+                        <p class="card-text"> 
+                            Edad: <span id="preview-edad">27</span>
                             <br>
-                            Sexo: <span id="preview-sexo">Hombre</span> 
+                            Sexo: <span id="preview-sexo">Hombre</span>
                             <br>
-                            Firma: <span id="preview-tos">true|false</span> 
+                            Firma: <span id="preview-tos">true | false</span>
                             <br>
-                            Tema: <span id="preview-styleType">Default</span> 
+                            Tema: <span id="preview-styleType">Default</span>
                         </p>
-                        <a href="mailto:email@mail.com" class="btn btn-primary">Contactar</a>
+                        <a id="preview-email" href="mailto:email@mail.com" class="btn btn-primary">Contactar</a>
                     </div>
                 </div>
             </div>
         </section>
+        <section class="mt-5" id="registros">
+        </section>
     </main>
-    <footer>
-
-    </footer>
+    <footer></footer>
     <script src="JS/Ejercicio6.js"></script>
 </body>
 
