@@ -1,0 +1,124 @@
+html, body { 
+    /* la regla aplica para el html y body, si hay mas se separa x comas*/
+            width: 100%;
+            height: 200%;
+            margin: 0;
+            padding: 0;
+       }
+
+*, *:before, *:after {
+    box-sizing: border-box;
+      }
+
+body{
+    background-color: blanchedalmond;
+}
+.circulo{
+    width: 15rem;
+    height: 15rem;
+    position:absolute;
+    z-index: 1;
+    background-color: violet;
+    border: 1px solid mediumorchid;
+    border-radius: 100%;
+    }
+
+.arriba{
+    top: -5%;
+    left: -7%;
+}
+
+.abajo{
+    bottom: -3%;
+    right: -7%;
+ }
+
+ .principal{
+    display: flex;
+ }
+
+.contenedor-loggin {
+    position: relative;
+    /*margin:auto;*/
+    margin-top: 20rem;
+    margin-left: 25%;   
+    /*padding: 5rem;*/
+    width: 35rem;
+    height: 45rem;
+}
+
+ .contenedor-efectos{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+ 
+    filter: blur(8px);
+    background-image: url(https://wallpaperaccess.com/full/1220916.jpg);
+    background-position: center;
+}
+
+.contenido-loggin {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    padding: 15% 15%;
+    box-shadow: -13px -7px 2rem 0px #f180af;  
+}
+
+
+.contenido-loggin img {
+    height: 6rem;
+    border: 1px solid rosybrown;
+    border-radius: 100%;
+    padding: 0.3rem;
+}
+
+
+.contenedor-bienvenda {
+    position: relative;
+    margin-top: 10rem;
+    margin-left: -2rem;
+    
+    padding: 0rem;
+    width: 60rem;
+    height: 65rem;
+}
+
+
+ .contenedor-efectos-bienvenida{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+ 
+    filter: hue-rotate(25deg);
+    opacity: .2;
+    background-image: url(https://st3.depositphotos.com/4135663/17803/i/950/depositphotos_178037082-stock-photo-glamour-ultra-violet-sparkling-background.jpg);
+    background-position: center;
+}
+
+.contenido-bienvenida {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    padding: 15% 15%;
+    box-shadow: 9px 10px 2rem 0px #f180af;  
+}
+
+.bienvenida{
+    margin-top: 30%;
+}
+
+.btn{
+    background-color: #f59cc1;
+    border: 1px solid purple;
+}
