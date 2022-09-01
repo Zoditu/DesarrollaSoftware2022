@@ -7,7 +7,15 @@
     height: 4rem;
 }
 
+.card{
+    /* cordenadas X Y difuminado propagacion color*/
+    box-shadow: 1px 0px 8px 1px pink;
+}
 .card img{
     max-height: 18rem;
     text-align: center;
+}
+
+.card-body{
+	position: relative;
 }
