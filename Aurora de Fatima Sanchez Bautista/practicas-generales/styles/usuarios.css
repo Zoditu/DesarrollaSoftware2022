@@ -1,0 +1,33 @@
+.card {
+    width: 18rem;
+}
+
+body > header {
+    height: 68px;
+    background-color: rgb(20, 163, 219);
+}
+
+input [type=radio] + label {
+    margin-right: 0.5rem;
+}
+
+.preview {
+    margin: auto;
+}
+
+.theme-forest {
+    background-color: forestgreen;
+    color: white;
+}
+
+.theme-forest a {
+    background-color: darkgreen;
+    color: white;
+    border: 1px solid darkgreen;
+}
+
+.rendered-card {
+    float: left;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}

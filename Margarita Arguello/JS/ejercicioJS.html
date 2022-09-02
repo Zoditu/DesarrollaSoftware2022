@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* declaracion de variables*/
+        var edad=40;
+        const k=3;
+        var res=edad % k;
+        var div=res/2;
+
+        /* Arreglos*/
+        var nombre=["Ana", "Judit", "Juan", "Pedro", "Andrea"];
+        var apellidos=["Perez", "Garcia", "Salazar", "Rodriguez", "Torres"];
+        // cambiar valor 
+        nombre[0]="Margarita"
+        var x=0;
+        var y=4;
+        var z=3;
+        nomPer=nombre[x]+" "+apellidos[y]+" "+apellidos[z];
+        console.log(nomPer);
+        
+        // agregar elemento al final
+        nombre.push("Leonardo");
+        var ultimo=nombre[nombre.length-1];
+        console.log(ultimo);
+
+        // Objetos tienen
+        // propiedades
+        var persona={
+            nombres:"Ana Margarita",
+            apellidoP:"Arguello",
+            apellidoM:"Cepeda",
+            edad:"43",
+            sexo:"F", //F o M
+            estatura:1.60,
+            peso:60,
+            edoCivil:"Casada",
+        };
+
+        console.log(persona);
+
+        // acceder a un objeto
+        var nombreCompleto=persona.nombres+" "+persona.apellidoP+" "+persona.apellidoM
+        console.log(nombreCompleto);
+
+        // agrega nuevas propiedades
+        persona.nueva="Si";
+        console.log(persona);
+
+        // borrar propiedad
+        delete persona.peso;
+
+        // los objetos son nativamente hash-able, ejemplo:
+        var objeto={
+            "Documentos para viajar":["visa", "pasaporte", "INE"],
+            "certificado de vacunacion":"true",
+            disponible:"si"
+        };
+
+        // acceder a ellos
+        var documentos = objeto["Documentos para viajar"];
+        objeto["disponible"]="no"
+
+        var Hobbies={
+            "Leer libros":["Martes", "Viernes"],
+            Ejercicio:["Lunes", "Martes", "Miercoles", "Jeves", "Viernes"],
+            "Ver televison":["Lunes", "Martes", "Miercoles", "Jeves", "Viernes"],
+        };
+
+        Hobbies["Hacer haiking"]=["Sabados", "Domingos"];
+        Hobbies.Pintar=["Lunes", "Martes"];
+        Hobbies["Pasear al perro"]="Miercoles";
+        
+        console.log(Hobbies);
+
+        // Ejercicio 15/08/2022
+        /* Crear un objetos de frutas*/
+
+        var frutas=[{
+            nombre:"Rambutan",
+            dulce:true,
+            color:"rojo",
+            rareza:"raro"
+        },{
+            nombre:"Manzana",
+            dulce:true,
+            color:["Rojo","Verde","Amarilla"],
+            rareza:"Comun"
+        },{
+            nombre:"Melon",
+            dulce:true,
+            color:["Naranja","Verde"],
+            rareza:"Comun"
+        }]
+        console.log(frutas[2]);
+        
+        // crear una lista de los Smartphone y mostrar la posicion 2
+        var smartphone = ["Samsung", "Xiaomi","Motorola","iPhone"];
+        console.log(smartphone[1]);
+
+        //funciones
+        // funcion que suma
+        function ImprimirSuma(n1,n2){
+            var suma = n1+n2;
+            var resta = n1-n2;
+            return suma;
+           // console.log("La suma es: "+suma);
+        }
+
+        var num1=2;
+
+        suma= ImprimirSuma(num1,5);
+        console.log("La suma es: "+suma);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

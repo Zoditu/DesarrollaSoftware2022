@@ -1,0 +1,14 @@
+{
+  "name": "servers",
+  "version": "1.0.0",
+  "description": "ejemplo de servidor de webservices",
+  "main": "webservice.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fernanda",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
