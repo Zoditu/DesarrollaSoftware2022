@@ -4,21 +4,58 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=, initial-scale=1.0">
-        <title>Bootstrap Exercise</title>
+        <title>Hobbies Exercise</title>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="hobbies.css">
     </head>
     <body>
-        <header class="container-fluid">
+        <header class="menu row">
+            <div class="col align-self-center">
+               <h1>My hobbies</h1> 
+            </div> 
         </header>
-        <section class="container" style="height: 100vh; background-color:cadetblue">
-            <div class="row">
-                <div class="col">Columna 1</div>
-                <div class="col">Columna 2</div>
-                <div class="col">Columna 3</div>
-            </div>
-        </section>
+
+        <main class="container">
+            <section class="row">
+                <article class="col">
+                    <div class="card mb-3" style="max-width: 540px; margin-top: 2rem;">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="https://images.unsplash.com/photo-1585521549926-ca6526bda09e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Ym9vayUyMHN0YWNrfGVufDB8fDB8fA%3D%3D&w=1000&q=80" class="img-fluid rounded-start" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title">Reading</h5>
+                              <p class="card-text">No he podido terminar un libro desde hace dos meses</p>
+                              <p class="card-text"><small class="text-muted">Last read: Devils by Fyodor Dostoevsky</small></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </article>
+                <article class="col">
+                    <div class="card mb-3" style="max-width: 540px; margin-top: 2rem;">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="https://images.unsplash.com/photo-1585521549926-ca6526bda09e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Ym9vayUyMHN0YWNrfGVufDB8fDB8fA%3D%3D&w=1000&q=80" class="img-fluid rounded-start" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title">Reading</h5>
+                              <p class="card-text">No he podido terminar un libro desde hace dos meses</p>
+                              <p class="card-text"><small class="text-muted">Last read: Devils by Fyodor Dostoevsky</small></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </article>
+            </section>
+        </main>
+        <footer>
+
+        </footer>
     </body>
 </html>

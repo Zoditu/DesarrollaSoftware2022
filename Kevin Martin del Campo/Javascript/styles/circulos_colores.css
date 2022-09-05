@@ -5,13 +5,14 @@ main {
 section {
     float: left;
     margin: 1rem;
+    padding: 1rem;
+    border: 1px solid blue;
 }
 
 div.circulo {
     border: 2px solid black;
     width: 3rem;
     height: 3rem;
-    background-color: palegreen;
     border-radius: 100%;
 }
 
