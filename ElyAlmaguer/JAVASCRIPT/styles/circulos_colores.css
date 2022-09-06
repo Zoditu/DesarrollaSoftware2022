@@ -1,0 +1,22 @@
+main {
+    overflow: auto;
+}
+    section {
+        float: left;
+
+        width: 5rem;
+        height: 5rem;
+        background-color: red;
+        margin-right: 1rem;
+    }
+    
+    div.circulo {
+        border: 2px solid black;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100%;
+    }
+    
+,clear {
+    clear: both;
+}

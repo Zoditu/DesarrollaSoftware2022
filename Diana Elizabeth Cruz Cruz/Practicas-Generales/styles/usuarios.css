@@ -1,0 +1,27 @@
+.card{
+    width: 18rem;
+}
+
+body > header{
+    height: 68px;
+    background-color: cadetblue;
+}
+
+input[type=radio] + label{
+    margin-right: 0.3rem;
+}
+
+.preview{
+    margin: auto;
+}
+
+.theme-forest{
+    background-color: green;
+    color: white;
+}
+
+.theme-forest a{
+    background-color: green;
+    color: white;
+    
+}
