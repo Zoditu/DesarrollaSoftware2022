@@ -1,14 +1,25 @@
+const mongoose = require('mongoose');
+const DB = "DSStore2022";
+const MongoUser = require("../../../MongoUsers/user.json");
+const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.server}/${DB}?retryWrites=true&w=majority`;
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const MongoUser = require("C:\\MongoUsers\\user.json");
+mongoose.connect(
+    uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    },
+    err => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('Conectado :D');
+            const Cat = mongoose.model('Cat', {
+                name: String
+            });
 
-const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.server}/?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-
-client.connect(err => {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log('Conectado :D');
-    }
-});
+            const kitty = new Cat({
+                name: 'Zildjian'
+            });
+            kitty.save().then(() => console.log('meow'));
+        }
+    });
