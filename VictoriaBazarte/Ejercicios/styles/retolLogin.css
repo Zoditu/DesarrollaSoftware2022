@@ -1,0 +1,144 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    background-color: antiquewhite;
+}
+.totalidad {
+    margin: auto;
+    float:right;
+    top: 3rem;
+    right: 3rem;
+    height: 80%;
+    width: 50%;
+    border: 1px solid black;
+}
+.login-container {
+    position: relative;
+    margin: auto;
+    width: 35rem;
+    height: 45rem;
+}
+
+.effect-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    filter: blur(8px);
+    background-image: url(../img/back_2.jpg);
+    background-position: center;
+}
+
+.login-content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    padding: 15% 15%;
+
+    box-shadow: 0 0 1rem 0px black;
+    background-color: rgba(235, 235, 235, 0.1);
+}
+
+.login-items {
+    color: gray
+}
+
+.login-items img {
+    height: 5rem;
+    border: 1px solid gray;
+    border-radius: 100%;
+    padding: 0.3rem;
+}
+/*
+main{
+    width: 100%;
+    height: 100%;
+    background-color: azure;
+
+}
+*/
+.login-container {
+    position: relative;
+    margin: auto;
+    width: 35rem;
+    height: 45rem;
+}
+
+.effect-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    filter: blur(8px);
+    background-image: url(../img/back_2.jpg);
+    background-position: center;
+}
+
+.login-content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    padding: 15% 15%;
+
+    box-shadow: 0 0 1rem 0px black;
+    background-color: rgba(235, 235, 235, 0.1);
+}
+
+.login-items {
+    color: gray
+}
+
+.login-items img {
+    height: 5rem;
+    border: 1px solid gray;
+    border-radius: 100%;
+    padding: 0.3rem;
+}
+#id{
+    height: 13rem;
+    width: 13rem;
+}
+.triangulo{
+    width: 13rem;
+    height: 13rem;
+    border-radius: 0 0 100 0;
+}
+.arriba{
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background-color: blue;
+    z-index: +10;
+}
+.abajo{
+    position: absolute;
+    bottom: 0rem;
+    right: 0em;
+    background-color: blueviolet;
+    z-index: +10;
+}
+h1{
+    font-style: italic;
+    color: darkblue;
+    
+}
+h3{
+    text-decoration: underline;
+    margin-bottom: 10rem;
+}
+#remember{
+    text-align: left;
+    padding-left: 2rem;
+}

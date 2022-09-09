@@ -1,59 +1,20 @@
-html {
+html{
     height: 100%;
 }
 
-body {
+body{
     height: 100%;
-    /* background-image: url(../img/back_1.png); */
+    /*background-image: url(../img/back2.png);*/
     background-image: url(../img/back1.jpg);
     background-repeat: repeat;
-    /* background-size: contain; */
+    /*background-size: contain;*/
     background-position: center;
 }
 
-.login-container {
-    position: relative;
+.login-container{
     margin: auto;
+    display: inline-block;
     width: 35rem;
     height: 45rem;
-}
-
-.effect-container {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-
-    filter: blur(8px);
-    background-image: url(../img/back_2.jpg);
-    background-position: center;
-}
-
-.login-content {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-
-    padding: 15% 15%;
-
-    box-shadow: 0 0 1rem 0px black;
-    background-color: rgba(235, 235, 235, 0.1);
-}
-
-.login-items {
-    color: gray
-}
-
-.login-items img {
-    height: 5rem;
-    border: 1px solid gray;
-    border-radius: 100%;
-    padding: 0.3rem;
-}
-
-#admin-panel {
-    display: none;
+    background-color: rgba(145, 145, 145, 0.65);
 }
