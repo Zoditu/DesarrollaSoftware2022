@@ -10,11 +10,14 @@ const port = 3000;
 app.use(express.static('../../'));
 app.use(express.json());
 
-app.get('/', function(req, res) {
+/*app.get('/', function(req, res) {
     res.send({
         status: "online"
     });
-});
+});*/
+const usersRouter = require('./routers/users');
+app.use('/users', usersRouter);
+//http://localhost:3000/users/prueba -> GET
 
 mongoose.connect(
     uri, {
