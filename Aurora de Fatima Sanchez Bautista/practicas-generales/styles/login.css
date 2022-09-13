@@ -14,8 +14,8 @@ body {
 .login-container {
     position: relative;
     margin: auto;
-    width: 25rem;
-    height: 30rem;
+    width: 35rem;
+    height: 45rem;
     /* background-color: rgba(145, 145, 145, 0.5); */
 }
 
@@ -44,9 +44,17 @@ body {
     background-color: rgba(235, 235, 235, 0.1);
 }
 
+.login-items {
+    color: gray
+}
+
 .login-items img{
     height: 5rem;
     border: 1px solid gray;
     border-radius: 100%;
     padding: 0.3rem;
+}
+
+#admin-panel {
+    display: none;
 }
