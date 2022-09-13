@@ -13,3 +13,4 @@ main.innerHTML = `<div class="card text-bg-light mb-3" style="max-width: 18rem;"
   <p class="card-text">${profile.description}</p>
 </div>
 </div>`;
+

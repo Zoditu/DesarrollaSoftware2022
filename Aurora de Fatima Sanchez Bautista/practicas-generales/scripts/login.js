@@ -1,6 +1,7 @@
-/* function CursorSobre(elemento) {
+function CursorSobre(elemento) {
     console.log('Encima del elemento: ' + elemento);
-} */
+} 
+/*
 
 const admin = {
     user: "admin",
@@ -30,6 +31,7 @@ function Login() {
     //Sintaxis if(boolean) { //scope }
     //Puede recibir cálculos de operaciones condicionales y/o lógicas
 
+    /*
     if(admin.user === username.value && admin.pass === password.value) {
         //Alcance de este if (local) peeeero no pueden duplicar variables como en la funciones
         isAdmin = true;
@@ -49,7 +51,7 @@ function Login() {
      * }
      */
 
-
+/*
     //De hecho, el else puede ser opcional
     var adminPanel = document.getElementById("admin-panel");
     if(isAdmin) {
@@ -60,6 +62,6 @@ function Login() {
     }
 
     //console.log(`Usuario: ${ username.value } - Password: ${ password.value }`);
-}
 
-//console.log(auth);
+
+//console.log(auth);*/

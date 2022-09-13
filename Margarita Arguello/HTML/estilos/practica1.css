@@ -38,7 +38,7 @@ html, body {
 
        /* la seudo clase:hover hace transicion solo para valores*/
        .color:hover{
-        color: green;
+        color: whitesmoke;
        }
 
        a:link{

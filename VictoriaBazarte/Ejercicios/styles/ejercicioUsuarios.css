@@ -1,0 +1,7 @@
+.card{
+    width:18rem ;
+}
+body > header{
+    height: 68px;
+    background-color: rgb(176, 145, 226);
+}
