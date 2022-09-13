@@ -1,4 +1,4 @@
-const Validate = require('./ validation');
+const Validate = require('./validation');
 
 var resultado = Validate.userRegister({
     name: "Emma",
