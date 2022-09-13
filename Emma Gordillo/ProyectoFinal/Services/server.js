@@ -3,6 +3,17 @@ const DB = "DSStore2022";
 const MongoUser = require("C:\\MongoUsers\\user.json")
 const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.server}/${DB}?retryWrites=true&w=majority`;
 
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.use(express.static('../../'));
+app.use(express.json());
+
+const usersRouter = require('./routers/users');
+app.use('/users', usersRouter);
+//http://localhost:3000/users/prueba -> GET
+
 mongoose.connect(
     uri, {
         useNewUrlParser: true,
@@ -12,15 +23,19 @@ mongoose.connect(
         if (err) {
             console.log(err);
         } else {
-            console.log('Conectado');
-            const Cat = mongoose.model('Cat', {
+            console.log('Conectado a la base de datos');
+            app.listen(port, function() {
+                console.log(`Servidor corriendo en http://localhost:${port}`);
+            });
+
+            /*const Cat = mongoose.model('Cat', {
                 name: String
             });
 
             const kitty = new Cat({
                 name: 'Zildjian'
             });
-            kitty.save().then(() => console.log('meow'));
+            kitty.save().then(() => console.log('meow')); */ 
         }
     });
 

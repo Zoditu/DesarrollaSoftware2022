@@ -1,6 +1,7 @@
+
 const mongoose = require('mongoose');
 const DB = "DSStore2022";
-const MongoUser = require("../../../MongoUsers/user.json");
+const MongoUser = require("D:\\MongoUSer\\user.json")
 const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.server}/${DB}?retryWrites=true&w=majority`;
 
 mongoose.connect(
@@ -12,7 +13,7 @@ mongoose.connect(
         if (err) {
             console.log(err);
         } else {
-            console.log('Conectado :D');
+            console.log('Conectado :)');
             const Cat = mongoose.model('Cat', {
                 name: String
             });
