@@ -1,0 +1,59 @@
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    
+    /* background-image: url(../img/back_4Cometa.png); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-size:contain;*/
+
+    background-image: url(../img/back_1Nube.jpg); 
+    background-repeat: repeat;
+    background-position: center;
+}
+.login-container{
+    position: relative;
+    margin: auto;
+    /* display:inline-block; */
+    width: 35rem;
+    height: 45rem;
+    background-color: rgba(112, 109, 109, 0.15);
+}
+.effect-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0%;
+    top: 0%;   
+    background-image: url(../img/back_1Nube.jpg); 
+    filter: blur(8px);
+    background-position: center;
+}  
+.login-content{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0%;
+    top: 0%;  
+
+    padding: 15% 15%;
+
+    box-shadow: 0 0 0.1rem 0px black ;
+    background-color:rgba(235,235, 235, 0.1);
+}
+.login-items img {
+    color: gray;
+}
+
+.login-items img {
+    height: 6rem;
+    border: 1px solid gray;
+    border-radius: 100%;
+    padding: 0.3rem;
+
+}
+
+

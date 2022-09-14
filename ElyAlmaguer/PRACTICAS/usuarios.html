@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+<!-- iconos -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <link rel="stylesheet" href="style/usuarios.css">
+</head>
+<body>
+    <header></header>
+    <main class="container pt-3"></main>
+    <section class="row">
+        <div class="col">
+           <form onsubmit=" event.preventDefault(); Registrar();>
+            <label for="name">nombre del usuario:</label>
+            <input required oninput="ActualizarDatos();"  id= "name" type="text" class="form-control mb-2" placeholder="Nombre">
+
+            <label for="lastName">nombre del usuario:</label>
+            <input  required oninput = "ActualizarDatos ();" id= "lastName" type="text" class="form-control mb-2" placeholder="Apellido">
+           
+            <label for="styleType">Tema de la tarjeta</label>
+            <select class="form-select" id="styleType"></select>
+            <option value="-Default"select>Default</option>
+            <option value="-Forestal"select>Forest Theme</option>
+
+            <article class="row mb-2">
+                <div class="col-4">
+                <label for="edad">Edad</label>
+                <input class="form-control" type="number" id="edad" min="13, max= 120">
+                </div>
+
+                <div class="col-8">
+                    <label for="sexo">sexo</label>
+                    <div class="mt-1"></div>
+
+                <input class="form-control" type="number" id="edad" min="13 ">
+                </div>
+            </article>
+        </form>
+           <div class="col"></div>
+
+        </div>
+    </section>
+    <section id = "registros">
+
+    </section>
+    <footer></footer>
+    <script src="scripts/usuarios.js"></script>
+
+</body>
+</html>

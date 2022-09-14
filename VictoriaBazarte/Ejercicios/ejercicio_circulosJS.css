@@ -1,0 +1,35 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+.article {
+    height: 80%;
+    width: 75%;
+    position: relative;
+    }
+.circulo{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100%;
+    position: absolute;
+    border: 2px  solid black;
+}
+.naranja {
+    background-color: darkorange;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
+.azul{
+    background-color: blue;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+

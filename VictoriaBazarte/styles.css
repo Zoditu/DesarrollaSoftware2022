@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: grey;
 }
 
 * {
@@ -30,11 +31,10 @@ body {
   left: 3rem;
   top: 3rem;
 }
+.verde{
+  background-color: green;
+  height: 100vh;
 
-.verde {
-  background-color: forestgreen;
-  left: 6rem;
-  top: 6rem;
 }
 
 .amarillo {
