@@ -1,7 +1,7 @@
-onst express = require('express');
+const express = require('express');
 const router = express.Router();
 
-const User = require('../models/user');
+const User = require('../models/users');
 const Validate = require('../validation');
 
 //Crear todos los endpoints relacionados a /users
