@@ -1,4 +1,5 @@
 const Validate = require('./validation');
+const Utils = require('./utils');
 
 var resultado = Validate.userRegister({
     name: "Kevin",
@@ -7,4 +8,6 @@ var resultado = Validate.userRegister({
     noExiste: true
 });
 
-console.log(resultado);
+Utils.generateToken('Kevinmcf90@gmail.com');
+
+//console.log(resultado);
