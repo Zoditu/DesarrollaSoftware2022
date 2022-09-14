@@ -3,11 +3,12 @@ main {
 }
     section {
         float: left;
+        border: 1px solid blue;
 
-        width: 5rem;
+        /* width: 5rem;
         height: 5rem;
         background-color: red;
-        margin-right: 1rem;
+        margin-right: 1rem; */
     }
     
     div.circulo {
