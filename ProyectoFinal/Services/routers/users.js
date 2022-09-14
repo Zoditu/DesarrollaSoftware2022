@@ -12,6 +12,40 @@ const Validate = require('../validation');
     });
 });*/
 
+router.get('/profile', async function(req, res) {
+    var cookies = req.cookies;
+
+    var SID = cookies["SID"];
+    var TOKEN = cookies["TOKEN"];
+
+    if(!SID || !TOKEN) {
+        return res.status(400).send({
+            message: `Missing cookies SID | TOKEN`
+        });
+    }
+
+    var user = await User.findOne({
+        username: SID
+    });
+
+    if(!user) {
+        return res.status(404).send({
+            message: `Invalid username.`
+        });
+    }
+
+    if(user.sessions && user.sessions[TOKEN] && user.sessions[TOKEN].logged === true) {
+        res.send({
+            message: "Valid session",
+            user: user
+        });
+    } else {
+        res.status(401).send({
+            message: "Invalid token session"
+        });
+    }
+});
+
 router.post('/login', async function(req, res) {
     var loginData = req.body;
     var valid = Validate.userLogin(loginData);
@@ -40,13 +74,18 @@ router.post('/login', async function(req, res) {
         date: new Date()
     }
 
+    user.markModified("sessions");
     await user.save();
 
     res.cookie("SID", user.username);
     res.cookie("TOKEN", token);
 
-    res.send({
+    /*res.send({
         login: "ok"
+    });*/
+    res.send({
+        SID: user.username,
+        TOKEN: token
     });
 });
 
