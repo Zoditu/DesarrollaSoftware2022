@@ -1,16 +1,47 @@
-const express = require('express')    /*importamos librería de express y creamos un servicor o aplicacion de express*/
-const app = express()                 /*declaramos una constante para crear una nueva apl de express */
-const port = 3000                     /* constante que decimos cual va a ser nuestro server y de dimos un puerto*/
+const express = require('express')
+const app = express()
+const port = 3000
 
-app.use(express.static("../../"));    /*que la app permita explorar paginas web o archivos estáticos o fisicos  dentro de mi Carpetas*/
-//localhosto:3000/saludo
-app.get('/saludo', function(req, res) {  /*decirle a express que cree un endpoint y le decimos que metodo (app.get) puede poner*/
-  // var fs = require ('fs');
-  // var saludo = fs.readFileSync('saludo.txt');
-  // res.send('saludo');              /* ENPOINT 'saludo' */
-  res.send('hola');                   /*  */
+app.use(express.static('../../'));
+app.use(express.json());
+
+const alumnos = [];
+
+app.get('/alumnos', function(req, res) {
+    res.send(alumnos);
+});
+
+app.post('/alumnos', function(req, res) {
+    //Datos del alumno
+    //Siempre que creamos algo, los datos vienen en el request body (payload)
+    var alumno = req.body;
+    alumnos.push(alumno);
+    res.send({
+      message: 'Se creó el alumno',
+      alumno: alumno
+    });
+});
+
+/*
+//localhost:3000/saludo
+app.post('/saludo', function(req, res) {
+    res.status(404).send({
+      saludo: "Hola POST!"
+    });
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.get('/saludo', function(req, res) {
+  res.status(404).send({
+    saludo: "Hola GET!"
+  });
 })
+
+app.get('/saludos/s1', function(req, res) {
+  res.status(404).send({
+    saludo: "Este es el saludo #1 del GET!"
+  });
+})*/
+
+app.listen(port, function() {
+  console.log(`Example app listening on port ${port}`);
+});
