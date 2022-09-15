@@ -21,7 +21,7 @@ module.exports = mongoose.model('User', {
     orders: Array,
     cartId: String,
     permissions:{
-        admin: Boolean
+        admin: Boolean,
         regular: Boolean,
         enable: Boolean
     },
