@@ -26,6 +26,13 @@ router.get('/profile', async function(req, res) {
 
     var user = await User.findOne({
         username: SID
+    }, {
+        _id: 0,
+        name: 1,
+        lastName: 1,
+        email: 1,
+        orders: 1,
+        sessions: 1
     });
 
     if(!user) {
@@ -35,9 +42,13 @@ router.get('/profile', async function(req, res) {
     }
 
     if(user.sessions && user.sessions[TOKEN] && user.sessions[TOKEN].logged === true) {
+        
+        var _user = user.toObject();
+        delete _user.sessions;
+
         res.send({
             message: "Valid session",
-            user: user
+            user: _user
         });
     } else {
         res.status(401).send({
@@ -80,13 +91,13 @@ router.post('/login', async function(req, res) {
     res.cookie("SID", user.username);
     res.cookie("TOKEN", token);
 
-    /*res.send({
-        login: "ok"
-    });*/
     res.send({
+        login: "ok"
+    });
+    /*res.send({
         SID: user.username,
         TOKEN: token
-    });
+    });*/
 });
 
 router.post('/register', async function(req, res){
