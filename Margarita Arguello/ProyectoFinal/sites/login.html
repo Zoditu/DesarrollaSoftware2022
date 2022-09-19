@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="email">
+    </div>
+    <div>
+        <input type="password" id="pass">
+    </div>
+    <button onclick="Login()">Login</button>
+    <script>
+        function Login() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('pass').value;
+
+            axios({
+                method: 'post',
+                url: 'http://localhost:3000/users/login',
+                data: {
+                    email: email,
+                    password: password
+                }
+            }).then(function(result) {
+                console.log(result);
+            }).catch(function(error) {
+                console.log(error)
+            });
+        }
+    </script>
+</body>
+</html>
