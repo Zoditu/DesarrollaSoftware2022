@@ -1,13 +1,13 @@
 {
-  "name": "services",
+  "name": "servers",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "proyecto final",
+  "main": "webservicep.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "fer",
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.6",

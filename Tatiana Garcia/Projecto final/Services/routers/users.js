@@ -1,9 +1,8 @@
-const { BSONError } = require('bson');
 const express = require(`express`);
 const router = express.Router();
 
 const User = require('../models/user');
-const Utils = require ('../utils.js');
+const Utils = require ('../utils');
 const Validate = require('../validation');
 
 //crear enpoints de /users
@@ -14,12 +13,12 @@ const Validate = require('../validation');
     });
 });*/
 
-router.post(`/login`, async function(req, res){
+router.post('/login', async function(req, res) {
     var loginData = req.body;
     var valid = Validate.userLogin(loginData);
-    if(valid.error){
+    if(valid.error) {
         return res.status(400).send(valid.error.details);
-    };
+    }
 
     var user = await User.findOne({
         email: loginData.email,
@@ -32,11 +31,18 @@ router.post(`/login`, async function(req, res){
         });
     }
 
+    
+    if(!user.sessions) {
+        user.sessions = {};
+    }
+
     const token = Utils.generateToken(user.email);
     user.sessions[token] = {
         logged: true,
         date: new Date()
     }
+
+    await user.save();
 
     res.cookie("SID", user.username);
     res.cookie("TOKEN", token);
@@ -66,15 +72,12 @@ router.post('/register', async function(req,res){
     }
 
     var nuevoUser = new User(body);
-    nuevoUser.username = Utils.encodedEmail(nuevoUser.email);
-    nuevoUser.sessions = {};
-    nuevoUser.markModified("sessions");
-    nuevoUser.permissions={
+    nuevoUser.username = Utils.encodeEmail(nuevoUser.email);
+    nuevoUser.permissions = {
         admin: false,
         regular: true,
-        enable: false
+        enabled: false
     };
-
 
     await nuevoUser.save();
 

@@ -1,17 +1,15 @@
-const { OrderedBulkOperation } = require('mongodb');
-const mongoose =  require('mongoose');
+const mongoose = require('mongoose');
 
 module.exports = mongoose.model('User', {
     username: String,
     email: String,
-    password: String,
     name: String,
     lastName: String,
     phone: String,
     address: {
         street: String,
-        no: Number,
-        hood: String,
+        num: Number,
+        neighborhood: String,
         city: String,
         state: String,
         country: String,
@@ -19,11 +17,5 @@ module.exports = mongoose.model('User', {
         details: String
     },
     orders: Array,
-    cartId: String,
-    permissions:{
-        admin: Boolean,
-        regular: Boolean,
-        enable: Boolean
-    },
-    sessions: Object
+    cartId: String
 }, 'Users');
