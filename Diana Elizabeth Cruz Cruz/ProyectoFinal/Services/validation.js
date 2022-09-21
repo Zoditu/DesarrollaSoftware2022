@@ -1,5 +1,4 @@
 const Joi = require('joi');
-//const schema = require('./models/user');
 
 module.exports = {
     userRegister: function(user) {
@@ -10,7 +9,7 @@ module.exports = {
             password: Joi.string().min(8).max(16).required(),
             phone: Joi.string().min(10).max(10).optional()
         });
-        
+
         return schema.validate(user);
     },
 
@@ -21,7 +20,5 @@ module.exports = {
         });
 
         return schema.validate(loginData);
-
     }
 };
-
