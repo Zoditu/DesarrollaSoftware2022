@@ -1,5 +1,18 @@
 @import url(/shared/colors.css);
 
 .register-link {
-    color: green;
+    color: var(--colors-white) !important;
+    font-weight: bold;
+}
+
+.swal2-confirm {
+    background: var(--colors-white) !important;
+    color: var(--colors-pink) !important;
+    width: 100%;
+}
+
+.swal2-actions {
+    padding: 0 2.3em !important;
+    width: 100% !important;
+    margin-top: 0 !important;
 }
