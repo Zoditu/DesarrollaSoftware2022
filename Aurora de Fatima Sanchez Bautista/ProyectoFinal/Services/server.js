@@ -5,17 +5,18 @@ const MongoUser = require("C:\\MongoUsers\\user.json");
 const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.server}/${DB}?retryWrites=true&w=majority`;
 
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 
-app.use(express.static('../../'));
+app.use(express.static('../sites'));
 app.use(express.json());
+app.use(cookieParser());
 
-/*app.get('/', function(req, res) {
-    res.send({
-        status: "online"
-    });
-});*/
+app.get('/', function(req, res) {
+    res.status(301).redirect('/home');
+});
+
 const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
 //http://localhost:3000/users/prueba -->GET

@@ -4,7 +4,6 @@ const router = express.Router();
 const User = require('../models/user');
 const Utils = require('../utils');
 const Validate = require('../validation');
-
 //Crear todos los endpoints relacionados a /users
 /*router.get('/prueba', function(req, res){
     res.send({
@@ -27,12 +26,13 @@ router.get('/profile', async function(req, res) {
     var user = await User.findOne({
         username: SID
     }, {
-        _id: 0,
-        name: 1,
-        lastName: 1,
-        email: 1,
+        _id:0,
+        name:1,
+        lastName:1,
+        email:1,
         orders: 1,
         sessions: 1
+
     });
 
     if(!user) {
@@ -42,7 +42,7 @@ router.get('/profile', async function(req, res) {
     }
 
     if(user.sessions && user.sessions[TOKEN] && user.sessions[TOKEN].logged === true) {
-        
+
         var _user = user.toObject();
         delete _user.sessions;
 
@@ -61,10 +61,7 @@ router.post('/login', async function(req, res) {
     var loginData = req.body;
     var valid = Validate.userLogin(loginData);
     if(valid.error) {
-        return res.status(400).send({
-            message: "Error: Invalid Email",
-            details: valid.error.details
-        });
+        return res.status(400).send(valid.error.details);
     }
 
     var user = await User.findOne({ 
@@ -94,9 +91,9 @@ router.post('/login', async function(req, res) {
     res.cookie("SID", user.username);
     res.cookie("TOKEN", token);
 
-    res.send({
+    /*res.send({
         login: "ok"
-    });
+    });*/
     /*res.send({
         SID: user.username,
         TOKEN: token

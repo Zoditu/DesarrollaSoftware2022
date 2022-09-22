@@ -1,13 +1,17 @@
+/* le decimos a la BD que modelo de datos es el
+que va a recibir    nom_variable: Tipo */
+
 const mongoose = require('mongoose');
 
-module.exports = mongoose.model('User', {
+// Datos del usuario que se registra
+module.exports = mongoose.model('User',{
     username: String,
+    password:String,
     email: String,
-    password: String,
     name: String,
     lastName: String,
     phone: Number,
-    address: {
+    addres:{
         street: String,
         no: Number,
         hood: String,
@@ -19,7 +23,7 @@ module.exports = mongoose.model('User', {
     },
     orders: Array,
     cartId: String,
-    permissions: {
+    permissions:{
         admin: Boolean,
         regular: Boolean,
         enabled: Boolean
