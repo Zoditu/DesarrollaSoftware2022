@@ -21,17 +21,17 @@ axios({
                                 <input type="text" id="email" class="form-control" placeholder="Correo" aria-label="Correo"
                                     aria-describedby="basic-addon1">
                             </div>
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">**</span>
                                 <input type="password" id="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña"
                                     aria-describedby="basic-addon1">
                             </div>
                         </article>
-                    </section>`,
+                   </section>`,
             //text: 'Aquí debe venir el formulario del login',
-            footer: '<a class="register-link" href="">No tiene cuenta? Regístrate</a>',
+            footer: '<a class="register-link" href="/register">No tienes cuenta? Regístrate</a>',
             showLoaderOnConfirm: true,
-            preConfirm: function (x) {
+            preConfirm: function () {
                 var email = $("#email").val();
                 var password = $("#password").val();
 
@@ -47,15 +47,27 @@ axios({
                 }).then(function (result) {
                     
                 }).catch(function (error) {
-                    Swal.showValidationMessage(`Request failed: ${error}`);
+                    if(error.response) {
+                        $('.error-login')
+                                    .html(`Error al iniciar sesión: ${error.response.data.message}`)
+                                    .addClass('error-login-transition')
+                        return false;
+                        //`Error al iniciar sesión: ${error.response.data.message}`
+                    } else {
+                        //Ocurrió un error no controlado
+                        //TBD
+                        console.log(error);
+                    }
                 });
             }
         }).then(function (result) {
             if(result.value) {
                 window.location.href = window.location.href;
             }
-        })
+        });
     } else {
+        //Ocurrió un error no controlado
+        //TBD
         console.log(error);
     }
 });
