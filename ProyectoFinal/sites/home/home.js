@@ -61,8 +61,11 @@ axios({
                 });
             }
         }).then(function (result) {
+            console.log(result);
             if(result.value) {
                 window.location.href = window.location.href;
+            } else {
+                $('.error-login').removeClass('error-login-transition')
             }
         });
     } else {
