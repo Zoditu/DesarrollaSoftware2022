@@ -14,9 +14,9 @@
     <div>
         <input type="password" id="pass">
     </div>
-    <button onclick="Login">Login</button>
+    <button onclick="Login()">Login</button>
     <script>
-        function Login(){
+        function Login() {
             var email = document.getElementById('email').value;
             var password = document.getElementById('pass').value;
 
@@ -24,15 +24,15 @@
                 method: 'post',
                 url: 'http://localhost:3000/users/login',
                 data: {
-                    email: email, 
+                    email: email,
                     password: password
-                    }
-                }).then(function(result){
-                    console.log(result);
-                 }).catch(function(error){
-                    console.log(error)
-                 });
-             }
+                }
+            }).then(function(result) {
+                console.log(result);
+            }).catch(function(error) {
+                console.log(error)
+            });
+        }
     </script>
 </body>
 </html>
