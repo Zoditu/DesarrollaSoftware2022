@@ -42,12 +42,12 @@ router.get('/profile', async function(req, res){
     }
 
     if(user.sessions && user.sessions[TOKEN] && user.sessions[TOKEN].logged === true){
-        return res.send({
+        res.send({
             message: "Valid session",
             user: user
         });
     } else {
-        return res.status(401).send({
+        res.status(401).send({
             message: "Invalid token session"
         });
     }
