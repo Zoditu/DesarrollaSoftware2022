@@ -8,18 +8,16 @@ const cookieParser = require('cookie-parser'); //Leer las cookies con una petici
 const app = express();
 const port = 3000;
 
-app.use(express.static('../../'));
+app.use(express.static('../Sites'));
 app.use(express.json());
 app.use(cookieParser());
 
-/*app.get('/', function(req,res){
-  res.send({
-    status: "online"
-  });
-});*/
+app.get('/', function(req, res){
+  res.status(301).redirect('/home');
+})
 
-const usersRouter = require('./routers/user');
-app.use('/users', usersRouter);
+const usersRouter = require('./routers/userouter');
+app.use('/userouter', usersRouter);
 
 mongoose.connect(
   uri, {

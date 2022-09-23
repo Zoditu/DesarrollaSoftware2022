@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/usermodels');
+const Utils = require('../utils');
 const Validate = require('../validation');
 
 //CREAR LOS ENDPOINTS RELACIONADOS. Debe eliminarse
@@ -19,12 +20,19 @@ router.get('/profile', async function(req, res){
 
     if(!SID || !TOKEN){
         return res.status(400).send({
-            message: 'Missing cookies SID 1 TOKEN'
+            message: 'Missing cookies SID or TOKEN'
         });
     }
 
     var user = await User.findOne({
         username: SID
+    }, {
+        _id: 0,
+        name: 1,
+        lastName: 1,
+        email: 1,
+        orders: 1,
+        sessions: 1
     });
 
     if(!user){ //RETURN para breaking point cuando solo hay if
@@ -49,7 +57,10 @@ router.post('/login', async function(req, res){
     var loginData = req.body;
     var validLogin = Validate.userLogin(loginData);
     if(validLogin.error){
-        return res.status(400).send(validLogin.error.details);
+        return res.status(400).send({
+            message: "Error. Invalid Email",
+            details: validLogin.error.details
+        });
     }
 
     var user = await User.findOne({
@@ -80,8 +91,7 @@ router.post('/login', async function(req, res){
     res.cookie("TOKEN", token);
 
     res.send({
-        SID: user.username,
-        TOKEN: token
+        login: "Proceed"
     });
 });
 
@@ -104,14 +114,18 @@ router.post('/register', async function(req, res){
     }
 
     var nuevoUser = new User(body);
+    newUser.username = Utils.encodeEmail(newUser.email);
+    newUser.permissions = {
+        admin: false,
+        regular: true,
+        enabled: false
+    };
     
-    
-
     await nuevoUser.save();
 
     res.send({
-        status: "Created",
-        user: nuevoUser
+        status: "User created",
+        user: body
     });
 });
 
