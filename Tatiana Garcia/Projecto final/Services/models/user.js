@@ -1,5 +1,4 @@
-const { OrderedBulkOperation } = require('mongodb');
-const mongoose =  require('mongoose');
+const mongoose = require('mongoose');
 
 module.exports = mongoose.model('User', {
     username: String,
@@ -20,10 +19,10 @@ module.exports = mongoose.model('User', {
     },
     orders: Array,
     cartId: String,
-    permissions:{
+    permissions: {
         admin: Boolean,
         regular: Boolean,
-        enable: Boolean
+        enabled: Boolean
     },
     sessions: Object
 }, 'Users');

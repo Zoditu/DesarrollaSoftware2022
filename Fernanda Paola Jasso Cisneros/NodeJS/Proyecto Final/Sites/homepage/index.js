@@ -3,6 +3,7 @@ axios({
     url: '/users/profile'
 }).then(function (result) {
     $('#title').html(`Bienvenid@ ${result.data.user.name}... Ya tienes sesión :)`)
+    //console.log(result.data);
 }).catch(function (error) {
     if (error.response) {
         Swal.fire({
@@ -13,22 +14,24 @@ axios({
             title: 'Iniciar Sesión',
             confirmButtonText: "Iniciar Sesión",
             confirmButtonColor: 'var(--colors-white)',
-            html: ` <section class="row m-0">
+            html: `<section class="row m-0">
                         <article class="col">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">@</span>
-                                <input type="text" id="email" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
-                            </div> 
-                            <div class="input-group mb-3">
+                                <input type="text" id="email" class="form-control" placeholder="Correo" aria-label="Correo"
+                                    aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">**</span>
-                                <input type="password" id="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1">
-                            </div>            
+                                <input type="password" id="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña"
+                                    aria-describedby="basic-addon1">
+                            </div>
                         </article>
-                    </section>`,
+                   </section>`,
             //text: 'Aquí debe venir el formulario del login',
-            footer: '<a class="register-link" href="/register">No tienes cuenta? Registrate!</a>',
+            footer: '<a class="register-link" href="/register">No tienes cuenta? Regístrate</a>',
             showLoaderOnConfirm: true,
-            preConfirm: function (x) {
+            preConfirm: function () {
                 var email = $("#email").val();
                 var password = $("#password").val();
 
@@ -42,7 +45,7 @@ axios({
                     url: '/users/login',
                     data: payload
                 }).then(function (result) {
-
+                    
                 }).catch(function (error) {
                     if(error.response) {
                         $('.error-login')
@@ -58,12 +61,15 @@ axios({
                 });
             }
         }).then(function (result) {
-            if (result.isConfirmed) {
+            console.log(result);
+            if(result.value) {
                 window.location.href = window.location.href;
+            } else {
+                $('.error-login').removeClass('error-login-transition')
             }
-        })
+        });
     } else {
-         //Ocurrió un error no controlado
+        //Ocurrió un error no controlado
         //TBD
         console.log(error);
     }

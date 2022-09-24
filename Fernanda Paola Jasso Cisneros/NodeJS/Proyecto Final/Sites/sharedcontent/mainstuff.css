@@ -1,0 +1,20 @@
+.offcanvas {
+    background-color: var(--colors-yellow) !important;
+}
+
+.main-menu > .navbar {
+    background-color: var(--colors-pink);
+}
+
+.menu-logo {
+    background-color: gray;
+}
+
+.menu-navigation {
+    display: none;
+    background-color: cadetblue;
+}
+
+.profile {
+    background-color: goldenrod;
+}

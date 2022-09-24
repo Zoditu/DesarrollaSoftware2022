@@ -12,6 +12,7 @@ module.exports = {
 
         return schema.validate(user);
     },
+    
     userLogin: function(loginData) {
         var schema = Joi.object({
             email: Joi.string().email().required(),
