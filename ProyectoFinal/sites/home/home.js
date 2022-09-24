@@ -2,7 +2,7 @@ axios({
     method: 'GET',
     url: '/users/profile'
 }).then(function (result) {
-    $('#title').html(`Bienvenid@ ${result.data.user.name}... Ya tienes sesión :)`)
+    $('.user-name').html(`${result.data.user.name}`)
     //console.log(result.data);
 }).catch(function (error) {
     if (error.response) {
