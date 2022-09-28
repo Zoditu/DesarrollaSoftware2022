@@ -27,7 +27,7 @@
     <header class="main-menu sticky-top">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand menu-logo" href="/">Make Up</a>
+                <a title="MakeUp Homepage" class="navbar-brand menu-logo me-2" href="/">Make Up</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -43,9 +43,22 @@
                     <div class="offcanvas-body">
                         <form class="d-flex w-100 order-lg-1 order-2" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-success" type="submit">Search</button>
+                            <button class="btn" type="submit">Search</button>
                         </form>
-                        <article class="profile order-lg-2 order-1">Nombre | Login</article>
+                        <article class="profile order-lg-2 order-1"> <li class="nav-item dropdown">
+                            <div class="row">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Username <span class="material-icons">shopping Cart</span>
+                                </a>
+                            </div>
+                            
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                              <li><a class="dropdown-item" href="/mycart">My Cart</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="/logout">LogOut session</a></li>
+                            </ul>
+                          </li></article>
                         <section class="d-lg-none d-block menu-navigation container">
                             <h1>Sub menu</h1>
                         </section>
