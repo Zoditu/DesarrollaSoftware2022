@@ -12,11 +12,10 @@ app.use(express.static('../sites'));
 app.use(express.json());
 app.use(cookieParser());
 
-/*app.get('/', function(req, res) {
-    res.send({
-        status: "online"
-    });
-});*/
+app.get('/', function(req, res) {
+     res.status(301).redirect('/home');
+});
+
 const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
 //http://localhost:3000/users/prueba -> GET

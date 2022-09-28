@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+.material-icons {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+.offcanvas {
+    background-color: var(--colors-yellow) !important;
+}
+
+.main-menu > .navbar {
+    background-color: var(--colors-pink);
+}
+
+.main-menu > .navbar input[type=search] {
+    background-color: var(--colors-white);
+}
+
+.main-menu > .navbar button[type=submit] {
+    background: var(--colors-pink);
+    border: 2px solid var(--colors-yellow);
+    color: var(--colors-white);
+}
+
+.main-menu > .navbar .dropdown-menu {
+    background: var(--colors-pink);
+    border: 2px solid var(--colors-yellow);
+}
+
+.main-menu > .navbar .dropdown-item {
+    color: white;
+}
+
+.main-menu > .navbar .dropdown-item:hover {
+    background-color: var(--colors-yellow);;
+}
+
+.main-menu > .navbar .dropdown-menu li:not(:last-child) {
+    border-bottom: 2px solid var(--colors-yellow);
+}
+
+.menu-logo {
+    color: var(--colors-white);
+    font-weight: bold;
+}
+
+.menu-logo:hover {
+    color: var(--colors-gray);
+}
+
+.menu-navigation {
+    display: none;
+    background-color: cadetblue;
+}
+
+.profile {
+    color: var(--colors-white);
+    font-weight: bold;
+}

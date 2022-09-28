@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./react-example.css">
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        function Datos(props) {
+            return <h1 className={props.class}>Datos: {props.nombre} y {props.password}</h1>;
+        }
+
+        function App() {
+
+            var [datos, setDatos] = React.useState({
+                nombre: "X",
+                password: "Y",
+                style: "base"
+            });
+            /*var [nombre, setNombre] = React.useState("X");
+            var [password, setPassword] = React.useState("Y");
+            var [style, setStyle] = React.useState("base");*/
+
+            var form = <>
+                <input type="text" value={datos.nombre} onChange= { () => setDatos(event.target.value) } placeholder="Username"/>
+                <input type="password" value={datos.password} onChange= { () => setDatos(event.target.value) } placeholder="********"/>
+                <button onClick={ () => {
+                    if(datos.style === 'base') {
+                        setDatos("otro");
+                    } else {
+                        setDatos("base");
+                    }
+                } }>Mostrar</button>
+                <hr/>
+                <section>El user es: {datos.nombre} y la contraseña es: {datos.password}</section>
+                <hr/>
+                <Datos class={datos.style} nombre={datos.nombre} password={datos.password}/>
+            </>;
+
+            return form;
+            //<button onClick={ function() { setShow(true) } }>Mostrar</button>
+        }
+
+        ReactDOM.createRoot(document.getElementById('app')).render(<App/>);
+    </script>
+
+</body>
+
+</html>

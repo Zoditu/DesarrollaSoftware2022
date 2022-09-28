@@ -1,0 +1,6 @@
+@import url(/shared/colors.css);
+
+html, body{
+
+    background-color: var(--colors-white);
+}
