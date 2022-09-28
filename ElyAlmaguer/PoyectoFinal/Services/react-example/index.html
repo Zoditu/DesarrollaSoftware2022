@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+
+    <!-- /*<div id="mydiv"></div>
+
+    <script type="text/babel">
+        var saludo = "Ely Almaguer"
+      function Hello() {
+        return <h1>Hello, {saludo}!</h1>;
+      } */ -->
+
+    <div id="app"></div>
+      <script type = "text/babel">
+        function App(){
+
+            var form =<>
+            <input type="text" value={nombre} placeholder="Username"/>
+            <input type="password" value={password}/>
+            <button onClick=[]>Mostrar</button>
+            <hr/>
+            <section>El user es: {nombre} y la contraseña es: {password}</section>
+        }
+      </script>
+
+      ReactDOM.createRoot(document.getElementById('mydiv')).render(<Hello/>);
+      //ReactDOM.render(<Hello />, document.getElementById('mydiv'))
+    
+    </script>
+
+  </body>
+</html>
