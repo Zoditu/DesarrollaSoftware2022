@@ -61,7 +61,10 @@ router.post('/login', async function(req, res) {
     var loginData = req.body;
     var valid = Validate.userLogin(loginData);
     if(valid.error) {
-        return res.status(400).send(valid.error.details);
+        return res.status(400).send({
+            message: "Error: Invalid Email",
+            details: valid.error.details
+        });
     }
 
     var user = await User.findOne({ 

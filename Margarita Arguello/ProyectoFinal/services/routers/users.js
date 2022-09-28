@@ -39,6 +39,7 @@ router.get('/profiles', async function(req, res){
         sessions: 1
         });
 
+// si no encentras el usuario
     if (!user){
         return res.status(404).send({
             message: 'Usuario Invalido'
@@ -46,16 +47,18 @@ router.get('/profiles', async function(req, res){
     }
 
     if(user.sessions && user.sessions[TOKEN] && user.sessions[TOKEN].logged === true) {
+        var _user = user.toObject();
+        delete _user.sessions;
+
         res.send({
             message: "Sesion Valida",
-            user: user
+            user: _user
         });
     } else {
         res.status(401).send({
             message: "Sesion Invalida "
         });
     }
-
 });
 
 // Crear los endpoint relacionados a login
@@ -66,7 +69,10 @@ router.post('/login', async function(req, res){
     var valid=Validate.userLogin(loginData);
 
     if(valid.error){
-        return res.status(400).send(valid.error.details);
+        return res.status(400).send({
+            message: "Error: Email Invalido",
+            details: valid.error.details
+        });
     }
 
     // await se usa para esperar la respuesta

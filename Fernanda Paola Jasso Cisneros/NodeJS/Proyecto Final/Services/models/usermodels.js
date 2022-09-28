@@ -17,5 +17,11 @@ module.exports = mongoose.model('User', {
         details: String
     },
     orders: Array,
-    cartId: String
+    cartId: String,
+    permissions: {
+        admin: Boolean,
+        regular: Boolean,
+        enabled: Boolean
+    },
+    sessions: Object
 }, 'Users');
