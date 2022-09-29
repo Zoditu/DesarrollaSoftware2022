@@ -18,10 +18,15 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 
-app.use(express.static('../../'));
-//app.use(express.static('../sites'));
+//app.use(express.static('../../'));
+app.use(express.static('../sites'));
 app.use(express.json());
 app.use(cookieParser());
+
+// esta es para redireccionar al home
+app.get('/', function(req,res){
+    res.status(301).redirect('/home');
+});
 
 const usersRouter = require('./routers/users');
 app.use('/users',usersRouter);
@@ -30,7 +35,8 @@ app.use('/users',usersRouter);
 mongoose.connect(
     uri, 
     { useNewUrlParser: true, 
-      useUnifiedTopology: true },
+      useUnifiedTopology: true 
+    },
     err => {
         if(err) {
             console.log(err);

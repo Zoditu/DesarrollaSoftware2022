@@ -1,11 +1,13 @@
-@import url(/shared/colors.css);
-@import url(/shared/main.css);
+/* importa el css de los colores*/
+@import url(/shered/colors.css);
 
+/* el link para registrar */
 .register-link {
     color: var(--colors-white) !important;
     font-weight: bold;
 }
 
+/* el boton de confirmar*/
 .swal2-confirm {
     background: var(--colors-white) !important;
     color: var(--colors-pink) !important;
@@ -13,9 +15,9 @@
 }
 
 .swal2-actions {
-    width: 100% !important;
     padding: 0 2.3em !important;
-    margin-top: 1rem !important;
+    width: 100% !important;
+    margin-top: 0 !important;
 }
 
 .swal2-validation-message {
