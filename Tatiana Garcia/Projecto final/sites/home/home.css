@@ -1,4 +1,5 @@
 @import url(../shared/colors.css);
+@import url(../shared/main.css);
 
 .register-link {
     color: var(--colors-white) !important;

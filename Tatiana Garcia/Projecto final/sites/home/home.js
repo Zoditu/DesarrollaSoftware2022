@@ -28,7 +28,7 @@ axios({
             //text: 'Aquí debe venir el formulario del login',
             footer: '<a class="register-link" href="/register">No tienes cuenta? Registrate!</a>',
             showLoaderOnConfirm: true,
-            preConfirm: function (x) {
+            preConfirm: function () {
                 var email = $("#email").val();
                 var password = $("#password").val();
 
@@ -58,10 +58,13 @@ axios({
                 });
             }
         }).then(function (result) {
-            if (result.isConfirmed) {
+            console.log(result);
+            if (result.value) {
                 window.location.href = window.location.href;
+            } else {
+                $('.error-login').removeClass('error-login-transition')
             }
-        })
+        });
     } else {
          //Ocurrió un error no controlado
         //TBD
