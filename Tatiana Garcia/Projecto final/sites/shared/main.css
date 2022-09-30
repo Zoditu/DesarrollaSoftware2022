@@ -1,0 +1,37 @@
+.offcanvas {
+    background-color: var(--colors-white) !important;
+}
+
+.main-menu > .navbar {
+    background-color: var(--colors-pink);
+}
+
+.main-menu > .navbar input[type=search] {
+    background-color: var(--colors-white);
+}
+.main-menu > .navbar button[type=submit] {
+    background: var(--colors-pink);
+    border: 2px solid var(--colors-lavanda);
+    color: var(--colors-white);
+}
+.menu-logo {
+    color: var(--colors-white);
+    font-weight: bold;
+} 
+
+.menu-logo:hover {
+    color: var(--colors-gray);
+}
+
+.menu-navigation {
+    display: none;
+    background-color: aqua;
+}
+
+.profile { 
+    background-color: var(--colors-lavanda);
+    border-radius: 3px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+ 
+}
