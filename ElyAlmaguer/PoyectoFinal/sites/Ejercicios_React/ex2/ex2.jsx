@@ -5,11 +5,11 @@ function Ely(){
     var html = <>
     <h1>Hola, {nombre}</h1>
     <button>Cambiar</button>
-    </>
+    </>;
     return html;
 }
-    React.createRoot(document.getElementById('Ely')).render (<Ely/>)
-
+    ReactDOM.createRoot(document.getElementById('app')).render (<Ely/>)
+    ReactDOM.createRoot(document.getElementById('Ely')).render (<Ely/>)
 //  un componente de ract se representa con una funcion
 //  también se puede con una clase.
 //  La funcion debe llevar el nombre del componente:
