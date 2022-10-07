@@ -1,4 +1,5 @@
 module.exports = {
+    generateToken: function(email) {
     var tokenPart1 = Date.now();
     var tokenPart2 = '';
     for (var i = 0; i < email.length; i++){
@@ -21,4 +22,5 @@ encodeEmail: function(emailEncode){
 
     var tokenPart2 = Date.now();
     return Buffer.from(encodedEmail + tokenPart2).toString('base64');
+}
 };
