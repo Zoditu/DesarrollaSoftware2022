@@ -15,15 +15,19 @@ router.get('/prueba',function(req,res){
 });
 */
 
-router.get('/profiles', async function(req, res){
+//Crear todos los endpoints relacionados al profile
+
+router.get('/profile', async function(req, res){
     var cookies = req.cookies;
     var SID = cookies['SID'];
     var TOKEN = cookies['TOKEN'];
 
+    
+
  // si ya se hizo loggin una vez debe tener SID y Token   
     if(!SID || !TOKEN){
         return res.status(400).send({
-            message: 'Falta SID o TOKEN'});
+            message: 'Falta cookies SID o TOKEN'});
     }
 
  // Buscamos si existe el usuario y asignamos SID   
@@ -147,7 +151,7 @@ router.post('/register', async function(req, res){
     await nuevoUser.save();
 
     res.send({
-        status: "User Created",
+        status: "Usuario Creado",
         user: body
         });
 });
