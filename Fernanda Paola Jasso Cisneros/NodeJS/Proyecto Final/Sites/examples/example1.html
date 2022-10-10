@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script type="text/babel"> //nos permite escribir java dentro de html 
+        function App(){
+            
+            var [nombre, setNombre] = React.useState("");
+            var [password, setPassword] = React.useState("");
+            var [show, setShow] = React.useState(false); //cambiar los estilos del section
+
+            var form = <>
+                <input type="text" value = {nombre}/>
+                <input type="password" value = {password}/>
+                <button onClick={setShow}>Mostrar datos</button>
+                <hr/>
+                <section>El user es {nombre} y la contraseña {password}</section>
+            </>;
+        }
+    
+    </script>
+
+</body>
+</html>

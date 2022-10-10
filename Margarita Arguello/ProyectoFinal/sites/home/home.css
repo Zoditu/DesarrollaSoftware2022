@@ -1,5 +1,7 @@
 /* importa el css de los colores*/
-@import url(/shered/colors.css);
+@import url(/shared/colors.css);
+/* importa el css principal*/
+@import url(/shared/main.css);
 
 /* el link para registrar */
 .register-link {
@@ -17,13 +19,14 @@
 .swal2-actions {
     padding: 0 2.3em !important;
     width: 100% !important;
-    margin-top: 0 !important;
+    margin-top: 1rem !important;
 }
 
 .swal2-validation-message {
     display: none !important;
 }
 
+/* mesnage de error*/
 .error-login {
     display: none;
     opacity: 0;

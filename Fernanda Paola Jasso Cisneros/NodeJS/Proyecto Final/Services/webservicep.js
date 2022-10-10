@@ -6,7 +6,7 @@ const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.s
 const express = require('express');
 const cookieParser = require('cookie-parser'); //Leer las cookies con una petición
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(express.static('../Sites'));
 app.use(express.json());
