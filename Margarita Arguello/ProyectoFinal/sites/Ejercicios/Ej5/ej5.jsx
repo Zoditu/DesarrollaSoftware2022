@@ -1,25 +1,27 @@
-//Creación del menú con React
-function Menu() {
+// Encabezado
+function Menu(){
     return <>
-        <h1>Ejercicio 6</h1>
+        <h1>Ejercicio 5 Productos</h1>
     </>;
-}
+};
 
-ReactDOM.createRoot(document.getElementById("menu")).render(<Menu />);
+ReactDOM.createRoot(document.getElementById('menu')).render(<Menu/>);
+
 
 //Creación de una tarjeta de producto
-// Labial, rojo, marca Loreal, 50g, mediano, Modelo X, imagen(es), precio
+
+//Esta linea es para que me traiga todos los parametros de los arreglos
 /**
  * @param {Array} products 
  */
-function Products(props) {
+ function Products(props) {
 
     const products = props.products;
     var prod = [];
 
     for(var i = 0; i < products.length; i++) {
         var product = products[i];
-
+// agrego todo el html a una variable
         prod.push(<>
             <article className="col-xl-3 col-lg-4 pb-3">
                 <div className="card">
@@ -95,6 +97,7 @@ function Products(props) {
     </>;
 }
 
+/* productos, temporal en lo que se leen de la BD*/
 const listaProductos = [
     {
         name: "Labial",
