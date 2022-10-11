@@ -1,0 +1,17 @@
+.cuadro {
+    height: 3rem;
+    width: 20rem;
+    border: 2px solid black;
+    background-color: aliceblue;
+    display: block;
+    position: relative;
+}
+
+.cuadro2 {
+    height: 10rem;
+    width: 20rem;
+    border: 2px solid black;
+    background-color: aliceblue;
+    position: relative;
+    display: block;
+}
