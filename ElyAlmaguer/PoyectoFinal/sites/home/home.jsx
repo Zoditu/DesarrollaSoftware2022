@@ -1,11 +1,13 @@
+
 function Home() {
     var [user, setUser] = React.useState(null);
     var [cart, setCart] = React.useState({ count: 0 });
     var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
-
+//peticion, metodo, url desde la raíz (localhost:300)
     axios({
         method: 'GET',
         url: '/users/profile'
+// promesa con un respuesta bien y si no con respuesta error
     }).then(function (result) {
         setUser(result.data.user);
     }).catch(function (error) {
@@ -13,12 +15,13 @@ function Home() {
             Swal.fire({
                 background: 'var(--colors-pink)',
                 color: "var(--colors-white)",
-                showCloseButton: true,
-                allowOutsideClick: false,
-                title: 'Iniciar Sesión',
-                confirmButtonText: "Iniciar Sesión",
-                confirmButtonColor: 'var(--colors-white)',
-                html: `<section class="row m-0">
+                showCloseButton: true,     //tachita para cerrar el mensaje
+                allowOutsideClick: false,  // no permite dar click fuera del modal
+                title: 'Iniciar Sesión',   
+                confirmButtonText: "Iniciar Sesión",  
+                confirmButtonColor: 'var(--colors-white)',  //color de fondo del boton
+                //enseguida puede ser texto o html pero con las comillas verbatin (boostrap)
+                html: `<section class="row m-0">         
                             <article class="col">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">@</span>
@@ -32,8 +35,10 @@ function Home() {
                                 </div>
                             </article>
                        </section>`,
-                //text: 'Aquí debe venir el formulario del login',
+            //text: 'Aquí debe venir el formulario del login',
+            // la propiedad footer pone un pequeño separador y pie de pagina y puedes agregar texto o html (link)
                 footer: '<a class="register-link" href="/register">No tienes cuenta? Regístrate</a>',
+            //funcion para sacar los datos de user y password antes de, entra solo si le dan al confirm
                 showLoaderOnConfirm: true,
                 preConfirm: function () {
                     var email = $("#email").val();
@@ -43,13 +48,15 @@ function Home() {
                         email: email,
                         password: password
                     };
-    
+            //y despues hace peticion en axios para hacer el login
                     return axios({
                         method: 'POST',
                         url: '/users/login',
                         data: payload
+            //aquí da un resultado (.then) si es positivo o error (.catch).
                     }).then(function (result) {
-                        
+                        //muestra el detalle del error cuando no tenga sesión iniciada o cookies mal. 
+                        //error.response es para saber si hay error al hacer la petición.
                     }).catch(function (error) {
                         if(error.response) {
                             setAlertMessage({ 
@@ -65,6 +72,7 @@ function Home() {
                         }
                     });
                 }
+                //cuando todo resulta bien se refresca la misma página y trae los datos del usuario
             }).then(function (result) {
                 console.log(result);
                 if(result.value) {
