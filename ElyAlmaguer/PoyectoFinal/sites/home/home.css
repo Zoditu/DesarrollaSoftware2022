@@ -1,13 +1,13 @@
-@import url(/shared/colors.css);
+@import url(/shared/colors.css);    
 @import url(/shared/main.css);
 
 .register-link {
-    color: var(--colors-white) !important;
+    color: var(--colors-white)!important;
     font-weight: bold;
 }
-
-.swal2-confirm {
-    background: var(--colors-white) !important;
+/* botón de login */
+.swal2-confirm { 
+    background: var(--colors-white)!important;
     color: var(--colors-pink) !important;
     width: 100%;
 }

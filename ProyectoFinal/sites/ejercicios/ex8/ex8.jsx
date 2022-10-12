@@ -30,6 +30,6 @@ var personas = [kevin, {
     lastName: "Jasso",
     age: 18,
     birth: "14/04/1995"
-}];
+}, kevin];
 
 ReactDOM.createRoot(document.getElementById('app')).render(<Persona datos={personas} />);
