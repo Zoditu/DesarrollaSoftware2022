@@ -1,26 +1,28 @@
 const mongoose = require('mongoose');
 
-module.export = mongoose.model('User', {
+module.exports = mongoose.model('User', {
     username: String,
     email: String,
     password: String,
     name: String,
-    lastname: String,
+    lastName: String,
     phone: String,
-    addres: {
+    address: {
         street: String,
         no: Number,
         hood: String,
         city: String,
-        zip: Number
+        state: String,
+        country: String,
+        zip: Number,
+        details: String
     },
     orders: Array,
-    cartID: String,
-    permissions:{
+    cartId: String,
+    permissions: {
         admin: Boolean,
         regular: Boolean,
-        enabled:Boolean
+        enabled: Boolean
     },
     sessions: Object
-
 }, 'Users');

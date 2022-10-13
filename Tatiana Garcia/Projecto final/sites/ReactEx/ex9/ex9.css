@@ -1,0 +1,12 @@
+.circle{
+     border-radius: 50%;
+}
+
+.square{
+     border-radius: 0%;
+}
+
+.shape{
+     border: 3px solid #555;
+     display: inline-block;
+}
