@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require('joi');     //importar joi
 
 module.exports = {
     userRegister: function(user) {
@@ -13,7 +13,7 @@ module.exports = {
         return schema.validate(user);
     },
 
-    userLogin: function(loginData) {
+    userLogin: function(loginData) {             //validación del login
         var schema = Joi.object({
             email: Joi.string().email().required(),
             password: Joi.string().required()

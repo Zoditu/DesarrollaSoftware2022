@@ -21,7 +21,7 @@
             var email = document.getElementById('email').value;
             var password = document.getElementById('pass').value;
 
-            axios({
+            axios({             //peticion del método post
                 method: 'post',
                 url: 'http://localhost:3000/users/login',
                 data: {
