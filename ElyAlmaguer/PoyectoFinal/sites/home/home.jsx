@@ -9,6 +9,7 @@ function Home() {
         url: '/users/profile'
 // promesa con un respuesta bien y si no con respuesta error
     }).then(function (result) {
+        $('user-name').HTML(`${result.data.user.name}`)
         setUser(result.data.user);
     }).catch(function (error) {
         if (error.response) {
@@ -21,7 +22,7 @@ function Home() {
                 confirmButtonText: "Iniciar Sesión",  
                 confirmButtonColor: 'var(--colors-white)',  //color de fondo del boton
                 //enseguida puede ser texto o html pero con las comillas verbatin (boostrap)
-                html: `<section class="row m-0">         
+                html: `<section class="row m-0">
                             <article class="col">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">@</span>
@@ -58,15 +59,20 @@ function Home() {
                         //muestra el detalle del error cuando no tenga sesión iniciada o cookies mal. 
                         //error.response es para saber si hay error al hacer la petición.
                     }).catch(function (error) {
+                        //error del endpoint
                         if(error.response) {
-                            setAlertMessage({ 
-                                showAlert: true, 
-                                message: `Error al iniciar sesión: ${error.response.data.message}`
-                            });
+                            $('error-login')
+                            .html (`Error al iniciar sesión: ${error.response.data.message}`)
+                            .addClass('error-login-transition')
                             return false;
+                            // setAlertMessage({ 
+                            //     showAlert: true, 
+                            //     message: `Error al iniciar sesión: ${error.response.data.message}`
+                            // });
+                            // return false;
                             //`Error al iniciar sesión: ${error.response.data.message}`
                         } else {
-                            //Ocurrió un error no controlado
+                            //Ocurrió un error no controlado (se fue el internet, se quedo sin memoria, etc.)
                             //TBD
                             console.log(error);
                         }

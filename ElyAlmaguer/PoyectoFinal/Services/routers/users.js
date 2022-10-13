@@ -11,58 +11,6 @@ const Validate = require('../validation');
 //         prueba:"Ok/users/prueba"
 //     });
 // });   
-// ESTO ES PARA HACER EL LOGIN
-router.post('/login', async function(req, res) {
-    var loginData = req.body;
-    var valid = Validate.userLogin(loginData);
-    if(valid.error) {
-        return res.status(400).send(valid.error.details);
-    }
-//para buscar el usuario    
-    var user = await User.findOne({     
-        emai:loginData.email,
-        password: loginData.password
-    });
-// si no, encontró el usuario... retorna un mensaje email o passwor invalido.
-    if(!user){                    
-        return res.status(404).sendDate({  
-            message:`Invalid email/or password.`
-        });
-    }
-//creamos las sesion si no tiene una antes, aquí reasignamos una propiedad    
-    if(!user.sessions){                
-        user.sessions = {};
-    }
-    const token = Utils.generateToken(user.email);
-    user.sessions[token] = {
-          logged: true,
-          date: new Date()
-    }
-//mongo cuando marcas modificado es cuando lo reasignas, cuando tenemos una propiedad con espacio podemos añadir la propiedad entre []
-// prop.espacio = ["Propiedad con espacio o caracteres especiales (=,+,etc"] = a prop[""]
-//para que agregue las sesiones    
-    user.markModified("sessions");
-//salvar la inform de sesiones.        
-    await user.save();                
-
-     res.cookie("SID", user.username);
-     res.cookie("TOKEN", token);
-
-// user.sessions[Utils.generateToken(user.email)]= {
-//     logged: true,                   //token de sesión
-//     date: new Date()                //fecha del login
-//}
-        res.send({
-        login: "ok"
-  });
-// esto es solo para checar el token y sid en YARC
-    // res.send({
-    //     SID: user.username,
-    //     TOKEN: token
-//});
-});
-// información del usuario se llama con GET y valor de las cookies en el custom headers de YARC 
-// para ver el PERFIL O PROFILE a traves de las cookies
 router.get('/profile', async function(req, res) {
     var cookies = req.cookies;
     
@@ -104,12 +52,71 @@ router.get('/profile', async function(req, res) {
     //si el token es invalido
 } else {
         res.status(401).send({
-            message: `Valid token session`
+            message: `Invalid token session`
     });
 }
 });
+
+// ESTO ES PARA HACER EL LOGIN
+router.post('/login', async function(req, res) {
+    var loginData = req.body;
+    var valid = Validate.userLogin(loginData);
+    if(valid.error) {
+        return res.status(400).send({
+            message: "Error: Invalid Email",
+            details: valid.error.details
+        });
+    }
+//para buscar el usuario    
+    var user = await User.findOne({     
+        emai:loginData.email,
+        password: loginData.password
+    });
+// si no, encontró el usuario... retorna un mensaje email o passwor invalido.
+    if(!user){                    
+        return res.status(404).send({  
+            message:`Invalid email/or password.`
+        });
+    }
+//creamos las sesion si no tiene una antes, aquí reasignamos una propiedad    
+    if(!user.sessions){                
+        user.sessions = {};
+    }
+    const token = Utils.generateToken(user.email);
+    user.sessions[token] = {
+          logged: true,
+          date: new Date()
+    }
+//mongo cuando marcas modificado es cuando lo reasignas, cuando tenemos una propiedad con espacio podemos añadir la propiedad entre []
+// prop.espacio = ["Propiedad con espacio o caracteres especiales (=,+,etc"] = a prop[""]
+//para que agregue las sesiones 
+    user.markModified("sessions");
+
+//salvar la inform de sesiones.        
+    await user.save();                
+
+     res.cookie("SID", user.username);
+     res.cookie("TOKEN", token);
+
+// user.sessions[Utils.generateToken(user.email)]= {
+//     logged: true,                   //token de sesión
+//     date: new Date()                //fecha del login
+//}
+        res.send({
+        login: "ok"
+  });
+// esto es solo para checar el token y sid en YARC
+    // res.send({
+    //     SID: user.username,
+    //     TOKEN: token
+//});
+});
+// información del usuario se llama con GET y valor de las cookies en el custom headers de YARC 
+// para ver el PERFIL O PROFILE a traves de las cookies
+
   // ESTO ES PARA HACER EL REGISTRO DEL USUARIO
 router.post('/register', async function(req, res){
+        
         var body = req.body;
         var valid = Validate.userRegister(body);    //validar el usuario
     if(valid.error) {
@@ -118,16 +125,16 @@ router.post('/register', async function(req, res){
         var duplicatedUser = await User.findOne({    //buscamos duplicados
              email: body.email
         });
+
     if(duplicatedUser) {
          return res.status(403).send({
              message: `El usuario con el email '${body.email}' ya se encuentra registrado`
          });
-    };
+    }
 
 //los datos del usuario se cambian al body
         var nuevoUser = new User(body);
         nuevoUser.username = Utils.encodeEmail(nuevoUser.email);       //token único
-      
         nuevoUser.permissions = {
             admin: false,
             regular: true,
@@ -141,46 +148,5 @@ router.post('/register', async function(req, res){
         user: body
     });
 });
-
-// router.post('/login', async function(req, res) {
-//     var loginData = req.body;
-//     var valid = Validate.userLogin(loginData);
-//     if(valid.error) {
-//         return res.status(400).send(valid.error.details);
-//     }
-
-//     var user = await User.findOne({ 
-//         email: loginData.email,
-//         password: loginData.password
-//     });
-
-//     if(!user) {
-//         return res.status(404).send({
-//             message: `Invalid email/or password.`
-//         });
-//     }
-
-//     if(!user.sessions) {
-//         user.sessions = {};
-//     }
-
-//     // user.sessions[utils.generateToken(user.email)] = {
-//     //     logged: true,
-//     //     date: new Date()
-//     // }
-
-//     user.markModified("sessions");
-//     await user.save();
-
-//     res.send({
-//         login: "ok"
-//     });
-//     /*res.send({
-//         SID: user.username,
-//         TOKEN: token
-//     });*/
-// });
-
-
 
 module.exports = router;                  //para exportar el router
