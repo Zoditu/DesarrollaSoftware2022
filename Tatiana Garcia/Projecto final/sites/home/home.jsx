@@ -2,6 +2,7 @@ function Home() {
     var [user, setUser] = React.useState(null);
     var [cart, setCart] = React.useState({ count: 0 });
     var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
+    //la variable se setea pq va a cambiar de valor conj el react por eso el set
 
     axios({
         method: 'GET',
