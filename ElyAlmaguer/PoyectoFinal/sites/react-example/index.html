@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./react-example.css">
+</head>
+  <body>
+
+    <!-- Ejercicio #1 Hello Mundo
+        EL ID y la función se declara en el ReactDOM.
+        <div id="mydiv"></div>
+    <script type="text/babel">
+        var saludo = "Mundo";
+        function Hello() {
+        return <h1>Hello, {saludo}!</h1>;
+      }
+      ReactDOM.createRoot(document.getElementById('mydiv')).render(<Hello/>); -->
+      
+      <!-- ejercicio#2  2 funciones con return independiente para complementarse
+        <div id="mydiv"></div>
+      <script type="text/babel">
+
+            function Person(props) {
+            return <h2>Soy { props.name }!</h2>;
+        }
+            function Greeting() {
+                const name = "Ely"
+            return (
+                <>
+                <h1>Hola</h1> 
+                <Person name={name} />
+                </>
+            );
+            }
+        ReactDOM.createRoot(document.getElementById('mydiv')).render(<Greeting />); -->
+     <!-- eERCICIO 3 CON EVENTOS al cambiar variables dentro del codigo cambia tambien en el HTML con los set -->
+        <!-- <div id="mydiv"></div>
+        <script type="text/babel">
+
+            function Person(props) {
+            return (
+                <>
+                <h2>Soy { props.name }!</h2>
+                </>
+            )}
+            function Greeting() {
+                function evento() {
+                 setName('Enrique')
+                console.log('Esto se ejecuta dentro del componente Greeting')
+                 }
+                var [name, setName] = React.useState("Ely")
+                return (
+                 <>
+                <h1>Hola</h1> 
+                <Person name={name} />
+               <button onClick={evento}>Algo</button>
+                </>   
+                )
+            } 
+            
+        ReactDOM.createRoot(document.getElementById('mydiv')).render(<Greeting />);
+        EJERCICIO 4 PAGINA CON REACT CON CONDICIONAL. formulario   plantilla para varias lineas
+         <></> 
+        Show se puede usar para cambiar estilos del section
+    arrow function o función flecha (=>) cuando es solo una función pede ser así.
+    <button onClick={()=>setShow(true) }>Mostrar</button>    
+    -->
+
+        <div id="app"></div>
+        <script type="text/babel">
+
+            function Datos(props){
+                return <h1 className={props.class} >Datos: {props.nombre} y {props.password}</h1>;
+            }
+
+            function App(){
+
+                var[nombre, setNombre]= React.useState("X");
+                var[password, setPassword]= React.useState("Y");
+                var[show, setShow] = React.useState(false);
+                var[style, setStyle] = React.useState("base");
+
+                var form = <>
+               <input type="text" value={nombre} onChange={()=> setNombre(event.target.value)} placeholder="Username"/>
+               <input type="password" value={password} onChange={()=> setPassword(event.target.value)} placeholder="********"/>
+               <button onClick={()=> {
+                    if(style === 'base'){
+                        setStyle("otro");
+                    } else {
+                        setStyle("base");
+                    }
+                }}>Mostrar</button>
+               <hr/>
+               <section>El user es:{nombre} y la contraseña es: {password}</section>
+               <Datos class={style} nombre={nombre} password={password}/>
+               </>;
+                return form;
+            }
+        ReactDOM.createRoot(document.getElementById('app')).render(<App/>);
+    </script>
+  </body>
+</html>
