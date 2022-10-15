@@ -24,5 +24,5 @@ module.exports = mongoose.model('User', {
         regular: Boolean,
         enabled: Boolean
     },
-    sessions: Object
+    sessions: Object       //Aqui se guardarán las sesiones del usuario
 }, 'Users');
