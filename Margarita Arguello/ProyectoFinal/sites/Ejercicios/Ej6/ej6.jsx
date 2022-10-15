@@ -6,11 +6,11 @@ function Menu(propiedades){
 propiedad.nom_objeto.variable*/
 
 return <>    
-    <h1>{propiedades.empresa.name}</h1>
+    <h1>{propiedades.business.name}</h1>
     <h2>{propiedades.nom}</h2>
     <h2>{propiedades.nombre}</h2>
     </>
 };
 
 /* render(< el nombre de la funcion /b propiedad={nombre del objeto} o propiedad={valor} o propiedad={variable que se usa})*/
-ReactDOM.createRoot(document.getElementById("menu")).render(<Menu empresa={business} nom="Margarita" nombre={NAME} />);
+ReactDOM.createRoot(document.getElementById("menu")).render(<Menu business={business} nom={"Margarita"} nombre={NAME} />);
