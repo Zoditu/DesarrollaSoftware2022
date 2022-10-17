@@ -2,11 +2,14 @@
 //Deben recibir también el width y height además del color
 
 function Figuras(props) {
-    /*var [numero, setNumero] = React.useState(props.num);
+    /*
+    //var numero = props.num;
+    var [numero, setNumero] = React.useState(props.num);
 
     return <>
         <h1>{numero}</h1>
         <button onClick={function(){
+            //numero += 1;
             setNumero(numero + 1);
         }}>Cambiar numero</button>
     </>;*/
@@ -40,11 +43,11 @@ function Figuras(props) {
         </>;
 
         if(figura.type === "circle") {
-            shapes.push(<div className="shape" style={{ borderRadius: "100%", width: figura.w, height: figura.h, background: color}}>
+            shapes.push(<div key={i} className="shape" style={{ borderRadius: "100%", width: figura.w, height: figura.h, background: color}}>
                 {button}
             </div>);
         } else {
-            shapes.push(<div className="shape" style={{ width: figura.w, height: figura.h, background: color}}>
+            shapes.push(<div key={i} className="shape" style={{ width: figura.w, height: figura.h, background: color}}>
                 {button}
             </div>);
         }
