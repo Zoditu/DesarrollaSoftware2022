@@ -1,0 +1,14 @@
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .square {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    display: inline-block;
+  }
