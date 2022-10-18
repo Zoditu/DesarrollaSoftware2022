@@ -5,7 +5,15 @@ function LoginUser(props) {
         if(props.user === null) {
             login = 
             <article className="d-lg-none d-block mb-2">
-                <a href="#">Login</a>
+                <div className="row h-100 w-100 align-items-center">
+                    <div className="col">
+                        <a href="#" className="login-button">
+                            <span class="material-icons">
+                                account_circle
+                            </span>Login
+                        </a>
+                    </div>
+                </div>
             </article>
         } else {
             login  = 
@@ -61,7 +69,15 @@ function LoginUser(props) {
     if(props.user === null) {
         login = 
         <article className="d-lg-block d-none profile order-lg-2 order-1">
-            <a href="#">Login</a>
+            <div className="row h-100 w-100 align-items-center">
+                <div className="col">
+                    <a href="#" className="login-button">
+                        <span class="material-icons">
+                            account_circle
+                        </span>Login
+                    </a>
+                </div>
+            </div>
         </article>
     } else {
         login = 
@@ -91,6 +107,9 @@ function LoginUser(props) {
 }
 
 function MainMenu(props) {
+
+    var subMenu = <h1>Sub Menu!</h1>;
+
     var header = <>
         <header className="main-menu sticky-top">
             <nav className="navbar navbar-expand-lg">
@@ -124,7 +143,7 @@ function MainMenu(props) {
                 </div>
             </nav>
             <section className="menu-navigation d-lg-block container">
-                <h1>Sub menu</h1>
+                {subMenu}
             </section>
         </header>
     </>;
