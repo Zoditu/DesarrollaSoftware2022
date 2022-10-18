@@ -1,12 +1,12 @@
-.circle{
-     border-radius: 50%;
-}
-
-.square{
+.circle {
+     border-radius: 100%;
+ }
+ 
+ .square {
      border-radius: 0%;
-}
-
-.shape{
-     border: 3px solid #555;
+ }
+ 
+ .shape {
+     border: 1px solid black;
      display: inline-block;
-}
+ }
