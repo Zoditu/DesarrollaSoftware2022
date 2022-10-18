@@ -1,68 +1,78 @@
+//Los círculos se deben poder personalizar, o sea,
+//Deben recibir también el width y height además del color
 
 function Figuras(props) {
-    const figuras = props.shapes;
-    const shape = [];
-    
-    // var html = [];
+    // var [numero, setNumero] = React.useState(props.num);
 
-    for(var i = 0; i < figuras.length; i++) {
+    // return <>
+    //     <h1>{numero}</h1>
+    //     <button onClick={function(){
+    //         setNumero(numero + 1);
+    //     }}>Cambiar numero</button>
+    // </>;
+
+    var [figuras, setFiguras] = React.useState(Array.from(props.shapes));
+    const shapes = [];
+
+    for (var i = 0; i < figuras.length; i++) {
         const figura = figuras[i];
         var color = figura.color;
-            if(figura.show === false) {
-                color = "gray";
-            }
-        
-        shape.push = <div className="circle" style={{width: figura.w, height: figura.h, background:figura.color}}></div>;
-
+        if(figura.show === false) {
+            color = "gray";
         }
-        return shape;
+
+        var button = <>
+            <div className="row align-items-center text-center m-0 h-100 w-100">
+                <div className="col">
+                    <button onClick={function(){
+                        if(figura.type === 'circle') {
+                            figura.type = "square";
+                        } else {
+                            figura.type = "circle";
+                        }
+                        
+                        setFiguras(Array.from(figuras));
+                    }} type="button" className="btn btn-primary">
+                        Cambiar
+                    </button>
+                </div>
+            </div>
+        </>;
+
+        if(figura.type === "circle") {
+            shapes.push(<div className="shape" style={{ borderRadius: "100%", width: figura.w, height: figura.h, background: color}}>
+                {button}
+            </div>);
+        } else {
+            shapes.push(<div className="shape" style={{ width: figura.w, height: figura.h, background: color}}>
+                {button}
+            </div>);
+        }
+    }
+
+    return shapes;
 }
 
-const figuras = [
-    {
-        type: "square",
-        color: "red",
-        w:"10rem",
-        h:"10rem",
-        show: true
-    },
-    {
-        type: "circle",
-        color: "orange",
-        w:"10rem",
-        h:"10rem",
-        show: true
-    },
-    {
-        type: "circle",
-        color: "green",
-        w:"10rem",
-        h:"10rem",
-        show: false
-    }
-]
+const figuras = [{
+    type: "square",
+    color: "red",
+    w: "10rem",
+    h: "10rem",
+    show: true
+},
+{
+    type: "circle",
+    color: "orange",
+    w: "10rem",
+    h: "10rem",
+    show: true
+}, 
+{
+    type: "circle",
+    color: "green",
+    w: "10rem",
+    h: "10rem",
+    show: false
+}];
 
-
-// const coloresC = [{
-//     color:"palegoldenrod",
-//     w:"10rem",
-//     h:"10rem",
-//     show: false
-// },
-// {
-//     color:"palegreen",
-//     w:"20rem",
-//     h:"20rem",
-//     show:true
-// },
-// {
-//     color:"paleturquoise",
-//     w:"30rem",
-//     h:"30rem",
-//     show:false
-// }];
-
-
-ReactDOM.createRoot(document.getElementById('app')).render(<Figuras shape={figuras}/>)
-
-
+ReactDOM.createRoot(document.getElementById('app')).render(<Figuras shapes={figuras} num={15} />)
