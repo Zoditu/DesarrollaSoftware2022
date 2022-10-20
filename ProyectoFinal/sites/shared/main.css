@@ -54,8 +54,61 @@
 }
 
 .menu-navigation {
+    position: relative;
     display: none;
-    background-color: cadetblue;
+    padding: 0;
+    background-color: var(--colors-yellow);
+}
+
+.menu-navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-navigation:hover > section:last-child {
+    display: block;
+}
+
+.menu-navigation li {
+    color: var(--colors-white);
+    padding: 1rem;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-navigation li:hover {
+    background-color: var(--colors-red);
+}
+
+.sub-category {
+    color: var(--colors-white);
+    padding: 0 1rem;
+    padding-bottom: 1rem;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sub-category:hover {
+    background-color: var(--colors-red);
+}
+
+.subcategory-type {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+.subcategory-type:hover {
+    background-color: var(--colors-lavanda);
+}
+
+.sub-menu {
+    position: absolute;
+    display: none;
+    background: var(--colors-yellow);
+    width: 100%;
 }
 
 .profile {

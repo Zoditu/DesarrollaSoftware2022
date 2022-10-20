@@ -8,7 +8,7 @@ function LoginUser(props) {
                 <div className="row h-100 w-100 align-items-center">
                     <div className="col">
                         <a href="#" className="login-button">
-                            <span class="material-icons">
+                            <span className="material-icons">
                                 account_circle
                             </span>Login
                         </a>
@@ -72,7 +72,7 @@ function LoginUser(props) {
             <div className="row h-100 w-100 align-items-center">
                 <div className="col">
                     <a href="#" className="login-button">
-                        <span class="material-icons">
+                        <span className="material-icons">
                             account_circle
                         </span>Login
                     </a>
@@ -108,7 +108,68 @@ function LoginUser(props) {
 
 function MainMenu(props) {
 
-    var subMenu = <h1>Sub Menu!</h1>;
+    var [categories, setCategories] = React.useState([]);
+    var [subCategories, setSubCategories] = React.useState([]);
+    var [active, setActive] = React.useState(-1);
+
+    React.useEffect(function(){
+        axios({
+            method: "GET",
+            url: "/category/all",
+        }).then(function(result){
+            setCategories(result.data);
+        }).catch(function(error){
+            //TBD
+        });
+    }, []);
+
+    var menus = [];
+    for(var i = 0; i < categories.length; i++) {
+        const index = i;
+        const category = categories[i].category;
+        const children = categories[i].children;
+
+        menus.push(
+            <li 
+            onMouseEnter={function() {
+                setActive(index);
+                var temp = [];
+                for(var j = 0; j < children.length; j++) {
+                    const subCategory = children[j];
+
+                    var types = [];
+                    for(var z = 0; z < subCategory.types.length; z++) {
+                        const type = subCategory.types[z];
+
+                        types.push(<article className="subcategory-type">
+                            {type}
+                        </article>);
+                    }
+
+                    temp.push(<>
+                        <div key={subCategory.id} className="col-lg sub-category">
+                            {subCategory.name}
+                            {types}
+                        </div>
+                    </>);
+                }
+                setSubCategories(Array.from(temp));
+            }} style={{ background: index === active ? 'var(--colors-red)' : '' }} key={category.id}>{category.name}</li>
+        );
+    }
+
+    var subMenu = <>
+        <ul>
+            {menus}
+        </ul>
+        <section onMouseLeave={function(){
+                setActive(-1);
+            }} className="sub-menu">
+            <div className="row m-0 p-0 h-100 w-100">
+                {subCategories}
+            </div>
+        </section>
+    </>;
 
     var header = <>
         <header className="main-menu sticky-top">
@@ -136,7 +197,7 @@ function MainMenu(props) {
                             <div className="d-lg-none d-block mb-2"></div>
                             <LoginUser user = { props.user } cart = { props.cart } />
                             <section className="d-lg-none d-block menu-navigation container">
-                                <h1>Sub menu</h1>
+                                {subMenu}
                             </section>
                         </div>
                     </div>
