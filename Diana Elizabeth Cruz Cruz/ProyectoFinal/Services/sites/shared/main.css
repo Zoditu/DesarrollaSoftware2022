@@ -9,6 +9,10 @@
     background-color: var(--colors-yellow) !important;
 }
 
+.main-menu{
+    margin-bottom: 1rem;
+}
+
 .main-menu > .navbar {
     background-color: var(--colors-pink);
 }

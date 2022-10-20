@@ -34,6 +34,7 @@ function ConteoCirculos(){
     }}-</button>
 
     <hr/>
+    {circles}
 
     </>
 
@@ -41,4 +42,4 @@ function ConteoCirculos(){
 
    
 
-ReactDOM.createRoot(document.getElementById('app')).render(<ConteoCirculos/>);
+ReactDOM.createRoot(document.getElementById('app')).render(<numCirculos/>);
