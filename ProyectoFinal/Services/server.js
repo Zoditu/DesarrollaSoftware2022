@@ -21,7 +21,10 @@ app.use('/users', usersRouter);
 
 const categoriesRouter = require('./routers/categories');
 app.use('/category', categoriesRouter);
-//locahost:3000/category/
+
+const productsRouter = require('./routers/products');
+app.use('/products', productsRouter);
+//locahost:3000/products/
 
 mongoose.connect(
     uri, {

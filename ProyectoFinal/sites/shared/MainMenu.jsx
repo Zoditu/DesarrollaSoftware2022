@@ -141,20 +141,20 @@ function MainMenu(props) {
                     for(var z = 0; z < subCategory.types.length; z++) {
                         const type = subCategory.types[z];
 
-                        types.push(<article className="subcategory-type">
+                        types.push(<article key={"type-" + z} className="subcategory-type">
                             {type}
                         </article>);
                     }
 
                     temp.push(<>
-                        <div key={subCategory.id} className="col-lg sub-category">
+                        <div key={"subcategory-" + subCategory.id} className="col-lg sub-category">
                             {subCategory.name}
                             {types}
                         </div>
                     </>);
                 }
                 setSubCategories(Array.from(temp));
-            }} style={{ background: index === active ? 'var(--colors-red)' : '' }} key={category.id}>{category.name}</li>
+            }} style={{ background: index === active ? 'var(--colors-red)' : '' }} key={"category-" + category.id}>{category.name}</li>
         );
     }
 

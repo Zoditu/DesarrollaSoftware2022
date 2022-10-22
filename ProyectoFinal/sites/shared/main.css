@@ -5,6 +5,18 @@
     line-height: inherit !important;
 }
 
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-both {
+    clear: both;
+}
+
 .offcanvas {
     background-color: var(--colors-yellow) !important;
 }
@@ -119,4 +131,36 @@
 .login-button {
     color: var(--colors-white);
     font-weight: bold;
+}
+
+/*Productos*/
+.precio-producto {
+    font-weight: bold;
+}
+
+.precio-producto::before {
+    content: "$";
+}
+
+.agregar-producto {
+    background: var(--colors-pink);
+    color: var(--colors-white) !important;
+}
+
+.agregar-producto:hover {
+    background: var(--colors-yellow) !important;
+}
+
+.product .carousel-item img {
+    height: 18rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--colors-red);
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--colors-lavanda);
 }

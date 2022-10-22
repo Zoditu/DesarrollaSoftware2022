@@ -20,6 +20,8 @@ function Home() {
         }
     ]);
 
+    var [products, setProducts] = React.useState([]);
+
     React.useEffect(function() {
         axios({
             method: 'GET',
@@ -84,7 +86,6 @@ function Home() {
                         });
                     }
                 }).then(function (result) {
-                    console.log(result);
                     if(result.value) {
                         window.location.href = window.location.href;
                     } else {
@@ -100,6 +101,15 @@ function Home() {
                 console.log(error);
             }
         });
+
+        axios({
+            method: 'GET',
+            url: '/products/recommended'
+        }).then(function(result){
+            setProducts(result.data);
+        }).catch(function(error) {
+            //TBD
+        })
     }, []);
 
     var buttons = [];
@@ -108,13 +118,13 @@ function Home() {
         const image = images[i];
         
         if( i === 0) {
-            buttons.push(<button key={i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} className="active" aria-current="true" aria-label={"Slide " + (i+1)}></button>);
+            buttons.push(<button key={"home-carousel-btn" + i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} className="active" aria-current="true" aria-label={"Slide " + (i+1)}></button>);
         } else {
-            buttons.push(<button key={i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} aria-label={"Slide " + (i+1)}></button>);
+            buttons.push(<button key={"home-carousel-btn" + i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} aria-label={"Slide " + (i+1)}></button>);
         }
 
         items.push(
-        <div key={i} className={i === 0 ? "carousel-item active" : "carousel-item"}>
+        <div key={"home-carousel-item" + i} className={i === 0 ? "carousel-item active" : "carousel-item"}>
             <img src={image.src} className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
                 <h5>{image.title}</h5>
@@ -146,6 +156,11 @@ function Home() {
         <MainMenu user = { user } cart = { cart } />
         <main className="container p-0">
             {carousel}
+            <div className="m-3"></div>
+            <hr />
+            <h2 className="text-center">Productos recomendados</h2>
+            <hr />
+            <Products products={products}/>
         </main>
         <Alert alert = { alertMessage } />
     </>;
