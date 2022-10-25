@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 module.exports = mongoose.model('Product', {
-    sku: Number,
+    sku: String,
     categoryId: Number,
     subCategoryId: Number,
     categoryType: String,
