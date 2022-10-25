@@ -1,0 +1,28 @@
+@import url(/shared/colors.css);
+@import url(/shared/main.css);
+
+.action-product {
+    width: 18rem;
+    display: inline-block;
+}
+
+.action-product:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.form-controls {
+    text-align: end;
+}
+
+.close-form {
+    font-size: 1.1rem;
+    padding: 0.3rem;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(139, 0, 0, 0.5);
+}
+
+.close-form:hover {
+    background-color: rgba(139, 0, 0, 1);
+}

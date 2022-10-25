@@ -1,0 +1,66 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+.material-icons {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+#menu {
+    background-color: cadetblue;
+    padding: 0.5rem 0.2rem;
+    color: white;
+}
+
+.precio-producto {
+    font-weight: bold;
+
+}
+
+.precio-producto::before {
+    content: "$";
+}
+
+.agregar-producto {
+
+}
+
+.carousel-item img {
+    height: 18rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-control-next:hover, .carousel-control-prev:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#menu {
+    background-color: paleturquoise;
+    padding: 0.5rem 0.2rem;
+}
+
+.precio-producto {
+    font-weight: bold;
+}
+
+.precio-producto::before {
+    font-weight: bold;
+}
+
+.carousel-item img {
+    height: 18rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-control-next:hover, .carrusel-control-prev:hover {
+    background-color: rgb(0,0,0,0.75);
+}

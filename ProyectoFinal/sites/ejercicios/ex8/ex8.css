@@ -1,0 +1,14 @@
+.tarjeta {
+    width: 20rem;
+    padding: 1rem;
+    float: left;
+    border: 2px solid darkcyan;
+}
+
+.tarjeta h1 {
+    font-size: 1.5rem;
+}
+
+.tarjeta h2 {
+    font-size: 1.2rem;
+}

@@ -1,0 +1,53 @@
+@import url(/sharedcontent/colors.css);
+@import url(/sharedcontent/mainstuff.css);
+
+.register-link {
+    color: var(--colors-white) !important;
+    font-weight: bold;
+}
+
+.swal2-confirm {
+    background: var(--colors-white) !important;
+    color: var(--colors-pink) !important;
+    width: 100%;
+}
+
+.swal2-actions {
+    width: 100% !important;
+    padding: 0 2.3em !important;
+    margin-top: 1rem !important;
+}
+
+.swal2-validation-message {
+    display: none !important;
+}
+
+.error-login {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    width: calc(50% - 2rem);
+    left: -1000%;
+    z-index: 99999999;
+    bottom: 1rem;
+    margin: 1rem;
+    font-weight: bold;
+}
+
+.error-login-transition {
+    display: block;
+    animation-name: appear;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        left: -1000%;
+    } to {
+        opacity: 1;
+        left: 25%;
+    }
+}

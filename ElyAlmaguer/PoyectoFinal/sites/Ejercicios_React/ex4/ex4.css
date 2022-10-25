@@ -1,0 +1,38 @@
+
+input, button, label{
+    height: 4rem;
+    width:  15rem;
+    margin-top: 20px;
+    margin-right: .5rem;
+    border-radius: 5%;
+    background-color: rgb(230, 174, 211);
+    font-weight: bold;
+    font-size: 30px;
+    align-items: center;
+    margin: 1px solid #888;
+    padding: 11px;
+    user-select: none;
+}
+
+input:hover{
+    background-color: rgb(178, 245, 22);
+}
+button {
+    padding: 1rem;
+    height: 3.4rem;
+    width:  3.4rem;
+    background-color: aqua; 
+    color: rgb(31, 25, 25);
+    border-radius: 10px;
+}
+button:hover{
+    background-color: rgb(226, 155, 62);
+    cursor:pointer
+}
+label {
+   background-color: rgb(204, 156, 248);
+}
+select{
+    margin-top: 10px;
+    font-size: 35;
+}

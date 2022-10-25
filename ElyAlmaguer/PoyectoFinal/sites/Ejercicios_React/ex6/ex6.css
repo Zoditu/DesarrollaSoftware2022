@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+.material-icons {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+.float-left {
+
+}
+.float-rigth {
+
+}
+
+#menu {
+background-color: cadetblue;
+padding: ;
+
+}
+
+.precio-producto{
+
+}
+
+.imagen{
+    height: 18rem;
+    object-fit: cover;
+    object-position: center;
+}
+.carousel-control-next:hover, .carousel-control-control-prev{
+background-color: rgbq(0. 0, 0, 0.75);
+}

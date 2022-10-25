@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.main-menu > .navbar{
+    background-color: var(--colors-pink);
+    height: 65px;
+
+}
+
+.menu-logo{
+    background-color:turquoise;
+    height: 65px;
+}
+
+.menu-navigation {
+    background-color: aquamarine;
+
+}
+
+
+.profile{
+    background-color: goldenrod;
+}
+
+.main-menu > .navbar input[type=search]{
+    background-color: var(--colors-white);
+    
+}
+
+.main-menu > .navbar button[type=submit]{
+    background-color: var(--colors-white);
+    border: 2px solid white;
+
+}
+
+
+.menu-logo{
+    color: var(--colors-white);
+    font-weight: bold;
+}
+
+.menu-logo:hover{
+    color: var(--colors-gray);
+}
