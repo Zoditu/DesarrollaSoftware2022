@@ -4,6 +4,9 @@ const router = express.Router();
 const Validate = require('../validation');
 const Product = require('../models/product');
 
+const maxLimit = 12;
+const startPage = 1;
+
 router.get('/recommended', async function(req, res){
     var products = await Product.find({}, {_id: 0, __v: 0}).sort({sku: -1}).limit(3);
     return res.send(products);
@@ -41,6 +44,100 @@ router.post('/:sku', async function(req, res) {
 
     res.send({
         message: "Producto creado"
+    });
+});
+
+router.get('/all', async function(req, res){
+    var query = req.query;
+
+    var filter = {};
+    if(!isNaN(query.category)) {
+        filter.categoryId = query.category;
+
+        if(!isNaN(query.subCategory)){
+            filter.subCategoryId = query.subCategory;
+
+            if(query.categoryType) { 
+                //Blush, blush, BLUSH
+                filter.categoryType = {
+                    $regex: query.categoryType,
+                    $options: "i"
+                };
+            }
+        }
+    }
+
+    if(query.name) {
+        filter.name = {
+            $regex: query.name,
+            $options: "i"
+        };
+    }
+
+    if(query.model) {
+        filter.model = {
+            $regex: query.model,
+            $options: "i"
+        };
+    }
+
+    if(query.brand) {
+        filter.brand = {
+            $regex: query.brand,
+            $options: "i"
+        };
+    }
+
+    if(query.color) {
+        filter.color = {
+            $regex: query.color,
+            $options: "i"
+        };
+    }
+
+    if(query.price) {
+        const range = query.price.split(',');
+        //Solo deben existir dos elementos entre la ','
+        //Ej: 10, 11 debe regresar: ["10"," 11"]
+        if(range.length === 2) {
+            var min = range[0].trim();
+            var max = range[1].trim();
+
+            //Ambos deben ser números
+            if(!isNaN(min) && !isNaN(max)) {
+                min = parseFloat(min);
+                max = parseFloat(max);
+                //0,100
+                if(min > max) {
+                    var swap = min;
+                    min = max;
+                    max = swap;
+                }
+
+                filter.price = { $gte: min, $lte: max };
+            }
+        }
+    }
+    
+    var products = await Product.find(filter);
+
+    var page = startPage;
+    if(!isNaN(query.page)) {
+        page = parseInt(query.page);
+    }
+
+    var indexProducts = (page - 1) * maxLimit;
+    var result = products.splice(indexProducts, maxLimit);
+
+    return res.send(result);
+
+})
+
+router.get('/countPages', async function(req, res){
+    var pages = await Product.count();
+
+    return res.send({
+        pages: Math.ceil(pages/maxLimit)
     });
 });
 
