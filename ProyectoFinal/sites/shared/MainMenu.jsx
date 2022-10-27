@@ -27,7 +27,7 @@ function LoginUser(props) {
                                 {props.user.name} -
                                 <span className="material-icons">
                                     shopping_cart
-                                </span> ({props.cart.count})
+                                </span> ({props.cart.products.length})
                             </button>
                         </h2>
                         <div id="flush-collapseOne" className="accordion-collapse collapse"
@@ -68,13 +68,11 @@ function LoginUser(props) {
 
     if(props.user === null) {
         login = 
-        <article className="d-lg-block d-none profile order-lg-2 order-1">
-            <div className="row h-100 w-100 align-items-center">
+        <article className="d-lg-block d-none profile nav-item order-lg-2 order-1">
+            <div className="row h-100 align-items-center">
                 <div className="col">
-                    <a href="#" className="login-button">
-                        <span className="material-icons">
-                            account_circle
-                        </span>Login
+                    <a className="nav-link" href="/login">
+                        Login
                     </a>
                 </div>
             </div>
@@ -91,7 +89,7 @@ function LoginUser(props) {
                         </span>
                         <span className="material-icons">
                             shopping_cart
-                        </span> ({props.cart.count})
+                        </span> ({props.cart.products.length})
                     </a>
                     <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item" href="/profile">Perfil</a></li>
@@ -111,6 +109,8 @@ function MainMenu(props) {
     var [categories, setCategories] = React.useState([]);
     var [subCategories, setSubCategories] = React.useState([]);
     var [active, setActive] = React.useState(-1);
+    var [actions, setActions] = React.useState(0);
+    const totalActions = 3;
 
     React.useEffect(function(){
         axios({
@@ -120,41 +120,152 @@ function MainMenu(props) {
             setCategories(result.data);
         }).catch(function(error){
             //TBD
+        }).finally(function(){
+            actions++;
+            if(actions === totalActions) {
+                props.updateLoader(false);
+            }
+            
+            setActions(actions);
+        });
+
+        axios({
+            method: 'GET',
+            url: '/cart'
+        }).then(function(result){
+            props.updateCart(result.data);
+        }).catch(function(error){
+            //TBD
+        }).finally(function(){
+            actions++;
+            if(actions === totalActions) {
+                props.updateLoader(false);
+            }
+            
+            setActions(actions);
+        });
+
+        axios({
+            method: 'GET',
+            url: '/users/profile'
+        }).then(function (result) {
+            props.updateUser(result.data.user);
+        }).catch(function (error) {
+            if (error.response) {
+                Swal.fire({
+                    background: 'var(--colors-pink)',
+                    color: "var(--colors-white)",
+                    showCloseButton: true,
+                    allowOutsideClick: false,
+                    title: 'Iniciar Sesión',
+                    confirmButtonText: "Iniciar Sesión",
+                    confirmButtonColor: 'var(--colors-white)',
+                    html: `<section class="row m-0">
+                                <article class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">@</span>
+                                        <input type="text" id="email" class="form-control" placeholder="Correo" aria-label="Correo"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">**</span>
+                                        <input type="password" id="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </article>
+                           </section>`,
+                    //text: 'Aquí debe venir el formulario del login',
+                    footer: '<a class="register-link" href="/register">No tienes cuenta? Regístrate</a>',
+                    showLoaderOnConfirm: true,
+                    preConfirm: function () {
+                        var email = $("#email").val();
+                        var password = $("#password").val();
+        
+                        var payload = {
+                            email: email,
+                            password: password
+                        };
+        
+                        return axios({
+                            method: 'POST',
+                            url: '/users/login',
+                            data: payload
+                        }).then(function (result) {
+                            
+                        }).catch(function (error) {
+                            if(error.response) {
+                                props.updateAlertMessage({ 
+                                    showAlert: true, 
+                                    message: `Error al iniciar sesión: ${error.response.data.message}`
+                                });
+                                return false;
+                                //`Error al iniciar sesión: ${error.response.data.message}`
+                            } else {
+                                //Ocurrió un error no controlado
+                                //TBD
+                                console.log(error);
+                            }
+                        });
+                    }
+                }).then(function (result) {
+                    if(result.value) {
+                        window.location.href = window.location.href;
+                    } else {
+                        props.updateAlertMessage({ 
+                            showAlert: false, 
+                            message: ""
+                        });
+                    }
+                });
+            } else {
+                //Ocurrió un error no controlado
+                //TBD
+                console.log(error);
+            }
+        }).finally(function(){
+            actions++;
+            if(actions === totalActions) {
+                props.updateLoader(false);
+            }
+            
+            setActions(actions);
         });
     }, []);
 
     var menus = [];
+    var keys = {};
     for(var i = 0; i < categories.length; i++) {
         const index = i;
         const category = categories[i].category;
         const children = categories[i].children;
 
         menus.push(
-            <li 
-            onMouseEnter={function() {
-                setActive(index);
-                var temp = [];
-                for(var j = 0; j < children.length; j++) {
-                    const subCategory = children[j];
+            <li key={`category-${category.id}`}
+                onMouseEnter={function() {
+                    var temp = [];
+                    for(var j = 0; j < children.length; j++) {
+                        const subCategory = children[j];
 
-                    var types = [];
-                    for(var z = 0; z < subCategory.types.length; z++) {
-                        const type = subCategory.types[z];
+                        var types = [];
+                        for(var z = 0; z < subCategory.types.length; z++) {
+                            const type = subCategory.types[z];
 
-                        types.push(<article key={"type-" + z} className="subcategory-type">
-                            {type}
-                        </article>);
+                            types.push(<article key={`type-${subCategory.id}-${z}`} className="subcategory-type">
+                                {type}
+                            </article>);
+                        }
+
+                        temp.push(<>
+                            <div key={`subcategory-${category.id}-${subCategory.id}`} className="col-lg sub-category">
+                                {subCategory.name}
+                                {types}
+                            </div>
+                        </>);
                     }
 
-                    temp.push(<>
-                        <div key={"subcategory-" + subCategory.id} className="col-lg sub-category">
-                            {subCategory.name}
-                            {types}
-                        </div>
-                    </>);
-                }
-                setSubCategories(Array.from(temp));
-            }} style={{ background: index === active ? 'var(--colors-red)' : '' }} key={"category-" + category.id}>{category.name}</li>
+                    setSubCategories(Array.from(temp));
+                    setActive(index);
+                }} style={{ background: index === active ? 'var(--colors-red)' : '' }}>{category.name}</li>
         );
     }
 

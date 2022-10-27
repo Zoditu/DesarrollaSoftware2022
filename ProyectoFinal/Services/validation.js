@@ -20,5 +20,26 @@ module.exports = {
         });
 
         return schema.validate(loginData);
+    },
+
+    newProduct: function(product) {
+        var schema = Joi.object({
+            stock: Joi.number().required(),
+            enabled: Joi.boolean().required(),
+            categoryId: Joi.number().required(),
+            subCategoryId: Joi.number().optional().allow(null),
+            categoryType: Joi.string().optional().allow(null),
+            name: Joi.string().required(),
+            description: Joi.string().required(),
+            model: Joi.string().required(),
+            brand: Joi.string().required(),
+            color: Joi.string().required(),
+            weight: Joi.string().required(),
+            size: Joi.string().required(),
+            price: Joi.number().required(),
+            images: Joi.array().optional()
+        });
+
+        return schema.validate(product);
     }
 };
