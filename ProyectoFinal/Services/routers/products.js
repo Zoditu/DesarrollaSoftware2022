@@ -118,8 +118,17 @@ router.get('/all', async function(req, res){
             }
         }
     }
+
+    if(query.stock === true) {
+        filter.stock = { $gt: 0 };
+    } else if(query.stock === false) {
+        filter.stock = { $lte: 0 };
+    }
     
-    var products = await Product.find(filter);
+    var products = await Product.find(filter, {
+        _id: 0,
+        __v: 0
+    });
 
     var page = startPage;
     if(!isNaN(query.page)) {

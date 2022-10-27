@@ -26,6 +26,9 @@ const productsRouter = require('./routers/products');
 app.use('/products', productsRouter);
 //locahost:3000/products/
 
+const cartsRouter = require('./routers/carts');
+app.use('/cart', cartsRouter);
+
 mongoose.connect(
     uri, {
         useNewUrlParser: true,

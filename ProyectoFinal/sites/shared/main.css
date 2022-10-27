@@ -151,6 +151,10 @@
     background: var(--colors-yellow) !important;
 }
 
+.product .carousel {
+    height: 18rem;
+}
+
 .product .carousel-item img {
     height: 18rem;
     object-fit: cover;

@@ -27,7 +27,7 @@ function LoginUser(props) {
                                 {props.user.name} -
                                 <span className="material-icons">
                                     shopping_cart
-                                </span> ({props.cart.count})
+                                </span> ({props.cart.products.length})
                             </button>
                         </h2>
                         <div id="flush-collapseOne" className="accordion-collapse collapse"
@@ -68,13 +68,11 @@ function LoginUser(props) {
 
     if(props.user === null) {
         login = 
-        <article className="d-lg-block d-none profile order-lg-2 order-1">
-            <div className="row h-100 w-100 align-items-center">
+        <article className="d-lg-block d-none profile nav-item order-lg-2 order-1">
+            <div className="row h-100 align-items-center">
                 <div className="col">
-                    <a href="#" className="login-button">
-                        <span className="material-icons">
-                            account_circle
-                        </span>Login
+                    <a className="nav-link" href="/login">
+                        Login
                     </a>
                 </div>
             </div>
@@ -91,7 +89,7 @@ function LoginUser(props) {
                         </span>
                         <span className="material-icons">
                             shopping_cart
-                        </span> ({props.cart.count})
+                        </span> ({props.cart.products.length})
                     </a>
                     <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item" href="/profile">Perfil</a></li>
@@ -121,40 +119,52 @@ function MainMenu(props) {
         }).catch(function(error){
             //TBD
         });
+
+        axios({
+            method: 'GET',
+            url: '/cart'
+        }).then(function(result){
+            //console.log(result.data)
+            props.updateCart(result.data);
+        }).catch(function(error){
+            //TBD
+        });
     }, []);
 
     var menus = [];
+    var keys = {};
     for(var i = 0; i < categories.length; i++) {
         const index = i;
         const category = categories[i].category;
         const children = categories[i].children;
 
         menus.push(
-            <li 
-            onMouseEnter={function() {
-                setActive(index);
-                var temp = [];
-                for(var j = 0; j < children.length; j++) {
-                    const subCategory = children[j];
+            <li key={`category-${category.id}`}
+                onMouseEnter={function() {
+                    var temp = [];
+                    for(var j = 0; j < children.length; j++) {
+                        const subCategory = children[j];
 
-                    var types = [];
-                    for(var z = 0; z < subCategory.types.length; z++) {
-                        const type = subCategory.types[z];
+                        var types = [];
+                        for(var z = 0; z < subCategory.types.length; z++) {
+                            const type = subCategory.types[z];
 
-                        types.push(<article key={"type-" + z} className="subcategory-type">
-                            {type}
-                        </article>);
+                            types.push(<article key={`type-${subCategory.id}-${z}`} className="subcategory-type">
+                                {type}
+                            </article>);
+                        }
+
+                        temp.push(<>
+                            <div key={`subcategory-${category.id}-${subCategory.id}`} className="col-lg sub-category">
+                                {subCategory.name}
+                                {types}
+                            </div>
+                        </>);
                     }
 
-                    temp.push(<>
-                        <div key={"subcategory-" + subCategory.id} className="col-lg sub-category">
-                            {subCategory.name}
-                            {types}
-                        </div>
-                    </>);
-                }
-                setSubCategories(Array.from(temp));
-            }} style={{ background: index === active ? 'var(--colors-red)' : '' }} key={"category-" + category.id}>{category.name}</li>
+                    setSubCategories(Array.from(temp));
+                    setActive(index);
+                }} style={{ background: index === active ? 'var(--colors-red)' : '' }}>{category.name}</li>
         );
     }
 

@@ -1,6 +1,6 @@
 function Home() {
     var [user, setUser] = React.useState(null);
-    var [cart, setCart] = React.useState({ count: 0 });
+    var [cart, setCart] = React.useState({ products: [] });
     var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
     var [images, setImages] = React.useState([
         {
@@ -109,7 +109,7 @@ function Home() {
             setProducts(result.data);
         }).catch(function(error) {
             //TBD
-        })
+        });
     }, []);
 
     var buttons = [];
@@ -153,14 +153,14 @@ function Home() {
     </>;
 
     var home = <>
-        <MainMenu user = { user } cart = { cart } />
+        <MainMenu user = { user } cart = { cart } updateCart={setCart}/>
         <main className="container p-0">
             {carousel}
             <div className="m-3"></div>
             <hr />
             <h2 className="text-center">Productos recomendados</h2>
             <hr />
-            <Products products={products}/>
+            <Products products={products} updateCart={setCart}/>
         </main>
         <Alert alert = { alertMessage } />
     </>;
