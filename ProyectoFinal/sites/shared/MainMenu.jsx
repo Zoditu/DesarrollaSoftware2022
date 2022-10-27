@@ -109,6 +109,8 @@ function MainMenu(props) {
     var [categories, setCategories] = React.useState([]);
     var [subCategories, setSubCategories] = React.useState([]);
     var [active, setActive] = React.useState(-1);
+    var [actions, setActions] = React.useState(0);
+    const totalActions = 3;
 
     React.useEffect(function(){
         axios({
@@ -118,16 +120,115 @@ function MainMenu(props) {
             setCategories(result.data);
         }).catch(function(error){
             //TBD
+        }).finally(function(){
+            actions++;
+            if(actions === totalActions) {
+                props.updateLoader(false);
+            }
+            
+            setActions(actions);
         });
 
         axios({
             method: 'GET',
             url: '/cart'
         }).then(function(result){
-            //console.log(result.data)
             props.updateCart(result.data);
         }).catch(function(error){
             //TBD
+        }).finally(function(){
+            actions++;
+            if(actions === totalActions) {
+                props.updateLoader(false);
+            }
+            
+            setActions(actions);
+        });
+
+        axios({
+            method: 'GET',
+            url: '/users/profile'
+        }).then(function (result) {
+            props.updateUser(result.data.user);
+        }).catch(function (error) {
+            if (error.response) {
+                Swal.fire({
+                    background: 'var(--colors-pink)',
+                    color: "var(--colors-white)",
+                    showCloseButton: true,
+                    allowOutsideClick: false,
+                    title: 'Iniciar Sesión',
+                    confirmButtonText: "Iniciar Sesión",
+                    confirmButtonColor: 'var(--colors-white)',
+                    html: `<section class="row m-0">
+                                <article class="col">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1">@</span>
+                                        <input type="text" id="email" class="form-control" placeholder="Correo" aria-label="Correo"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">**</span>
+                                        <input type="password" id="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </article>
+                           </section>`,
+                    //text: 'Aquí debe venir el formulario del login',
+                    footer: '<a class="register-link" href="/register">No tienes cuenta? Regístrate</a>',
+                    showLoaderOnConfirm: true,
+                    preConfirm: function () {
+                        var email = $("#email").val();
+                        var password = $("#password").val();
+        
+                        var payload = {
+                            email: email,
+                            password: password
+                        };
+        
+                        return axios({
+                            method: 'POST',
+                            url: '/users/login',
+                            data: payload
+                        }).then(function (result) {
+                            
+                        }).catch(function (error) {
+                            if(error.response) {
+                                props.updateAlertMessage({ 
+                                    showAlert: true, 
+                                    message: `Error al iniciar sesión: ${error.response.data.message}`
+                                });
+                                return false;
+                                //`Error al iniciar sesión: ${error.response.data.message}`
+                            } else {
+                                //Ocurrió un error no controlado
+                                //TBD
+                                console.log(error);
+                            }
+                        });
+                    }
+                }).then(function (result) {
+                    if(result.value) {
+                        window.location.href = window.location.href;
+                    } else {
+                        props.updateAlertMessage({ 
+                            showAlert: false, 
+                            message: ""
+                        });
+                    }
+                });
+            } else {
+                //Ocurrió un error no controlado
+                //TBD
+                console.log(error);
+            }
+        }).finally(function(){
+            actions++;
+            if(actions === totalActions) {
+                props.updateLoader(false);
+            }
+            
+            setActions(actions);
         });
     }, []);
 

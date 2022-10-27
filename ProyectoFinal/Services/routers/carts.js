@@ -92,6 +92,7 @@ async function FindCart(cookies, user) {
                     }
 
                     cart.products.push(prevCart.products);
+                    await prevCart.delete();
                 }
             }
 
