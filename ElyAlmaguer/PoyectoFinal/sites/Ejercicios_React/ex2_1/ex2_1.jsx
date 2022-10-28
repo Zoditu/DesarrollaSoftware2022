@@ -6,7 +6,7 @@
     
 //     var html = <>
 //     <h1>{DS22}</h1>
-//     <h1>{linea}</h1>
+//     <h1>{linea}</h1>    //separador con <hr/>
 //     <h2>{nombre}</h2>
 //     </>;
 

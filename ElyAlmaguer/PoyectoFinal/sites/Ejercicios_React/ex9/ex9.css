@@ -1,7 +1,6 @@
-.circulos{
-width:3 rem;
-height: 3rem;
+.circle{
 border: 2px solid black;
 border-radius: 100%;
-float: left;
+display: inline-block;
+margin-right: 2rem;
 }
