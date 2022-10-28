@@ -91,7 +91,7 @@ async function FindCart(cookies, user) {
                         }
                     }
 
-                    cart.products.push(prevCart.products);
+                    cart.products.push(Array.from(prevCart.products));
                     await prevCart.delete();
                 }
             }
@@ -204,6 +204,10 @@ router.get('/', async function(req, res){
     } 
     
     cart = await FindCart(cookies, true);
+    if(cart.id !== cookies["CARTID"]) {
+        cart = await FindCart(cookies, true);
+    }
+
     res.cookie("CARTID", cart.id);
 
     return res.send(cart);

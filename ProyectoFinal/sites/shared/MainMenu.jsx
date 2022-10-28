@@ -42,7 +42,7 @@ function LoginUser(props) {
                                         </a>
                                     </li>
                                     <li className="list-group-item p-0">
-                                        <a href="/cart">
+                                        <a href="/mycart">
                                             <div className="w-100 h-100 px-3 py-2">
                                                 Mi Carrito
                                             </div>
@@ -93,7 +93,7 @@ function LoginUser(props) {
                     </a>
                     <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item" href="/profile">Perfil</a></li>
-                        <li><a href="/cart" className="dropdown-item">Mi Carrito</a></li>
+                        <li><a href="/mycart" className="dropdown-item">Mi Carrito</a></li>
                         <li><a className="dropdown-item" href="/logout">Salir</a></li>
                     </ul>
                 </div>
