@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 
-app.use(express.static('../sites'));
+app.use(express.static('C:\\Users\\oscar\\OneDrive\\Documentos\\GitHub\\DesarrollaSoftware2022\\Diana Elizabeth Cruz Cruz\\ProyectoFinal\\Services\\sites'));
 app.use(express.json());
 app.use(cookieParser());
 

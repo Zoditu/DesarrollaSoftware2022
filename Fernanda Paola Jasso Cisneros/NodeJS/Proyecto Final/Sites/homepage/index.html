@@ -19,121 +19,21 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
 
-    <!-- Mis imports -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- imports -->
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <header class="main-menu sticky-top">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a title="MakeUp Homepage" class="navbar-brand menu-logo me-2" href="/">Make Up</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDarkNavbar"
-                    aria-labelledby="offcanvasDarkNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
-                        <button type="button" class="btn-close btn-close" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <form class="d-flex w-100 order-lg-1 order-2" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn" type="submit">Search</button>
-                        </form>
-                        <article class="profile order-lg-2 order-1"> <li class="nav-item dropdown">
-                            <div class="row">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Username <span class="material-icons">shopping Cart</span>
-                                </a>
-                            </div>
-                            
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                              <li><a class="dropdown-item" href="/mycart">My Cart</a></li>
-                              <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="/logout">LogOut session</a></li>
-                            </ul>
-                          </li></article>
-                        <section class="d-lg-none d-block menu-navigation container">
-                            <h1>Sub menu</h1>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <section class="menu-navigation d-lg-block container">
-            <h1>Sub menu</h1>
-        </section>
-    </header>
 
-    <main class="container">
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-            voluptatem vero eligendi hic assumenda reiciendis?
-        </div>
-        <section style="margin: 3rem;"></section>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-            voluptatem vero eligendi hic assumenda reiciendis?
-        </div>
-        <section style="margin: 3rem;"></section>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-            voluptatem vero eligendi hic assumenda reiciendis?
-        </div>
-        <section style="margin: 3rem;"></section>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-            voluptatem vero eligendi hic assumenda reiciendis?
-        </div>
-        <section style="margin: 3rem;"></section>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-            voluptatem vero eligendi hic assumenda reiciendis?
-        </div>
-        <section style="margin: 3rem;"></section>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-            voluptatem vero eligendi hic assumenda reiciendis?
-        </div>
-        <section style="margin: 3rem;"></section>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-            voluptatem vero eligendi hic assumenda reiciendis?
-        </div>
-        <section style="margin: 3rem;"></section>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-            voluptatem vero eligendi hic assumenda reiciendis?
-        </div>
-        <section style="margin: 3rem;"></section>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-            voluptatem vero eligendi hic assumenda reiciendis?
-        </div>
-        <section style="margin: 3rem;"></section>
-    </main>
-
-    <footer></footer>
-
-    <div class="alert text-center alert-danger error-login" role="alert">
-
+    <div id="app">
     </div>
-    <script src="index.js"></script>
+    <script src="/sharedcontent/mainmenu.jsx" type="text/babel"></script>
+    <script src="/sharedcontent/alert.jsx" type="text/babel"></script>
+    <script src="index.jsx" type="text/babel"></script>
 </body>
 
 </html>

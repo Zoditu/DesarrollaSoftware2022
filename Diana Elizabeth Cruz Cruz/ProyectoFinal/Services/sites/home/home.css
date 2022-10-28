@@ -1,6 +1,5 @@
 @import url(/shared/colors.css);
-@import url(ProyectoFinal/Services/sites/shared/main.css);
-
+@import url(/shared/main.css);
 
 .register-link {
     color: var(--colors-white) !important;
@@ -52,3 +51,8 @@
         left: 25%;
     }
 }
+
+.carousel-caption{
+    background: rgba(0, 0, 0, 0.75);
+}
+

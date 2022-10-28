@@ -1,0 +1,27 @@
+.square {
+    border: 2px solid black;
+    background: darkcyan;
+    width: 10rem;
+    height: 10rem;
+    display: inline-block;
+}
+
+.square::before {
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background: darkblue;
+    transition: opacity 0.3s;
+}
+
+.square:hover::before {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.movable {
+    position: absolute;
+    cursor: pointer;
+}
