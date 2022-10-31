@@ -1,5 +1,5 @@
-@import url(../shared/colors.css);
-@import url(../shared/main.css);
+@import url(/shared/colors.css);
+@import url(/shared/main.css);
 
 .register-link {
     color: var(--colors-white) !important;
@@ -12,10 +12,10 @@
     width: 100%;
 }
 
-.swal2-actions{
-    padding: 0 2.3em !important;
+.swal2-actions {
     width: 100% !important;
-    margin-top: 0 !important;
+    padding: 0 2.3em !important;
+    margin-top: 1rem !important;
 }
 
 .swal2-validation-message {
@@ -28,7 +28,7 @@
     position: fixed;
     width: calc(50% - 2rem);
     left: -1000%;
-    z-index: 9999999;
+    z-index: 99999999;
     bottom: 1rem;
     margin: 1rem;
     font-weight: bold;
@@ -42,7 +42,7 @@
     animation-fill-mode: forwards;
 }
 
-@keyframes appaer {
+@keyframes appear {
     from {
         opacity: 0;
         left: -1000%;
@@ -50,4 +50,23 @@
         opacity: 1;
         left: 25%;
     }
+}
+
+#home-carousel .carousel,#home-carousel .carousel-inner,#home-carousel .carousel-item {
+    height: 28rem;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.carousel-control-next:hover, .carousel-control-prev:hover {
+    background-color: rgba(0, 0, 0, 0.75);
 }
