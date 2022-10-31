@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(./loader.css);
+@import url(./alert.css);
 
 .material-icons {
     font-size: inherit !important;
@@ -149,6 +151,10 @@
 
 .agregar-producto:hover {
     background: var(--colors-yellow) !important;
+}
+
+.product .carousel {
+    height: 18rem;
 }
 
 .product .carousel-item img {

@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 module.exports = mongoose.model('Product', {
     sku: String,
+    stock: Number,
+    enabled: Boolean,
     categoryId: Number,
     subCategoryId: Number,
     categoryType: String,

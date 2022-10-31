@@ -4,12 +4,6 @@ const router = express.Router();
 const Validate = require('../validation');
 const Product = require('../models/product');
 
-router.get('/recommended', async function(req, res){
-    var products = await Product.find({}, {_id: 0, __v: 0}).sort({sku: -1}).limit(3);
-    return res.send(products);
-});
-
-
 const maxLimit = 12;
 const startPage = 1;
 
@@ -124,8 +118,17 @@ router.get('/all', async function(req, res){
             }
         }
     }
+
+    if(query.stock === true) {
+        filter.stock = { $gt: 0 };
+    } else if(query.stock === false) {
+        filter.stock = { $lte: 0 };
+    }
     
-    var products = await Product.find(filter);
+    var products = await Product.find(filter, {
+        _id: 0,
+        __v: 0
+    });
 
     var page = startPage;
     if(!isNaN(query.page)) {

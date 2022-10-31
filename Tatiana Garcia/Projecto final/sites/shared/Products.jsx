@@ -9,14 +9,14 @@ function Products(props) {
 
         for(var j = 0; j < product.images.length; j++) {
             images.push(
-                <div key={"product-carousel-item" + j} className={ j === 0 ? "carousel-item active" : "carousel-item"}>
+                <div key={`product-carousel-item-${product.sku}-${j}`} className={ j === 0 ? "carousel-item active" : "carousel-item"}>
                     <img src={product.images[j]} className="d-block w-100" alt="..." />
                 </div>
             );
         }
 
         prod.push(<>
-            <article key={"product" + i} className="col-xl-3 col-lg-4 pb-3">
+            <article key={`product-item-${product.sku}`} className="col-xl-3 col-lg-4 pb-3">
                 <div className="card product">
                     <div id={"Controls-Carrousel-Product-" + i} className="carousel slide card-img-top" data-bs-ride="carousel">
                         <div className="carousel-inner">
@@ -67,7 +67,17 @@ function Products(props) {
                             <article className="col">
                                 <span className="float-left precio-producto">{product.price}</span>
                                 <button onClick={function() {
-                                    console.log(product);
+                                    axios({
+                                        method: 'PUT',
+                                        url: `/cart/${product.sku}`,
+                                        data: {
+                                            amount: 1
+                                        }
+                                    }).then(function(result){
+                                        props.updateCart(result.data);
+                                    }).catch(function(error){
+                                        //TBD
+                                    });
                                 }} type="button" className="btn float-right agregar-producto">
                                     <span className="material-icons">
                                         add_shopping_cart

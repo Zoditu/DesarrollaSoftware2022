@@ -1,6 +1,8 @@
 function AddProduct(props) {
     var [product, setProduct] = React.useState({
         sku: null,
+        stock: 0,
+        enabled: true,
         categoryId: null,
         subCategoryId: null,
         categoryType: null,
@@ -120,7 +122,7 @@ function AddProduct(props) {
                 <span onClick={function(){
                     Swal.fire({
                         title: 'Preview',
-                        html: `<img src="${product.images[index]}" class="image-preview" />`,
+                        html: `<img src="${product.images[index]}" className="image-preview" />`,
                         showCloseButton: true,
                         showCancelButton: false,
                         focusConfirm: true,
@@ -142,14 +144,17 @@ function AddProduct(props) {
             e.preventDefault();
             //console.table(product);
             const sku = product.sku;
-            delete product.sku;
+            var _product = Object.assign({}, product);
+            delete _product.sku;
             axios({
                 method: "POST",
                 url: `/products/${sku}`,
-                data: product
+                data: _product
             }).then(function(result){
                 product = {
                     sku: null,
+                    stock: 0,
+                    enabled: true,
                     categoryId: null,
                     subCategoryId: null,
                     categoryType: null,
@@ -192,6 +197,33 @@ function AddProduct(props) {
                 }} type="text" className="form-control" placeholder="SKU" aria-label="SKU" aria-describedby="sku" />
             </div>
 
+            {/*Stock del producto*/}
+            <div className="input-group mb-3">
+                <span className="input-group-text" id="stock">
+                    <span className="material-icons">
+                        inventory
+                    </span>
+                </span>
+                <input required value={product.stock} onChange={function(e){
+                    product.stock = e.target.value;
+                    setProduct(Object.assign({}, product));
+                }} type="number" className="form-control" placeholder="STOCK" aria-label="STOCK" aria-describedby="stock" />
+                <span className="input-group-text" id="enabled_product">
+                    <span className="material-icons">
+                        check_circle
+                    </span>
+                </span>
+                <div className="form-control">
+                    <input className="form-check-input" type="checkbox" defaultChecked={product.enabled} onChange={function(e){
+                        product.enabled = e.target.checked;
+                        setProduct(Object.assign({}, product));
+                    }} id="enabled" />
+                     <label className="form-check-label ps-3" htmlFor="enabled">
+                        Habilitar producto en el catálogo
+                    </label>
+                </div>
+            </div>
+
             {/* Categorias/SubCategorias/Tipo de categoría del producto */}
             <div className="input-group mb-3">
                 {categoryForm}
@@ -208,7 +240,11 @@ function AddProduct(props) {
 
             {/* Descripción del producto */}
             <div className="input-group mb-3">
-                <span className="input-group-text" id="description">@</span>
+               <span className="input-group-text" id="description">
+                    <span className="material-icons">
+                         description
+                    </span>
+                </span>
                 <input required value={product.description || ''} onChange={function(e){
                     product.description = e.target.value;
                     setProduct(Object.assign({}, product));
@@ -217,7 +253,11 @@ function AddProduct(props) {
 
             {/* Modelo del producto */}
             <div className="input-group mb-3">
-                <span className="input-group-text" id="model">@</span>
+                <span className="input-group-text" id="model">
+                    <span className="material-icons">
+                        filter_1
+                    </span>
+                </span>
                 <input required value={product.model || ''} onChange={function(e){
                     product.model = e.target.value;
                     setProduct(Object.assign({}, product));
@@ -226,7 +266,11 @@ function AddProduct(props) {
 
             {/* Marca del producto */}
             <div className="input-group mb-3">
-                <span className="input-group-text" id="brand">@</span>
+                <span className="input-group-text" id="brand">
+                    <span className="material-icons">
+                        branding_watermark
+                    </span>
+                </span>
                 <input required value={product.brand || ''} onChange={function(e){
                     product.brand = e.target.value;
                     setProduct(Object.assign({}, product));
@@ -235,7 +279,11 @@ function AddProduct(props) {
 
             {/* Color del producto */}
             <div className="input-group mb-3">
-                <span className="input-group-text" id="color">@</span>
+                <span className="input-group-text" id="color">
+                    <span className="material-icons">
+                        palette
+                    </span>
+                </span>
                 <input required value={product.color || ''} onChange={function(e){
                     product.color = e.target.value;
                     setProduct(Object.assign({}, product));
@@ -244,7 +292,11 @@ function AddProduct(props) {
 
             {/* Peso del producto */}
             <div className="input-group mb-3">
-                <span className="input-group-text" id="weight">@</span>
+                <span className="input-group-text" id="weight">
+                    <span className="material-icons">
+                        scale
+                    </span>
+                </span>
                 <input required value={product.weight || ''} onChange={function(e){
                     product.weight = e.target.value;
                     setProduct(Object.assign({}, product));
@@ -253,7 +305,11 @@ function AddProduct(props) {
 
             {/* Tamaño del producto */}
             <div className="input-group mb-3">
-                <span className="input-group-text" id="size">@</span>
+                <span className="input-group-text" id="size">
+                    <span className="material-icons">
+                        straighten
+                    </span>
+                </span>
                 <input required value={product.size || ''} onChange={function(e){
                     product.size = e.target.value;
                     setProduct(Object.assign({}, product));
@@ -262,7 +318,11 @@ function AddProduct(props) {
 
             {/* Precio del producto */}
             <div className="input-group mb-3">
-                <span className="input-group-text" id="price">$</span>
+                <span className="input-group-text" id="price">
+                    <span className="material-icons">
+                        attach_money
+                    </span>
+                </span>
                 <input required value={product.price} onChange={function(e){
                     product.price = e.target.value;
                     setProduct(Object.assign({}, product));
