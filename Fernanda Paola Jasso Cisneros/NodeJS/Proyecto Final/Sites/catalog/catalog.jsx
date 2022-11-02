@@ -1,40 +1,43 @@
-function ProductCatalog(properties){
-    const filter = properties.query;
+function ProductCatalog(props) {
+    var [showLoader, setShowLoader] = React.useState(true);
     var [user, setUser] = React.useState(null);
-    var [cart, setCart] = React.useState({count: 0});
+    var [cart, setCart] = React.useState({ products: [] });
+    var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
     var [query, setQuery] = React.useState('');
+    var [products, setProducts] = React.useState([]);
 
     React.useEffect(function(){
         query = window.location.search || '';
     }, []);
 
-    var products = [];
     React.useEffect(function(){
         axios({
             method: 'GET',
             url: '/products/all' + query
         }).then(function(result){
-            console.table(result.data);
+            setProducts(result.data);
         }).catch(function(error){
             //TBD
-        });
+        })
     }, [query]);
 
-    var productsCatalog = <h3 className="tex-center">No se han encontrado productos</h3>
-    if(products.length > 0){
-        productsCatalog = <ProductsF products={products}/>
+    var productCatalog = <h3 className="text-center">No se han encontrado resultados...</h3>;
+    if(products.length > 0) {
+        productCatalog = <Products products={products} updateCart={setCart}/>;
     }
-    
-    var catalogpage = <>
-        <MainMenu user = {user} cart = {cart}/>
+
+    var catalog = <>
+        <Loader visible={showLoader} />
+        <MainMenu user = { user } cart = { cart } updateLoader={setShowLoader} updateCart={setCart} updateUser={setUser} updateAlertMessage={setAlertMessage}/>
         <main className="container p-0">
-            <h1>Catalog</h1>
-            <hr/>
-            {productsCatalog}
+            <h1>Catálogo</h1>
+            <hr />
+            {productCatalog}
         </main>
+        <Alert alert = { alertMessage } />
     </>;
 
-    return catalogpage;
+    return catalog;
 }
 
-ReactDOM.createRoot(document.getElementById('app')).render(<ProductCatalog/>)
+ReactDOM.createRoot(document.getElementById('app')).render(<ProductCatalog />);
