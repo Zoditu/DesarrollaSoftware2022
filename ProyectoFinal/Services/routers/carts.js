@@ -91,7 +91,7 @@ async function FindCart(cookies, user) {
                         }
                     }
 
-                    cart.products.push(prevCart.products);
+                    cart.products.push(Array.from(prevCart.products));
                     await prevCart.delete();
                 }
             }
@@ -136,7 +136,7 @@ async function ValidateCart(products) {
     for (var i = 0; i < products.length; i++) {
         const product = products[i];
         var productDB = (await Product.findOne({ sku: product.sku }, {_id: 0, __v: 0})) || { stock: 0, enabled: false };
-        if(productDB.stock < 1 || !productDB.enabled) {
+        if(product.amount < 1 || productDB.stock < 1 || !productDB.enabled) {
             products.splice(i, 1);
             i -= 1;
         } else {
@@ -204,6 +204,10 @@ router.get('/', async function(req, res){
     } 
     
     cart = await FindCart(cookies, true);
+    if(cart.id !== cookies["CARTID"]) {
+        cart = await FindCart(cookies, true);
+    }
+
     res.cookie("CARTID", cart.id);
 
     return res.send(cart);
@@ -227,7 +231,7 @@ router.put('/:sku', async function(req, res){
         });
     }
 
-    if(isNaN(amount) || amount < 1) {
+    if(isNaN(amount)) {
         amount = 1;
     } else {
         amount = parseInt(amount);

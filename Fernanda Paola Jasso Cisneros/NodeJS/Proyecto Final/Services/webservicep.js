@@ -19,6 +19,9 @@ app.get('/', function(req, res){
 const usersRouter = require('./routers/userouter');
 app.use('/userouter', usersRouter);
 
+const categoriesRouter = require('./routers/categories');
+app.use('/category', categoriesRouter);
+
 mongoose.connect(
   uri, {
     useNewUrlParser: true,

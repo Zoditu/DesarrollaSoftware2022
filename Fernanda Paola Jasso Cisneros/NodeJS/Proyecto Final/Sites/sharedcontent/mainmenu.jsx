@@ -1,3 +1,5 @@
+const categorymodels = require("../../Services/models/categorymodels");
+
 function LoginUser(props) {
     var login;
 
@@ -5,7 +7,10 @@ function LoginUser(props) {
         if(props.user === null) { //renderiza la version mobil
             login = 
             <article className="d-lg-none d-block mb-2">
-                <a href="#">Login</a>
+                <div className="row h-100 w-100 align-items-center">
+                    
+                    <a href="#">Login</a>
+                </div>
             </article>
         } else { // renderiza la version escritorio
             login  = 
@@ -91,6 +96,26 @@ function LoginUser(props) {
 }
 
 function MainMenu(props) {
+    var [categories, setCategories] = React.useState([]);
+
+    React.useEffect(function(){
+        axios({
+            method: "GET",
+            url: "/category/all",
+        }).then(function(result){
+            setCategories(result.data);
+        }).catch(function(error){
+            //TBD
+        });
+    });
+
+    var menus = [];
+    for(var i = 0; i < categories.length; i++){
+        menus.push(
+            <li></li>
+        )
+    }
+
     var header = <>
         <header className="main-menu sticky-top">
             <nav className="navbar navbar-expand-lg">

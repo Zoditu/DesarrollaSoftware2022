@@ -67,6 +67,9 @@ function Products(props) {
                             <article className="col">
                                 <span className="float-left precio-producto">{product.price}</span>
                                 <button onClick={function() {
+
+                                    props.updateLoader(true);
+
                                     axios({
                                         method: 'PUT',
                                         url: `/cart/${product.sku}`,
@@ -77,6 +80,8 @@ function Products(props) {
                                         props.updateCart(result.data);
                                     }).catch(function(error){
                                         //TBD
+                                    }).finally(function(){
+                                        props.updateLoader(false);
                                     });
                                 }} type="button" className="btn float-right agregar-producto">
                                     <span className="material-icons">

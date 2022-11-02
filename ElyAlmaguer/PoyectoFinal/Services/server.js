@@ -7,7 +7,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');     //para rescatar y leer las cookies
 const app = express();
 const port = 3000;
-
+// express.static permite navegar en páginas web (pág. estáticas, js, html, css) que estan en la carpeta sites y llamadas a routers
 app.use(express.static('../sites'));  //sites. carpeta raiz para pag. web HTML
 app.use(express.json());              // usamos json
 app.use(cookieParser());
