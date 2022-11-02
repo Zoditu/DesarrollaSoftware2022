@@ -1,4 +1,4 @@
-+function Register() {
+function Register() {
 
     var [showLoader, setShowLoader] = React.useState(false);
     var [user, setUser] = React.useState({

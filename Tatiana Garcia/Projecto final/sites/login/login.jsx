@@ -1,4 +1,4 @@
-+function Login() {
+function Login() {
 
     var [showLoader, setShowLoader] = React.useState(false);
     var [user, setUser] = React.useState({

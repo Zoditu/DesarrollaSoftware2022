@@ -197,7 +197,7 @@ function AddProduct(props) {
                 }} type="text" className="form-control" placeholder="SKU" aria-label="SKU" aria-describedby="sku" />
             </div>
 
-            {/*Stock del producto*/}
+            {/* Stock del producto */}
             <div className="input-group mb-3">
                 <span className="input-group-text" id="stock">
                     <span className="material-icons">
@@ -218,11 +218,12 @@ function AddProduct(props) {
                         product.enabled = e.target.checked;
                         setProduct(Object.assign({}, product));
                     }} id="enabled" />
-                     <label className="form-check-label ps-3" htmlFor="enabled">
+                    <label className="form-check-label ps-3" htmlFor="enabled">
                         Habilitar producto en el catálogo
                     </label>
                 </div>
             </div>
+            
 
             {/* Categorias/SubCategorias/Tipo de categoría del producto */}
             <div className="input-group mb-3">
@@ -240,9 +241,9 @@ function AddProduct(props) {
 
             {/* Descripción del producto */}
             <div className="input-group mb-3">
-               <span className="input-group-text" id="description">
+                <span className="input-group-text" id="description">
                     <span className="material-icons">
-                         description
+                        description
                     </span>
                 </span>
                 <input required value={product.description || ''} onChange={function(e){
