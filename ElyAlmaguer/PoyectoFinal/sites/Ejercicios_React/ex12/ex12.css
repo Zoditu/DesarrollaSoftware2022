@@ -1,0 +1,37 @@
+.square{
+    border: 2px solid black;
+    background: red;
+    width: 8rem;
+    height: 8rem;
+    display: inline-block;
+}
+/*seudoelementos after o before son inline por lo que se cambia a block
+añaden cosas antes o despues*/
+/*.square ::after{
+    display: block;
+    content:"";      /*contenedor vacio*
+    width: 100%;
+    height: 100%;
+    background-color: darkolivegreen;
+}*/
+/* se pone algo a la izquiera del elementos como el  punto en las listas*/
+.square::before{
+    content:"";         /*contenedor vacio*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;            /*transparencia */
+    background-color: darkolivegreen;
+    transition:opacity 0.3s;
+    cursor: pointer;
+}
+/*al poner el cursor encima, modificas el before del cuadrado*/
+.square:hover::before{
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+.movable {
+    position:absolute;
+    left: 1rem;
+    top: 1rem;
+}

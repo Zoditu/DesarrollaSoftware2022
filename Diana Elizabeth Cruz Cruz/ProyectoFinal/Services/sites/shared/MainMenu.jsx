@@ -61,7 +61,10 @@ function LoginUser(props) {
     if(props.user === null) {
         login = 
         <article className="d-lg-block d-none profile order-lg-2 order-1">
+            <div className="row h-100 w-100 align-items-center ">
             <a href="#">Login</a>
+            </div>
+            
         </article>
     } else {
         login = 
@@ -91,6 +94,24 @@ function LoginUser(props) {
 }
 
 function MainMenu(props) {
+
+    var [categories, setCategories] = React.useState([]);
+
+    React.useEffect(function(){
+        axios({
+            method: "GET",
+            url:"/category/all",
+        }).then(function(result){
+            setCategories(result.data);
+        }).catch(function(error){
+            //TBD
+        });
+    }, []);
+
+   
+    //var subMenu  = 
+
+
     var header = <>
         <header className="main-menu sticky-top">
             <nav className="navbar navbar-expand-lg">

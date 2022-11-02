@@ -9,6 +9,10 @@
     background-color: var(--colors-yellow) !important;
 }
 
+.main-menu{
+    margin-bottom: 1rem;
+}
+
 .main-menu > .navbar {
     background-color: var(--colors-pink);
 }
@@ -50,11 +54,95 @@
 }
 
 .menu-navigation {
+    position: relative;
     display: none;
-    background-color: cadetblue;
+    padding: 0;
+    background-color: var(--colors-pink);
 }
+
+.menu-navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-navigation li {
+    background-color: var(--colors-yellow);
+    padding: 1rem;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-navigation li:hover {
+    background-color: var(--colors-gray);
+}
+
 
 .profile {
     color: var(--colors-white);
     font-weight: bold;
+}
+
+.sub-menu{
+    position: absolute;
+    border: 1px solid var(--colors-pink);
+    background: var(--colors-yellow);
+    height: 10rem;
+
+}
+
+/*Productos*/
+
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+.material-icons {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+#menu {
+    background-color: cadetblue;
+    padding: 0.5rem 0.2rem;
+    color: white;
+}
+
+.precio-producto {
+    font-weight: bold;
+
+}
+
+.precio-producto::before {
+    content: "$";
+}
+
+.agregar-producto {
+    background: var(--colors-yellow) ;
+    color: var(--colors-gray);
+}
+
+.product .carousel-item img {
+    height: 18rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-control-next:hover, .carousel-control-prev:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.accordion-button:not{
+    color: var(--colors-pink);
+}
+
+.accordion-button:item{
+    color: var(--colors-pink);
 }

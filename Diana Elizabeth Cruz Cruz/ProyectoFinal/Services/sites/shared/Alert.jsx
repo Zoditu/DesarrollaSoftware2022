@@ -5,3 +5,5 @@ function Alert(props) {
     }
     return <div className="alert text-center alert-danger error-login" role="alert"></div>
 }
+
+<Alert alert= { { showAlert: false} }/>

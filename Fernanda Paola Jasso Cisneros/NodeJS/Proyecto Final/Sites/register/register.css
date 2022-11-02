@@ -1,0 +1,23 @@
+@import url(../sharedcontent/colors.css);
+@import url(../sharedcontent/mainstuff.css);
+
+.validation-error {
+    font-weight: bold;
+    color: var(--colors-pink);
+    border-bottom: 1px solid var(--colors-red);
+}
+
+.btn {
+    background: var(--colors-pink);
+    border: 2px solid var(--colors-yellow);
+    color: var(--colors-white);
+
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: var(--colors-pink) !important;
+    opacity: 0.75;
+    border: 2px solid var(--colors-yellow) !important;
+    color: var(--colors-white) !important;
+}

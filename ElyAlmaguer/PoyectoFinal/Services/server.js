@@ -7,7 +7,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');     //para rescatar y leer las cookies
 const app = express();
 const port = 3000;
-
+// express.static permite navegar en páginas web (pág. estáticas, js, html, css) que estan en la carpeta sites y llamadas a routers
 app.use(express.static('../sites'));  //sites. carpeta raiz para pag. web HTML
 app.use(express.json());              // usamos json
 app.use(cookieParser());
@@ -22,6 +22,9 @@ app.get('/', function(req, res) {
         status: "online"
     });
 });*/
+const CategoriesRouter = require('./routers/categories');  //agregados el router de las categorias del producto
+app.use('/category', CategoriesRouter)     // se va a usar en todos los endpointe donde tengamos category
+//como lo que se cree en  http://localhost:3000/category/
 const usersRouter = require('./routers/users');     
 app.use('/users', usersRouter);
 //http://localhost:3000/users/prueba -> GET

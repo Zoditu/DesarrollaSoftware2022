@@ -2,8 +2,26 @@ function Home() {
     var [user, setUser] = React.useState(null);
     var [cart, setCart] = React.useState({ count: 0 });
     var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
+    var [images, setImages] = React.useState([
+        {
+            title: 'N/A Test 1',
+            description:'N/A Test 1 Desc',
+            src: ''
+        },
+        {
+            title: 'N/A Test 2',
+            description:'N/A Test 2 Desc',
+            src: ''
+        },
+        {
+            title: 'N/A Test 3',
+            description:'N/A Test 3 Desc',
+            src: ''
+        }
+    ]);
 
-    axios({
+
+    React.useEffect(function() {    axios({
         method: 'GET',
         url: '/users/profile'
     }).then(function (result) {
@@ -78,65 +96,90 @@ function Home() {
             //TBD
             console.log(error);
         }
-    });
+    }); 
+    }, []);
+
+    var buttons = [];
+    var items = [];
+    for(var i = 0; i < images.length; i++) {
+        const image = images[i];
+        
+        if( i === 0) {
+            buttons.push(<button key={i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} className="active" aria-current="true" aria-label={"Slide " + (i+1)}></button>);
+        } else {
+            buttons.push(<button key={i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} aria-label={"Slide " + (i+1)}></button>);
+        }
+
+        items.push(
+        <div key={i} className={i === 0 ? "carousel-item active" : "carousel-item"}>
+            <img src={image.src} className="d-block w-100" alt="..." />
+            <div className="carousel-caption d-none d-md-block">
+                <h5>{image.title}</h5>
+                <p>{image.description}</p>
+            </div>
+        </div>);
+    }
+
+    var carousel = <>
+        <div id="home-carousel" className="carousel slide" data-bs-ride="false">
+            <div className="carousel-indicators">
+                {buttons}
+            </div>
+            <div className="carousel-inner">
+                {items}
+            </div>
+            <button className="carousel-control-prev" type="button" data-bs-target="#home-carousel" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#home-carousel" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+            </button>
+        </div>
+    </>;
 
     var home = <>
         <MainMenu user = { user } cart = { cart } />
-        <main className="container">
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-                necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-                voluptatem vero eligendi hic assumenda reiciendis?
-            </div>
-            <section style={{ margin: 3 + 'rem' }}></section>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-                necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-                voluptatem vero eligendi hic assumenda reiciendis?
-            </div>
-            <section style={{ margin: 3 + 'rem' }}></section>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-                necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-                voluptatem vero eligendi hic assumenda reiciendis?
-            </div>
-            <section style={{ margin: 3 + 'rem' }}></section>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-                necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-                voluptatem vero eligendi hic assumenda reiciendis?
-            </div>
-            <section style={{ margin: 3 + 'rem' }}></section>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-                necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-                voluptatem vero eligendi hic assumenda reiciendis?
-            </div>
-            <section style={{ margin: 3 + 'rem' }}></section>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-                necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-                voluptatem vero eligendi hic assumenda reiciendis?
-            </div>
-            <section style={{ margin: 3 + 'rem' }}></section>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-                necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-                voluptatem vero eligendi hic assumenda reiciendis?
-            </div>
-            <section style={{ margin: 3 + 'rem' }}></section>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-                necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-                voluptatem vero eligendi hic assumenda reiciendis?
-            </div>
-            <section style={{ margin: 3 + 'rem' }}></section>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
-                necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
-                voluptatem vero eligendi hic assumenda reiciendis?
-            </div>
-            <section style={{ margin: 3 + 'rem' }}></section>
+        <main className="container p-0">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="..." class="d-block w-100" alt="..."/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="..."/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="..."/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
         </main>
         <Alert alert = { alertMessage } />
     </>;

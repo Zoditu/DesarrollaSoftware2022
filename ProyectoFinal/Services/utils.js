@@ -24,5 +24,12 @@ module.exports = {
         var tokenPart2 = Date.now();
 
         return Buffer.from(encodedEmail + tokenPart2).toString('base64');
+    },
+    generateCartID: function() {
+        var tokenPart1 = Date.now();
+        var tokenPart2 = "cart-makeup-";
+        var tokenPart3 = Date.now();
+
+        return Buffer.from(tokenPart1 + tokenPart2 + tokenPart3).toString('base64');
     }
 };

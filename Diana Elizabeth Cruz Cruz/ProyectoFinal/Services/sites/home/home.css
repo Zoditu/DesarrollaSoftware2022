@@ -51,3 +51,8 @@
         left: 25%;
     }
 }
+
+.carousel-caption{
+    background: rgba(0, 0, 0, 0.75);
+}
+
