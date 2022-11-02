@@ -24,6 +24,8 @@ module.exports = {
 
     newProduct: function(product) {
         var schema = Joi.object({
+            stock: Joi.number().required(),
+            enabled: Joi.boolean().required(),
             categoryId: Joi.number().required(),
             subCategoryId: Joi.number().optional().allow(null),
             categoryType: Joi.string().optional().allow(null),

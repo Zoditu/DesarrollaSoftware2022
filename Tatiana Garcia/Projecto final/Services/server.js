@@ -18,7 +18,16 @@ app.get('/', function(req, res) {
 
 const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
+
+const categoriesRouter = require('./routers/catergories');
+app.use('/category', categoriesRouter);
+
+const productsRouter = require('./routers/products');
+app.use('/products', productsRouter);
+
 //http://localhost:3000/users/prueba -> GET
+const cartsRouter = require('./routers/carts');
+app.use('/cart', cartsRouter);
 
 mongoose.connect(
     uri, {

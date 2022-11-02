@@ -21,5 +21,24 @@ module.exports = {
         });
 
         return schema.validate(loginData);
-    }
+    },
+
+    newProduct: function(product){
+        var schema = Joi.object({
+            categoryType: Joi.String().optional().allow(null),
+            categoryId: Joi.number().required(),
+            subcategoryId: Joi.number().optional().allow(null),
+            name: Joi.String().required(),
+            description: Joi.String().required(),
+            model: Joi.String().required(),
+            brand: Joi.String().required(),
+            color: Joi.String().required(),
+            weight: Joi.String().required(),
+            size: Joi.String().required(),
+            price: Joi.number().required(),
+            images: Joi.String().required(),
+        });
+
+        return schema.validate(product);
+    },
 };
