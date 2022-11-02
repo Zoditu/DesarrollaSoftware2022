@@ -23,7 +23,7 @@ function ProductCatalog(props) {
 
     var productCatalog = <h3 className="text-center">No se han encontrado resultados...</h3>;
     if(products.length > 0) {
-        productCatalog = <Products products={products} updateCart={setCart}/>;
+        productCatalog = <Products products={products} updateCart={setCart} updateLoader={setShowLoader} />;
     }
 
     var catalog = <>
