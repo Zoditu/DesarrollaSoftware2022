@@ -3,13 +3,25 @@ function Home() {
     var [cart, setCart] = React.useState({ count: 0 });
     var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
     var [images, setImages] = React.useState([
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDI12km5Cfz7exi9Tw3Pm2Gi3SUrLA0bJu_cor_tuxtxjk81Yaj9-eYb7dNbmKcL03tGA&usqp=CAU,',
-        'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80,',
-        'https://images.unsplash.com/photo-1533562389935-457b1ae48a39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
-    ])
+        {
+            title: 'N/A Test 1',
+            description:'N/A Test 1 Desc',
+            src: ''
+        },
+        {
+            title: 'N/A Test 2',
+            description:'N/A Test 2 Desc',
+            src: ''
+        },
+        {
+            title: 'N/A Test 3',
+            description:'N/A Test 3 Desc',
+            src: ''
+        }
+    ]);
 
-    //React.useEffect(function(){})
-    axios({
+
+    React.useEffect(function() {    axios({
         method: 'GET',
         url: '/users/profile'
     }).then(function (result) {
@@ -84,7 +96,48 @@ function Home() {
             //TBD
             console.log(error);
         }
-    });
+    }); 
+    }, []);
+
+    var buttons = [];
+    var items = [];
+    for(var i = 0; i < images.length; i++) {
+        const image = images[i];
+        
+        if( i === 0) {
+            buttons.push(<button key={i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} className="active" aria-current="true" aria-label={"Slide " + (i+1)}></button>);
+        } else {
+            buttons.push(<button key={i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} aria-label={"Slide " + (i+1)}></button>);
+        }
+
+        items.push(
+        <div key={i} className={i === 0 ? "carousel-item active" : "carousel-item"}>
+            <img src={image.src} className="d-block w-100" alt="..." />
+            <div className="carousel-caption d-none d-md-block">
+                <h5>{image.title}</h5>
+                <p>{image.description}</p>
+            </div>
+        </div>);
+    }
+
+    var carousel = <>
+        <div id="home-carousel" className="carousel slide" data-bs-ride="false">
+            <div className="carousel-indicators">
+                {buttons}
+            </div>
+            <div className="carousel-inner">
+                {items}
+            </div>
+            <button className="carousel-control-prev" type="button" data-bs-target="#home-carousel" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#home-carousel" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+            </button>
+        </div>
+    </>;
 
     var home = <>
         <MainMenu user = { user } cart = { cart } />

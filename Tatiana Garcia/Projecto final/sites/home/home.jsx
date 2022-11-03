@@ -83,7 +83,7 @@ function Home() {
             <hr />
             <h2 className="text-center">Productos recomendados</h2>
             <hr />
-            <Products products={products} updateCart={setCart}/>
+            <Products products={products} updateCart={setCart} updateLoader={setShowLoader}/>
         </main>
         <Alert alert = { alertMessage } />
     </>;

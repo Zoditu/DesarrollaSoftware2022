@@ -1,7 +1,9 @@
-const mongoose = require('nibgiise');
+const mongoose = require('mongoose');
 
-module.exports = mongoose.model('Category'.{
-    sku: Number,
+module.exports = mongoose.model('Product', {
+    sku: String,
+    stock: Number,
+    enabled: Boolean,
     categoryId: Number,
     subCategoryId: Number,
     categoryType: String,
@@ -10,8 +12,8 @@ module.exports = mongoose.model('Category'.{
     model: String,
     brand: String,
     color: String,
-    weigth: String,
+    weight: String,
     size: String,
     price: Number,
-    images:[Array],
-})
+    images: [String]
+}, 'Products');
