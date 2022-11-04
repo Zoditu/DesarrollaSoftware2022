@@ -1,8 +1,8 @@
 .square{
-    border: 3px solid black;
+    border: 2px solid black;
     background: red;
-    width: 10rem;
-    height: 10rem;
+    width: 8rem;
+    height: 8rem;
     display: inline-block;
 }
 /*seudoelementos after o before son inline por lo que se cambia a block

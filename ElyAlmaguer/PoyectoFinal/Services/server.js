@@ -22,6 +22,9 @@ app.get('/', function(req, res) {
         status: "online"
     });
 });*/
+const CategoriesRouter = require('./routers/categories');  //agregados el router de las categorias del producto
+app.use('/category', CategoriesRouter)     // se va a usar en todos los endpointe donde tengamos category
+//como lo que se cree en  http://localhost:3000/category/
 const usersRouter = require('./routers/users');     
 app.use('/users', usersRouter);
 //http://localhost:3000/users/prueba -> GET

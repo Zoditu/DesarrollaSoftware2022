@@ -5,13 +5,39 @@ function LoginUser(props) {
         if(props.user === null) {
             login = 
             <article className="d-lg-none d-block mb-2">
-                <div className="row h-100 w-100 align-items-center">
-                    <div className="col">
-                        <a href="#" className="login-button">
-                            <span className="material-icons">
-                                account_circle
-                            </span>Login
-                        </a>
+                <div className="accordion accordion-flush" id="accordionFlushExample">
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="flush-headingOne">
+                            <button className="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                aria-expanded="false" aria-controls="flush-collapseOne">
+                                Anónimo -
+                                <span className="material-icons">
+                                    shopping_cart
+                                </span> ({props.cart.products.length})
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" className="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div className="accordion-body p-0">
+                                <ul className="list-group">
+                                    <li className="list-group-item p-0">
+                                        <a href="/login ">
+                                            <div className="w-100 h-100 px-3 py-2">
+                                                Login
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="list-group-item p-0">
+                                        <a href="/mycart">
+                                            <div className="w-100 h-100 px-3 py-2">
+                                                Mi Carrito
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -49,7 +75,7 @@ function LoginUser(props) {
                                         </a>
                                     </li>
                                     <li className="list-group-item p-0">
-                                        <a href="/logout">
+                                        <a href="/users/logout">
                                             <div className="w-100 h-100 px-3 py-2">
                                                 Salir
                                             </div>
@@ -68,12 +94,22 @@ function LoginUser(props) {
 
     if(props.user === null) {
         login = 
-        <article className="d-lg-block d-none profile nav-item order-lg-2 order-1">
+        <article className="d-lg-block d-none profile nav-item dropdown order-lg-2 order-1">
             <div className="row h-100 align-items-center">
                 <div className="col">
-                    <a className="nav-link" href="/login">
-                        Login
+                    <a className="nav-link dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span className="user-name">
+                            Anónimo 
+                        </span>
+                        <span className="material-icons">
+                            shopping_cart
+                        </span> ({props.cart.products.length})
                     </a>
+                    <ul className="dropdown-menu dropdown-menu-end">
+                        <li><a className="dropdown-item" href="/login">Login</a></li>
+                        <li><a href="/mycart" className="dropdown-item">Mi Carrito</a></li>
+                    </ul>
                 </div>
             </div>
         </article>
@@ -94,7 +130,7 @@ function LoginUser(props) {
                     <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item" href="/profile">Perfil</a></li>
                         <li><a href="/mycart" className="dropdown-item">Mi Carrito</a></li>
-                        <li><a className="dropdown-item" href="/logout">Salir</a></li>
+                        <li><a className="dropdown-item" href="/users/logout">Salir</a></li>
                     </ul>
                 </div>
             </div>

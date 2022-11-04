@@ -1,0 +1,8 @@
+@import url(/shared/colors.css);
+@import url(/shared/main.css);
+
+.toast{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}

@@ -25,7 +25,7 @@ module.exports = {
 
         return Buffer.from(encodedEmail + tokenPart2).toString('base64');
     },
-    generateCartID: () =>  { 
+    generateCartID: function() {
         var tokenPart1 = Date.now();
         var tokenPart2 = "cart-makeup-";
         var tokenPart3 = Date.now();

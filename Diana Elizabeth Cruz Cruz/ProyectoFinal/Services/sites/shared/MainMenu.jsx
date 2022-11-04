@@ -95,7 +95,21 @@ function LoginUser(props) {
 
 function MainMenu(props) {
 
-    //var subMenu = 
+    var [categories, setCategories] = React.useState([]);
+
+    React.useEffect(function(){
+        axios({
+            method: "GET",
+            url:"/category/all",
+        }).then(function(result){
+            setCategories(result.data);
+        }).catch(function(error){
+            //TBD
+        });
+    }, []);
+
+   
+    //var subMenu  = 
 
 
     var header = <>
