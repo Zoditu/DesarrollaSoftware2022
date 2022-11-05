@@ -3,6 +3,64 @@ function Cart(){
     var [user, setUser] = React.useState(null);
     var [cart, setCart] = React.useState({ products: [] });
 
+    React.useEffect(function(){
+        $('#paypal-button-container').html('');
+
+        var calculado = 0;
+        var fecha = new Date();
+        var productosPaypal = [];
+        for (var i = 0; i < cart.products.length; i++) {
+            const product = cart.products[i];
+
+            productosPaypal.push({
+                name: product.detail.name,
+                quantity: product.amount,
+                unit_amount: {
+                    currency_code: "MXN",
+                    value: (product.detail.price * 0.84).toFixed(2)
+                },
+                category: "PHYSICAL_GOODS",
+                sku: product.sku,
+                tax: {
+                    currency_code: "MXN",
+                    value: (product.detail.price * 0.16).toFixed(2)
+                }
+            });
+        }
+        
+        var resumenPaypal = [{
+            amount: {
+                currency_code: "MXN",
+                value: cart.total,
+                breakdown: {
+                    item_total: {
+                        currency_code: "MXN",
+                        value: cart.subTotal
+                    },
+                    tax_total: {
+                        currency_code: "MXN",
+                        value: cart.tax
+                    }
+                }
+            },
+            description: "Compra en MakeUp Store - " + fecha.toDateString(),
+            items: productosPaypal
+        }];
+
+        paypal.Buttons({
+            style: {
+                layout: 'vertical',
+                color:  'black',
+                shape:  'rect',
+                label:  'paypal'
+            },
+            createOrder: function(data, actions) {
+                //Analizar el carrito y poner cada producto aquí
+                return actions.order.create({ purchase_units: resumenPaypal });
+            }
+        }).render('#paypal-button-container');
+    }, [cart]);
+
     var products = [];
     for (var i = 0; i < cart.products.length; i++) {
         const product = cart.products[i];
@@ -107,11 +165,14 @@ function Cart(){
         )
     }
 
-    var cart = <>
+    var cartHtml = <>
         <Loader visible={showLoader} />
         <MainMenu user = { user } cart = { cart } updateLoader={setShowLoader} updateCart={setCart} updateUser={setUser}/>
         <main className="container p-0">
             {products}
+            <hr />
+            <div id="paypal-button-container"></div>
+            <div className="clear"></div>
             <hr />
             <h2 className="text-end">
                 Subtotal: ${cart.subTotal}
@@ -123,7 +184,7 @@ function Cart(){
         </main>
     </>;
 
-    return cart;
+    return cartHtml;
 }
 
 ReactDOM.createRoot(document.getElementById('app')).render(<Cart />);
