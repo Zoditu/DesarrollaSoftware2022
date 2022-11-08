@@ -8,7 +8,9 @@ module.exports = mongoose.model('Cart', {
         detail: {
             name: String,
             image: String,
-            price: Number
+            price: Number,
+            unitaryPrice: Number,
+            tax: Number
         },
         amount: Number,
         subTotal: Number,
