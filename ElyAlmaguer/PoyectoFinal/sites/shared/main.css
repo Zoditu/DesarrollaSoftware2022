@@ -1,12 +1,30 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(./loader.css);
+@import url(./alert.css);
 
 .material-icons {
     font-size: inherit !important;
     line-height: inherit !important;
 }
 
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+/*clear-both para alinear los elementos */
+.clear-both {
+    clear: both;
+}
+
 .offcanvas {
     background-color: var(--colors-yellow) !important;
+}
+
+.main-menu {
+    margin-bottom: 1rem;
 }
 
 .main-menu > .navbar {
@@ -50,11 +68,109 @@
 }
 
 .menu-navigation {
+    position: relative;
     display: none;
-    background-color: cadetblue;
+    padding: 0;
+    background-color: var(--colors-yellow);
+}
+
+.menu-navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+/*cuando se pone el cursor encima se cambia el  último hijo directo del section */
+.menu-navigation:hover > section:last-child {
+    display: block;
+}
+
+.menu-navigation li {         
+    color: var(--colors-white);
+    padding: 1rem;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* color del fondo de cada una de las subcategorias (Maquillaje, Perfumes, Cabello */
+.menu-navigation li:hover {       
+    background-color: var(--colors-red);
+}
+/*contendor de las subcategorias.  */
+.sub-category {
+    color: var(--colors-white);
+    padding: 0 1rem;
+    padding-bottom: 1rem;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sub-category:hover {
+    background-color: var(--colors-red);
+}
+
+.subcategory-type {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+}
+/*al poner el cursor encima cambiamos el color del fondo del elemento de la subcategoria   */
+.subcategory-type:hover {
+    background-color: var(--colors-lavanda);
+}
+/*quien habilita que se vea o no el submenu es el menu de navegación por el display none  */
+.sub-menu {
+    position: absolute;
+    display: none;
+    background: var(--colors-yellow);
+    width: 100%;
 }
 
 .profile {
     color: var(--colors-white);
     font-weight: bold;
+}
+
+.login-button {
+    color: var(--colors-white);
+    font-weight: bold;
+}
+
+/*Productos*/
+.precio-producto {
+    font-weight: bold;
+}
+/* para agregar el signo de $ antes */
+.precio-producto::before {
+    content: "$";
+}
+/* para cambiar el color del botón */
+.agregar-producto {
+    background: var(--colors-pink);
+    color: var(--colors-white) !important;
+}
+/* para cambiar el color al pasar el cursor */
+.agregar-producto:hover {
+    background: var(--colors-yellow) !important;
+}
+
+.product .carousel {
+    height: 18rem;
+}
+/* Dentro de la clase product hay un carrusel con una imagen// esto controla el tamaño de las imagenes del carrousel de los productos  el object-fit redimenciona la imagen y object position la centra*/
+.product .carousel-item img {
+    height: 18rem;
+    object-fit: cover;
+    object-position: center;
+}
+/* para sombrear los controles del carrusel y la descripción del producto 
+.carousel-control-next:hover, .carousel-control-prev:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}*/
+
+.accordion-button:not(.collapsed) {
+    color: var(--colors-red);
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--colors-lavanda);
 }
