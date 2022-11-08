@@ -1,7 +1,8 @@
 function ProductCatalog(props){
-    const filter = props.query;
+    var [showLoader, setShowLoader] = React.useState(true);
     var [user, setUser] = React.useState(null);
     var [cart, setCart] = React.useState({count: 0});
+    var [alertMessage, setAlertMessage] = React.useState({showalertMessage});
     var [query, setQuery] = React.useState('');
     var [products, setProducts] = React.useState([]);
 

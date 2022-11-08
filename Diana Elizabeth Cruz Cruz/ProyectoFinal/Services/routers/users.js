@@ -27,6 +27,8 @@ router.get('/profile', async function(req, res) {
         });
     }
 
+    var validUser = await validUser(SID, TOKEN);
+
     var user = await User.findOne({
         username: SID
     }, {
@@ -148,6 +150,45 @@ router.post('/register', async function(req, res){
         status: "Created",
         user: body
     });
+
+    var updateData = req.body;
+    var keys = Object.keys(updateData);
+
+    for (var i = 0; i< keys.length; i++){
+        const element = keys[i];
+    
+            switch (property){
+                case "name":
+                   result.user.name = updateData[property];
+                   break;
+
+                   case "lastName":
+                   result.user.lastName = updateData[property];
+                   break;
+
+                   case "phone":
+                   result.user.phone = updateData[property];
+                   break;
+
+                   case "address":
+                    result.user.address=[property];
+                    await result.user.markModified('address');
+                    break;
+            }
+    }
+
+    await result.user.save();
+    var _user = result.user.toObject();
+    delete _user._id;
+    delete _user._v;
+    delete _user.userName;
+    delete _user.password;
+    delete _user.cartId;
+    delete _user.permissions;
+    delete _user.sessions;
+
+
+    return res.send(_user);
 });
 
 module.exports = router;

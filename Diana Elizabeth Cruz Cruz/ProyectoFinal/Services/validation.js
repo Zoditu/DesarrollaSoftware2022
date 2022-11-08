@@ -41,3 +41,17 @@ module.exports = {
         return schema.validate(loginData);
     }
 };
+
+
+newOrder_ function(order){
+    var schema= Joi.pobject({
+        email: Joi.string().email().required(),
+        phone: Joi.string().min(10).max(10).optional(),
+        status: Joi.string().status().required().allow('PAGADO', 'CANCELADO', 'FINALIZADO'),
+        cart: Joi.object({
+            products: Joi.string().required().allow(),
+            sku: Joi.string().required(),
+            
+        })
+    })
+}
