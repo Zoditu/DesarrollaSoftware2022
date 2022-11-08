@@ -1,11 +1,5 @@
-@import url(../shared/colors.css);
-@import url(../shared/main.css);
-
-.validation-error {
-    font-weight: bold;
-    color: var(--colors-pink);
-    border-bottom: 1px solid var(--colors-red);
-}
+@import url(/shared/colors.css);
+@import url(/shared/main.css);
 
 .btn {
     background: var(--colors-pink);
@@ -20,4 +14,10 @@
     opacity: 0.75;
     border: 2px solid var(--colors-yellow) !important;
     color: var(--colors-white) !important;
+}
+
+.toast {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
 }

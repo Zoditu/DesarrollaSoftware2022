@@ -1,12 +1,6 @@
 @import url(../shared/colors.css);
 @import url(../shared/main.css);
 
-.validation-error {
-    font-weight: bold;
-    color: var(--colors-pink);
-    border-bottom: 1px solid var(--colors-red);
-}
-
 .btn {
     background: var(--colors-pink);
     border: 2px solid var(--colors-yellow);

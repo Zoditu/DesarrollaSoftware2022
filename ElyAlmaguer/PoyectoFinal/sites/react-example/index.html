@@ -77,19 +77,25 @@
 
             function App(){
 
-                var[nombre, setNombre]= React.useState("X");
-                var[password, setPassword]= React.useState("Y");
-                var[show, setShow] = React.useState(false);
-                var[style, setStyle] = React.useState("base");
+                var [datos, setDatos] = React.useState({
+                nombre: "X",
+                password: "Y",
+                style: "base"
+            });
+
+                // var[nombre, setNombre]= React.useState("X");
+                // var[password, setPassword]= React.useState("Y");
+                // var[show, setShow] = React.useState(false);
+                // var[style, setStyle] = React.useState("base");
 
                 var form = <>
                <input type="text" value={nombre} onChange={()=> setNombre(event.target.value)} placeholder="Username"/>
                <input type="password" value={password} onChange={()=> setPassword(event.target.value)} placeholder="********"/>
                <button onClick={()=> {
-                    if(style === 'base'){
-                        setStyle("otro");
+                    if(datos.style === 'base') {
+                        setDatos("otro");
                     } else {
-                        setStyle("base");
+                        setDatos("base");
                     }
                 }}>Mostrar</button>
                <hr/>

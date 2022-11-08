@@ -22,12 +22,25 @@ app.get('/', function(req, res) {
         status: "online"
     });
 });*/
-const CategoriesRouter = require('./routers/categories');  //agregados el router de las categorias del producto
-app.use('/category', CategoriesRouter)     // se va a usar en todos los endpointe donde tengamos category
-//como lo que se cree en  http://localhost:3000/category/
-const usersRouter = require('./routers/users');     
+const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
-//http://localhost:3000/users/prueba -> GET
+
+const categoriesRouter = require('./routers/categories');  //agregados el router de las categorias del producto
+app.use('/category', categoriesRouter);     // se va a usar en todos los endpointe donde tengamos category
+//como lo que se cree en  http://localhost:3000/category/
+
+// const usersRouter = require('./routers/users');     
+// app.use('/users', usersRouter);
+// //http://localhost:3000/users/prueba -> GET
+
+//creamos el endpoint de products y del router traemos product, 
+const productsRouter = require('./routers/products');
+// a la aplicación de express le decimos que utilice el endpoint /products y lo redireccione al Router de productos. 
+app.use('/products', productsRouter);
+//locahost:3000/products/
+
+const cartsRouter = require('./routers/carts');
+app.use('/cart', cartsRouter);
 
 mongoose.connect(
     uri, {
