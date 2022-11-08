@@ -170,6 +170,10 @@
     color: var(--colors-white) !important;
 }
 
+.agregar-producto:disabled{
+    background-color: var(--colors-gray) !important;
+}
+
 .agregar-producto:hover {
     background: var(--colors-yellow) !important;
 }

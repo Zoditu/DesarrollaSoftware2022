@@ -14,6 +14,8 @@ function Products(props) {
                 </div>
             );
         }
+        var agotado = product.stock < 1;
+        var noDisponible = product.enabled !== true;
 
         prod.push(<>
             <article key={`product-item-${product.sku}`} className="col-xl-3 col-lg-4 pb-3">
@@ -83,10 +85,19 @@ function Products(props) {
                                     }).finally(function(){
                                         props.updateLoader(false);
                                     });
-                                }} type="button" className="btn float-right agregar-producto">
-                                    <span className="material-icons">
-                                        add_shopping_cart
-                                    </span>
+                                }} type="button" disabled={agotado || noDisponible} className="btn float-right agregar-producto">
+                                    {
+                                        agotado ?
+                                        <span>
+                                            Agotado
+                                        </span> : noDisponible ?
+                                        <span>
+                                            No disponible
+                                        </span> :
+                                        <span className="material-icons">
+                                            add_shopping_cart
+                                        </span>
+                                    }
                                 </button>
                                 <div className="clear-both"></div>
                             </article>
