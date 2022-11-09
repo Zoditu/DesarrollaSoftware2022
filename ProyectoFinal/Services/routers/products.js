@@ -64,8 +64,7 @@ router.put('/:sku', async function(req, res) {
 
     if(!producto) {
         return res.status(404).send({
-            message: `El producto con el sku [${sku}] no existe.`,
-            productoDuplicado: existe
+            message: `El producto con el sku [${sku}] no existe.`
         });
     }
 
@@ -75,7 +74,7 @@ router.put('/:sku', async function(req, res) {
 
         switch(key) {
             case "sku":
-                if(producto.sku !== sku) {
+                if(product.sku !== sku) {
                     var existe = await Product.findOne({ sku: product.sku });
                     if(existe) {
                         return res.status(403).send({
