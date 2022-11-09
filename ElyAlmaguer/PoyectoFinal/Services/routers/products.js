@@ -37,7 +37,6 @@ router.post('/:sku', async function(req, res) {
     if(existe) {
         return res.status(403).send({
             message: `El producto con el sku [${sku}] ya existe.`,
-            productoDuplicado: existe
         });
     }
 
@@ -48,6 +47,108 @@ router.post('/:sku', async function(req, res) {
 
     res.send({
         message: "Producto creado"
+    });
+});
+
+
+router.put('/:sku', async function(req, res) {
+    //:sku es un path parameter
+    const sku = req.params.sku;
+    const product = req.body;
+
+    var valid = Validate.productUpdate(product);
+    if(valid.error) {
+        return res.status(400).send({
+            message: "Error: Invalid Product Details: " + valid.error.details,
+            details: valid.error.details
+        });
+    }
+
+    var producto = await Product.findOne({sku: sku});
+
+    if(!producto) {
+        return res.status(404).send({
+            message: `El producto con el sku [${sku}] no existe.`,
+            productoDuplicado: existe
+        });
+    }
+
+    var keys = Object.keys(product);
+    for (var i = 0; i < keys.length; i++) {
+        const key = keys[i];
+
+        switch(key) {
+            case "sku":
+                if(product.sku !== sku) {
+                    var existe = await Product.findOne({ sku: product.sku });
+                    if(existe) {
+                        return res.status(403).send({
+                            message: `Error, el sku [${product.sku}] ya existe`,
+                        });
+                    }
+
+                    producto.sku = product.sku; //actualizarias en la base de datos un producto que no existía.
+                }
+            break;
+
+            case "stock":
+                producto.stock = product.stock;
+            break;
+
+            case "enabled":
+                producto.enabled = product.enabled;
+            break;
+
+            case "categoryId":
+                producto.categoryId = product.categoryId;
+            break;
+
+            case "subCategoryId":
+                producto.subCategoryId = product.subCategoryId;
+            break;
+
+            case "categoryType":
+                producto.categoryType = product.categoryType;
+            break;
+
+            case "name":
+                producto.name = product.name;
+            break;
+
+            case "description":
+                producto.description = product.description;
+            break;
+
+            case "model":
+                producto.model = product.model;
+            break;
+
+            case "brand":
+                producto.brand = product.brand;
+            break;
+
+            case "color":
+                producto.color = product.color;
+            break;
+
+            case "weight":
+                producto.weight = product.weight;
+            break;
+
+            case "size":
+                producto.size = product.size;
+            break;
+
+            case "price":
+                producto.price = product.price;
+            break;
+        }   
+    }
+
+    await producto.save();
+
+    res.send({
+        message: "Producto modificado"
     });
 });
 

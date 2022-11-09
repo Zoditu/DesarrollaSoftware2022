@@ -1,5 +1,5 @@
-function AddProduct(props) {         // componente con cada tipo de formulario. 
-    var [product, setProduct] = React.useState({  //propiedades de un modelo de producto para el formulario en null para visualizarlo en la consola.        
+function AddProduct(props) {     // componente con cada tipo de formulario. 
+    var [product, setProduct] = React.useState(props.product || {    //propiedades de un modelo de producto para el formulario en null para visualizarlo en la consola.        
         sku: null,
         stock: 0,
         enabled: true,
@@ -17,45 +17,56 @@ function AddProduct(props) {         // componente con cada tipo de formulario.
         images: []
     });
 
-    var [categories, setCategories] = React.useState([]); // manda llamar las categorias
-    var [selectedCategory, setSelectedCategory] = React.useState({ children: [] });  //
+    var [categories, setCategories] = React.useState([]);   // manda llamar las categorias
+    var [selectedCategory, setSelectedCategory] = React.useState({ children: [] });
     var [selectedSubCategory, setSelectedSubCategory] = React.useState({ types: [] });
 
-    React.useEffect(function(){    //funcion que se ejecuta cada vez que el componente se crea y se ejec. una sola vez. trae todas las categ. y sub categ. y tipo de categoria.
-        axios({                    //de Category/all
+    React.useEffect(function(){       //funcion que se ejecuta cada vez que el componente se crea y se ejec. una sola vez. trae todas las categ. y sub categ. y tipo de categoria.
+        props.updateLoader(true);
+        axios({                        //de Category/all
             method: 'GET',
             url: '/category/all'
         }).then(function(result){
-            setCategories(result.data); //actualiza categorias
+            setCategories(result.data);    //actualiza categorias
         }).catch(function(error) {
             //TBD
-        })
+        }).finally(function(){
+            props.updateLoader(false);
+        });
     },[]);
 //esto es para los desplegables.
-    var cats = [<option key={"Category-null"} defaultValue={null}></option>]; //desplega categorias
-    var subCats = [<option key={"SubCategory-null"} defaultValue={null}></option>];  //desplega sub-categorias
-    var types = [<option key={"CategoryType-null"} defaultValue={null}></option>];   //desplega tipo de producto.
- //esto genera todas las categorias en el select
+    var cats = [<option key={"Category-null"} defaultValue={null}></option>];
+    var subCats = [<option key={"SubCategory-null"} defaultValue={null}></option>];
+    var types = [<option key={"CategoryType-null"} defaultValue={null}></option>];
+ //esto genera todas las categorias en el select    
     for(var i = 0; i < categories.length; i++) {
         const category = categories[i].category;
-        cats.push(<option key={"Category-" + category.id} value={category.id}>
+        cats.push(<option selected={category.id === product.categoryId} key={"Category-" + category.id} value={category.id}>
                     {category.name}
                   </option>);
+
+        if(category.id === product.categoryId) {
+            selectedCategory = categories[i];
+        }
     }
 //una vez que tenemos una categoria seleccionada vamos a sacar los hijos de esa categoria.
     const subCategories = selectedCategory.children;   //extraemos las subcategorias hijo.  children
     for(var j = 0; j < subCategories.length; j++) {
         const subCategory = subCategories[j];
-        subCats.push(<option key={"SubCategory-" + subCategory.id} value={subCategory.id}>
+        subCats.push(<option selected={subCategory.id === product.subCategoryId} key={"SubCategory-" + subCategory.id} value={subCategory.id}>
                         {subCategory.name}
                     </option>);
+
+        if(subCategory.id === product.subCategoryId) {
+            selectedSubCategory = subCategory;
+        }
     }
 //una vez seleccionada la subcategoria vamos a sacar todos los tipos de productos.
-    const subCategory = selectedSubCategory;    //extraemos de subcategory los Types.
+    const subCategory = selectedSubCategory;      //extraemos de subcategory los Types.
     for(var t = 0; t < subCategory.types.length; t++) {
         const type = subCategory.types[t];
 
-        types.push(<option key={"CategoryType-" + type} value={type}>
+        types.push(<option selected={type === product.categoryType}  key={"CategoryType-" + type} value={type}>
                     {type}
                 </option>);
     }
@@ -70,10 +81,12 @@ function AddProduct(props) {         // componente con cada tipo de formulario.
   console.log("se supone  que esto es lo que renderiza como subcategorias:")
   console.table(subCategories); */ 
 
-            product.categoryId = e.target.value;  //selecciono la category
-            setProduct(Object.assign({}, product)); //se actualiza
+            product.categoryId = e.target.value === '' ? null : e.target.value;     //selecciono la category
+            product.subCategoryId = null;      
+            product.categoryType = null;
+            setProduct(Object.assign({}, product));    //se actualiza
 
-            if(e.target.selectedIndex == 0) {   //si se selecciona el cero 
+            if(e.target.selectedIndex == 0) {          //si se selecciona el cero 
                 setSelectedCategory({ children: [] });
             } else {
                 setSelectedCategory(Object.assign({}, categories[e.target.selectedIndex - 1]));
@@ -83,7 +96,8 @@ function AddProduct(props) {         // componente con cada tipo de formulario.
         </select>
 
         <select onChange={function(e){
-            product.subCategoryId = e.target.value;
+            product.subCategoryId = e.target.value === '' ? null :e.target.value;
+            product.categoryType = null;
             setProduct(Object.assign({}, product));
 
             if(e.target.selectedIndex == 0) {
@@ -96,7 +110,7 @@ function AddProduct(props) {         // componente con cada tipo de formulario.
         </select>
 
         <select onChange={function(e){
-            product.categoryType = e.target.value;
+            product.categoryType = e.target.value === '' ? null :e.target.value;
             setProduct(Object.assign({}, product));
         }} className="form-select" aria-label="Category Type">
             {types}
@@ -149,61 +163,93 @@ function AddProduct(props) {         // componente con cada tipo de formulario.
     }
 //el onSubmit está la funcion vacia con el evento y e.priventDefaul es para que el formulario no recargue la página. 
 //console.table(product) funciona para que la información se muestre como una tablita
- return <>
+    return <>
         <form onSubmit={function(e){
             e.preventDefault();
-            //console.table(product);
+              //console.table(product);
+            props.updateLoader(true);
+
             const sku = product.sku;
             var _product = Object.assign({}, product);
-            delete _product.sku;
-            axios({
-                method: "POST",
-                url: `/products/${sku}`,
-                data: _product
-            }).then(function(result){
-                product = {
-                    sku: null,
-                    stock: 0,
-                    enabled: true,
-                    categoryId: null,
-                    subCategoryId: null,
-                    categoryType: null,
-                    name: null,
-                    description: null,
-                    model: null,
-                    brand: null,
-                    color: null,
-                    weight: null,
-                    size: null,
-                    price: 0,
-                    images: []
-                };
+            
+            if(!props.product) {
                 
-                setProduct(Object.assign({}, product));
-                setSelectedCategory({ children: [] });
-                setSelectedSubCategory({ types: [] });
-
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Producto creado',
-                });
-            }).catch(function(error){
-                if(error.response) {
-                    console.log(error.response);
+                delete _product.sku;
+                axios({
+                    method: "POST",
+                    url: `/products/${sku}`,
+                    data: _product
+                }).then(function(result){
+                    product = {
+                        sku: null,
+                        stock: 0,
+                        enabled: true,
+                        categoryId: null,
+                        subCategoryId: null,
+                        categoryType: null,
+                        name: null,
+                        description: null,
+                        model: null,
+                        brand: null,
+                        color: null,
+                        weight: null,
+                        size: null,
+                        price: 0,
+                        images: []
+                    };
+                    
+                    setProduct(Object.assign({}, product));
+                    setSelectedCategory({ children: [] });
+                    setSelectedSubCategory({ types: [] });
+    
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Error creando producto',
-                        text: JSON.stringify(error.response.data.message)
+                        icon: 'success',
+                        title: 'Producto creado',
                     });
-                }
-            })
+                }).catch(function(error){
+                    if(error.response) {
+                        console.log(error.response);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error creando producto',
+                            text: JSON.stringify(error.response.data.message)
+                        });
+                    }
+                }).finally(function(){
+                    props.updateLoader(false);
+                });
+            } else {
+
+                console.log(_product);
+                axios({
+                    method: "PUT",
+                    url: `/products/${_product.old_sku}`,
+                    data: _product
+                }).then(function(result){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Producto modificado',
+                    });
+                }).catch(function(error){
+                    if(error.response) {
+                        console.log(error.response);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error modificando producto',
+                            text: JSON.stringify(error.response.data.message)
+                        });
+                    }
+                }).finally(function(){
+                    props.updateLoader(false);
+                });
+            }
         }}>
-            {/* SKU del producto  // ||| es el signo de código de barras.*/}
+            {/* SKU del producto // ||| es el signo de código de barras. */}
             <div className="input-group mb-3">
                 <span className="input-group-text" id="sku">|||</span>
                 <input required value={product.sku || ''} onChange={function(e){
                     product.sku = e.target.value;
-                    setProduct(Object.assign({}, product)); //objetc.assign para copiar el producto en uno nuevo.
+                    setProduct(Object.assign({}, product));    //objetc.assign para copiar el producto en uno nuevo.
                 }} type="text" className="form-control" placeholder="SKU" aria-label="SKU" aria-describedby="sku" />
             </div>
 
@@ -360,9 +406,80 @@ function AddProduct(props) {         // componente con cada tipo de formulario.
                 </section>
             </div>
 
-            <button className="btn btn-primary w-100">Crear Producto</button>
+            <button className="btn btn-primary w-100">{props.product ? "Modificar Producto" : "Crear Producto"}</button>
         </form>
     </>
+}
+
+function ModifyProducts(props) {
+    var [page, setPage] = React.useState(1);
+    var [query, setQuery] = React.useState({});
+    var [products, setProducts] = React.useState([]);
+
+    React.useEffect(function(){
+        props.updateLoader(true);
+        axios({
+            method: 'GET',
+            url: `/products/all?page=${page}`
+        }).then(function(result){
+            setProducts(result.data);
+        }).catch(function(error){
+            setProducts([]);
+            setPage(1);
+        }).finally(function(){
+            props.updateLoader(false);
+        });
+    }, [page]);
+
+    var prodList = [];
+    for (var i = 0; i < products.length; i++) {
+        const product = products[i];
+        prodList.push(
+            <article key={`prod-list-${i}`} className="w-100 listed-product px-2 py-3 position-relative">
+                <div className="row align-items-center w-100 h-100">
+                    <section className="col">
+                        <img style={{ height: "3.5rem", width: "3.5rem", objectFit: "contain" }} src={product.images[0] || default_image} />
+                        <span className="ps-2">{product.name}</span>
+                    </section>
+                </div>
+                <span className="small delete px-2">Eliminar</span>
+                <span onClick={function(){
+                            var _product = Object.assign({}, product);
+                            _product.old_sku = product.sku;
+                            props.updateSelectedProduct(_product);
+                            props.updateForm(props.forms.ADD_PRODUCT);    
+                      }}
+                      className="small px-2 modify material-icons">
+                    edit
+                </span>
+                <span className="small sku">{product.sku}</span>
+            </article>);
+        
+    }
+
+    var html = <>
+        <div className="input-group mb-3">
+            <select className="form-select" aria-label="SKU">
+                <option value="name">By Name</option>
+                <option value="categoryId">By Category Id</option>
+                <option value="subCategoryId">By SubCategory Id</option>
+                <option value="categoryType">By Category Type</option>
+                <option value="model">By Model</option>
+                <option value="brand">By Brand</option>
+                <option value="color">By Color</option>
+                <option value="price">By Price</option>
+                <option value="stock">By Stock</option>
+            </select>
+            <input className="form-control" type="search" placeholder="Search a product" />
+        </div>
+        <div className="input-group">
+            <button className="w-100 btn btn-primary" type="button">Search</button>
+        </div>
+        <hr />
+        {prodList}
+    </>;
+
+    return html;
 }
 
 function Admin(props) {
@@ -372,8 +489,11 @@ function Admin(props) {
         MODIFY_PRODUCT: "modify-product",
         NONE: ""
     };
-// variable que permite hacer cambios
+
+    var [showLoader, setShowLoader] = React.useState(false);
+// variable que permite hacer cambios    
     var [showForm, setShowForm] = React.useState(forms.NONE);
+    var [selectedProduct, setSelectedProduct] = React.useState(null);
 //tarjeta para añadir el producto. 
     var buttons = <>
         <div className="card action-product">
@@ -382,9 +502,10 @@ function Admin(props) {
             </div>
             <div className="card-body">
                 <h5 className="card-title">Añade un nuevo producto</h5>
-                <p className="card-text">Esto te permite crear productos en la BDD Base de Datos</p>
+                <p className="card-text">Esto te permite crear productos en la BDD</p>
                 <a onClick={function(){
-                    setShowForm(forms.ADD_PRODUCT);  //muestra el formulario para crear el producto
+                    setShowForm(forms.ADD_PRODUCT);     //muestra el formulario para crear el producto
+                    setSelectedProduct(null);
                 }} href="#" className="w-100 btn btn-primary">Crear</a>
             </div>
         </div>
@@ -397,41 +518,52 @@ function Admin(props) {
                 <h5 className="card-title">Modifica un producto</h5>
                 <p className="card-text">Puedes buscar productos por nombre, sku, o categorías.</p>
                 <a onClick={function(){
-                    setShowForm(forms.MODIFY_PRODUCT); //muestra el formulario de modificar producto
+                    setShowForm(forms.MODIFY_PRODUCT);   //muestra el formulario de modificar producto
                 }} href="#" className="w-100 btn btn-primary">Modificar</a>
             </div>
         </div>
     </>;
 //para regresar los botones el onSubmit={function(e){e.preventDefault();}} es para que no recargue la página
 // formulario
-var form;
+    var form;
     switch(showForm) {
         case forms.ADD_PRODUCT:
-            form = <AddProduct />;
+            form = <AddProduct updateLoader={setShowLoader} product={selectedProduct}/>;
         break;
 
         case forms.MODIFY_PRODUCT:
-            form = <ModifyProduct />;
+            form = <ModifyProducts updateLoader={setShowLoader} updateSelectedProduct={setSelectedProduct}
+                                   forms={forms} updateForm={setShowForm}/>;
         break;
     }
 //validación para regresar un formulario, sino regresamos un addProduct regresamos los botones.
 // var html para mostrar el formulario.
-    var html;
     if(showForm !== forms.NONE) {
-        // span con un tachita para cerrar la tarjeta. Cuando de click a la tachita pone el evento llama la funcion  de 
-        //los formularios en NONE para cerrar y poder hacer algo más = SPA Single Page Apliation no necesitas ir a otra subpag. para seguir en algo más.
+// span con un tachita para cerrar la tarjeta. Cuando de click a la tachita pone el evento llama la funcion  de 
+//los formularios en NONE para cerrar y poder hacer algo más = SPA Single Page Apliation no necesitas ir a otra subpag. para seguir en algo más.        
         return <>
+        <Loader visible={showLoader}></Loader>
+        <h1 className="px-3">
+            Admin
+        </h1>
+        <main className="container p-0">
             <div className="form-controls mb-3">
                 <span className="close-form" onClick={function(){
                     setShowForm(forms.NONE);
                 }}>X</span>
             </div>
             {form}
+        </main>
         </>;
     } else {
-        return  <div className="text-center">
-                    {buttons}
-                </div>
+        return <>
+            <h1 className="px-3">
+                Admin
+            </h1>
+            <div className="text-center">
+                {buttons}
+            </div>
+        </>
     }
 }
 //renderizamos la etiqueta de Admin
