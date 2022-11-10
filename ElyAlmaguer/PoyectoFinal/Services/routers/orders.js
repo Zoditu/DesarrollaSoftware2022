@@ -58,10 +58,13 @@ router.post('/:orderId', async function(req, res) {
 
     await newOrder.save();
 
+    varSID 
     res.send({
         message: "Orden creada"
     });
 });
+
+
 
 router.get('/validate/:orderId', async function(req, res){
     const orderId = req.params.orderId;

@@ -9,7 +9,8 @@ function Profile(props) {
         }
     }, []);
 
-    var userInfo;
+    var orders = [];
+    
     if(user !== null) {
         console.log(user);
         userInfo = <>

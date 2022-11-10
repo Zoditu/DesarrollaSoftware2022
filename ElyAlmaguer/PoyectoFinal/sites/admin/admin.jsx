@@ -1,4 +1,4 @@
-function AddProduct(props) {     // componente con cada tipo de formulario. 
+function AddProduct(props) {     // componente con cada tipo de formulario para generar producto
     var [product, setProduct] = React.useState(props.product || {     //propiedades de un modelo de producto para el formulario en null para visualizarlo en la consola.        
         sku: null,
         stock: 0,
@@ -384,7 +384,8 @@ function AddProduct(props) {     // componente con cada tipo de formulario.
                 }} type="number" step=".01" min="0" max="999999999" className="form-control" placeholder="Precio del producto" aria-label="Precio del producto" aria-describedby="price" />
             </div>
             <hr />
-            <div>
+            {/* componente para añadir o quitar imagenes */}
+            <div>  
                 <section className="row w-100 h-100 align-items-center">
                     <div className="col">
                         <h2 className="d-inline-block">Imágenes</h2>

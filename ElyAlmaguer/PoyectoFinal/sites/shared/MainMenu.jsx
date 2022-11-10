@@ -29,6 +29,13 @@ function LoginUser(props) {     //login, propiedades,
                                         </a>
                                     </li>
                                     <li className="list-group-item p-0">
+                                        <a href="/myorders">
+                                            <div className="w-100 h-100 px-3 py-2">
+                                                Mis Pedidos
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="list-group-item p-0">
                                         <a href="/mycart">
                                             <div className="w-100 h-100 px-3 py-2">
                                                 Mi Carrito
