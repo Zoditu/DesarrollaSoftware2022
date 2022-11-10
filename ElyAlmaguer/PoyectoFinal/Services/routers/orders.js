@@ -78,5 +78,16 @@ router.get('/validate/:orderId', async function(req, res){
     }
 });
 
+router.get('/:orderId', async function(req, res){
+    const orderId = req.params.orderId;
+    var order = await Order.findOne({ id: orderId }, {
+        _id: 0,
+        __v: 0
+    });
+
+    return res.send({
+        result: order
+    });
+});
 
 module.exports = router;

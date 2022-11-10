@@ -1,19 +1,19 @@
 @import url(/shared/colors.css);
-@import url(/shared/main.css);  
-/* tarjeta para añadir nuevos productos */
+@import url(/shared/main.css);
+
 .action-product {
     width: 18rem;
     display: inline-block;
 }
-/*todos excepto el último, tienen un margen a la derecha*/
+
 .action-product:not(:last-child) {
     margin-right: 1rem;
 }
-/* controles para la tachita*/
+
 .form-controls {
     text-align: end;
 }
-/* tachita para cerrar la tarjeta de productos */
+
 .close-form {
     font-size: 1.1rem;
     padding: 0.3rem;
