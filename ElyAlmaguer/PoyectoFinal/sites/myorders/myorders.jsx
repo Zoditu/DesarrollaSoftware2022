@@ -1,118 +1,63 @@
-function Profile(props) {
+function MyOrders(props) {
     var [showLoader, setShowLoader] = React.useState(true);
     var [user, setUser] = React.useState(null);
     var [cart, setCart] = React.useState({ products: [] });
 
     React.useEffect(function(){
         if(!document.cookie.includes('SID=') || !document.cookie.includes('TOKEN=')) {
-            window.location.href = '/';
+            window.location.href = '/login&redirect=/myorders';
         }
     }, []);
 
     var orders = [];
-    
     if(user !== null) {
-        console.log(user);
-        userInfo = <>
-            <form onSubmit={function(e){
-                e.preventDefault();
+        for(var i = user.orders.length - 1; i >= 0; i--) {
+            const order = user.orders[i];
+            var _fecha = new Date(order.date);
 
-                const toast = new bootstrap.Toast(document.getElementById('toast'));
-                toast.hide();
-                setShowLoader(true);
-                axios({
-                    method: 'put',
-                    url: '/users/profile',
-                    data: {
-                        name: user.name,
-                        lastName: user.lastName,
-                        phone: user.phone
-                    }
-                }).then(function(result){
-                    var newUser = result.data;
-                    newUser.address = user.address;
-                    toast.show();
+            var dia = _fecha.getDate();
+            dia = dia < 10 ? ('0' + dia) : dia;
+            var mes = _fecha.getMonth() + 1;
+            mes = mes < 10 ? ('0' + mes) : mes;
+            var anio = _fecha.getFullYear();
 
-                    setUser(newUser);
-                }).catch(function(error){
-                    if(error.response) {
-                        Swal.fire({
-                            icon: "error",
-                            title: "Error actualizando datos",
-                            text: error.response.data
-                        });
-                    }
-                }).finally(function(){
-                    setShowLoader(false);
-                });
-            }}>
-                <div className="input-group mb-3">
-                    <span className="input-group-text" id="name">
-                        <span className="material-icons">
-                            person
-                        </span>
-                    </span>
-                    <input value={user.name || ''} onChange={function(e){
-                                user.name = e.target.value;
-                                setUser(Object.assign({}, user));
-                           }}
-                           type="text" className="form-control" 
-                           placeholder="Nombre del usuario" 
-                           aria-label="Nombre del usuario" 
-                           aria-describedby="name" required/>
-                </div>
+            var hora = _fecha.getHours();
+            hora = hora < 10 ? ('0' + hora) : hora;
+            var minutos = _fecha.getMinutes();
+            minutos = minutos < 10 ? ('0' + minutos) : minutos;
+            var segundos = _fecha.getSeconds();
+            segundos = segundos < 10 ? ('0' + segundos) : segundos;
 
-                <div className="input-group mb-3">
-                    <span className="input-group-text" id="lastName">
-                        <span className="material-icons">
-                            person
-                        </span>
-                    </span>
-                    <input value={user.lastName || ''} onChange={function(e){
-                                user.lastName = e.target.value;
-                                setUser(Object.assign({}, user));
-                           }}
-                           type="text" className="form-control" 
-                           placeholder="Apellidos del usuario" 
-                           aria-label="Apellidos del usuario" 
-                           aria-describedby="lastName" required/>
-                </div>
+            var fecha = `${dia}/${mes}/${anio} a la(s) ${hora}:${minutos} horas`
 
-                <div className="input-group mb-3">
-                    <span className="input-group-text" id="phone">
-                        <span className="material-icons">
-                            phone
-                        </span>
-                    </span>
-                    <input value={user.phone || ''} onChange={function(e){
-                                user.phone = e.target.value;
-                                setUser(Object.assign({}, user));
-                           }}
-                           type="tel" className="form-control" 
-                           placeholder="Teléfono del usuario" 
-                           aria-label="Teléfono del usuario" 
-                           aria-describedby="phone" required/>
-                </div>
-
-                <button className="btn w-100 mb-3">Actualizar</button>
-            </form>
-
-            <Address user={user} updateLoader={setShowLoader} updateUser={setUser} />
-        </>;
+            orders.push(<>
+                    <div key={order.id} className="user-order p-2">
+                        <a target="_blank" href={`/orderTracker?id=${order.id}`}>
+                            <h4 className="card-title">Orden de compra: <span className="status">{order.id}</span></h4>
+                            <h6>Importe pagado: <span className="status">${order.total}</span></h6>
+                            <h6>Status de orden: <span className="status">{order.status}</span></h6>
+                            <h6><span className="small">{fecha}</span></h6>
+                        </a>
+                    </div>
+                </>
+            );
+        }
     }
+
 
     var html = <>
         <Loader visible={showLoader} />
         <MainMenu user = { user } cart = { cart } updateLoader={setShowLoader} updateCart={setCart} updateUser={setUser} />
         <main className="container p-0">
-            <h1>Información del usuario</h1>
-            {userInfo}
-            <div class="toast text-bg-success align-items-center" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
-                        Información actualizada
+            <h1>Mis Pedidos</h1>
+            <hr />
+            <div className="card position-relative mb-3">
+                <div className="row g-0">
+                    <div className="col">
+                        <div className="card-body">
+                            {orders.length ? orders : <h2 className="text-center">No tienes órdenes... Compra algo! :)</h2>}
+                        </div>
                     </div>
-                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
             </div>
         </main>
@@ -121,4 +66,4 @@ function Profile(props) {
     return html;
 }
 
-ReactDOM.createRoot(document.getElementById('app')).render(<Profile />)
+ReactDOM.createRoot(document.getElementById('app')).render(<MyOrders />)

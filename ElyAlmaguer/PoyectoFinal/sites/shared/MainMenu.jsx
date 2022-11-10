@@ -29,13 +29,6 @@ function LoginUser(props) {     //login, propiedades,
                                         </a>
                                     </li>
                                     <li className="list-group-item p-0">
-                                        <a href="/myorders">
-                                            <div className="w-100 h-100 px-3 py-2">
-                                                Mis Pedidos
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li className="list-group-item p-0">
                                         <a href="/mycart">
                                             <div className="w-100 h-100 px-3 py-2">
                                                 Mi Carrito
@@ -48,7 +41,7 @@ function LoginUser(props) {     //login, propiedades,
                     </div>
                 </div>
             </article>
-        } else {          // si no viene nulo, renderiza lo siguiente.
+        } else {         // si no viene nulo, renderiza lo siguiente.
             login  = 
             <article className="d-lg-none d-block mb-2">
                 <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -71,6 +64,13 @@ function LoginUser(props) {     //login, propiedades,
                                         <a href="/profile">
                                             <div className="w-100 h-100 px-3 py-2">
                                                 Perfil
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="list-group-item p-0">
+                                        <a href="/myorders">
+                                            <div className="w-100 h-100 px-3 py-2">
+                                                Mis Pedidos
                                             </div>
                                         </a>
                                     </li>
@@ -136,6 +136,7 @@ function LoginUser(props) {     //login, propiedades,
                     </a>
                     <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item" href="/profile">Perfil</a></li>
+                        <li><a href="/myorders" className="dropdown-item">Mis Pedidos</a></li>
                         <li><a href="/mycart" className="dropdown-item">Mi Carrito</a></li>
                         <li><a className="dropdown-item" href="/users/logout">Salir</a></li>
                     </ul>
@@ -156,13 +157,13 @@ function MainMenu(props) {
     var [search, setSearch] = React.useState("");
     const totalActions = 3;
 
-    React.useEffect(function(){    // vacio para que solo lo traiga una vez
+    React.useEffect(function(){     // vacio para que solo lo traiga una vez
         axios({                     // petición GET a la url Category
             method: "GET",
             url: "/category/all",
-        }).then(function(result){        //todo bien, da un resultado
-            setCategories(result.data);  //resultado a la petición
-        }).catch(function(error){        //si hay error
+        }).then(function(result){       //todo bien, da un resultado
+            setCategories(result.data); //resultado a la petición
+        }).catch(function(error){       //si hay error
             //TBD
         }).finally(function(){
             actions++;
@@ -289,15 +290,14 @@ function MainMenu(props) {
             continue;
         }
 
-        const index = i;     //variable constante para recurperarla la variable despues
+        const index = i;         //variable constante para recurperarla la variable despues
         const category = categories[i].category;
         const children = categories[i].children;
 
         menus.push(
-
             <li onClick={function(){
                 window.location.href = `/catalog?category=${category.id}`;
-//evento onMouseEnter en una categoria se hace una se llena la lista temporal de subcategory con subcategorias hijo.                      
+//evento onMouseEnter en una categoria se hace una se llena la lista temporal de subcategory con subcategorias hijo.                                  
             }} key={`category-${category.id}`}
                 onMouseEnter={function() {
                     var temp = [];
@@ -339,10 +339,10 @@ function MainMenu(props) {
             {menus}
         </ul>
 {/* //cuando ponga el cursor encima del elemento se actualiza el componente
-el evento onMouseLeave para desseleccionar o salir del menu o sección flotante de la categoria */}        
+el evento onMouseLeave para desseleccionar o salir del menu o sección flotante de la categoria */}                
         <section onMouseLeave={function(){
                 setActive(-1);
-//este es el componente desplegable del menu                 
+//este es el componente desplegable del menu             
             }} className="sub-menu">
             <div className="row m-0 p-0 h-100 w-100">
                 {subCategories}
