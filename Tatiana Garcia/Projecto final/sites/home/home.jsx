@@ -5,19 +5,19 @@ function Home() {
     var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
     var [images, setImages] = React.useState([
         {
-            title: 'N/A Test 1',
-            description:'N/A Test 1 Desc',
-            src: 'https://media.istockphoto.com/photos/make-up-cosmetics-products-against-pink-color-background-picture-id1221677097'
+            title: 'Reinventate!',
+            description:'Descubrelo en Make up!',
+            src: 'https://img.freepik.com/foto-gratis/arreglo-vista-superior-pinceles-maquillaje-sombras-ojos_23-2148301855.jpg?w=1380&t=st=1667952478~exp=1667953078~hmac=348db9c13d7ff253344ac1a1d0be1f9492e517f86493ee2be3cbbbe3d26ffcb4'
         },
         {
-            title: 'N/A Test 2',
-            description:'N/A Test 2 Desc',
-            src: 'https://media.istockphoto.com/photos/makeup-palette-and-brushes-professional-eyeshadow-palette-picture-id1299164489?k=20&m=1299164489&s=612x612&w=0&h=9w6tmreQf_pdIWpt1inYNsHrlpCPMB391IjozF06XLw='
+            title: 'Lo nuevo de',
+            description:'MAYBELLINE',
+            src: 'https://escuelademaquillajemadrid.com/wp-content/uploads/2021/02/Paleta-de-maquillaje-Barcelona-Inglot.jpg'
         },
         {
-            title: 'N/A Test 3',
-            description:'N/A Test 3 Desc',
-            src: 'https://i.pinimg.com/originals/28/87/99/2887999c4d837ed4a068e50046b97891.png'
+            title: 'Regala GLAM!',
+            description:'Regala maquillaje!',
+            src: 'https://img.freepik.com/fotos-premium/vista-superior-coleccion-accesorios-maquillaje_23-2148620011.jpg?w=1380'
         }
     ]);
 
@@ -83,7 +83,7 @@ function Home() {
             <hr />
             <h2 className="text-center">Productos recomendados</h2>
             <hr />
-            <Products products={products} updateCart={setCart}/>
+            <Products products={products} updateCart={setCart} updateLoader={setShowLoader}/>
         </main>
         <Alert alert = { alertMessage } />
     </>;

@@ -1,63 +1,64 @@
-
 function Home() {
-    var [showLoader, setShowLoader] = React.useState(true);   //este tipo de variables se pueden compartir
+    var [showLoader, setShowLoader] = React.useState(true);
     var [user, setUser] = React.useState(null);
     var [cart, setCart] = React.useState({ products: [] });
     var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
-    var [images, setImages] = React.useState([      //variable con arreglo de imagenes para que renderice n cantidad de imagenes.
-        {                                           //se pueden actualizar o quitar las imagenes.
+    var [images, setImages] = React.useState([                //variable con arreglo de imagenes para que renderice n cantidad de imagenes.
+        {                                                     //se pueden actualizar o quitar las imagenes.
             title: 'N/A Test 1',
             description:'N/A Test 1 Desc',
-            src: 'https://media.istockphoto.com/photos/make-up-cosmetics-products-against-pink-color-background-picture-id1221677097'
+            src: 'https://conceptodefinicion.de/wp-content/uploads/2022/05/materialdidactico_1.jpg?ezimgfmt=ng%3Awebp%2Fngcb1%2Frs%3Adevice%2Frscb1-1'
         },
         {
             title: 'N/A Test 2',
             description:'N/A Test 2 Desc',
-            src: 'https://media.istockphoto.com/photos/makeup-palette-and-brushes-professional-eyeshadow-palette-picture-id1299164489?k=20&m=1299164489&s=612x612&w=0&h=9w6tmreQf_pdIWpt1inYNsHrlpCPMB391IjozF06XLw='
+            src: 'https://st4.depositphotos.com/19267056/26369/i/600/depositphotos_263696352-stock-photo-stationery-yellow-background-education-training.jpg'
         },
         {
             title: 'N/A Test 3',
             description:'N/A Test 3 Desc',
-            src: 'https://i.pinimg.com/originals/28/87/99/2887999c4d837ed4a068e50046b97891.png'
+            src: 'https://i.pinimg.com/564x/d4/50/c5/d450c5bdd26cde5b2d88877084fe88b9.jpg'
         }
     ]);
-
+//variable para traer los 3 productos.
     var [products, setProducts] = React.useState([]);
 
     React.useEffect(function() {
-       //peticion, metodo, url desde la raíz (localhost:300)
+//peticion, metodo, url desde la raíz (localhost:3000)        
         axios({
             method: 'GET',
             url: '/products/recommended'
-    // promesa con un respuesta bien y si no con respuesta error         
+// promesa con un respuesta bien y si no con respuesta error            
         }).then(function(result){
             setProducts(result.data);
         }).catch(function(error) {
             //TBD
         });
-    }, []);    //Este parámetro sirve para decirle que solo lo haga una vez.
+    }, []);      //Este parámetro sirve para decirle que solo lo haga una vez.
+
     var buttons = [];
     var items = [];
-    for(var i = 0; i < images.length; i++) {    //por cada imagen del carrousel se renderiza un boton.
+    for(var i = 0; i < images.length; i++) {   //por cada imagen del carrousel se renderiza un boton.
         const image = images[i];
-        //
+        
         if( i === 0) {
             buttons.push(<button key={"home-carousel-btn" + i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} className="active" aria-current="true" aria-label={"Slide " + (i+1)}></button>);
         } else {
             buttons.push(<button key={"home-carousel-btn" + i} type="button" data-bs-target="#home-carousel" data-bs-slide-to={i} aria-label={"Slide " + (i+1)}></button>);
         }
-             //i === 0 porque la primer imagen siempre está activa (elemento inicial)
-        items.push(
+ //i === 0 porque la primer imagen siempre está activa (elemento inicial)
+ // cada vez que hacemos push, debe llevar una key no repetida.
+ items.push(
         <div key={"home-carousel-item" + i} className={i === 0 ? "carousel-item active" : "carousel-item"}>
             <img src={image.src} className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
-                <h5>{image.title}</h5>
+                <h8>{image.title}</h8>
                 <p>{image.description}</p>
             </div>
         </div>);
     }
-
-    var carousel = <>
+//este carousel es el del Home
+    var carousel = <> 
         <div id="home-carousel" className="carousel slide" data-bs-ride="false">
             <div className="carousel-indicators">
                 {buttons}
@@ -79,15 +80,15 @@ function Home() {
     var home = <>
         <Loader visible={showLoader} />
         <MainMenu user = { user } cart = { cart } updateLoader={setShowLoader} updateCart={setCart} updateUser={setUser} updateAlertMessage={setAlertMessage}/>
-        <main className="container p-0">   
-            {carousel}  
+        <main className="container p-0">
+            {carousel}
 {/* para que ponga un margen   */}
-            <div className="m-3"></div>  
+            <div className="m-3"></div>
             <hr />
-  {/* para centrar Productos recomenados utilizamos el text-center           */}
+ {/* para centrar Productos recomenados utilizamos el text-center*/}
             <h2 className="text-center">Productos recomendados</h2>
             <hr />
-            <Products products={products} updateCart={setCart}/>
+            <products products= {products} updateCart= {setCart} updateLoader= {setShowLoader}/>
         </main>
         <Alert alert = { alertMessage } />
     </>;

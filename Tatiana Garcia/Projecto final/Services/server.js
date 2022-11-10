@@ -19,15 +19,18 @@ app.get('/', function(req, res) {
 const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
 
-const categoriesRouter = require('./routers/catergories');
+const categoriesRouter = require('./routers/categories');
 app.use('/category', categoriesRouter);
 
 const productsRouter = require('./routers/products');
 app.use('/products', productsRouter);
+//locahost:3000/products/
 
-//http://localhost:3000/users/prueba -> GET
 const cartsRouter = require('./routers/carts');
 app.use('/cart', cartsRouter);
+
+const ordersRouter = require('./routers/orders');
+app.use('/orders', ordersRouter);
 
 mongoose.connect(
     uri, {

@@ -7,18 +7,18 @@ const User = require('../models/user');
 const Product = require('../models/product');
 const Utils = require('../utils');
 
-const DEFAULT_IMAGE='';
+const DEFAULT_IMAGE = '';
 const TAX = 0.16;
 
 async function ValidUser(SID, TOKEN) {
     const result = {
-        valid: false, 
+        valid: false,
         tokenValid: false,
         user: null
     };
 
     var user = await User.findOne({
-        username: SID 
+        username: SID
     });
 
     if(!user) {
@@ -45,15 +45,16 @@ async function FindCart(cookies, user) {
 
     if(!SID || !TOKEN) {
         if(CARTID) {
-            //Recuperar la referencia del carrito 
-            cart = await Cart.findOne({id: CARTID},{
+            //recuperar la referencia a este carrito
+            cart = await Cart.findOne({id: CARTID}, {
                 _id: 0,
                 __v: 0,
                 username: 0
             });
         }
+
         if(!cart) {
-            //crear uno vacio y mandar este
+            //crear uno nuevo vacío y mandar este
             cart = {
                 id: Utils.generateCartID(),
                 products: [],
@@ -64,6 +65,7 @@ async function FindCart(cookies, user) {
             var emptyAnonCart = new Cart(cart);
             await emptyAnonCart.save();
         }
+
     } else if(user) {
         //Buscar el carrito del usuario
         cart = await Cart.findOne({username: SID}, {
@@ -134,7 +136,7 @@ async function ValidateCart(products) {
     for (var i = 0; i < products.length; i++) {
         const product = products[i];
         var productDB = (await Product.findOne({ sku: product.sku }, {_id: 0, __v: 0})) || { stock: 0, enabled: false };
-        if(productDB.stock < 1 || !productDB.enabled) {
+        if(product.amount < 1 || productDB.stock < 1 || !productDB.enabled) {
             products.splice(i, 1);
             i -= 1;
         } else {
@@ -146,11 +148,12 @@ async function ValidateCart(products) {
             product.detail.name = productDB.name;
             product.detail.image = productDB.images[0] || DEFAULT_IMAGE;
             product.detail.price = productDB.price;
+            product.detail.unitaryPrice = parseFloat((product.detail.price * 0.84).toFixed(2));
+            product.detail.tax = parseFloat((product.detail.price * 0.16).toFixed(2));
 
-            var _total = product.amount * product.detail.price;
-            product.subTotal = (_total * (1.0 - TAX)).toFixed(2);
-            product.tax = (_total * TAX).toFixed(2);
-            product.total = _total.toFixed(2);
+            product.subTotal = (product.detail.unitaryPrice * product.amount).toFixed(2)
+            product.tax = (product.detail.tax * product.amount).toFixed(2)
+            product.total = (product.subTotal + product.tax).toFixed(2);
 
             subTotal += product.subTotal;
             tax += product.tax;
@@ -205,7 +208,7 @@ router.get('/', async function(req, res){
     if(cart.id !== cookies["CARTID"]) {
         cart = await FindCart(cookies, true);
     }
-    
+
     res.cookie("CARTID", cart.id);
 
     return res.send(cart);
@@ -229,7 +232,7 @@ router.put('/:sku', async function(req, res){
         });
     }
 
-    if(isNaN(amount) || amount < 1) {
+    if(isNaN(amount)) {
         amount = 1;
     } else {
         amount = parseInt(amount);

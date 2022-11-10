@@ -1,21 +1,47 @@
-function LoginUser(props) {    //login, propiedades, 
+function LoginUser(props) {     //login, propiedades,
     var login;
 //esto muestra la versión movil
-    if(props.mobile === true ){     //si el usuario en el mobile viene nullo no renderiza nada. 
+    if(props.mobile === true ){    //si el usuario en el mobile viene nullo no renderiza nada. 
         if(props.user === null) {
             login = 
             <article className="d-lg-none d-block mb-2">
-                <div className="row h-100 w-100 align-items-center">
-                    <div className="col">
-                        <a href="#" className="login-button">
-                            <span className="material-icons">
-                                account_circle
-                            </span>Login
-                        </a>
+                <div className="accordion accordion-flush" id="accordionFlushExample">
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="flush-headingOne">
+                            <button className="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                aria-expanded="false" aria-controls="flush-collapseOne">
+                                Anónimo -
+                                <span className="material-icons">
+                                    shopping_cart
+                                </span> ({props.cart.products.length})
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" className="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div className="accordion-body p-0">
+                                <ul className="list-group">
+                                    <li className="list-group-item p-0">
+                                        <a href="/login ">
+                                            <div className="w-100 h-100 px-3 py-2">
+                                                Login
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="list-group-item p-0">
+                                        <a href="/mycart">
+                                            <div className="w-100 h-100 px-3 py-2">
+                                                Mi Carrito
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
-        } else {                        // si no viene nulo, renderiza lo siguiente.
+        } else {         // si no viene nulo, renderiza lo siguiente.
             login  = 
             <article className="d-lg-none d-block mb-2">
                 <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -42,6 +68,13 @@ function LoginUser(props) {    //login, propiedades,
                                         </a>
                                     </li>
                                     <li className="list-group-item p-0">
+                                        <a href="/myorders">
+                                            <div className="w-100 h-100 px-3 py-2">
+                                                Mis Pedidos
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="list-group-item p-0">
                                         <a href="/mycart">
                                             <div className="w-100 h-100 px-3 py-2">
                                                 Mi Carrito
@@ -49,7 +82,7 @@ function LoginUser(props) {    //login, propiedades,
                                         </a>
                                     </li>
                                     <li className="list-group-item p-0">
-                                        <a href="/logout">
+                                        <a href="/users/logout">
                                             <div className="w-100 h-100 px-3 py-2">
                                                 Salir
                                             </div>
@@ -68,12 +101,22 @@ function LoginUser(props) {    //login, propiedades,
 //este es la versión pag. principal
     if(props.user === null) {
         login = 
-        <article className="d-lg-block d-none profile nav-item order-lg-2 order-1">
+        <article className="d-lg-block d-none profile nav-item dropdown order-lg-2 order-1">
             <div className="row h-100 align-items-center">
                 <div className="col">
-                    <a className="nav-link" href="/login">
-                        Login
+                    <a className="nav-link dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span className="user-name">
+                            Anónimo 
+                        </span>
+                        <span className="material-icons">
+                            shopping_cart
+                        </span> ({props.cart.products.length})
                     </a>
+                    <ul className="dropdown-menu dropdown-menu-end">
+                        <li><a className="dropdown-item" href="/login">Login</a></li>
+                        <li><a href="/mycart" className="dropdown-item">Mi Carrito</a></li>
+                    </ul>
                 </div>
             </div>
         </article>
@@ -93,8 +136,9 @@ function LoginUser(props) {    //login, propiedades,
                     </a>
                     <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item" href="/profile">Perfil</a></li>
+                        <li><a href="/myorders" className="dropdown-item">Mis Pedidos</a></li>
                         <li><a href="/mycart" className="dropdown-item">Mi Carrito</a></li>
-                        <li><a className="dropdown-item" href="/logout">Salir</a></li>
+                        <li><a className="dropdown-item" href="/users/logout">Salir</a></li>
                     </ul>
                 </div>
             </div>
@@ -106,19 +150,20 @@ function LoginUser(props) {    //login, propiedades,
 
 function MainMenu(props) {
 
-    var [categories, setCategories] = React.useState([]);     //
+    var [categories, setCategories] = React.useState([]);
     var [subCategories, setSubCategories] = React.useState([]);
-    var [active, setActive] = React.useState(-1);   //El indice de cual elemento está activo.
+    var [active, setActive] = React.useState(-1);
     var [actions, setActions] = React.useState(0);
+    var [search, setSearch] = React.useState("");
     const totalActions = 3;
 
-    React.useEffect(function(){           // vacio para que solo lo traiga una vez
-        axios({                           // petición GET a la url Category
+    React.useEffect(function(){     // vacio para que solo lo traiga una vez
+        axios({                     // petición GET a la url Category
             method: "GET",
             url: "/category/all",
-        }).then(function(result){            //todo bien, da un resultado
-            setCategories(result.data);      //resultado a la petición 
-        }).catch(function(error){           //si hay error
+        }).then(function(result){       //todo bien, da un resultado
+            setCategories(result.data); //resultado a la petición
+        }).catch(function(error){       //si hay error
             //TBD
         }).finally(function(){
             actions++;
@@ -234,14 +279,26 @@ function MainMenu(props) {
 
     var menus = [];
     var keys = {};
-    for(var i = 0; i < categories.length; i++) {             
-        const index = i;  //variable constante para recurperarla la variable despues
-        const category = categories[i].category;   
+    for(var i = 0; i <= categories.length; i++) {
+        if(i === categories.length) {
+            menus.push(<li onClick={function(){
+                window.location.href = `/catalog`;
+            }} key={`all-products`}
+                onMouseEnter={function() {
+                    setActive(index);
+                }} style={{ background: index === active ? 'var(--colors-red)' : '' }}>Todos los productos</li>);
+            continue;
+        }
+
+        const index = i;         //variable constante para recurperarla la variable despues
+        const category = categories[i].category;
         const children = categories[i].children;
 
         menus.push(
-            //evento onMouseEnter en una categoria se hace una se llena la lista temporal de subcategory con subcategorias hijo.
-            <li key={`category-${category.id}`}
+            <li onClick={function(){
+                window.location.href = `/catalog?category=${category.id}`;
+//evento onMouseEnter en una categoria se hace una se llena la lista temporal de subcategory con subcategorias hijo.                                  
+            }} key={`category-${category.id}`}
                 onMouseEnter={function() {
                     var temp = [];
                     for(var j = 0; j < children.length; j++) {
@@ -251,43 +308,49 @@ function MainMenu(props) {
                         for(var z = 0; z < subCategory.types.length; z++) {
                             const type = subCategory.types[z];
 
-                            types.push(<article key={`type-${subCategory.id}-${z}`} className="subcategory-type">
+                            types.push(<article onClick={function(){
+                                window.location.href = `/catalog?category=${category.id}&subCategory=${subCategory.id}&categoryType=${type}`;
+                            }} key={`type-${subCategory.id}-${z}`} className="subcategory-type">
                                 {type}
                             </article>);
                         }
 
                         temp.push(<>
-                            <div key={`subcategory-${category.id}-${subCategory.id}`} className="col-lg sub-category">
+                            <div onClick={function(e){
+                                if(e.target.tagName !== 'ARTICLE') {
+                                    window.location.href = `/catalog?category=${category.id}&subCategory=${subCategory.id}`;
+                                }
+                            }} key={`subcategory-${category.id}-${subCategory.id}`} className="col-lg sub-category">
                                 {subCategory.name}
                                 {types}
                             </div>
                         </>);
                     }
-//arreglo temporal
+
                     setSubCategories(Array.from(temp));
                     setActive(index);
-                    //cuando ponga coo activa al poner el cursor cambiamos el estilo sino, queda con el fondo vacio
+//cuando ponga coo activa al poner el cursor cambiamos el estilo sino, queda con el fondo vacio                                        
                 }} style={{ background: index === active ? 'var(--colors-red)' : '' }}>{category.name}</li>
         );
     }
 
     var subMenu = <>
         <ul>
-            {menus}               
+            {menus}
         </ul>
 {/* //cuando ponga el cursor encima del elemento se actualiza el componente
-el evento onMouseLeave para desseleccionar o salir del menu o sección flotante de la categoria */}
+el evento onMouseLeave para desseleccionar o salir del menu o sección flotante de la categoria */}                
         <section onMouseLeave={function(){
                 setActive(-1);
- //este es el componente desplegable del menu               
-            }} className="sub-menu">          
+//este es el componente desplegable del menu             
+            }} className="sub-menu">
             <div className="row m-0 p-0 h-100 w-100">
                 {subCategories}
             </div>
         </section>
     </>;
 // esto crea la parte de arriba del menu
-    var header = <>             
+    var header = <>
         <header className="main-menu sticky-top">
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
@@ -300,14 +363,21 @@ el evento onMouseLeave para desseleccionar o salir del menu o sección flotante 
                     <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasDarkNavbar"
                         aria-labelledby="offcanvasDarkNavbarLabel">
                         <div className="offcanvas-header">
-                            <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                            <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Make Up</h5>
                             <button type="button" className="btn-close btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body">
                             <LoginUser mobile = { true } user = { props.user } cart = { props.cart } />
-                            <form className="d-flex w-100 order-lg-1 order-2 me-2" role="search">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                            <form onSubmit={function(e){
+                                    e.preventDefault();
+                                    if(search.trim() !== '') {
+                                        window.location.href = '/catalog?name=' + search;
+                                    }
+                                }} className="d-flex w-100 order-lg-1 order-2 me-2" role="search">
+                                <input value={search} onChange={function(e){
+                                    setSearch(e.target.value);
+                                }} className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                                 <button className="btn" type="submit">Search</button>
                             </form>
                             <div className="d-lg-none d-block mb-2"></div>
