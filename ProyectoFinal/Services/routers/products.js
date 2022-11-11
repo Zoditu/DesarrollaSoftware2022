@@ -64,8 +64,7 @@ router.put('/:sku', async function(req, res) {
 
     if(!producto) {
         return res.status(404).send({
-            message: `El producto con el sku [${sku}] no existe.`,
-            productoDuplicado: existe
+            message: `El producto con el sku [${sku}] no existe.`
         });
     }
 
@@ -75,7 +74,7 @@ router.put('/:sku', async function(req, res) {
 
         switch(key) {
             case "sku":
-                if(producto.sku !== sku) {
+                if(product.sku !== sku) {
                     var existe = await Product.findOne({ sku: product.sku });
                     if(existe) {
                         return res.status(403).send({
@@ -85,6 +84,11 @@ router.put('/:sku', async function(req, res) {
 
                     producto.sku = product.sku;
                 }
+            break;
+
+            case "images":
+                producto.images = product.images;
+                await producto.markModified('images');
             break;
 
             case "stock":
@@ -248,6 +252,15 @@ router.get('/countPages', async function(req, res){
 
     return res.send({
         pages: Math.ceil(pages/maxLimit)
+    });
+});
+
+router.delete('/delete/:sku', async function(req, res){
+    const sku = req.params.sku;
+    await Product.deleteOne({ sku: sku });
+
+    return res.send({
+        deleted: true
     });
 });
 

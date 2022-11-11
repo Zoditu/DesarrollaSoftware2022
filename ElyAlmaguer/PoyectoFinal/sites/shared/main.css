@@ -51,7 +51,7 @@
 }
 
 .main-menu > .navbar .dropdown-item:hover {
-    background-color: var(--colors-yellow);;
+    background-color: var(--colors-yellow);
 }
 
 .main-menu > .navbar .dropdown-menu li:not(:last-child) {
@@ -135,6 +135,27 @@
     font-weight: bold;
 }
 
+.swal2-confirm {
+    background: var(--colors-white) !important;
+    color: var(--colors-pink) !important;
+    width: 100%;
+}
+
+.swal2-actions {
+    width: 100% !important;
+    padding: 0 2.3em !important;
+    margin-top: 1rem !important;
+}
+
+.swal2-validation-message {
+    display: none !important;
+}
+
+.register-link {
+    color: var(--colors-white) !important;
+    font-weight: bold;
+}
+
 /*Productos*/
 .precio-producto {
     font-weight: bold;
@@ -148,11 +169,15 @@
     background: var(--colors-pink);
     color: var(--colors-white) !important;
 }
+
+
 /* para cambiar el color al pasar el cursor */
 .agregar-producto:hover {
     background: var(--colors-yellow) !important;
 }
-
+.agregar-producto:hover {
+    background: var(--colors-yellow) !important;
+}
 .product .carousel {
     height: 18rem;
 }

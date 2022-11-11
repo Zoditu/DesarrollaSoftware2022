@@ -1,12 +1,12 @@
 :root {
 
-    --colors-red:#b13d26;
-    --colors-pink: #F52E76;
-    --colors-yellow: #fea419;
-    --color-lavanda: #9ba2ff;
-    --color-white:  #FFFAF7;
-    --color-gris:#3f3a44;
-    
+    --colors-red: #ffb693;
+    --colors-pink:#d5f0bd;
+    --colors-yellow:#87d4f0;
+    --color-lavanda: #c8a7bc;
+    --color-white:  #EEECBB;
+    --color-gris:#047D74;
+    --color-verde:#37EB60;
 }
 html, body {
    background-color: var(--colors-white);

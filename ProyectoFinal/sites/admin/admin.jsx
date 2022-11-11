@@ -1,3 +1,5 @@
+const default_image = 'https://powermaccenter.com/images/products_attr_img/matrix/default.png';
+
 function AddProduct(props) {
     var [product, setProduct] = React.useState(props.product || {
         sku: null,
@@ -208,8 +210,6 @@ function AddProduct(props) {
                     props.updateLoader(false);
                 });
             } else {
-
-                console.log(_product);
                 axios({
                     method: "PUT",
                     url: `/products/${_product.old_sku}`,
@@ -395,21 +395,29 @@ function AddProduct(props) {
                 </section>
             </div>
 
-            <button className="btn btn-primary w-100">{props.product ? "Modificar Producto" : "Crear Producto"}</button>
+            <button className="btn btn-primary w-100 mb-3">{props.product ? "Modificar Producto" : "Crear Producto"}</button>
         </form>
     </>
 }
 
 function ModifyProducts(props) {
     var [page, setPage] = React.useState(1);
-    var [query, setQuery] = React.useState({});
+    var [query, setQuery] = React.useState('');
+    var [selectedFilter, setSelectedFilter] = React.useState('');
     var [products, setProducts] = React.useState([]);
 
-    React.useEffect(function(){
+    function getProducts() {
         props.updateLoader(true);
+
+        var url = `/products/all?page=${page}`;
+        if(query !== '') {
+            url += query;
+            //products/all?page=1&name=labial
+        }
+
         axios({
             method: 'GET',
-            url: `/products/all?page=${page}`
+            url: url
         }).then(function(result){
             setProducts(result.data);
         }).catch(function(error){
@@ -418,6 +426,10 @@ function ModifyProducts(props) {
         }).finally(function(){
             props.updateLoader(false);
         });
+    }
+
+    React.useEffect(function(){
+        getProducts();
     }, [page]);
 
     var prodList = [];
@@ -431,12 +443,28 @@ function ModifyProducts(props) {
                         <span className="ps-2">{product.name}</span>
                     </section>
                 </div>
-                <span className="small delete px-2">Eliminar</span>
+                <span onClick={function(){
+                            Swal.fire({
+                                title: "Confirmar eliminación",
+                                text: `Está a punto de borrar el producto ${product.sku}`,
+                                showCancelButton: true
+                            }).then(function(result){
+                                if(result.value) {
+                                    props.updateLoader(true);
+                                    axios({
+                                        method: 'delete',
+                                        url: `/products/delete/${product.sku}`
+                                    }).finally(function(){
+                                        getProducts();
+                                    });
+                                }
+                            })
+                      }} className="small delete px-2">Eliminar</span>
                 <span onClick={function(){
                             var _product = Object.assign({}, product);
                             _product.old_sku = product.sku;
                             props.updateSelectedProduct(_product);
-                            props.updateForm(props.forms.ADD_PRODUCT);    
+                            props.updateForm(props.forms.ADD_PRODUCT);
                       }}
                       className="small px-2 modify material-icons">
                     edit
@@ -447,25 +475,141 @@ function ModifyProducts(props) {
     }
 
     var html = <>
-        <div className="input-group mb-3">
-            <select className="form-select" aria-label="SKU">
-                <option value="name">By Name</option>
-                <option value="categoryId">By Category Id</option>
-                <option value="subCategoryId">By SubCategory Id</option>
-                <option value="categoryType">By Category Type</option>
-                <option value="model">By Model</option>
-                <option value="brand">By Brand</option>
-                <option value="color">By Color</option>
-                <option value="price">By Price</option>
-                <option value="stock">By Stock</option>
-            </select>
-            <input className="form-control" type="search" placeholder="Search a product" />
-        </div>
-        <div className="input-group">
-            <button className="w-100 btn btn-primary" type="button">Search</button>
-        </div>
+        <form onSubmit={function(e){
+            e.preventDefault();
+
+            var textbox = $(e.target).find('input[type=search]');
+            var search = textbox.val().trim();
+            if(search !== '') {
+                //name
+                //&name=labial
+                query = `&${selectedFilter}=${search}`;
+                setQuery(query);
+            } else {
+                query = '';
+                setQuery(query);
+            }
+            
+            if(page !== 1) {
+                setPage(1);
+            } else {
+                getProducts();
+            }
+        }}>
+            <div className="input-group mb-3">
+                <select required className="form-select" aria-label="SKU" onChange={function(e){
+                    var index = e.target.selectedIndex;
+                    var param = e.target.options[index].value;
+                    setSelectedFilter(param); //?name=valorDelTextbox
+                }}>
+                    <option value={null}></option>
+                    <option value="name">By Name</option>
+                    <option value="category">By Category Id</option>
+                    <option value="subCategory">By SubCategory Id</option>
+                    <option value="categoryType">By Category Type</option>
+                    <option value="model">By Model</option>
+                    <option value="brand">By Brand</option>
+                    <option value="color">By Color</option>
+                    <option value="price">By Price</option>
+                    <option value="stock">By Stock</option>
+                </select>
+                <input className="form-control" type="search" placeholder="Search a product" />
+            </div>
+            <div className="input-group">
+                <button className="w-100 btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
         <hr />
-        {prodList}
+        {prodList.length ? prodList : <h2 className="text-center">No se encontraron resultados...</h2>}
+        <footer className="container p-0 text-center my-3">
+            <button onClick={function(){
+                if(page > 1) {
+                    page = page - 1;
+                    setPage(page);
+                }
+            }} type="button" className="btn btn-primary">
+                &lt; Anterior
+            </button>
+            <span className="px-3 page">
+                <input type="number" value={page} onInput={function(e){
+                    var _page = e.target.value;
+                    if(_page < 1) {
+                        setPage(1);
+                    } else {
+                        setPage(_page);
+                    }
+                }}/>
+            </span>
+            <button onClick={function(){
+                if(page > 0) {
+                    page = page + 1;
+                    setPage(page);
+                }
+            }} type="button" className="btn btn-primary">
+                Siguiente &gt;
+            </button>
+        </footer>
+    </>;
+
+    return html;
+}
+
+function ModifyOrders(props) {
+    var [orders, setOrders] = React.useState(null);
+
+    var searcher = <>
+        <form onSubmit={function(e){
+            e.preventDefault();
+            props.updateLoader(true);
+            //78D39227H9792571L
+            var textbox = $(e.target).find('input[type=search]');
+            var id = textbox.val().toUpperCase().trim();
+
+            axios({
+                method: 'GET',
+                url: `/orders/${id}`
+            }).then(function(result){
+                var order = result.data.result;
+                if(order) {
+                    orders = order;
+                } else {
+                    orders = null;
+                }
+
+                setOrders(orders);
+            }).catch(function(error){
+
+            }).finally(function(){
+                props.updateLoader(false);
+            })
+        }}>
+            <div className="input-group mb-3">
+                <input className="form-control" type="search" placeholder="Buscar por ID..." />
+            </div>
+            <div className="input-group">
+                <button className="w-100 btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+    </>;
+
+    var orderViewer = <h2 className="text-center">No hay datos de la orden...</h2>;
+    if(orders !== null) {
+        if(orders.length) {
+            //Generar varias ordenes, seleccionar una de la lista y modificarla
+            //Esto es para el filtro de fechas
+        } else {
+            //Modifcar solo 1 orden, es por si seleccioné solo 1 del filtro de fechas
+            //O busqué por ID
+            orderViewer = <>
+                ID: {orders.id} - STATUS: {orders.status}
+            </>;
+        }
+    }
+
+    var html = <>
+        {searcher}
+        <hr />
+        {orderViewer}
     </>;
 
     return html;
@@ -476,6 +620,7 @@ function Admin(props) {
     const forms = {
         ADD_PRODUCT: "add-product",
         MODIFY_PRODUCT: "modify-product",
+        MODIFY_ORDER: "modify-order",
         NONE: ""
     };
 
@@ -510,6 +655,20 @@ function Admin(props) {
                 }} href="#" className="w-100 btn btn-primary">Modificar</a>
             </div>
         </div>
+
+        <hr />
+        <div className="card action-product">
+            <div className="card-header">
+                Modificar órden
+            </div>
+            <div className="card-body">
+                <h5 className="card-title">Modifica una order de compra</h5>
+                <p className="card-text">Esto te permite modificar el status de una order, añadir comentarios, etc.</p>
+                <a onClick={function(){
+                    setShowForm(forms.MODIFY_ORDER);
+                }} href="#" className="w-100 btn btn-primary">Modificar</a>
+            </div>
+        </div>
     </>;
 
     var form;
@@ -522,6 +681,9 @@ function Admin(props) {
             form = <ModifyProducts updateLoader={setShowLoader} updateSelectedProduct={setSelectedProduct}
                                    forms={forms} updateForm={setShowForm}/>;
         break;
+
+        case forms.MODIFY_ORDER:
+            form = <ModifyOrders updateLoader={setShowLoader}/>;
     }
 
     if(showForm !== forms.NONE) {

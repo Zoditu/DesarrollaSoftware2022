@@ -80,7 +80,7 @@ module.exports = {
             weight: Joi.string().optional(),
             size: Joi.string().optional(),
             price: Joi.number().optional(),
-            images: Joi.array().optional()
+            images: Joi.array().allow(Joi.string()).optional()
         });
 
         return schema.validate(product);
@@ -112,14 +112,14 @@ module.exports = {
                 name: Joi.string().required(),
                 lastName: Joi.string().required(),
                 payer_id: Joi.string().optional(),
-                address: {
+                address: Joi.object({
                     address_line_1: Joi.string().required(),
                     address_line_2: Joi.string().required(),
                     admin_area_1: Joi.string().required(),
                     admin_area_2: Joi.string().required(),
                     country_code: Joi.string().required(),
                     postal_code: Joi.number().required()
-                }
+                }).optional()
             }).required(),
             summary: Joi.string().optional()
         });
