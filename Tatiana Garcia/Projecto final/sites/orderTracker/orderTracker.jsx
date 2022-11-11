@@ -1,4 +1,5 @@
 function OrderTracker() {
+
     var [showLoader, setShowLoader] = React.useState(false);
     var [order, setOrder] = React.useState(null);
 
@@ -32,45 +33,44 @@ function OrderTracker() {
                     break;
                 }
             }
-        }   
+        }
     }, []);
 
     var orderHTML = <>
-    <h1 className="text-center large">No se han podido cargar los datos de la orden...</h1>
-    <hr />
+        <h1 className="text-center large">No se han podido cargar los datos de la orden...</h1>
+        <hr />
     </>;
 
     if(order != null) {
         var productos = [];
         var default_image = '';
 
-        for (let i = 0; i < cart.products.length; i++) {
-            const product = cart.products[i];
-            productos.push(
-                <section key={productos.sku} className="w-100 listed-product px-2 py-3">
-                    <div className="row align-items-center w-100 h-100">
-                        <article className="col">
-                            <img style={{ height: "3.5rem", width: "3.5rem", objectFit: "contain" }} src={product.detail.image || default_image} />
-                            <span className="ps-2">{product.detail.name}</span>
-                            <div>
-                                Cantidad: <span className="status">{product.amount} (${product.detail.price} c/u)</span>
-                            </div>
-                            <div>
-                                Subtotal: $<span className="status">{product.subTotal}</span>
-                            </div>
-                            <div>
-                                Impuesto: $<span className="status">{product.tax}</span>
-                            </div>
-                            <div>
-                                Total: $<span className="detail">{product.total}</span>
-                            </div>
+        for (var i = 0; i < order.cart.products.length; i++) {
+            const product = order.cart.products[i];
+            productos.push( <section key={productos.sku} className="w-100 listed-product px-2 py-3">
+                                <div className="row align-items-center w-100 h-100">
+                                    <article className="col">
+                                        <img style={{ height: "3.5rem", width: "3.5rem", objectFit: "contain" }} src={product.detail.image || default_image} />
+                                        <span className="ps-2">{product.detail.name}</span>
+                                            <div>
+                                                Cantidad: <span className="status">{product.amount} (${product.detail.price} c/u)</span>
+                                            </div>
+                                            <div>
+                                                Subtotal: $<span className="status">{product.subTotal}</span>
+                                            </div>
+                                            <div>
+                                                Impuesto: $<span className="status">{product.tax}</span>
+                                            </div>
+                                            <div>
+                                                Total: $<span className="detail">{product.total}</span>
+                                            </div>
 
-                            <div>
-                                <span className="small">{product.sku}</span>
-                            </div>
-                        </article>
-                    </div>
-                </section>)
+                                            <div>
+                                                <span className="small">{product.sku}</span>
+                                            </div>
+                                    </article>
+                                </div>
+                            </section>)
         }
 
         orderHTML = <>
@@ -131,6 +131,6 @@ function OrderTracker() {
     </>;
 
     return html;
-    }
+}
 
 ReactDOM.createRoot(document.getElementById('app')).render(<OrderTracker />);
