@@ -80,7 +80,7 @@ module.exports = {
             weight: Joi.string().optional(),
             size: Joi.string().optional(),
             price: Joi.number().optional(),
-            images: Joi.array().optional()
+            images: Joi.array().allow(Joi.string()).optional()
         });
 
         return schema.validate(product);
