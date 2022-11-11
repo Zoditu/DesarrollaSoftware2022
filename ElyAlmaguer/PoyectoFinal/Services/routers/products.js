@@ -37,6 +37,7 @@ router.post('/:sku', async function(req, res) {
     if(existe) {
         return res.status(403).send({
             message: `El producto con el sku [${sku}] ya existe.`,
+            productoDuplicado: existe
         });
     }
 
@@ -69,7 +70,6 @@ router.put('/:sku', async function(req, res) {
     if(!producto) {
         return res.status(404).send({
             message: `El producto con el sku [${sku}] no existe.`,
-            productoDuplicado: existe
         });
     }
 
@@ -224,9 +224,9 @@ router.get('/all', async function(req, res){
         }
     }
 
-    if(query.stock === true) {
+    if(query.stock === 'true') {
         filter.stock = { $gt: 0 };
-    } else if(query.stock === false) {
+    } else if(query.stock === 'false') {
         filter.stock = { $lte: 0 };
     }
     

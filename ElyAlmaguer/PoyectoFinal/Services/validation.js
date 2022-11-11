@@ -33,7 +33,7 @@ module.exports = {
         return schema.validate(user);
     },
 
-    userLogin: function(loginData) {    //validación del login
+    userLogin: function(loginData) {     //validación del login
         var schema = Joi.object({
             email: Joi.string().email().required(),
             password: Joi.string().required()
@@ -112,14 +112,14 @@ module.exports = {
                 name: Joi.string().required(),
                 lastName: Joi.string().required(),
                 payer_id: Joi.string().optional(),
-                address: {
+                address: Joi.object({
                     address_line_1: Joi.string().required(),
                     address_line_2: Joi.string().required(),
                     admin_area_1: Joi.string().required(),
                     admin_area_2: Joi.string().required(),
                     country_code: Joi.string().required(),
                     postal_code: Joi.number().required()
-                }
+                }).optional()
             }).required(),
             summary: Joi.string().optional()
         });

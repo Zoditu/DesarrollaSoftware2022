@@ -5,6 +5,7 @@ module.exports = mongoose.model('Order', {
     email: String,
     phone: String,
     status: String,
+    date: Date,
     cart: {
         products: [{
             sku: String,

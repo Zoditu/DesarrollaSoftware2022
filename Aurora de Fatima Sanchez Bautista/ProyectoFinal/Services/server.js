@@ -31,6 +31,9 @@ app.use('/products', productsRouter);
 const cartsRouter = require('./routers/carts');
 app.use('/cart', cartsRouter);
 
+const ordersRouter = require('./routers/orders');
+app.use('/orders', ordersRouter);
+
 mongoose.connect(
     uri, {
         useNewUrlParser: true, 

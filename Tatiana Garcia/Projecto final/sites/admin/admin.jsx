@@ -208,8 +208,6 @@ function AddProduct(props) {
                     props.updateLoader(false);
                 });
             } else {
-
-                console.log(_product);
                 axios({
                     method: "PUT",
                     url: `/products/${_product.old_sku}`,
@@ -395,7 +393,7 @@ function AddProduct(props) {
                 </section>
             </div>
 
-            <button className="btn btn-primary w-100">{props.product ? "Modificar Producto" : "Crear Producto"}</button>
+            <button className="btn btn-primary w-100 mb-3">{props.product ? "Modificar Producto" : "Crear Producto"}</button>
         </form>
     </>
 }
@@ -436,7 +434,7 @@ function ModifyProducts(props) {
                             var _product = Object.assign({}, product);
                             _product.old_sku = product.sku;
                             props.updateSelectedProduct(_product);
-                            props.updateForm(props.forms.ADD_PRODUCT);    
+                            props.updateForm(props.forms.ADD_PRODUCT);
                       }}
                       className="small px-2 modify material-icons">
                     edit

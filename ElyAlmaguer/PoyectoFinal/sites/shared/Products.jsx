@@ -5,7 +5,7 @@ function Products(props) {
 
     for(var i = 0; i < products.length; i++) {
         const product = products[i];
-        const images = [];   //estos es un arreglo vacio y en el for es para cada cada imagen se pone un carrosel
+        const images = [];    //estos es un arreglo vacio y en el for es para cada cada imagen se pone un carrosel
 
         for(var j = 0; j < product.images.length; j++) {
             images.push(
@@ -14,6 +14,9 @@ function Products(props) {
                 </div>
             );
         }
+
+        var agotado = product.stock < 1;
+        var noDisponible = product.enabled !== true;
 // carrusel de los productos.
         prod.push(<>
             <article key={`product-item-${product.sku}`} className="col-xl-3 col-lg-4 pb-3">
@@ -69,7 +72,6 @@ function Products(props) {
                                 <button onClick={function() {
 
                                     props.updateLoader(true);
-
                                     axios({
                                         method: 'PUT',
                                         url: `/cart/${product.sku}`,
@@ -83,13 +85,21 @@ function Products(props) {
                                     }).finally(function(){
                                         props.updateLoader(false);
                                     });
-                                }} type="button" className="btn float-right agregar-producto">
-                                    <span className="material-icons">
-                                        add_shopping_cart
-                                    </span>
-{/*clear-both para alinear los elementos */}                                    
+                                }} type="button" disabled={agotado || noDisponible} className="btn float-right agregar-producto">
+                                    {
+                                        agotado ?
+                                        <span>
+                                            Agotado
+                                        </span> : noDisponible ?
+                                        <span>
+                                            No disponible
+                                        </span> :
+                                        <span className="material-icons">
+                                            add_shopping_cart
+                                        </span>
+                                    }                                   
                                 </button>
-                                <div className="clear-both"></div>
+                                <div className="clear-both"></div> {/*clear-both para alinear los elementos */}
                             </article>
                         </section>
                     </div>
