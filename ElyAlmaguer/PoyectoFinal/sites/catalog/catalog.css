@@ -1,2 +1,23 @@
 @import url(/shared/colors.css);
 @import url(/shared/main.css);
+
+.btn {
+    background: var(--colors-pink);
+    border: 2px solid var(--colors-yellow);
+    color: var(--colors-white);
+
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: var(--colors-pink) !important;
+    opacity: 0.75;
+    border: 2px solid var(--colors-yellow) !important;
+    color: var(--colors-white) !important;
+}
+
+.page {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: underline;
+}

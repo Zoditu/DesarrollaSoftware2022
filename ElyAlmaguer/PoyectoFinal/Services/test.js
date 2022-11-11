@@ -6,9 +6,10 @@ var resultado = Validate.userRegister({
     lastName: "Almaguer",
     email: "elyalmaguer@gmail.com",
     password: "A1234567",
-    phone: "1234567899"
+    phone: "1234567899",
+    noExiste: true
 });
-console.log(resultado.error);
+// console.log(resultado.error);
 
 Utils.generateToken('elyalmaguer@gmail.com');
 

@@ -1,0 +1,12 @@
+https://developer.paypal.com/dashboard/applications/sandbox
+De Kevin Martin del Campo para todos 05:56 PM
+https://developer.paypal.com/sdk/js/reference/
+<script
+    src="https://www.paypal.com/sdk/js?client-id=CLIENT_ID&locale=es_MX&currency=MXN&enable-funding=credit,card,mercadopago">
+</script>
+
+AUEH7LpLTXka_74uwsFSOyU8vMCzNRllKe6YfSV4GnQefqEVNJzx81Mqi22yC_Dw9DYNyczkDt_1XzRY
+sb-lt3fw22125028@business.example.com
+secret
+
+EOHvVERT1PIP7lBOx6QLN309vi92Jw-YXDBSu-k_975OTCRkCVQ5BIHFDo5hjg6s-_cWGWrdYbESHfOm
