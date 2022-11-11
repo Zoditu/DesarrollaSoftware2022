@@ -148,11 +148,12 @@ async function ValidateCart(products) {
             product.detail.name = productDB.name;
             product.detail.image = productDB.images[0] || DEFAULT_IMAGE;
             product.detail.price = productDB.price;
+            product.detail.unitaryPrice = parseFloat((product.detail.price * 0.84).toFixed(2));
+            product.detail.tax = parseFloat((product.detail.price * 0.16).toFixed(2));
 
-            var _total = product.amount * product.detail.price;
-            product.subTotal = (_total * (1.0 - TAX)).toFixed(2);
-            product.tax = (_total * TAX).toFixed(2);
-            product.total = _total.toFixed(2);
+            product.subTotal = (product.detail.unitaryPrice * product.amount).toFixed(2)
+            product.tax = (product.detail.tax * product.amount).toFixed(2)
+            product.total = (product.subTotal + product.tax).toFixed(2);
 
             subTotal += product.subTotal;
             tax += product.tax;
