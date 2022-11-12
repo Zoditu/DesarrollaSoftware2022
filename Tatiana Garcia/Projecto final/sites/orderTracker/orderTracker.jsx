@@ -80,7 +80,6 @@ function OrderTracker() {
                         <div className="card-body">
                             <h4 className="card-title">Orden de compra: {order.id}</h4>
                             <h6>Status de orden: <span className="status">{order.status}</span></h6>
-                            <textarea className="card-text w-100 form-control" readOnly={true}>{order.summary}</textarea>
                             <div className="card-text">
                                 <article>
                                     <hr />
@@ -115,6 +114,7 @@ function OrderTracker() {
                                     </div>
                                 </article>
                             </div>
+                            <p className="card-text"><small className="text-muted">{order.summary}</small></p>
                         </div>
                     </div>
                 </div>

@@ -86,6 +86,11 @@ router.put('/:sku', async function(req, res) {
                 }
             break;
 
+            case "images":
+                producto.images = product.images;
+                await producto.markModified('images');
+            break;
+
             case "stock":
                 producto.stock = product.stock;
             break;
@@ -247,6 +252,15 @@ router.get('/countPages', async function(req, res){
 
     return res.send({
         pages: Math.ceil(pages/maxLimit)
+    });
+});
+
+router.delete('/delete/:sku', async function(req, res){
+    const sku = req.params.sku;
+    await Product.deleteOne({ sku: sku });
+
+    return res.send({
+        deleted: true
     });
 });
 
