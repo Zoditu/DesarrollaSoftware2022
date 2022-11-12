@@ -106,7 +106,8 @@ function Cart(){
                                 shipping: {
                                     name: details.payer.name.given_name,
                                     lastName: details.payer.name.surname,
-                                    payer_id: details.payer.payer_id
+                                    payer_id: details.payer.payer_id,
+                                    address: details.purchase_units[0].shipping.address
                                 },
                                 summary: "Importe pagado"
                             }

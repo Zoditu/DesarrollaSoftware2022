@@ -1,5 +1,5 @@
 function AddProduct(props) {
-    var [product, setProduct] = React.useState(props.product || {
+    var [product, setProduct] = React.useState({
         sku: null,
         stock: 0,
         enabled: true,
@@ -22,7 +22,6 @@ function AddProduct(props) {
     var [selectedSubCategory, setSelectedSubCategory] = React.useState({ types: [] });
 
     React.useEffect(function(){
-        props.updateLoader(true);
         axios({
             method: 'GET',
             url: '/category/all'
@@ -30,9 +29,7 @@ function AddProduct(props) {
             setCategories(result.data);
         }).catch(function(error) {
             //TBD
-        }).finally(function(){
-            props.updateLoader(false);
-        });
+        })
     },[]);
 
     var cats = [<option key={"Category-null"} defaultValue={null}></option>];
@@ -40,41 +37,31 @@ function AddProduct(props) {
     var types = [<option key={"CategoryType-null"} defaultValue={null}></option>];
     for(var i = 0; i < categories.length; i++) {
         const category = categories[i].category;
-        cats.push(<option selected={category.id === product.categoryId} key={"Category-" + category.id} value={category.id}>
+        cats.push(<option key={"Category-" + category.id} value={category.id}>
                     {category.name}
                   </option>);
-
-        if(category.id === product.categoryId) {
-            selectedCategory = categories[i];
-        }
     }
 
     const subCategories = selectedCategory.children;
     for(var j = 0; j < subCategories.length; j++) {
         const subCategory = subCategories[j];
-        subCats.push(<option selected={subCategory.id === product.subCategoryId} key={"SubCategory-" + subCategory.id} value={subCategory.id}>
+        subCats.push(<option key={"SubCategory-" + subCategory.id} value={subCategory.id}>
                         {subCategory.name}
                     </option>);
-
-        if(subCategory.id === product.subCategoryId) {
-            selectedSubCategory = subCategory;
-        }
     }
 
     const subCategory = selectedSubCategory;
     for(var t = 0; t < subCategory.types.length; t++) {
         const type = subCategory.types[t];
 
-        types.push(<option selected={type === product.categoryType}  key={"CategoryType-" + type} value={type}>
+        types.push(<option key={"CategoryType-" + type} value={type}>
                     {type}
                 </option>);
     }
 
     var categoryForm = <>
         <select required onChange={function(e){
-            product.categoryId = e.target.value === '' ? null : e.target.value;
-            product.subCategoryId = null;
-            product.categoryType = null;
+            product.categoryId = e.target.value;
             setProduct(Object.assign({}, product));
 
             if(e.target.selectedIndex == 0) {
@@ -87,8 +74,7 @@ function AddProduct(props) {
         </select>
 
         <select onChange={function(e){
-            product.subCategoryId = e.target.value === '' ? null :e.target.value;
-            product.categoryType = null;
+            product.subCategoryId = e.target.value;
             setProduct(Object.assign({}, product));
 
             if(e.target.selectedIndex == 0) {
@@ -101,7 +87,7 @@ function AddProduct(props) {
         </select>
 
         <select onChange={function(e){
-            product.categoryType = e.target.value === '' ? null :e.target.value;
+            product.categoryType = e.target.value;
             setProduct(Object.assign({}, product));
         }} className="form-select" aria-label="Category Type">
             {types}
@@ -156,80 +142,51 @@ function AddProduct(props) {
     return <>
         <form onSubmit={function(e){
             e.preventDefault();
-            props.updateLoader(true);
-
+            //console.table(product);
             const sku = product.sku;
             var _product = Object.assign({}, product);
-            
-            if(!props.product) {
+            delete _product.sku;
+            axios({
+                method: "POST",
+                url: `/products/${sku}`,
+                data: _product
+            }).then(function(result){
+                product = {
+                    sku: null,
+                    stock: 0,
+                    enabled: true,
+                    categoryId: null,
+                    subCategoryId: null,
+                    categoryType: null,
+                    name: null,
+                    description: null,
+                    model: null,
+                    brand: null,
+                    color: null,
+                    weight: null,
+                    size: null,
+                    price: 0,
+                    images: []
+                };
                 
-                delete _product.sku;
-                axios({
-                    method: "POST",
-                    url: `/products/${sku}`,
-                    data: _product
-                }).then(function(result){
-                    product = {
-                        sku: null,
-                        stock: 0,
-                        enabled: true,
-                        categoryId: null,
-                        subCategoryId: null,
-                        categoryType: null,
-                        name: null,
-                        description: null,
-                        model: null,
-                        brand: null,
-                        color: null,
-                        weight: null,
-                        size: null,
-                        price: 0,
-                        images: []
-                    };
-                    
-                    setProduct(Object.assign({}, product));
-                    setSelectedCategory({ children: [] });
-                    setSelectedSubCategory({ types: [] });
-    
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Producto creado',
-                    });
-                }).catch(function(error){
-                    if(error.response) {
-                        console.log(error.response);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error creando producto',
-                            text: JSON.stringify(error.response.data.message)
-                        });
-                    }
-                }).finally(function(){
-                    props.updateLoader(false);
+                setProduct(Object.assign({}, product));
+                setSelectedCategory({ children: [] });
+                setSelectedSubCategory({ types: [] });
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto creado',
                 });
-            } else {
-                axios({
-                    method: "PUT",
-                    url: `/products/${_product.old_sku}`,
-                    data: _product
-                }).then(function(result){
+            }).catch(function(error){
+                if(error.response) {
+                    console.log(error.response);
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Producto modificado',
+                        icon: 'error',
+                        title: 'Error creando producto',
+                        text: JSON.stringify(error.response.data.message)
                     });
-                }).catch(function(error){
-                    if(error.response) {
-                        console.log(error.response);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error modificando producto',
-                            text: JSON.stringify(error.response.data.message)
-                        });
-                    }
-                }).finally(function(){
-                    props.updateLoader(false);
-                });
-            }
+                }
+            })
         }}>
             {/* SKU del producto */}
             <div className="input-group mb-3">
@@ -393,80 +350,9 @@ function AddProduct(props) {
                 </section>
             </div>
 
-            <button className="btn btn-primary w-100 mb-3">{props.product ? "Modificar Producto" : "Crear Producto"}</button>
+            <button className="btn btn-primary w-100">Crear Producto</button>
         </form>
     </>
-}
-
-function ModifyProducts(props) {
-    var [page, setPage] = React.useState(1);
-    var [query, setQuery] = React.useState({});
-    var [products, setProducts] = React.useState([]);
-
-    React.useEffect(function(){
-        props.updateLoader(true);
-        axios({
-            method: 'GET',
-            url: `/products/all?page=${page}`
-        }).then(function(result){
-            setProducts(result.data);
-        }).catch(function(error){
-            setProducts([]);
-            setPage(1);
-        }).finally(function(){
-            props.updateLoader(false);
-        });
-    }, [page]);
-
-    var prodList = [];
-    for (var i = 0; i < products.length; i++) {
-        const product = products[i];
-        prodList.push(
-            <article key={`prod-list-${i}`} className="w-100 listed-product px-2 py-3 position-relative">
-                <div className="row align-items-center w-100 h-100">
-                    <section className="col">
-                        <img style={{ height: "3.5rem", width: "3.5rem", objectFit: "contain" }} src={product.images[0] || default_image} />
-                        <span className="ps-2">{product.name}</span>
-                    </section>
-                </div>
-                <span className="small delete px-2">Eliminar</span>
-                <span onClick={function(){
-                            var _product = Object.assign({}, product);
-                            _product.old_sku = product.sku;
-                            props.updateSelectedProduct(_product);
-                            props.updateForm(props.forms.ADD_PRODUCT);
-                      }}
-                      className="small px-2 modify material-icons">
-                    edit
-                </span>
-                <span className="small sku">{product.sku}</span>
-            </article>);
-        
-    }
-
-    var html = <>
-        <div className="input-group mb-3">
-            <select className="form-select" aria-label="SKU">
-                <option value="name">By Name</option>
-                <option value="categoryId">By Category Id</option>
-                <option value="subCategoryId">By SubCategory Id</option>
-                <option value="categoryType">By Category Type</option>
-                <option value="model">By Model</option>
-                <option value="brand">By Brand</option>
-                <option value="color">By Color</option>
-                <option value="price">By Price</option>
-                <option value="stock">By Stock</option>
-            </select>
-            <input className="form-control" type="search" placeholder="Search a product" />
-        </div>
-        <div className="input-group">
-            <button className="w-100 btn btn-primary" type="button">Search</button>
-        </div>
-        <hr />
-        {prodList}
-    </>;
-
-    return html;
 }
 
 function Admin(props) {
@@ -477,9 +363,7 @@ function Admin(props) {
         NONE: ""
     };
 
-    var [showLoader, setShowLoader] = React.useState(false);
     var [showForm, setShowForm] = React.useState(forms.NONE);
-    var [selectedProduct, setSelectedProduct] = React.useState(null);
 
     var buttons = <>
         <div className="card action-product">
@@ -491,7 +375,6 @@ function Admin(props) {
                 <p className="card-text">Esto te permite crear productos en la BDD</p>
                 <a onClick={function(){
                     setShowForm(forms.ADD_PRODUCT);
-                    setSelectedProduct(null);
                 }} href="#" className="w-100 btn btn-primary">Crear</a>
             </div>
         </div>
@@ -513,39 +396,28 @@ function Admin(props) {
     var form;
     switch(showForm) {
         case forms.ADD_PRODUCT:
-            form = <AddProduct updateLoader={setShowLoader} product={selectedProduct}/>;
+            form = <AddProduct />;
         break;
 
         case forms.MODIFY_PRODUCT:
-            form = <ModifyProducts updateLoader={setShowLoader} updateSelectedProduct={setSelectedProduct}
-                                   forms={forms} updateForm={setShowForm}/>;
+            form = <ModifyProduct />;
         break;
     }
 
+    var html;
     if(showForm !== forms.NONE) {
         return <>
-        <Loader visible={showLoader}></Loader>
-        <h1 className="px-3">
-            Admin
-        </h1>
-        <main className="container p-0">
             <div className="form-controls mb-3">
                 <span className="close-form" onClick={function(){
                     setShowForm(forms.NONE);
                 }}>X</span>
             </div>
             {form}
-        </main>
         </>;
     } else {
-        return <>
-            <h1 className="px-3">
-                Admin
-            </h1>
-            <div className="text-center">
-                {buttons}
-            </div>
-        </>
+        return  <div className="text-center">
+                    {buttons}
+                </div>
     }
 }
 
