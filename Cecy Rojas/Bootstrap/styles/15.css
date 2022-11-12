@@ -1,0 +1,12 @@
+div.examen
+  	{
+        	width: 500px;
+        	border: 1px solid black;
+        	margin-left: 500px;
+        	padding-top: 300px;
+        	text-align: left;
+  	}
+  	span{
+        	color: red;
+        	margin-left: 2px;
+          	}
