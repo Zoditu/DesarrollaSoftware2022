@@ -68,6 +68,13 @@ function LoginUser(props) {
                                         </a>
                                     </li>
                                     <li className="list-group-item p-0">
+                                        <a href="/myorders">
+                                            <div className="w-100 h-100 px-3 py-2">
+                                                Mis Pedidos
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li className="list-group-item p-0">
                                         <a href="/mycart">
                                             <div className="w-100 h-100 px-3 py-2">
                                                 Mi Carrito
@@ -129,6 +136,7 @@ function LoginUser(props) {
                     </a>
                     <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item" href="/profile">Perfil</a></li>
+                        <li><a href="/myorders" className="dropdown-item">Mis Pedidos</a></li>
                         <li><a href="/mycart" className="dropdown-item">Mi Carrito</a></li>
                         <li><a className="dropdown-item" href="/users/logout">Salir</a></li>
                     </ul>
@@ -146,6 +154,7 @@ function MainMenu(props) {
     var [subCategories, setSubCategories] = React.useState([]);
     var [active, setActive] = React.useState(-1);
     var [actions, setActions] = React.useState(0);
+    var [search, setSearch] = React.useState("");
     const totalActions = 3;
 
     React.useEffect(function(){
@@ -270,13 +279,25 @@ function MainMenu(props) {
 
     var menus = [];
     var keys = {};
-    for(var i = 0; i < categories.length; i++) {
+    for(var i = 0; i <= categories.length; i++) {
+        if(i === categories.length) {
+            menus.push(<li onClick={function(){
+                window.location.href = `/catalog`;
+            }} key={`all-products`}
+                onMouseEnter={function() {
+                    setActive(index);
+                }} style={{ background: index === active ? 'var(--colors-red)' : '' }}>Todos los productos</li>);
+            continue;
+        }
+
         const index = i;
         const category = categories[i].category;
         const children = categories[i].children;
 
         menus.push(
-            <li key={`category-${category.id}`}
+            <li onClick={function(){
+                window.location.href = `/catalog?category=${category.id}`;
+            }} key={`category-${category.id}`}
                 onMouseEnter={function() {
                     var temp = [];
                     for(var j = 0; j < children.length; j++) {
@@ -286,13 +307,19 @@ function MainMenu(props) {
                         for(var z = 0; z < subCategory.types.length; z++) {
                             const type = subCategory.types[z];
 
-                            types.push(<article key={`type-${subCategory.id}-${z}`} className="subcategory-type">
+                            types.push(<article onClick={function(){
+                                window.location.href = `/catalog?category=${category.id}&subCategory=${subCategory.id}&categoryType=${type}`;
+                            }} key={`type-${subCategory.id}-${z}`} className="subcategory-type">
                                 {type}
                             </article>);
                         }
 
                         temp.push(<>
-                            <div key={`subcategory-${category.id}-${subCategory.id}`} className="col-lg sub-category">
+                            <div onClick={function(e){
+                                if(e.target.tagName !== 'ARTICLE') {
+                                    window.location.href = `/catalog?category=${category.id}&subCategory=${subCategory.id}`;
+                                }
+                            }} key={`subcategory-${category.id}-${subCategory.id}`} className="col-lg sub-category">
                                 {subCategory.name}
                                 {types}
                             </div>
@@ -331,14 +358,21 @@ function MainMenu(props) {
                     <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasDarkNavbar"
                         aria-labelledby="offcanvasDarkNavbarLabel">
                         <div className="offcanvas-header">
-                            <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                            <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Make Up</h5>
                             <button type="button" className="btn-close btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body">
                             <LoginUser mobile = { true } user = { props.user } cart = { props.cart } />
-                            <form className="d-flex w-100 order-lg-1 order-2 me-2" role="search">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                            <form onSubmit={function(e){
+                                    e.preventDefault();
+                                    if(search.trim() !== '') {
+                                        window.location.href = '/catalog?name=' + search;
+                                    }
+                                }} className="d-flex w-100 order-lg-1 order-2 me-2" role="search">
+                                <input value={search} onChange={function(e){
+                                    setSearch(e.target.value);
+                                }} className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                                 <button className="btn" type="submit">Search</button>
                             </form>
                             <div className="d-lg-none d-block mb-2"></div>

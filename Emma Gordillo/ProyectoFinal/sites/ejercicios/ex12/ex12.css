@@ -1,0 +1,29 @@
+.square {
+    border: 2px solid black;
+    background: darkred;
+    width: 10rem;
+    height: 10rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.square::before {
+    content: "";
+    display: block;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background: darkolivegreen;
+    transition: opacity 0.3s;
+}
+
+.square:hover::before {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.movable {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
