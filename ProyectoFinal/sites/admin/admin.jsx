@@ -600,8 +600,145 @@ function ModifyOrders(props) {
         } else {
             //Modifcar solo 1 orden, es por si seleccioné solo 1 del filtro de fechas
             //O busqué por ID
+            const order = orders;
+            var productos = [];
+            var default_image = '';
+
+            for (var i = 0; i < order.cart.products.length; i++) {
+                const product = order.cart.products[i];
+                productos.push( <section key={productos.sku} className="w-100 listed-product px-2 py-3">
+                                    <div className="row align-items-center w-100 h-100">
+                                        <article className="col">
+                                            <img style={{ height: "3.5rem", width: "3.5rem", objectFit: "contain" }} src={product.detail.image || default_image} />
+                                            <span className="ps-2">{product.detail.name}</span>
+                                                <div>
+                                                    Cantidad: <span className="status">{product.amount} (${product.detail.price} c/u)</span>
+                                                </div>
+                                                <div>
+                                                    Subtotal: $<span className="status">{product.subTotal}</span>
+                                                </div>
+                                                <div>
+                                                    Impuesto: $<span className="status">{product.tax}</span>
+                                                </div>
+                                                <div>
+                                                    Total: $<span className="detail">{product.total}</span>
+                                                </div>
+
+                                                <div>
+                                                    <span className="small">{product.sku}</span>
+                                                </div>
+                                        </article>
+                                    </div>
+                                </section>)
+            }
+            
             orderViewer = <>
-                ID: {orders.id} - STATUS: {orders.status}
+                <div className="accordion" id="accordionExample">
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="headingOne">
+                        <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Orden: {order.id}
+                        </button>
+                        </h2>
+                        <div id="collapseOne" className="accordion-collapse collapse show mb-3" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div className="accordion-body">
+                                <div className="row g-0">
+                                    <div className="col">
+                                        <div className="card-body">
+                                            <form onSubmit={function(e){
+                                                e.preventDefault();
+                                                props.updateLoader(true);
+
+                                                axios({
+                                                    method: 'PUT',
+                                                    url: `/orders/${order.id}`,
+                                                    data: {
+                                                        status: order.status,
+                                                        summary: order.summary
+                                                    }
+                                                }).then(function(result){
+                                                    Swal.fire({
+                                                        icon: "success",
+                                                        text: "La orden ha sido actualizada"
+                                                    });
+
+                                                    orders = result.data;
+                                                    setOrders(orders);
+                                                }).catch(function(error){
+                                                    if(error.response) {
+                                                        Swal.fire({
+                                                            icon: "error",
+                                                            title: "No se pudo actualizar la orden",
+                                                            text: error.response.data
+                                                        });
+                                                    }
+                                                }).finally(function(){
+                                                    props.updateLoader(false);
+                                                });
+                                                
+                                            }}>
+                                                <h6>Status de orden:</h6>
+                                                <select defaultValue={order.status} onChange={function(e){
+                                                            var index = e.target.selectedIndex;
+                                                            order.status = e.target.options[index].value;
+                                                            setOrders(Object.assign({}, order));
+                                                         }}
+                                                         className="form-select mb-3" aria-label="Status">
+                                                    <option value="PAGADO">PAGADO</option>
+                                                    <option value="PENDIENTE">PENDIENTE</option>
+                                                    <option value="ENVIADO">ENVIADO</option>
+                                                    <option value="CANCELADO">CANCELADO</option>
+                                                    <option value="DEVOLUCIÓN">DEVOLUCIÓN</option>
+                                                </select>
+                                                <h6>Comentarios:</h6>
+                                                <textarea onChange={function(e){
+                                                            var summary = e.target.value;
+                                                            order.summary = summary;
+                                                            setOrders(Object.assign({}, order));
+                                                         }} className="w-100 form-control mb-3" style={{height: "4rem"}} value={order.summary}></textarea>
+                                                <button type="submit" className="w-100 btn btn-primary ">Actualizar Orden</button>
+                                            </form>
+                                            <div className="card-text">
+                                                <article>
+                                                    <hr />
+                                                    <h6>Detalles del usuario</h6>
+                                                    <div>Email: <span className="detail">{order.email}</span></div>
+                                                    <div>Nombre: <span className="status">{order.shipping.name}</span></div>
+                                                    <div>Apellido(s): <span className="status">{order.shipping.lastName}</span></div>
+                                                    <div className={order.phone ? "" : "d-none"}>Phone: <span className="detail">{order.phone}</span></div>
+                                                </article>
+
+                                                <article>
+                                                    <hr />
+                                                    <h6>Detalles de la compra</h6>
+                                                    <div>Subtotal: <span className="status">${order.cart.subTotal}</span></div>
+                                                    <div>Impuesto: <span className="status">${order.cart.tax}</span></div>
+                                                    <div>Total: <span className="status">$</span><span className="detail">{order.cart.total}</span></div>
+                                                    <hr />
+                                                    {productos}
+                                                    <hr />
+                                                    <h6>Datos de envío</h6>
+                                                    <div className="row align-items-center w-100 h-100">
+                                                        <article className="col">
+                                                            <div>
+                                                                <span>
+                                                                    Dirección:&nbsp;
+                                                                </span>
+                                                                <span className="status">
+                                                                    {order.shipping.address.address_line_1}, {order.shipping.address.address_line_2}, {order.shipping.address.admin_area_1}, {order.shipping.address.admin_area_2}, {order.shipping.address.postal_code}
+                                                                </span>
+                                                            </div>
+                                                        </article>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </>;
         }
     }
