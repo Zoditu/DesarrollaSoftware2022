@@ -7,9 +7,9 @@ const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.s
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-app.use(express.static('../sites'));
+app.use(express.static('./sites'));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -21,9 +21,24 @@ const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
 //http://localhost:3000/users/prueba -->GET
 
+const categoriesRouter = require('./routers/categories');
+app.use('/category', categoriesRouter);
+
+const productsRouter = require('./routers/products');
+app.use('/products', productsRouter);
+//locahost:3000/products/
+
+const cartsRouter = require('./routers/carts');
+app.use('/cart', cartsRouter);
+
+const ordersRouter = require('./routers/orders');
+app.use('/orders', ordersRouter);
+
 mongoose.connect(
-    uri, 
-    { useNewUrlParser: true, useUnifiedTopology: true },
+    uri, {
+        useNewUrlParser: true, 
+        useUnifiedTopology: true 
+    },
     err => {
         if (err) {
             console.log(err);

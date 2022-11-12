@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
 .offcanvas {
     background-color: var(--colors-yellow) !important;
 }
@@ -6,7 +8,18 @@
     background-color: var(--colors-pink);
 }
 
+.main-menu > .navbar input[type=search] {
+    background-color: var(--colors-white);
+}
+
+.main-menu > .navbar button[type=submit] {
+    background-color: var(--colors-white);
+    color:aliceblue;
+}
+
 .menu-logo {
+    color: var(--colors-lavanda);
+    font-weight: bold;
     background-color: gray;
 }
 

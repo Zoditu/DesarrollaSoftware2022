@@ -1,0 +1,53 @@
+@import url(/shared/colors.css);
+@import url(/shared/main.css);
+
+.action-product {
+    width: 18rem;
+    display: inline-block;
+}
+
+.action-product:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.form-controls {
+    text-align: end;
+}
+
+.close-form {
+    font-size: 1.1rem;
+    padding: 0.3rem;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(139, 0, 0, 0.5);
+}
+
+.close-form:hover {
+    background-color: rgba(139, 0, 0, 1);
+}
+
+.add-image {
+    padding: 0.3rem 0.5rem;
+    margin-left: 1rem;
+}
+
+.image-control {
+     padding-right: 4rem;
+}
+
+.control-button {
+    cursor: pointer;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.control-button:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.image-preview {
+    width: 100%;
+    height: 18rem;
+    object-fit: contain;
+}

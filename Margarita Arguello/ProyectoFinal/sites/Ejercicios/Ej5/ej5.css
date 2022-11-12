@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+.material-icons {
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+/* Creo las librerias float left y right*/
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+/*encabezado*/
+#menu{
+    background-color: rgb(215, 190, 238);
+    padding: 0.5rem 0.2rem;
+    color: coral;
+}
+
+
+/* precio lo ponga en negritas*/
+.precio-producto {
+    font-weight: bold;
+}
+
+/*anteponga el $*/
+.precio-producto::before {
+    content: "$";
+}
+
+.agregar-producto {
+
+}
+
+/*Ajusto la imagen en el carrusel*/
+.carousel-item img {
+    height: 18rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+/*para que cambie de color las flechas en el carrusel*/
+.carousel-control-next:hover, .carousel-control-prev:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}

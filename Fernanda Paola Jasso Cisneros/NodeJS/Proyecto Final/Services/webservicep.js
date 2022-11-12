@@ -6,7 +6,7 @@ const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.s
 const express = require('express');
 const cookieParser = require('cookie-parser'); //Leer las cookies con una petición
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(express.static('../Sites'));
 app.use(express.json());
@@ -18,6 +18,9 @@ app.get('/', function(req, res){
 
 const usersRouter = require('./routers/userouter');
 app.use('/userouter', usersRouter);
+
+const categoriesRouter = require('./routers/categories');
+app.use('/category', categoriesRouter);
 
 mongoose.connect(
   uri, {

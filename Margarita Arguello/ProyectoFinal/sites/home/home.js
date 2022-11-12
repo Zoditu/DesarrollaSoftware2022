@@ -4,10 +4,12 @@ axios({
     url: '/users/profile'
     }).then(function (result) {
         // si el resultado es corrcto 200 manda el ususario x las cookies
-        $('#title').html(`Bienvenid@ ${result.data.user.name}... Ya tienes sesión :)`)
+        //$('#title').html(`Bienvenid@ ${result.data.user.name}... Ya tienes sesión :)`)
         //console.log(result.data);
+        $('.user-name').html(`${result.data.user.name}`)
         // el carch es un error 
     }).catch(function (error) {
+        console.log(error.response)
         // error.response es para error controlados programados en el users.js de ruters
         if (error.response) {
             Swal.fire({
@@ -77,16 +79,21 @@ axios({
                         }
                         else {
                             // ocurrio un error no controlado
+                            console.log('entra aqui');
                             console.log(error);
                         }
                     });
                 }
             }).then(function (result) {
+                console.log(result);
                 if(result.value) {
                     // recargo la pagina del usuario y password
                     window.location.href = window.location.href;
+                } 
+                else {
+                    $('.error-login').removeClass('error-login-transition')
                 }
-            })
+            });
         } else {
             // errores no controlados Ej. BD
             console.log(error);

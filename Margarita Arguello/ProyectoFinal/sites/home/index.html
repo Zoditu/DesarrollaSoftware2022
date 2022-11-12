@@ -25,18 +25,168 @@
     cuando accesemos al server-->
 </head>
 <body>
-    <header></header>
+<!-- menu principal que aparcera en todas las paginas-->
+    <header class="main-menu sticky-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a title="Make Up | Home" class="navbar-brand menu-logo me-2" href="/">Make Up</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                        <button type="button" class="btn-close btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <article class="d-lg-none d-block mb-2">
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                            aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Nombre -
+                                            <span class="material-icons">
+                                                shopping_cart
+                                            </span> (0)
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body p-0">
+                                            <ul class="list-group">
+                                                <li class="list-group-item p-0">
+                                                    <a href="/profile">
+                                                        <div class="w-100 h-100 px-3 py-2">
+                                                            Perfil
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item p-0">
+                                                    <a href="/cart">
+                                                        <div class="w-100 h-100 px-3 py-2">
+                                                            Mi Carrito
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="list-group-item p-0">
+                                                    <a href="/logout">
+                                                        <div class="w-100 h-100 px-3 py-2">
+                                                            Salir
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <form class="d-flex w-100 order-lg-1 order-2 me-2" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn" type="submit">Search</button>
+                        </form>
+                        <div class="d-lg-none d-block mb-2"></div>
+                        <article class="d-lg-block d-none profile nav-item dropdown order-lg-2 order-1">
+                            <div class="row h-100 align-items-center">
+                                <div class="col">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <span class="user-name">
+                                            USER
+                                        </span>
+                                        <span class="material-icons">
+                                            shopping_cart
+                                        </span> (0)
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+                                        <li><a href="/cart" class="dropdown-item">Mi Carrito</a></li>
+                                        <li><a class="dropdown-item" href="/logout">Salir</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                        <section class="d-lg-none d-block menu-navigation container">
+                            <h1>Sub menu</h1>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="menu-navigation d-lg-block container">
+            <h1>Sub menu</h1>
+        </section>
+    </header>
 
     <main class="container">
-        <h1 id="title">No has iniciado sesión</h1>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
+            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
+            voluptatem vero eligendi hic assumenda reiciendis?
+        </div>
+        <section style="margin: 3rem;"></section>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
+            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
+            voluptatem vero eligendi hic assumenda reiciendis?
+        </div>
+        <section style="margin: 3rem;"></section>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
+            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
+            voluptatem vero eligendi hic assumenda reiciendis?
+        </div>
+        <section style="margin: 3rem;"></section>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
+            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
+            voluptatem vero eligendi hic assumenda reiciendis?
+        </div>
+        <section style="margin: 3rem;"></section>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
+            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
+            voluptatem vero eligendi hic assumenda reiciendis?
+        </div>
+        <section style="margin: 3rem;"></section>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
+            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
+            voluptatem vero eligendi hic assumenda reiciendis?
+        </div>
+        <section style="margin: 3rem;"></section>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
+            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
+            voluptatem vero eligendi hic assumenda reiciendis?
+        </div>
+        <section style="margin: 3rem;"></section>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
+            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
+            voluptatem vero eligendi hic assumenda reiciendis?
+        </div>
+        <section style="margin: 3rem;"></section>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, aliquam molestiae? Suscipit beatae
+            necessitatibus quod maiores cupiditate quasi modi fugiat possimus, asperiores accusantium, repudiandae
+            voluptatem vero eligendi hic assumenda reiciendis?
+        </div>
+        <section style="margin: 3rem;"></section>
     </main>
 
     <footer></footer>
 
     <div class="alert text-center alert-danger error-login" role="alert">
+
     </div>
-    
-    <!-- Redirecciono al home.js -->
     <script src="home.js"></script>
 </body>
+
 </html>
