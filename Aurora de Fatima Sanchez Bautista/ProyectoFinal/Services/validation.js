@@ -125,5 +125,14 @@ module.exports = {
         });
 
         return schema.validate(order);
+    },
+
+    updateOrder: function(order) {
+        var schema = Joi.object({
+            status: Joi.string().optional().allow('PAGADO', 'PENDIENTE', 'CANCELADO', 'DEVOLUCIÓN', 'ENVIADO'),
+            summary: Joi.string().optional()
+        });
+
+        return schema.validate(order);
     }
 };
