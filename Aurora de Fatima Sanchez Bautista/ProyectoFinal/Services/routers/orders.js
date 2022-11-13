@@ -111,6 +111,43 @@ router.post('/:orderId', async function(req, res) {
     });
 });
 
+router.put('/:orderId', async function(req, res){
+    const orderId = req.params.orderId;
+    const data = req.body;
+
+    var valid = Validate.updateOrder(data);
+    if(valid.error) {
+        return res.status(400).send({
+            message: "Error: Invalid Order Details: " + valid.error.details,
+            details: valid.error.details
+        });
+    }
+
+    var order = await Order.findOne({ id: orderId });
+
+    if(!order) {
+        return res.status(404).send({
+            message: `La orden con el id [${orderId}] no existe.`
+        });
+    }
+
+    order.status = data.status || order.status;
+    order.summary = data.summary || order.summary;
+    await order.markModified("status");
+    await order.markModified("summary");
+
+    await order.save();
+
+    //correo con el nuevo status
+
+    var _order = order.toObject();
+    delete _order._id;
+    delete _order.__v;
+
+    res.send(_order);
+
+});
+
 router.get('/validate/:orderId', async function(req, res){
     const orderId = req.params.orderId;
     var order = await Order.findOne({ id: orderId });

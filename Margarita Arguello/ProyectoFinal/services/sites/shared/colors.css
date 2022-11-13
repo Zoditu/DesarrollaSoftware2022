@@ -1,0 +1,14 @@
+:root{
+    /* las variables se crean en el root para que se usen en toda la pagina
+    las vaiables se crea --nom_var : contenido;*/
+    --colors-red:#b13d26;
+    --colors-pink:#ed4c8a;
+    --colors-yellow:#fea419;
+    --colors-lavanda:#9ba2ff;
+    --colors-white:#fff8dc;
+    --colors-gray: #696969;
+    }
+
+    html,body{
+        background: var(--colors-white);
+    }

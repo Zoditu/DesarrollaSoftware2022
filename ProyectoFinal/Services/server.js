@@ -6,9 +6,9 @@ const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.s
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-app.use(express.static('../sites'));
+app.use(express.static('./sites'));
 app.use(express.json());
 app.use(cookieParser());
 
