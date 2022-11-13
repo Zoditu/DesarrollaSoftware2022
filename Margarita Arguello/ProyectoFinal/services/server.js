@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const BD="DSStore";
 // user.json contiene las credenciales para acceder a la BD
 const MongoUser=require("C:\\Users\\Fam Cas Arg\\Documents\\Margarita\\user.json");
+//const MongoUser = require("../../../MongoUsers/user.json");
 // la direccion para acceder a la BD
 const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.server}/${BD}?retryWrites=true&w=majority`;
 
@@ -16,10 +17,11 @@ const express = require('express');
 // npm install cookie-parser --> permite usar las cookies
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+//const port = 3000;
 
 //app.use(express.static('../../'));
-app.use(express.static('../sites'));
+app.use(express.static('./sites'));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -28,8 +30,22 @@ app.get('/', function(req,res){
     res.status(301).redirect('/home');
 });
 
+// usuarios
 const usersRouter = require('./routers/users');
 app.use('/users',usersRouter);
+
+// categorias
+const categoriesRouter = require('./routers/categories');
+app.use('/category', categoriesRouter);
+
+// productos
+const productsRouter = require('./routers/products');
+app.use('/products', productsRouter);
+
+// carrito de compras
+const cartsRouter = require('./routers/carts');
+app.use('/cart', cartsRouter);
+
 
 // para conectarse a la BD mongoose
 mongoose.connect(

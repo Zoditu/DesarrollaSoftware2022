@@ -1,0 +1,23 @@
+.Card{
+    width: 20rem;
+    padding: 1rem;
+    float: left;
+    border: 1px solid black;
+    margin-left: 1rem;
+    /*centrar la imagen
+    margin: auto;*/
+
+
+}
+
+.Card h2{
+   
+    font-size: 1.5rem;
+    color: darksalmon;
+}
+
+.Card h3{
+    
+    font-size: 1.1rem;
+    color: orchid;
+}
