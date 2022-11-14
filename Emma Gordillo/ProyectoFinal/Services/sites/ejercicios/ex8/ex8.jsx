@@ -18,18 +18,18 @@ function Persona(properties) {
     return html;
 }
 
-const kevin = {
-    name: "Kevin",
-    lastName: "Martin del Campo",
-    age: 20,
-    birth: "14/04/1995"
+const emma = {
+    name: "Emma",
+    lastName: "Gordillo Sotelo",
+    age: 48,
+    birth: "05/02/1974"
 };
 
-var personas = [kevin, {
-    name: "Fernanda",
-    lastName: "Jasso",
-    age: 18,
-    birth: "14/04/1995"
-}, kevin];
+var personas = [emma, {
+    name: "Dayra",
+    lastName: "Vera",
+    age: 20,
+    birth: "17/08/2002"
+}, emma];
 
 ReactDOM.createRoot(document.getElementById('app')).render(<Persona datos={personas} />);

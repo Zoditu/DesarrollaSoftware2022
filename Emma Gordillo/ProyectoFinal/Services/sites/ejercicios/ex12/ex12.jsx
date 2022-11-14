@@ -55,7 +55,7 @@ function ElementoMovible(props) {
                 setCoords([1,1]);
             }} key={index} className={canMove[index] === true ? "square movable" : "square"} 
                 style={{
-                    background: canMove[index] !== true ? "darkred" : "darkcyan",
+                    background: canMove[index] !== true ? "olive" : "pink",
                     top: canMove[index] !== true ? '' : (coords[0] + 'rem'),
                     left: canMove[index] !== true ? '' : (coords[1] + 'rem'),
             }}>{index}</div>
@@ -67,8 +67,8 @@ function ElementoMovible(props) {
             top: lastTop + "rem",
             width: "3rem",
             height: "3rem",
-            border: "1px solid black",
-            background: canMove[index] === true ? 'darkcyan' : "red"
+            border: "1px solid purple",
+            background: canMove[index] === true ? 'pink' : "blue"
         }}>{index}</div>);
         lastTop += 3;
     }

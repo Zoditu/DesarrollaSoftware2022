@@ -1,11 +1,11 @@
 //Un componente de React se representa con una función
 //También se puede con una clase
 //La función debe llevar el nombre del componente:
-//Si yo quiero crear <Kevin/>
-function Kevin() {
+//Si yo quiero crear <EmmaG/>
+function EmmaG() {
     //Aquí puedo declarar variables
     var nombre = "DS2022";
-    nombre = "Kevin";
+    nombre = "EmmaG";
 
     //Puedo renderizar un HTML en una variable si quiero
     var html = <>

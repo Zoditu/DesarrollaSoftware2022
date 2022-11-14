@@ -58,21 +58,21 @@ function Figuras(props) {
 
 const figuras = [{
     type: "square",
-    color: "red",
+    color: "pink",
     w: "10rem",
     h: "10rem",
     show: true
 },
 {
     type: "circle",
-    color: "orange",
+    color: "purple",
     w: "10rem",
     h: "10rem",
     show: true
 }, 
 {
     type: "circle",
-    color: "green",
+    color: "olive",
     w: "10rem",
     h: "10rem",
     show: false

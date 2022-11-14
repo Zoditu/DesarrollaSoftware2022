@@ -1,6 +1,6 @@
 function Ejercicio() {
     var ds22 = "Desarrolla Software 2022";
-    var nombre = "Kevin Martin del Campo";
+    var nombre = "Emma Elizabeth Gordillo Sotelo";
     var linea = "------------------------------";
 
     var html = <>

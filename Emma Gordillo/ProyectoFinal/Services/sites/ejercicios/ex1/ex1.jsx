@@ -2,7 +2,7 @@ var saludos = ["Hola", "Hi", "Hey!", "Hello", "Alo"];
 var index = 0;
 
 function Saludo() {
-    var [saludo, setSaludo] = React.useState("Heyo!");
+    var [saludo, setSaludo] = React.useState("Hello!");
     const nombre = "Kevin";
 
     function CambiarSaludo() {
