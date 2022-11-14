@@ -104,3 +104,24 @@
     color: var(--colors-yellow);
     background: rgba(0, 0, 0, 0.5);
 }
+
+.page input[type=number] {
+    width: 2rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: center;
+    border: 1px solid var(--colors-pink);
+
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+.page input[type=number]:focus {
+    border: 1px solid var(--colors-pink);
+    outline: none;
+}
+
+.page input[type=number]::-webkit-outer-spin-button,
+.page input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
