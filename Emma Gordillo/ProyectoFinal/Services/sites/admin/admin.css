@@ -51,3 +51,77 @@
     height: 18rem;
     object-fit: contain;
 }
+
+.listed-product:nth-of-type(1) {
+    border-top: 1px solid gray;
+}
+
+.listed-product {
+    border: 1px solid gray;
+    border-top: none;
+    background: white;
+    cursor: pointer;
+}
+
+.listed-product:hover {
+    background:rgba(0, 0, 0, 0.25)
+}
+
+.sku {
+    position: absolute;
+    bottom: 0.1rem;
+    left: 4.5rem;
+    color: gray;
+}
+
+.delete {
+    color: var(--colors-pink);
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 0.3rem;
+    right: 1rem;
+    font-size: 1.1rem;
+    text-decoration: underline;
+}
+
+.delete:hover {
+    color: var(--colors-yellow);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modify {
+    color: var(--colors-pink);
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 2.3rem;
+    right: 1rem;
+    font-size: 1.5rem;
+}
+
+.modify:hover {
+    color: var(--colors-yellow);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.page input[type=number] {
+    width: 2rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: center;
+    border: 1px solid var(--colors-pink);
+
+    appearance: none;
+    -moz-appearance:textfield;
+}
+
+.page input[type=number]:focus {
+    border: 1px solid var(--colors-pink);
+    outline: none;
+}
+
+.page input[type=number]::-webkit-outer-spin-button,
+.page input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

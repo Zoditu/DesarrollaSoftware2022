@@ -1,0 +1,29 @@
+@import url(/shared/colors.css);
+@import url(/shared/main.css);
+
+.confirm-message {
+    color: forestgreen;
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.confirm-icon {
+    font-size: 12rem !important;
+}
+
+a {
+    color: var(--colors-yellow);
+}
+
+a:hover {
+    color: var(--colors-pink)
+}
+
+.error-message {
+    color: var(--colors-red);
+    font-weight: bold;
+}
+
+.error-icon {
+    font-size: 12rem !important;
+}
