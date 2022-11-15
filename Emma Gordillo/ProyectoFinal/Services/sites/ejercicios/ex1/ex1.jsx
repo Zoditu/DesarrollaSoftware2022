@@ -3,7 +3,7 @@ var index = 0;
 
 function Saludo() {
     var [saludo, setSaludo] = React.useState("Hello!");
-    const nombre = "Kevin";
+    const nombre = "EmmaG";
 
     function CambiarSaludo() {
         if(index >= saludos.length) {
