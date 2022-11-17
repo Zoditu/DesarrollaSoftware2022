@@ -1,7 +1,0 @@
-.titulo {
-    background-image: linear-gradient( to left, violet, yellow, orange, red, blue, green);
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
