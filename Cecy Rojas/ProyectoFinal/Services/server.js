@@ -6,7 +6,7 @@ const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.s
 
 mongoose.connect(
     uri, 
-    { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 },
+    { useNewUrlParser: true, useUnifiedTopology: true},
     err => {
         if(err) {
             console.log(err);
