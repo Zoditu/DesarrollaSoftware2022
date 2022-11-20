@@ -11,14 +11,10 @@ router.get('/prueba', function(req, res){
 });
 
 router.post('/register', async function(req, res){
-    var nuevoUser = new User({
-        name: "Cecy",
-        lasName: "Rojas Castro",
-        username: "Ing. Rojas",
-        permissions: {
-            admin: true
-        }
-    });
+
+    var body = req.body; 
+
+    var nuevoUser = new User(body)
 
     await nuevoUser.save();
 
