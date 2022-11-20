@@ -14,7 +14,7 @@ router.post('/register', async function(req, res){
 
     var body = req.body; 
 
-    var nuevoUser = new User(body)
+    var nuevoUser = new User(body);
 
     await nuevoUser.save();
 
