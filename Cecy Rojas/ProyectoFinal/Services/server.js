@@ -4,33 +4,20 @@ const MongoUser = require("C:\\MongoUsers\\user.json");
 const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.server}/${DB}?retryWrites=true&w=majority`;
 
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
-app.use(express.static('./sites'));
+app.use(express.static('../../'));
 app.use(express.json());
-app.use(cookieParser());
 
-app.get('/', function(req, res) {
-     res.status(301).redirect('/home');
-});
-
+/*app.get('/', function(res, res ){
+    res.send({
+        status: "online"
+    });     
+});*/
 const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
-
-const categoriesRouter = require('./routers/categories');
-app.use('/category', categoriesRouter);
-
-const productsRouter = require('./routers/products');
-app.use('/products', productsRouter);
-//locahost:3000/products/
-
-const cartsRouter = require('./routers/carts');
-app.use('/cart', cartsRouter);
-
-const ordersRouter = require('./routers/orders');
-app.use('/orders', ordersRouter);
+//http://localhost:3000/users/prueba --> GET
 
 mongoose.connect(
     uri, {
@@ -50,8 +37,8 @@ mongoose.connect(
             });
 
             const kitty = new Cat({
-                name: 'Zildjian'
+                name: 'Gatito'
             });
             kitty.save().then(() => console.log('meow'));*/
         }
-    });
+});
