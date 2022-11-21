@@ -11,12 +11,28 @@ const Validate = require('../validation');
     });
 });*/
 
-router.post('/login', function(rew, res){
+router.post('/login', async function(req, res){
     var loginData =  req.body;
     var valid = Validate.userLogin(loginData);
     if(valid.error){
         return res.status(400).send(valid.error.details);
     }
+
+    var user = await User.findOne({
+        email: loginData.email,
+        password: loginData.password
+    });
+
+    if(!user){
+        return res.status(404).send({
+            message: `Invalid email/or password.`
+        });
+    }
+
+    res.sendStatus({
+        login: "ok"
+    });
+
 });
 
 router.post('/register', async function(req, res){

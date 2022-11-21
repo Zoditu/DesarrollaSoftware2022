@@ -6,6 +6,7 @@ module.exports = {
             name: Joi.string().required(),
             lastName: Joi.string().required(),
             email: Joi.string().email().required(),
+            password: Joi.string().min(8).max(16).required(),
             phone: Joi.string().min(10).max(10).optional()
         })
 
