@@ -14,6 +14,8 @@ router.get('/prueba', function(req, res){
 router.post('/register', async function(req, res){
 
     var body = req.body; 
+    Validate.userRegister(body);
+
     var nuevoUser = new User(body);
     await nuevoUser.save();
     res.send({
