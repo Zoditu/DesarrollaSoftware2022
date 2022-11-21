@@ -23,8 +23,8 @@ router.post('/register', async function(req, res){
             email: body.email
         });
 
-        if(duplicateduser){
-            return res.send(403).send({
+        if(duplicatedUser){
+            return res.status(403).send({
                 message: `El usuario con el email '${body.email}' ya se encuentra registrado`  
             });
         }
@@ -32,7 +32,7 @@ router.post('/register', async function(req, res){
     var nuevoUser = new User(body);
 
     await nuevoUser.save();
-    
+
     res.send({
         status: "Created",
         user: body
