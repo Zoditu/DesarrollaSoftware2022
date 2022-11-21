@@ -22,5 +22,5 @@ module.exports = mongoose.model('User',{
     permissions: {
         admin: Boolean 
     },
-    sessions: Array
+    sessions: Objectj
 }, 'Users'); 

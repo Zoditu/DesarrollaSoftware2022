@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require ('../models/user');
+const utils = require ('../utils');
 const Validate = require('../validation');
 
 //Crear todos los endpoints relacionados a /users
@@ -29,7 +30,12 @@ router.post('/login', async function(req, res){
         });
     }
 
-    res.sendStatus({
+    user.sessions[utils.generateToken(user.email)] ={
+        logged: true,
+        date: new Date()
+    }
+
+    res.send({
         login: "ok"
     });
 
