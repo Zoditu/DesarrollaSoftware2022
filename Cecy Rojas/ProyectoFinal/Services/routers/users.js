@@ -14,13 +14,28 @@ router.get('/prueba', function(req, res){
 router.post('/register', async function(req, res){
 
     var body = req.body; 
-    Validate.userRegister(body);
+    var valid = Validate.userRegister(body);
+        if(valid.error){
+            return res.status(400).send(valid.error.details);
+        }
+
+        var duplicatedUser = await User.findOne({
+            email: body.email
+        });
+
+        if(duplicateduser){
+            return res.send(403).send({
+                message: `El usuario con el email '${body.email}' ya se encuentra registrado`  
+            });
+        }
 
     var nuevoUser = new User(body);
+
     await nuevoUser.save();
+    
     res.send({
         status: "Created",
-        user: nuevoUser
+        user: body
     });
 });
 
