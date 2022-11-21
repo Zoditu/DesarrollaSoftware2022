@@ -20,5 +20,6 @@ module.exports = mongoose.model('User',{
     cartId: String,
     permissions: {
         admin: Boolean 
-    }
+    },
+    sessions: Array
 }, 'Users'); 

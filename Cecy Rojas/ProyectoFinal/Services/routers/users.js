@@ -5,10 +5,18 @@ const User = require ('../models/user');
 const Validate = require('../validation');
 
 //Crear todos los endpoints relacionados a /users
-router.get('/prueba', function(req, res){
+/*router.get('/prueba', function(req, res){
     res.send({
         prueba: "Ok /users/prueba"
     });
+});*/
+
+router.post('/login', function(rew, res){
+    var loginData =  req.body;
+    var valid = Validate.userLogin(loginData);
+    if(valid.error){
+        return res.status(400).send(valid.error.details);
+    }
 });
 
 router.post('/register', async function(req, res){
@@ -18,7 +26,7 @@ router.post('/register', async function(req, res){
         if(valid.error){
             return res.status(400).send(valid.error.details);
         }
-
+        
         var duplicatedUser = await User.findOne({
             email: body.email
         });
