@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const DB = "DSStore2022";
-const MongoUser = require("../../../MongoUsers/user.json");
+const DB = "Baloc";
+const MongoUser = require("C:\\MongoUsers\\user.json");
 const uri = `mongodb+srv://${MongoUser.user}:${MongoUser.password}@${MongoUser.server}/${DB}?retryWrites=true&w=majority`;
 
 const express = require('express');
@@ -41,7 +41,7 @@ mongoose.connect(
         if (err) {
             console.log(err);
         } else {
-            console.log('Conectado a la base de datos');
+            console.log('Conectado a la base de datos de Baloc');
             app.listen(port, function() {
                 console.log(`Servidor corriendo en http://localhost:${port}`);
             });
