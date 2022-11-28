@@ -17,13 +17,14 @@ module.exports = {
         return Buffer.from(token).toString('base64'); //los números anteriores se codifican a texto con el base 64
      },
      // para codificar el email
-    encodeEmail: function(email) {           
+     encodeEmail: function(email) {           
          var encodedEmail = '';
          for (var i = 0; i < email.length; i++) {
              var c = email.charCodeAt(i);
              encodedEmail += c;
          }
-         var tokenPart2 = Date.now();      
+         var tokenPart2 = Date.now();   
+            
          return Buffer.from(encodedEmail + tokenPart2).toString('base64');
         },
         generateCartID: function() {

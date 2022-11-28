@@ -1,11 +1,11 @@
 :root {
 
     --colors-red: #ffb693;
-    --colors-pink:#d5f0bd;
-    --colors-yellow:#87d4f0;
-    --color-lavanda: #c8a7bc;
-    --color-white:  #EEECBB;
-    --color-gris:#047D74;
+    --colors-pink:#9dfcb4;
+    --colors-yellow:#d7e1e9;
+    --color-lavanda: #fbadde;
+    --color-white:  #ffff;
+    --color-gray:#03433e;
     --color-verde:#37EB60;
 }
 html, body {

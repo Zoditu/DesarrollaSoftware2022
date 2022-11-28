@@ -55,7 +55,7 @@ function MyOrders(props) {
                 <div className="row g-0">
                     <div className="col">
                         <div className="card-body">
-                            {orders.length ? orders : <h2 className="text-center">No tienes órdenes... Compra algo! :)</h2>}
+                            {orders.length ? orders : <h2 className="text-center">No tienes órdenes... agrega algo a tu carrito!</h2>}
                         </div>
                     </div>
                 </div>

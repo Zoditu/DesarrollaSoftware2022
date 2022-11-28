@@ -32,12 +32,3 @@
     color: var(--colors-white) !important;
     width: auto !important;
 }
-
-#paypal-button-container {
-    width: auto;
-    float: right;
-}
-
-.clear {
-    clear: both;
-}

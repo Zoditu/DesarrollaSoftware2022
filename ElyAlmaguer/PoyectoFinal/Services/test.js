@@ -5,8 +5,8 @@ var resultado = Validate.userRegister({
     name: "Elizabeth",
     lastName: "Almaguer",
     email: "elyalmaguer@gmail.com",
-    password: "A1234567",
-    phone: "1234567899",
+    // password: "A1234567",
+    // phone: "1234567899",
     noExiste: true
 });
 // console.log(resultado.error);

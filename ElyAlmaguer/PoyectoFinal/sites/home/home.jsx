@@ -5,18 +5,23 @@ function Home() {
     var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
     var [images, setImages] = React.useState([                //variable con arreglo de imagenes para que renderice n cantidad de imagenes.
         {                                                     //se pueden actualizar o quitar las imagenes.
-            title: 'N/A Test 1',
-            description:'N/A Test 1 Desc',
+            title: 'MATERIAL DIDÁCTICO',
+            description:'Amplio surtido en material didáctico',
             src: 'https://conceptodefinicion.de/wp-content/uploads/2022/05/materialdidactico_1.jpg?ezimgfmt=ng%3Awebp%2Fngcb1%2Frs%3Adevice%2Frscb1-1'
         },
         {
-            title: 'N/A Test 2',
-            description:'N/A Test 2 Desc',
+            title: 'MOBILIARIO',
+            description:'Mobiliario infantil y para estimulación temprana',
+            src: 'https://i.pinimg.com/originals/21/32/c8/2132c8cfa2dd182b904dabe8d6ccc48b.jpg'
+        },
+        {
+            title: 'MATERIALES ESCOLARES',
+            description:'Todo lo necesario para el regreso a clases',
             src: 'https://st4.depositphotos.com/19267056/26369/i/600/depositphotos_263696352-stock-photo-stationery-yellow-background-education-training.jpg'
         },
         {
-            title: 'N/A Test 3',
-            description:'N/A Test 3 Desc',
+            title: 'RECURSOS IMPRIMIBLES',
+            description:'Recursos imprimibles gratiuitos para implementar en el salón de clases',
             src: 'https://i.pinimg.com/564x/d4/50/c5/d450c5bdd26cde5b2d88877084fe88b9.jpg'
         }
     ]);
@@ -52,7 +57,7 @@ function Home() {
         <div key={"home-carousel-item" + i} className={i === 0 ? "carousel-item active" : "carousel-item"}>
             <img src={image.src} className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
-                <h8>{image.title}</h8>
+                <h4>{image.title}</h4>
                 <p>{image.description}</p>
             </div>
         </div>);

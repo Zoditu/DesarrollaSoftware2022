@@ -1,7 +1,7 @@
-function LoginUser(props) {     //login, propiedades,
+function LoginUser(props) {   //login, propiedades,
     var login;
 //esto muestra la versión movil
-    if(props.mobile === true ){    //si el usuario en el mobile viene nullo no renderiza nada. 
+    if(props.mobile === true ){   //si el usuario en el mobile viene nullo no renderiza nada. 
         if(props.user === null) {
             login = 
             <article className="d-lg-none d-block mb-2">
@@ -41,7 +41,7 @@ function LoginUser(props) {     //login, propiedades,
                     </div>
                 </div>
             </article>
-        } else {         // si no viene nulo, renderiza lo siguiente.
+        } else {           // si no viene nulo, renderiza lo siguiente.
             login  = 
             <article className="d-lg-none d-block mb-2">
                 <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -157,13 +157,13 @@ function MainMenu(props) {
     var [search, setSearch] = React.useState("");
     const totalActions = 3;
 
-    React.useEffect(function(){     // vacio para que solo lo traiga una vez
-        axios({                     // petición GET a la url Category
+    React.useEffect(function(){    // vacio para que solo lo traiga una vez
+        axios({                    // petición GET a la url Category
             method: "GET",
             url: "/category/all",
-        }).then(function(result){       //todo bien, da un resultado
-            setCategories(result.data); //resultado a la petición
-        }).catch(function(error){       //si hay error
+        }).then(function(result){  //todo bien, da un resultado
+            setCategories(result.data);   //resultado a la petición
+        }).catch(function(error){    //si hay error
             //TBD
         }).finally(function(){
             actions++;
@@ -297,7 +297,7 @@ function MainMenu(props) {
         menus.push(
             <li onClick={function(){
                 window.location.href = `/catalog?category=${category.id}`;
-//evento onMouseEnter en una categoria se hace una se llena la lista temporal de subcategory con subcategorias hijo.                                  
+//evento onMouseEnter en una categoria se hace una se llena la lista temporal de subcategory con subcategorias hijo.                                              
             }} key={`category-${category.id}`}
                 onMouseEnter={function() {
                     var temp = [];
@@ -329,7 +329,7 @@ function MainMenu(props) {
 
                     setSubCategories(Array.from(temp));
                     setActive(index);
-//cuando ponga coo activa al poner el cursor cambiamos el estilo sino, queda con el fondo vacio                                        
+ //cuando ponga coo activa al poner el cursor cambiamos el estilo sino, queda con el fondo vacio                                                           
                 }} style={{ background: index === active ? 'var(--colors-red)' : '' }}>{category.name}</li>
         );
     }
@@ -338,11 +338,11 @@ function MainMenu(props) {
         <ul>
             {menus}
         </ul>
-{/* //cuando ponga el cursor encima del elemento se actualiza el componente
-el evento onMouseLeave para desseleccionar o salir del menu o sección flotante de la categoria */}                
+   {/* //cuando ponga el cursor encima del elemento se actualiza el componente
+el evento onMouseLeave para desseleccionar o salir del menu o sección flotante de la categoria */}           
         <section onMouseLeave={function(){
                 setActive(-1);
-//este es el componente desplegable del menu             
+//este es el componente desplegable del menu   
             }} className="sub-menu">
             <div className="row m-0 p-0 h-100 w-100">
                 {subCategories}
@@ -354,7 +354,7 @@ el evento onMouseLeave para desseleccionar o salir del menu o sección flotante 
         <header className="main-menu sticky-top">
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <a title="Make Up | Home" className="navbar-brand menu-logo me-2" href="/">Make Up</a>
+                    <a title="Make Up | Home" className="navbar-brand menu-logo me-2" href="/">Materiales Didácticos</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -363,7 +363,7 @@ el evento onMouseLeave para desseleccionar o salir del menu o sección flotante 
                     <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasDarkNavbar"
                         aria-labelledby="offcanvasDarkNavbarLabel">
                         <div className="offcanvas-header">
-                            <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Make Up</h5>
+                            <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Materiales Didácticos</h5>
                             <button type="button" className="btn-close btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>

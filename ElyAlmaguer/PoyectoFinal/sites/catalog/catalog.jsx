@@ -3,7 +3,7 @@ function ProductCatalog(props) {
     var [user, setUser] = React.useState(null);
     var [cart, setCart] = React.useState({ products: [] });
     var [alertMessage, setAlertMessage] = React.useState({ showAlert: false, message: ""});
-    var [query, setQuery] = React.useState('');
+    var [query, setQuery] = React.useState('');     
     var [products, setProducts] = React.useState([]);
     var [page, setPage] = React.useState(1);
 
@@ -18,7 +18,7 @@ function ProductCatalog(props) {
             }
         }
     }, []);
-
+//
     React.useEffect(function(){
         axios({
             method: 'GET',

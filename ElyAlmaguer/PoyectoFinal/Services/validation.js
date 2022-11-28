@@ -41,7 +41,7 @@ module.exports = {
 
         return schema.validate(loginData);
     },
-
+//validación del producto
     newProduct: function(product) {
         var schema = Joi.object({
             stock: Joi.number().required(),
@@ -59,7 +59,7 @@ module.exports = {
             price: Joi.number().required(),
             images: Joi.array().optional()
         });
-
+//validar contra el producto
         return schema.validate(product);
     },
 
@@ -80,7 +80,7 @@ module.exports = {
             weight: Joi.string().optional(),
             size: Joi.string().optional(),
             price: Joi.number().optional(),
-            images: Joi.array().optional()
+            images: Joi.array().allow(Joi.string()).optional()
         });
 
         return schema.validate(product);
@@ -121,6 +121,15 @@ module.exports = {
                     postal_code: Joi.number().required()
                 }).optional()
             }).required(),
+            summary: Joi.string().optional()
+        });
+
+        return schema.validate(order);
+    },
+
+    updateOrder: function(order) {
+        var schema = Joi.object({
+            status: Joi.string().optional().allow('PAGADO', 'PENDIENTE', 'CANCELADO', 'DEVOLUCIÓN', 'ENVIADO'),
             summary: Joi.string().optional()
         });
 

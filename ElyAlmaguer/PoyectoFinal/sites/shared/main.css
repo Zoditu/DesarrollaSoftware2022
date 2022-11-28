@@ -32,12 +32,12 @@
 }
 
 .main-menu > .navbar input[type=search] {
-    background-color: var(--colors-white);
+    background-color: var(--colors-yellow)!important;
 }
 
 .main-menu > .navbar button[type=submit] {
     background: var(--colors-pink);
-    border: 2px solid var(--colors-yellow);
+    border: 2px solid var(--colors-red);
     color: var(--colors-white);
 }
 
@@ -47,7 +47,8 @@
 }
 
 .main-menu > .navbar .dropdown-item {
-    color: white;
+    color: black;
+    font-weight: bold;
 }
 
 .main-menu > .navbar .dropdown-item:hover {
@@ -115,7 +116,7 @@
 }
 /*al poner el cursor encima cambiamos el color del fondo del elemento de la subcategoria   */
 .subcategory-type:hover {
-    background-color: var(--colors-lavanda);
+    background-color: var(--colors-yellow);
 }
 /*quien habilita que se vea o no el submenu es el menu de navegación por el display none  */
 .sub-menu {
@@ -170,14 +171,14 @@
     color: var(--colors-white) !important;
 }
 
-
+.agregar-producto:disabled {
+    background-color: var(--colors-gray) !important;
+}
 /* para cambiar el color al pasar el cursor */
 .agregar-producto:hover {
     background: var(--colors-yellow) !important;
 }
-.agregar-producto:hover {
-    background: var(--colors-yellow) !important;
-}
+
 .product .carousel {
     height: 18rem;
 }
