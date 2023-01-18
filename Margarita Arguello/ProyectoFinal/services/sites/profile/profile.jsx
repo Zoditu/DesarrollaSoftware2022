@@ -19,6 +19,7 @@ function Profile(props) {
                 const toast = new bootstrap.Toast(document.getElementById('toast'));
                 toast.hide();
                 setShowLoader(true);
+                
                 axios({
                     method: 'put',
                     url: '/users/profile',
@@ -26,7 +27,7 @@ function Profile(props) {
                         name: user.name,
                         lastName: user.lastName,
                         phone: user.phone
-                    }
+                     }
                 }).then(function(result){
                     var newUser = result.data;
                     newUser.address = user.address;
@@ -106,12 +107,12 @@ function Profile(props) {
         <main className="container p-0">
             <h1>Información del usuario</h1>
             {userInfo}
-            <div class="toast text-bg-success align-items-center" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
+            <div className="toast text-bg-success align-items-center" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div className="d-flex">
+                    <div className="toast-body">
                         Información actualizada
                     </div>
-                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    <button type="button" className="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
             </div>
         </main>

@@ -11,7 +11,7 @@ module.exports = mongoose.model('User',{
     name: String,
     lastName: String,
     phone: Number,
-    addres:{
+    address:{
         street: String,
         no: Number,
         hood: String,

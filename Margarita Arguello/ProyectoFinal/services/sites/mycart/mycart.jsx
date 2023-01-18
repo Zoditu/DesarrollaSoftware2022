@@ -44,7 +44,7 @@ function Cart(){
                     }
                 }
             },
-            description: "Compra en MakeUp Store - " + fecha.toDateString(),
+            description: "Compra en Miry Cake Store - " + fecha.toDateString(),
             items: productosPaypal
         }];
 
@@ -89,6 +89,7 @@ function Cart(){
             },
             onApprove: function(data, actions) {
                 setShowLoader(true);
+                
                 actions.order.capture().then(function(details){
                     if(details.status === 'COMPLETED') {
                         //crear una orden de compra en nuestro servidor en base a
@@ -115,7 +116,10 @@ function Cart(){
                         }).then(function(result){
                             window.location.href = `/order?id=${details.id}`
                         }).catch(function(error){
-                            window.location.href = `/error?type=order&redirect=/mycart`;
+                            if(error.response) {
+                                console.log(error.response);
+                            }
+                            //window.location.href = `/error?type=order&redirect=/mycart`;
                         }).finally(function(){
                             setShowLoader(false);
                         });
@@ -197,6 +201,9 @@ function Cart(){
                                             }).then(function(result){
                                                 setCart(result.data);
                                             }).catch(function(error){
+                                                if(error.response) {
+                                                    console.log(error.response);
+                                                }
                                                 //TBD
                                             }).finally(function(){
                                                 setShowLoader(false);
@@ -260,6 +267,10 @@ function Cart(){
         <main className="container p-0">
             {products}
             <hr />
+            <div id="paypal-button-container"></div>
+            <div className="clear"></div>
+            <hr />
+
             <h2 className="text-end">
                 Subtotal: ${cart.subTotal}
                 <br />

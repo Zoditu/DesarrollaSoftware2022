@@ -10,6 +10,7 @@ function MyOrders(props) {
     }, []);
 
     var orders = [];
+    console.log(user)
     if(user !== null) {
         for(var i = user.orders.length - 1; i >= 0; i--) {
             const order = user.orders[i];

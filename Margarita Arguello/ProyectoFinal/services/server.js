@@ -6,6 +6,7 @@
 const mongoose = require('mongoose');
 const BD="DSStore";
 // user.json contiene las credenciales para acceder a la BD
+
 const MongoUser=require("C:\\Users\\Fam Cas Arg\\Documents\\Margarita\\user.json");
 //const MongoUser = require("../../../MongoUsers/user.json");
 // la direccion para acceder a la BD
@@ -46,6 +47,9 @@ app.use('/products', productsRouter);
 const cartsRouter = require('./routers/carts');
 app.use('/cart', cartsRouter);
 
+// carrito de compras
+const ordersRouter = require('./routers/orders');
+app.use('/orders', ordersRouter);
 
 // para conectarse a la BD mongoose
 mongoose.connect(

@@ -136,6 +136,7 @@ function LoginUser(props) {
                     </a>
                     <ul className="dropdown-menu dropdown-menu-end">
                         <li><a className="dropdown-item" href="/profile">Perfil</a></li>
+                        <li><a href="/myorders" className="dropdown-item">Mis Pedidos</a></li>
                         <li><a href="/mycart" className="dropdown-item">Mi Carrito</a></li>
                         <li><a className="dropdown-item" href="/users/logout">Salir</a></li>
                     </ul>
